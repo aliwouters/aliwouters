@@ -1,23 +1,45 @@
+"use client"
+
+import type React from "react"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Wrench, Users, Lightbulb, Settings, FolderOpen, GraduationCap } from "lucide-react"
-import { Suspense } from "react"
-import { Canvas } from "@react-three/fiber"
-import { OrbitControls, useGLTF, Environment, Html } from "@react-three/drei"
-import * as THREE from "three"
+import { Suspense, useState, useEffect } from "react"
 import Image from "next/image"
+import dynamic from "next/dynamic"
 
-// 3D Model Component for Miter Saw Adapter
+// Dynamically import Canvas and 3D components with no SSR
+const Canvas = dynamic(() => import("@react-three/fiber").then((mod) => mod.Canvas), {
+  ssr: false,
+})
+
+const OrbitControls = dynamic(() => import("@react-three/drei").then((mod) => mod.OrbitControls), {
+  ssr: false,
+})
+
+const useGLTF = dynamic(() => import("@react-three/drei").then((mod) => mod.useGLTF), {
+  ssr: false,
+})
+
+const Environment = dynamic(() => import("@react-three/drei").then((mod) => mod.Environment), {
+  ssr: false,
+})
+
+const Html = dynamic(() => import("@react-three/drei").then((mod) => mod.Html), {
+  ssr: false,
+})
+
+// 3D Model Components - wrapped to handle client-side only rendering
 function MiterSawAdapterModel() {
   const { scene } = useGLTF("/models/miter-saw-adapter.glb")
   return <primitive object={scene} scale={[1.5, 1.5, 1.5]} rotation={[Math.PI, 0, 0]} />
 }
 
-// 3D Model Component for 3D Pea Design
 function ThreeDPeaModel() {
   const { scene } = useGLTF("/models/3dpea-assembled-design-v2.glb")
-
+  const THREE = require("three")
   // Center the model by computing its bounding box
   const box = new THREE.Box3().setFromObject(scene)
   const center = box.getCenter(new THREE.Vector3())
@@ -29,12 +51,90 @@ function ThreeDPeaModel() {
 // Loading component
 function ModelLoader() {
   return (
-    <Html center>
+    <div className="flex items-center justify-center h-64 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-lg">
       <div className="flex items-center gap-2 text-slate-600">
         <div className="w-4 h-4 border-2 border-green-600 border-t-transparent rounded-full animate-spin"></div>
         Loading 3D Model...
       </div>
-    </Html>
+    </div>
+  )
+}
+
+// 3D Scene Component
+function ThreeDScene({ children, gradient }: { children: React.ReactNode; gradient: string }) {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return <ModelLoader />
+  }
+
+  return (
+    <div className="w-full h-64 rounded-lg overflow-hidden">
+      <Canvas camera={{ position: [60, 60, 60], fov: 60, near: 0.1, far: 1000 }} style={{ background: gradient }}>
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[10, 10, 5]} intensity={1.2} />
+        <Suspense fallback={null}>
+          {children}
+          <Environment preset="studio" />
+        </Suspense>
+        <OrbitControls
+          enablePan={true}
+          enableZoom={true}
+          enableRotate={true}
+          autoRotate={true}
+          autoRotateSpeed={1}
+          maxPolarAngle={Math.PI}
+          minPolarAngle={0}
+          target={[0, 15, 0]}
+          enableDamping={true}
+          dampingFactor={0.05}
+        />
+      </Canvas>
+    </div>
+  )
+}
+
+function MiterSawScene() {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return <ModelLoader />
+  }
+
+  return (
+    <div className="w-full h-64 rounded-lg overflow-hidden">
+      <Canvas
+        camera={{ position: [75, 75, 75], fov: 50, near: 0.1, far: 1000 }}
+        style={{ background: "linear-gradient(135deg, #f0fdf4 0%, #d1fae5 100%)" }}
+      >
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[10, 10, 5]} intensity={1.2} />
+        <Suspense fallback={null}>
+          <MiterSawAdapterModel />
+          <Environment preset="studio" />
+        </Suspense>
+        <OrbitControls
+          enablePan={true}
+          enableZoom={true}
+          enableRotate={true}
+          autoRotate={true}
+          autoRotateSpeed={2}
+          maxPolarAngle={Math.PI}
+          minPolarAngle={0}
+          target={[0, -15, 0]}
+          enableDamping={true}
+          dampingFactor={0.05}
+        />
+      </Canvas>
+    </div>
   )
 }
 
@@ -213,31 +313,9 @@ export default function MakerspacePage() {
 
                   {/* 3D Model */}
                   <div className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl p-4 mb-4">
-                    <div className="w-full h-64 rounded-lg overflow-hidden">
-                      <Canvas
-                        camera={{ position: [60, 60, 60], fov: 60, near: 0.1, far: 1000 }}
-                        style={{ background: "linear-gradient(135deg, #dbeafe 0%, #cffafe 100%)" }}
-                      >
-                        <ambientLight intensity={0.6} />
-                        <directionalLight position={[10, 10, 5]} intensity={1.2} />
-                        <Suspense fallback={<ModelLoader />}>
-                          <ThreeDPeaModel />
-                          <Environment preset="studio" />
-                        </Suspense>
-                        <OrbitControls
-                          enablePan={true}
-                          enableZoom={true}
-                          enableRotate={true}
-                          autoRotate={true}
-                          autoRotateSpeed={1}
-                          maxPolarAngle={Math.PI}
-                          minPolarAngle={0}
-                          target={[0, 15, 0]}
-                          enableDamping={true}
-                          dampingFactor={0.05}
-                        />
-                      </Canvas>
-                    </div>
+                    <ThreeDScene gradient="linear-gradient(135deg, #dbeafe 0%, #cffafe 100%)">
+                      <ThreeDPeaModel />
+                    </ThreeDScene>
                     <p className="text-gray-600 text-xs mt-2">Click and drag to rotate, scroll to zoom</p>
                   </div>
 
@@ -267,31 +345,7 @@ export default function MakerspacePage() {
 
                   {/* 3D Model */}
                   <div className="bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl p-4 mb-4">
-                    <div className="w-full h-64 rounded-lg overflow-hidden">
-                      <Canvas
-                        camera={{ position: [75, 75, 75], fov: 50, near: 0.1, far: 1000 }}
-                        style={{ background: "linear-gradient(135deg, #f0fdf4 0%, #d1fae5 100%)" }}
-                      >
-                        <ambientLight intensity={0.6} />
-                        <directionalLight position={[10, 10, 5]} intensity={1.2} />
-                        <Suspense fallback={<ModelLoader />}>
-                          <MiterSawAdapterModel />
-                          <Environment preset="studio" />
-                        </Suspense>
-                        <OrbitControls
-                          enablePan={true}
-                          enableZoom={true}
-                          enableRotate={true}
-                          autoRotate={true}
-                          autoRotateSpeed={2}
-                          maxPolarAngle={Math.PI}
-                          minPolarAngle={0}
-                          target={[0, -15, 0]}
-                          enableDamping={true}
-                          dampingFactor={0.05}
-                        />
-                      </Canvas>
-                    </div>
+                    <MiterSawScene />
                     <p className="text-gray-600 text-xs mt-2">Click and drag to rotate, scroll to zoom</p>
                   </div>
 
