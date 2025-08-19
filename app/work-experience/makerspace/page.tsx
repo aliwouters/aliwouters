@@ -9,6 +9,7 @@ import { ArrowLeft, Wrench, Users, Lightbulb, Settings, FolderOpen, GraduationCa
 import { Suspense, useState, useEffect } from "react"
 import Image from "next/image"
 import dynamic from "next/dynamic"
+import * as THREE from "three"
 
 // Dynamically import Canvas and 3D components with no SSR
 const Canvas = dynamic(() => import("@react-three/fiber").then((mod) => mod.Canvas), {
@@ -34,16 +35,27 @@ const Html = dynamic(() => import("@react-three/drei").then((mod) => mod.Html), 
 // 3D Model Components - wrapped to handle client-side only rendering
 function MiterSawAdapterModel() {
   const { scene } = useGLTF("/models/miter-saw-adapter.glb")
+  if (!scene) return null
   return <primitive object={scene} scale={[1.5, 1.5, 1.5]} rotation={[Math.PI, 0, 0]} />
 }
 
 function ThreeDPeaModel() {
   const { scene } = useGLTF("/models/3dpea-assembled-design-v2.glb")
-  const THREE = require("three")
-  // Center the model by computing its bounding box
-  const box = new THREE.Box3().setFromObject(scene)
-  const center = box.getCenter(new THREE.Vector3())
-  scene.position.sub(center)
+
+  if (!scene) return null
+
+  // Only try to center the model if scene is properly loaded
+  if (scene && scene.children && scene.children.length > 0) {
+    try {
+      // Center the model by computing its bounding box
+      const box = new THREE.Box3().setFromObject(scene)
+      const center = box.getCenter(new THREE.Vector3())
+      scene.position.sub(center)
+    } catch (boxError) {
+      console.warn("Could not center model:", boxError)
+      // Continue without centering if there's an error
+    }
+  }
 
   return <primitive object={scene} scale={[0.25, 0.25, 0.25]} rotation={[0, 0, 0]} position={[0, 0, 0]} />
 }
