@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Download, BookOpen } from "lucide-react"
+import { ArrowLeft, Download, BookOpen, GraduationCap } from "lucide-react"
 
 export default function ResumePage() {
   return (
@@ -31,6 +31,39 @@ export default function ResumePage() {
         </div>
 
         <div className="space-y-8">
+          <Card className="border-rose-100 shadow-lg">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-2xl">
+                <GraduationCap className="w-6 h-6 text-rose-500" />
+                Formal Education
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                    University of California, Los Angeles (UCLA)
+                  </h3>
+                  <p className="text-lg text-gray-700 mb-1">Bachelor of Science in Cognitive Science</p>
+                  <p className="text-gray-600 mb-1">Specialization in Computing</p>
+                  <p className="text-gray-600 mb-2">Minor in Data Science Engineering</p>
+                  <p className="text-sm text-rose-600 font-medium">Work in Progress</p>
+                </div>
+
+                <div className="border-t border-gray-200 pt-4">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">Queen's University</h3>
+                  <p className="text-lg text-gray-700 mb-1">Neuroscience and Neurotechnology Primer</p>
+                  <p className="text-gray-600">Microcredential</p>
+                </div>
+
+                <div className="border-t border-gray-200 pt-4">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">San Pasqual High School</h3>
+                  <p className="text-lg text-gray-700">High School Diploma</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
           <Card className="border-rose-100 shadow-lg">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
