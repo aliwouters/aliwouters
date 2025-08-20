@@ -107,11 +107,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-purple-100">
                   <h4 className="font-semibold text-gray-800 mb-4">Project Documentation</h4>
                   <div className="w-full h-80 bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg overflow-hidden mb-4 flex items-center justify-center">
-                    <video
-                      controls
-                      className="w-full h-full object-cover rounded-lg"
-                      poster="/placeholder.svg?height=320&width=400&text=Binary+EMG+Tentacle+Demo"
-                    >
+                    <video autoPlay loop muted playsInline className="w-full h-full object-cover rounded-lg">
                       <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8548%20%281%29%20%281%29-ctq7iUDmuLMabHZdj3EHF93exN1NJO.mov" type="video/mp4" />
                     </video>
                   </div>
@@ -235,11 +231,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                 <div className="bg-white rounded-2xl p-6 border border-blue-200 shadow-lg">
                   <h4 className="font-semibold text-gray-800 mb-4">Project Documentation</h4>
                   <div className="w-full h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg overflow-hidden mb-4 flex items-center justify-center">
-                    <video
-                      controls
-                      className="w-full h-full object-cover rounded-lg"
-                      poster="/placeholder.svg?height=320&width=400&text=Analog+Joystick+Tentacle+Demo"
-                    >
+                    <video autoPlay loop muted playsInline className="w-full h-full object-cover rounded-lg">
                       <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8708%20%281%29%20%281%29-cedTqu9picgFLNWYYO03DCUraHrVaM.mov" type="video/mp4" />
                     </video>
                   </div>
@@ -342,11 +334,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                 <div className="bg-white rounded-2xl p-6 border border-teal-200 shadow-lg">
                   <h4 className="font-semibold text-gray-800 mb-4">Project Documentation</h4>
                   <div className="w-full h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg overflow-hidden mb-4 flex items-center justify-center">
-                    <video
-                      controls
-                      className="w-full h-full object-cover rounded-lg"
-                      poster="/placeholder.svg?height=320&width=400&text=2D+Tentacle+Demo"
-                    >
+                    <video autoPlay loop muted playsInline className="w-full h-full object-cover rounded-lg">
                       <source
                         src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7860%20%282%29-IvbHBGHnknvvuwEVPAhNAwysibili3.mov"
                         type="video/mp4"
@@ -452,11 +440,7 @@ export default function AnatomicalEngineeringProjectsPage() {
 
                   {/* Video 1 - Testing Phase */}
                   <div className="bg-white rounded-lg border border-green-200 overflow-hidden shadow-md">
-                    <video
-                      controls
-                      className="w-full aspect-square object-cover"
-                      poster="/placeholder.svg?height=200&width=200&text=Testing+Phase+Video+Frame"
-                    >
+                    <video autoPlay loop muted playsInline className="w-full aspect-square object-cover">
                       <source
                         src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7380%20%281%29-rmRrKlHHikkAdAK1JrvcIk30yHday7.MOV"
                         type="video/mp4"
@@ -469,11 +453,7 @@ export default function AnatomicalEngineeringProjectsPage() {
 
                   {/* Video 2 - Operational Demo */}
                   <div className="bg-white rounded-lg border border-green-200 overflow-hidden shadow-md">
-                    <video
-                      controls
-                      className="w-full aspect-square object-cover"
-                      poster="/placeholder.svg?height=200&width=200&text=Operational+Demo+Video+Frame"
-                    >
+                    <video autoPlay loop muted playsInline className="w-full aspect-square object-cover">
                       <source
                         src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7381-18DzB9TbijsTpdD90skBSVOeNXjCu3.MOV"
                         type="video/mp4"
@@ -486,11 +466,7 @@ export default function AnatomicalEngineeringProjectsPage() {
 
                   {/* Video 3 - Movement Demo */}
                   <div className="bg-white rounded-lg border border-green-200 overflow-hidden shadow-md">
-                    <video
-                      controls
-                      className="w-full aspect-square object-cover"
-                      poster="/placeholder.svg?height=200&width=200&text=Movement+Demo+Video+Frame"
-                    >
+                    <video autoPlay loop muted playsInline className="w-full aspect-square object-cover">
                       <source
                         src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7386%20%281%29%20%281%29-NxdSxlxVzRa6VgKxLDQbu8lFqasnoL.mov"
                         type="video/mp4"
