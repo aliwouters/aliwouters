@@ -198,7 +198,10 @@ export default function AnatomicalEngineeringPage() {
                         className="w-full aspect-square object-cover"
                         poster="/placeholder.svg?height=200&width=200&text=Testing+Phase+Video+Frame"
                       >
-                        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7380%20%281%29-rmRrKlHHikkAdAK1JrvcIk30yHday7.MOV" type="video/mp4" />
+                        <source
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7380%20%281%29-rmRrKlHHikkAdAK1JrvcIk30yHday7.MOV"
+                          type="video/mp4"
+                        />
                         Your browser does not support the video tag.
                       </video>
                       <div className="p-2">
@@ -213,7 +216,10 @@ export default function AnatomicalEngineeringPage() {
                         className="w-full aspect-square object-cover"
                         poster="/placeholder.svg?height=200&width=200&text=Operational+Demo+Video+Frame"
                       >
-                        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7381-18DzB9TbijsTpdD90skBSVOeNXjCu3.MOV" type="video/mp4" />
+                        <source
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7381-18DzB9TbijsTpdD90skBSVOeNXjCu3.MOV"
+                          type="video/mp4"
+                        />
                         Your browser does not support the video tag.
                       </video>
                       <div className="p-2">
@@ -228,7 +234,10 @@ export default function AnatomicalEngineeringPage() {
                         className="w-full aspect-square object-cover"
                         poster="/placeholder.svg?height=200&width=200&text=Movement+Demo+Video+Frame"
                       >
-                        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7386%20%281%29%20%281%29-NxdSxlxVzRa6VgKxLDQbu8lFqasnoL.mov" type="video/mp4" />
+                        <source
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7386%20%281%29%20%281%29-NxdSxlxVzRa6VgKxLDQbu8lFqasnoL.mov"
+                          type="video/mp4"
+                        />
                         Your browser does not support the video tag.
                       </video>
                       <div className="p-2">
@@ -289,7 +298,10 @@ export default function AnatomicalEngineeringPage() {
                         className="w-full h-full object-cover rounded-lg"
                         poster="/placeholder.svg?height=320&width=400&text=2D+Tentacle+Demo"
                       >
-                        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7860%20%282%29-IvbHBGHnknvvuwEVPAhNAwysibili3.mov" type="video/mp4" />
+                        <source
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7860%20%282%29-IvbHBGHnknvvuwEVPAhNAwysibili3.mov"
+                          type="video/mp4"
+                        />
                         Your browser does not support the video tag.
                       </video>
                     </div>
@@ -363,7 +375,10 @@ export default function AnatomicalEngineeringPage() {
                         className="w-full h-full object-cover rounded-lg"
                         poster="/placeholder.svg?height=320&width=400&text=4D+Tentacle+Demo"
                       >
-                        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-7892%20%281%29-Ly4QU96BAvnOg3kkk9B2yDLRJqgVJt.mov" type="video/mp4" />
+                        <source
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-7892%20%281%29-Ly4QU96BAvnOg3kkk9B2yDLRJqgVJt.mov"
+                          type="video/mp4"
+                        />
                         Your browser does not support the video tag.
                       </video>
                     </div>
@@ -439,3 +454,8 @@ export default function AnatomicalEngineeringPage() {
               </div>
             </CardContent>
           </Card>
+        </div>
+      </div>
+    </div>
+  )
+}
