@@ -32,18 +32,28 @@ const featuredProjects = [
   },
   {
     id: 3,
-    title: "4 Degrees of Freedom Tentacle",
+    title: "Analog Joystick Controlled Tentacle with 4 Degrees of Freedom",
     description:
-      "Complex multi-axis tentacle system with four independent degrees of freedom for sophisticated manipulation",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-7892%20%281%29-Ly4QU96BAvnOg3kkk9B2yDLRJqgVJt.mov",
-    link: "/research/anatomical-engineering#4-degrees-of-freedom",
+      "Advanced tentacle system with analog joystick control for intuitive real-time manipulation across four independent degrees of freedom",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8708%20%281%29%20%281%29-cedTqu9picgFLNWYYO03DCUraHrVaM.mov",
+    link: "/research/anatomical-engineering#analog-joystick-4-degrees-of-freedom",
     category: "Anatomical Engineering",
     isVideo: true,
-    caption: "4D Tentacle Demonstration",
+    caption: "Analog Joystick Control Demonstration",
   },
   {
     id: 4,
+    title: "Binary EMG Controlled Tentacle with 4 Degrees of Freedom",
+    description:
+      "Revolutionary biomedical interface using electromyography sensors to control robotic tentacle movement through muscle contractions",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8548%20%281%29%20%281%29-ctq7iUDmuLMabHZdj3EHF93exN1NJO.mov",
+    link: "/research/anatomical-engineering#binary-emg-4-degrees-of-freedom",
+    category: "Anatomical Engineering",
+    isVideo: true,
+    caption: "Binary EMG Control Demonstration",
+  },
+  {
+    id: 5,
     title: "Visualizing High-Dimensional Data with t-SNE",
     description:
       "Advanced dimensionality reduction technique for visualizing complex datasets and understanding data structure in lower dimensions",

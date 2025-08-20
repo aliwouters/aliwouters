@@ -133,7 +133,7 @@ export default function AnatomicalEngineeringPage() {
 
               {/* 1D Tentacle Section */}
               <div id="1-degree-of-freedom" className="mb-12">
-                <h3 className="text-xl font-semibold text-gray-800 mb-6">Tentacle with 1 degree of freedom</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-6">Actuated Cable Driven Finger Model</h3>
                 <div className="flex gap-6">
                   {/* 3D Model - Large box on left (60% width) */}
                   <div className="w-[60%] bg-green-50 rounded-2xl p-6">
@@ -173,14 +173,14 @@ export default function AnatomicalEngineeringPage() {
                     <div className="bg-white rounded-lg p-4 border border-gray-200">
                       <h5 className="font-semibold text-gray-800 mb-2">Project Description</h5>
                       <p className="text-gray-600 text-sm leading-relaxed">
-                        This single-degree-of-freedom tentacle showcases core principles of cable-driven soft robotics
+                        This single-degree-of-freedom finger showcases core principles of cable-driven soft robotics
                         through a bio-inspired design that enables controlled bending. Nylon tubing was heat-formed to
                         hold a straight neutral position, with notches cut to guide flexion. Actuation is achieved using
                         a strong braided Kevlar line which pulls on the top of the tentacle to create motion. A key ring
                         at the base improves user comfort.
                         <br />
-                        Inspired by the mechanics of a human finger, five tentacles were scaled to fit my hand and
-                        mounted on a plywood base to form a functional, cable-actuated robotic hand. The project
+                        Inspired by the mechanics of a human finger, five actuated fingers were scaled to fit my hand
+                        and mounted on a plywood base to form a functional, cable-actuated robotic hand. The project
                         addresses key challenges in soft robotics, including material flexibility, precise control, and
                         ergonomic actuation.
                       </p>
@@ -205,7 +205,7 @@ export default function AnatomicalEngineeringPage() {
                         Your browser does not support the video tag.
                       </video>
                       <div className="p-2">
-                        <p className="text-xs text-gray-700 font-medium">Test Tentacle</p>
+                        <p className="text-xs text-gray-700 font-medium">Test Finger</p>
                       </div>
                     </div>
 
@@ -250,7 +250,9 @@ export default function AnatomicalEngineeringPage() {
 
               {/* 2D Tentacle Section */}
               <div id="2-degrees-of-freedom" className="mb-12">
-                <h3 className="text-xl font-semibold text-gray-800 mb-6">Tentacle with 2 degrees of freedom</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-6">
+                  Actuated Cable Driven Tentacle with 2 degrees of freedom
+                </h3>
 
                 {/* 3D Model and Video - Equal width side by side */}
                 <div className="grid grid-cols-2 gap-6 mb-6">
@@ -306,7 +308,7 @@ export default function AnatomicalEngineeringPage() {
                       </video>
                     </div>
                     <div className="text-center">
-                      <p className="text-gray-600 text-sm">2D Tentacle Demonstration</p>
+                      <p className="text-gray-600 text-sm">2 Degree of Freedom Tentacle Demonstration</p>
                     </div>
                   </div>
                 </div>
@@ -325,9 +327,11 @@ export default function AnatomicalEngineeringPage() {
                 </div>
               </div>
 
-              {/* Tentacle Design with Cables Section */}
-              <div id="4-degrees-of-freedom" className="mb-8">
-                <h3 className="text-xl font-semibold text-gray-800 mb-6">Tentacle with 4 degrees of freedom</h3>
+              {/* Analog Joystick Controlled Tentacle Section */}
+              <div id="analog-joystick-4-degrees-of-freedom" className="mb-12">
+                <h3 className="text-xl font-semibold text-gray-800 mb-6">
+                  Analog Joystick Controlled Tentacle with 4 Degrees of Freedom
+                </h3>
 
                 {/* 3D Model and Video - Equal width side by side */}
                 <div className="grid grid-cols-2 gap-6 mb-6">
@@ -373,17 +377,14 @@ export default function AnatomicalEngineeringPage() {
                       <video
                         controls
                         className="w-full h-full object-cover rounded-lg"
-                        poster="/placeholder.svg?height=320&width=400&text=4D+Tentacle+Demo"
+                        poster="/placeholder.svg?height=320&width=400&text=Analog+Joystick+Tentacle+Demo"
                       >
-                        <source
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-7892%20%281%29-Ly4QU96BAvnOg3kkk9B2yDLRJqgVJt.mov"
-                          type="video/mp4"
-                        />
+                        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8708%20%281%29%20%281%29-cedTqu9picgFLNWYYO03DCUraHrVaM.mov" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                     </div>
                     <div className="text-center">
-                      <p className="text-gray-600 text-sm">4D Tentacle Demonstration</p>
+                      <p className="text-gray-600 text-sm">Analog Joystick Controlled Tentacle Demonstration</p>
                     </div>
                   </div>
                 </div>
@@ -399,10 +400,127 @@ export default function AnatomicalEngineeringPage() {
                     releasing opposing cable pairs—one cable tightens while its counterpart loosens—to allow smooth,
                     directional bending.
                     <br />
-                    The system is controlled via custom Arduino code, enabling input of the motor number (1 or 2) and
-                    desired angle of movement. This setup provides precise, user-defined positioning and demonstrates
-                    the integration of mechanical design with embedded control.
+                    <br />
+                    The system is controlled via an analog joystick interface, providing intuitive real-time control
+                    over the tentacle's movement. This setup demonstrates the integration of mechanical design with
+                    embedded control systems, offering precise positioning and natural user interaction through analog
+                    input.
                   </p>
+                </div>
+              </div>
+
+              {/* Binary EMG Controlled Tentacle Section */}
+              <div id="binary-emg-4-degrees-of-freedom" className="mb-12">
+                <h3 className="text-xl font-semibold text-gray-800 mb-6">
+                  Binary EMG Controlled Tentacle with 4 Degrees of Freedom
+                </h3>
+
+                {/* Video and Description */}
+                <div className="grid grid-cols-2 gap-6 mb-6">
+                  {/* Video - Left side */}
+                  <div className="bg-purple-50 rounded-2xl p-6">
+                    <h4 className="font-semibold text-gray-800 mb-4">Project Documentation</h4>
+                    <div className="w-full h-80 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-lg overflow-hidden mb-4 flex items-center justify-center">
+                      <video
+                        controls
+                        className="w-full h-full object-cover rounded-lg"
+                        poster="/placeholder.svg?height=320&width=400&text=Binary+EMG+Tentacle+Demo"
+                      >
+                        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8548%20%281%29%20%281%29-ctq7iUDmuLMabHZdj3EHF93exN1NJO.mov" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-gray-600 text-sm">Binary EMG Controlled Tentacle Demonstration</p>
+                    </div>
+                  </div>
+
+                  {/* Description - Right side */}
+                  <div className="bg-white rounded-2xl p-6 border border-gray-200">
+                    <h4 className="font-semibold text-gray-800 mb-4">Project Overview</h4>
+                    <div className="space-y-4">
+                      <div className="bg-purple-50 p-4 rounded-lg">
+                        <h5 className="font-semibold text-gray-800 mb-2">EMG Control System</h5>
+                        <p className="text-gray-600 text-sm">
+                          This innovative system uses electromyography (EMG) sensors to detect muscle contractions,
+                          converting biological signals into digital control commands for the tentacle.
+                        </p>
+                      </div>
+                      <div className="bg-purple-50 p-4 rounded-lg">
+                        <h5 className="font-semibold text-gray-800 mb-2">Binary Control Logic</h5>
+                        <p className="text-gray-600 text-sm">
+                          The system operates on binary muscle activation patterns, where specific muscle contractions
+                          trigger predetermined tentacle movements, creating an intuitive brain-to-machine interface.
+                        </p>
+                      </div>
+                      <div className="bg-purple-50 p-4 rounded-lg">
+                        <h5 className="font-semibold text-gray-800 mb-2">Applications</h5>
+                        <p className="text-gray-600 text-sm">
+                          This technology has significant implications for assistive devices, prosthetics, and
+                          human-machine interfaces in medical and rehabilitation settings.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Project Description - Full width underneath */}
+                <div className="bg-white rounded-lg p-6 border border-gray-200">
+                  <h5 className="font-semibold text-gray-800 mb-3">Technical Implementation</h5>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    The binary EMG control system utilizes surface electrodes to capture electrical activity from
+                    targeted muscle groups. These signals are processed through an amplification and filtering circuit
+                    before being digitized and interpreted by a microcontroller. The system employs threshold-based
+                    detection algorithms to convert muscle contractions into discrete control commands, enabling users
+                    to control the tentacle's four degrees of freedom through specific muscle activation patterns.
+                    <br />
+                    <br />
+                    This approach represents a significant advancement in biomedical engineering, demonstrating how
+                    biological signals can be seamlessly integrated with robotic systems to create responsive,
+                    user-controlled devices that could revolutionize assistive technology and prosthetic applications.
+                  </p>
+                </div>
+              </div>
+
+              {/* Coming Soon - Analog EMG Controlled Tentacle Section */}
+              <div id="analog-emg-4-degrees-of-freedom" className="mb-8">
+                <h3 className="text-xl font-semibold text-gray-800 mb-6">
+                  Analog EMG Controlled Tentacle with 4 Degrees of Freedom
+                </h3>
+
+                {/* Coming Soon Display */}
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 border-2 border-dashed border-gray-300">
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full mb-6 flex items-center justify-center mx-auto">
+                      <Zap className="w-10 h-10 text-white" />
+                    </div>
+                    <h4 className="text-2xl font-semibold text-gray-800 mb-4">Coming Soon</h4>
+                    <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+                      The next evolution in EMG-controlled robotics: analog signal processing for continuous,
+                      proportional control of tentacle movement based on muscle activation intensity.
+                    </p>
+                    <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                      <div className="bg-white p-4 rounded-lg border border-gray-200">
+                        <h5 className="font-semibold text-gray-800 mb-2">Analog Signal Processing</h5>
+                        <p className="text-gray-600 text-sm">
+                          Advanced EMG signal processing for continuous, proportional control based on muscle
+                          contraction intensity rather than binary on/off states.
+                        </p>
+                      </div>
+                      <div className="bg-white p-4 rounded-lg border border-gray-200">
+                        <h5 className="font-semibold text-gray-800 mb-2">Enhanced Precision</h5>
+                        <p className="text-gray-600 text-sm">
+                          Fine-grained control allowing for variable speed and position control, creating more natural
+                          and intuitive human-machine interaction.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="mt-6">
+                      <span className="inline-block px-4 py-2 bg-gradient-to-r from-gray-200 to-gray-300 text-gray-700 rounded-full text-sm font-medium">
+                        In Development
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </CardContent>
