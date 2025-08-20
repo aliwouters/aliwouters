@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Database, Code, Heart } from "lucide-react"
+import { ArrowLeft, Database, Microscope, Heart } from "lucide-react"
 
 export default function ProjectsPage() {
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function ProjectsPage() {
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Projects</h1>
             <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              A collection of technical projects spanning data science, computer science, experimental design, and
+              A collection of technical projects spanning data science, anatomical engineering, experimental design, and
               personal explorations in engineering and technology.
             </p>
           </div>
@@ -75,32 +75,32 @@ export default function ProjectsPage() {
               </CardContent>
             </Card>
 
-            {/* Computer Science */}
+            {/* Anatomical Engineering */}
             <Card className="h-full flex flex-col border-slate-200/50 hover:border-green-300 transition-all duration-300 hover:shadow-lg group">
               <CardHeader className="pb-4">
                 <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
-                  <Code className="w-6 h-6 text-green-600" />
+                  <Microscope className="w-6 h-6 text-green-600" />
                 </div>
-                <CardTitle className="text-xl font-medium text-slate-900">Computer Science</CardTitle>
+                <CardTitle className="text-xl font-medium text-slate-900">Anatomical Engineering</CardTitle>
                 <CardDescription className="text-slate-600 leading-relaxed">
-                  Software development projects, algorithm implementations, and computational solutions addressing
-                  real-world problems through innovative programming approaches.
+                  Bio-inspired robotic systems, EMG-controlled devices, and soft robotics projects exploring the
+                  intersection of biology and engineering for medical applications.
                 </CardDescription>
               </CardHeader>
               <CardContent className="pt-0 mt-auto">
                 <div className="flex flex-wrap gap-2 mb-4">
                   <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
-                    Software Development
+                    Soft Robotics
                   </Badge>
                   <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
-                    Algorithms
+                    EMG Control
                   </Badge>
                   <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
-                    System Design
+                    Bio-inspired Design
                   </Badge>
                 </div>
                 <Button asChild className="w-full bg-green-600 hover:bg-green-700">
-                  <Link href="/projects/computer-science">View Projects</Link>
+                  <Link href="/projects/anatomical-engineering">View Projects</Link>
                 </Button>
               </CardContent>
             </Card>

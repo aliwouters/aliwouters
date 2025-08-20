@@ -4,7 +4,7 @@ import { Suspense } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Microscope, Cog, Zap } from "lucide-react"
+import { ArrowLeft, Microscope, Cog, Zap, Github, ExternalLink } from "lucide-react"
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls, useGLTF, Environment, Html } from "@react-three/drei"
 import Image from "next/image"
@@ -87,14 +87,7 @@ export default function AnatomicalEngineeringPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
+                <ExternalLink className="w-5 h-5" />
                 Visit Anatomics Lab Website
               </a>
             </div>
@@ -107,9 +100,6 @@ export default function AnatomicalEngineeringPage() {
                   height={300}
                   className="w-full h-auto object-cover"
                 />
-              </div>
-              <div className="mt-3 text-center">
-                <p className="text-sm text-gray-600"> </p>
               </div>
             </div>
           </div>
@@ -202,7 +192,6 @@ export default function AnatomicalEngineeringPage() {
                           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7380%20%281%29-rmRrKlHHikkAdAK1JrvcIk30yHday7.MOV"
                           type="video/mp4"
                         />
-                        Your browser does not support the video tag.
                       </video>
                       <div className="p-2">
                         <p className="text-xs text-gray-700 font-medium">Test Finger</p>
@@ -220,7 +209,6 @@ export default function AnatomicalEngineeringPage() {
                           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7381-18DzB9TbijsTpdD90skBSVOeNXjCu3.MOV"
                           type="video/mp4"
                         />
-                        Your browser does not support the video tag.
                       </video>
                       <div className="p-2">
                         <p className="text-xs text-gray-700 font-medium">Production</p>
@@ -238,7 +226,6 @@ export default function AnatomicalEngineeringPage() {
                           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7386%20%281%29%20%281%29-NxdSxlxVzRa6VgKxLDQbu8lFqasnoL.mov"
                           type="video/mp4"
                         />
-                        Your browser does not support the video tag.
                       </video>
                       <div className="p-2">
                         <p className="text-xs text-gray-700 font-medium">Full Hand Demonstration</p>
@@ -304,7 +291,6 @@ export default function AnatomicalEngineeringPage() {
                           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7860%20%282%29-IvbHBGHnknvvuwEVPAhNAwysibili3.mov"
                           type="video/mp4"
                         />
-                        Your browser does not support the video tag.
                       </video>
                     </div>
                     <div className="text-center">
@@ -380,7 +366,6 @@ export default function AnatomicalEngineeringPage() {
                         poster="/placeholder.svg?height=320&width=400&text=Analog+Joystick+Tentacle+Demo"
                       >
                         <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8708%20%281%29%20%281%29-cedTqu9picgFLNWYYO03DCUraHrVaM.mov" type="video/mp4" />
-                        Your browser does not support the video tag.
                       </video>
                     </div>
                     <div className="text-center">
@@ -390,7 +375,7 @@ export default function AnatomicalEngineeringPage() {
                 </div>
 
                 {/* Project Description - Full width underneath */}
-                <div className="bg-white rounded-lg p-6 border border-gray-200">
+                <div className="bg-white rounded-lg p-6 border border-gray-200 mb-4">
                   <h5 className="font-semibold text-gray-800 mb-3">Project Description</h5>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     This four-degree-of-freedom tentacle features a custom 3D-printed base and vertebrae, each designed
@@ -406,6 +391,19 @@ export default function AnatomicalEngineeringPage() {
                     embedded control systems, offering precise positioning and natural user interaction through analog
                     input.
                   </p>
+
+                  {/* GitHub Link - More prominent button */}
+                  <div className="flex items-center justify-center pt-4 border-t border-gray-200">
+                    <a
+                      href="https://github.com/aliwouters/Analog-Joystick-Controls-4-Degrees-of-Freedom-Tentacle-"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                    >
+                      <Github className="w-5 h-5" />
+                      View Arduino Code on GitHub
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -427,7 +425,6 @@ export default function AnatomicalEngineeringPage() {
                         poster="/placeholder.svg?height=320&width=400&text=Binary+EMG+Tentacle+Demo"
                       >
                         <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8548%20%281%29%20%281%29-ctq7iUDmuLMabHZdj3EHF93exN1NJO.mov" type="video/mp4" />
-                        Your browser does not support the video tag.
                       </video>
                     </div>
                     <div className="text-center">
@@ -465,7 +462,7 @@ export default function AnatomicalEngineeringPage() {
                 </div>
 
                 {/* Project Description - Full width underneath */}
-                <div className="bg-white rounded-lg p-6 border border-gray-200">
+                <div className="bg-white rounded-lg p-6 border border-gray-200 mb-4">
                   <h5 className="font-semibold text-gray-800 mb-3">Technical Implementation</h5>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     The binary EMG control system utilizes surface electrodes to capture electrical activity from
@@ -479,6 +476,19 @@ export default function AnatomicalEngineeringPage() {
                     biological signals can be seamlessly integrated with robotic systems to create responsive,
                     user-controlled devices that could revolutionize assistive technology and prosthetic applications.
                   </p>
+
+                  {/* GitHub Link - More prominent button */}
+                  <div className="flex items-center justify-center pt-4 border-t border-gray-200">
+                    <a
+                      href="https://github.com/aliwouters/Binary-EMG-Control-for-4-Degrees-of-Freedom-Tentacle-/tree/main"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                    >
+                      <Github className="w-5 h-5" />
+                      View Arduino & Python Code on GitHub
+                    </a>
+                  </div>
                 </div>
               </div>
 
