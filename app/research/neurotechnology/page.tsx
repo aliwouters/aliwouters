@@ -53,8 +53,8 @@ export default function NeurotechnologyPage() {
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">CruX - Brain-Controlled Pincher</h3>
                   <p className="text-slate-600 mb-6 leading-relaxed">
                     Developing an innovative brain-controlled prosthetic pincher that translates neural signals into
-                    precise mechanical movements. This project represents a significant advancement in assistive
-                    technology for individuals with motor impairments.
+                    precise mechanical movements. This type of research would represent a significant advancement in
+                    assistive technology for individuals with motor impairments.
                   </p>
 
                   <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -93,6 +93,20 @@ export default function NeurotechnologyPage() {
                           Utilizing advanced signal processing techniques combined with machine learning algorithms to
                           decode motor intentions from neural activity, enabling intuitive control of prosthetic
                           devices.
+                        </p>
+                      </div>
+
+                      <div className="bg-amber-50 rounded-2xl p-6 border border-amber-200">
+                        <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                          <Target className="w-5 h-5 text-amber-600" />
+                          Outcome
+                        </h4>
+                        <p className="text-slate-700 text-sm leading-relaxed">
+                          Our team was partially successful in developing the brain-controlled interface. While we
+                          achieved significant progress in EEG signal processing and mechanical control, we encountered
+                          challenges with motor imagery classification that prevented full implementation of the
+                          intended brain-control functionality. This experience provided valuable insights into the
+                          complexities of brain-computer interface development.
                         </p>
                       </div>
                     </div>
@@ -226,8 +240,14 @@ export default function NeurotechnologyPage() {
                             className="w-full h-full object-cover"
                             poster="/placeholder.svg?height=200&width=200&text=EEG+Demo"
                           >
-                            <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_9874-IjrX6N3MVV1KMIN4avfDnMHNr8uhcT.MOV" type="video/quicktime" />
-                            <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_9874-IjrX6N3MVV1KMIN4avfDnMHNr8uhcT.MOV" type="video/mp4" />
+                            <source
+                              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_9874-IjrX6N3MVV1KMIN4avfDnMHNr8uhcT.MOV"
+                              type="video/quicktime"
+                            />
+                            <source
+                              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_9874-IjrX6N3MVV1KMIN4avfDnMHNr8uhcT.MOV"
+                              type="video/mp4"
+                            />
                             Your browser does not support the video tag.
                           </video>
                         </div>
@@ -479,123 +499,6 @@ export default function NeurotechnologyPage() {
                         </p>
                       </div>
                     </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Impact Section */}
-            <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-10 text-white">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-medium mb-4">Research Impact & Future Directions</h3>
-                <p className="text-slate-300 leading-relaxed max-w-3xl mx-auto">
-                  My neurotechnology research demonstrates the evolution from basic brain-computer interfaces to
-                  sophisticated, discrete systems capable of real-world deployment. Each project builds upon previous
-                  work to create more practical and user-friendly neural monitoring technologies.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <h4 className="font-semibold mb-4 flex items-center gap-2">
-                    <Zap className="w-5 h-5 text-blue-400" />
-                    Brain-Computer Interfaces
-                  </h4>
-                  <ul className="text-slate-300 space-y-2 text-sm">
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Assistive technology for motor impairments
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Real-time neural signal processing
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Machine learning-based intent recognition
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <h4 className="font-semibold mb-4 flex items-center gap-2">
-                    <Activity className="w-5 h-5 text-emerald-400" />
-                    Emotion & Stress Detection
-                  </h4>
-                  <ul className="text-slate-300 space-y-2 text-sm">
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Mental health monitoring applications
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Adaptive user interface systems
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Award-winning wearable technology
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <h4 className="font-semibold mb-4 flex items-center gap-2">
-                    <Users className="w-5 h-5 text-purple-400" />
-                    Discrete Neural Monitoring
-                  </h4>
-                  <ul className="text-slate-300 space-y-2 text-sm">
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Unobtrusive cognitive state tracking
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Sports psychology applications
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Naturalistic behavioral research
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="mt-8 bg-white/5 rounded-2xl p-6">
-                <h4 className="font-semibold mb-4 text-center">Future Research Directions</h4>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h5 className="font-medium text-slate-200 mb-3">Technical Advancement</h5>
-                    <ul className="text-slate-300 space-y-2 text-sm">
-                      <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></span>
-                        Miniaturization of neural interface hardware
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></span>
-                        Enhanced signal processing algorithms
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></span>
-                        Multi-modal sensing integration
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h5 className="font-medium text-slate-200 mb-3">Clinical Translation</h5>
-                    <ul className="text-slate-300 space-y-2 text-sm">
-                      <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 flex-shrink-0"></span>
-                        Clinical validation studies
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 flex-shrink-0"></span>
-                        FDA approval pathways
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 flex-shrink-0"></span>
-                        Commercial deployment strategies
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </div>

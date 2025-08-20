@@ -13,7 +13,8 @@ const featuredProjects = [
     id: 1,
     title: "1 Degree of Freedom Tentacle",
     description: "Bio-inspired soft robotics with single-axis actuation for precise manipulation tasks",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7386%20%281%29%20%281%29-NxdSxlxVzRa6VgKxLDQbu8lFqasnoL.mov",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7386%20%281%29%20%281%29-NxdSxlxVzRa6VgKxLDQbu8lFqasnoL.mov",
     link: "/research/anatomical-engineering#1-degree-of-freedom",
     category: "Anatomical Engineering",
     isVideo: true,
@@ -34,7 +35,8 @@ const featuredProjects = [
     title: "4 Degrees of Freedom Tentacle",
     description:
       "Complex multi-axis tentacle system with four independent degrees of freedom for sophisticated manipulation",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-7892%20%281%29-Ly4QU96BAvnOg3kkk9B2yDLRJqgVJt.mov",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-7892%20%281%29-Ly4QU96BAvnOg3kkk9B2yDLRJqgVJt.mov",
     link: "/research/anatomical-engineering#4-degrees-of-freedom",
     category: "Anatomical Engineering",
     isVideo: true,
@@ -209,8 +211,8 @@ export default function HomePage() {
                   </span>
                 </h1>
                 <p className="text-xl text-slate-600 leading-relaxed max-w-2xl">
-                  A researcher and engineer at the intersection of neurotechnology, cognitive science, and biomedical
-                  engineering. I develop innovative solutions that bridge human cognition and technology.
+                  A researcher and scientist at the intersection of neurotechnology, cognitive science, and biomedical
+                  engineering. I aim to develop innovative solutions that bridge human cognition and technology.
                 </p>
               </div>
 
@@ -406,14 +408,14 @@ export default function HomePage() {
           <div className="bg-white rounded-3xl p-12 border border-slate-200/50 shadow-sm">
             <div className="max-w-4xl mx-auto">
               <p className="text-xl leading-relaxed text-slate-600 mb-8">
-                I'm a multidisciplinary researcher with a passion for exploring the frontiers of neurotechnology and
-                cognitive science. My work spans from developing brain-controlled interfaces to understanding the
-                fundamental mechanisms of human cognition.
+                I'm a UCLA student in Cognitive Science and Data Science Engineering, with a certification in
+                Neuroscience and Neurotechnology. My contributions span from developing brain-controlled interfaces to
+                understanding the fundamental mechanisms of human cognition.
               </p>
               <p className="text-lg leading-relaxed text-slate-600">
-                Currently pursuing advanced research in anatomical engineering while contributing to groundbreaking
-                projects in neurotechnology and experimental psychology. I believe in the power of interdisciplinary
-                collaboration to solve complex challenges at the intersection of technology and human experience.
+                Currently pursuing research in anatomical engineering while contributing to groundbreaking projects in
+                neurotechnology and experimental psychology. I believe in the power of interdisciplinary collaboration
+                to solve complex challenges at the intersection of technology and human experience.
               </p>
             </div>
           </div>
@@ -435,8 +437,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-xl font-medium text-slate-900 mb-4">Research</h3>
               <p className="text-slate-600 mb-8 leading-relaxed">
-                Advancing neurotechnology, anatomical engineering, and cognitive science through innovative research
-                approaches.
+                Advancing neurotechnology, anatomical engineering, and cognitive science through research.
               </p>
               <Link
                 href="/research"

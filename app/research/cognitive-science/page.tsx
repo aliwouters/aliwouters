@@ -55,8 +55,9 @@ export default function CognitiveSciencePage() {
             <CardContent>
               <p className="text-gray-600 mb-6">
                 Led a comprehensive research project investigating the cognitive and perceptual abilities of Magic: The
-                Gathering players compared to non-players. As Lab Manager, I oversaw team operations, coordinated hiring
-                processes, and managed research assistants while contributing to experimental design and data analysis.
+                Gathering players compared to non-players. This study examined multiple cognitive domains including
+                reasoning, numeracy, visual memory, and attention processing to understand how strategic gaming
+                experience relates to cognitive performance.
               </p>
 
               <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -71,23 +72,23 @@ export default function CognitiveSciencePage() {
                   </ul>
                 </div>
                 <div className="bg-purple-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-gray-800 mb-2">Lab Management Responsibilities:</h4>
+                  <h4 className="font-semibold text-gray-800 mb-2">Technical Implementation:</h4>
                   <ul className="text-gray-700 space-y-1 text-sm">
-                    <li>• Coordinating hiring and interview processes</li>
-                    <li>• Managing research assistant teams</li>
-                    <li>• Overseeing experimental protocols</li>
-                    <li>• Supervising data collection procedures</li>
-                    <li>• Ensuring research quality and standards</li>
+                    <li>• PsychoPy experiment development</li>
+                    <li>• Pavlovia deployment and data collection</li>
+                    <li>• Statistical analysis using R and Python</li>
+                    <li>• Correlation and regression modeling</li>
+                    <li>• ANOVA/ANCOVA comparative analysis</li>
                   </ul>
                 </div>
               </div>
 
               <div className="bg-purple-50 p-4 rounded-lg mb-4">
-                <h4 className="font-semibold text-gray-800 mb-2">Technical Implementation:</h4>
+                <h4 className="font-semibold text-gray-800 mb-2">Methodology & Analysis:</h4>
                 <p className="text-gray-700 text-sm mb-3">
-                  Our methodology involves creating and collecting cognitive assessment stimuli, developing PsychoPy
+                  Our methodology involved creating and collecting cognitive assessment stimuli, developing PsychoPy
                   experiments deployed on Pavlovia, and conducting comprehensive statistical analyses using R and
-                  Python. The project employs advanced statistical methods including correlation analysis,
+                  Python. The project employed advanced statistical methods including correlation analysis,
                   linear/logistic regression, and ANOVA/ANCOVA to identify cognitive differences between gaming
                   populations.
                 </p>
@@ -234,47 +235,6 @@ export default function CognitiveSciencePage() {
                       <span className="text-green-700 font-bold text-xs">STAT</span>
                     </div>
                     <p className="text-xs text-gray-700">Statistical Analysis</p>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Research Impact Section */}
-          <Card className="border-purple-100 shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl">Research Impact & Methodological Contributions</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 mb-4">
-                My work across these three Zili Lab projects demonstrated expertise in experimental psychology,
-                statistical analysis, and interdisciplinary research methods. The combination of cognitive assessment,
-                user experience research, and data visualization studies provided a comprehensive foundation in applied
-                cognitive science.
-              </p>
-              <div className="bg-purple-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-gray-800 mb-2">Cross-Project Skills and Impact:</h4>
-                <div className="grid md:grid-cols-3 gap-4 mt-4">
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-purple-700 font-bold">L</span>
-                    </div>
-                    <p className="text-sm text-gray-700 font-medium">Leadership</p>
-                    <p className="text-xs text-gray-600">Lab management and team coordination</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-purple-700 font-bold">M</span>
-                    </div>
-                    <p className="text-sm text-gray-700 font-medium">Methodology</p>
-                    <p className="text-xs text-gray-600">Mixed-methods research design</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-purple-700 font-bold">A</span>
-                    </div>
-                    <p className="text-sm text-gray-700 font-medium">Analysis</p>
-                    <p className="text-xs text-gray-600">Advanced statistical methods</p>
                   </div>
                 </div>
               </div>
