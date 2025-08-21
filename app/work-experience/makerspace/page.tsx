@@ -310,16 +310,6 @@ export default function MakerspacePage() {
                     full functionality and visibility during operation. This project demonstrates advanced CAD design
                     and safety engineering principles.
                   </p>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-white p-3 rounded text-center">
-                      <p className="text-sm text-gray-600 font-medium">Enhanced Safety</p>
-                      <p className="text-xs text-gray-500">Improved user protection</p>
-                    </div>
-                    <div className="bg-white p-3 rounded text-center">
-                      <p className="text-sm text-gray-600 font-medium">Custom Fit</p>
-                      <p className="text-xs text-gray-500">Precision engineered</p>
-                    </div>
-                  </div>
                 </div>
 
                 <div className="bg-orange-50 p-6 rounded-lg">
@@ -332,16 +322,6 @@ export default function MakerspacePage() {
                     cutting operations and improved workshop efficiency. Features modular design for multiple
                     applications.
                   </p>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-white p-3 rounded text-center">
-                      <p className="text-sm text-gray-600 font-medium">Precision Cuts</p>
-                      <p className="text-xs text-gray-500">Enhanced accuracy</p>
-                    </div>
-                    <div className="bg-white p-3 rounded text-center">
-                      <p className="text-sm text-gray-600 font-medium">Versatile Setup</p>
-                      <p className="text-xs text-gray-500">Multiple configurations</p>
-                    </div>
-                  </div>
                 </div>
               </div>
 
