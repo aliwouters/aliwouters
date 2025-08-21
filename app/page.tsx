@@ -22,13 +22,14 @@ const featuredProjects = [
   },
   {
     id: 2,
-    title: "2 Degrees of Freedom Tentacle",
-    description: "Advanced tentacle design with dual-axis control for enhanced dexterity and movement",
-    image: "/images/2dof-tentacle-3d-model.png",
-    link: "/research/anatomical-engineering#2-degrees-of-freedom",
-    category: "Anatomical Engineering",
+    title: "Pilot Study on the Impact of Proprioception on Referred Control",
+    description:
+      "Research investigating how control mapping between human and referred degrees of freedom affects myoelectric neuromuscular control performance using antagonistic muscle pairs for intuitive robotic device operation",
+    image: "/images/proprioception-referred-control-study.jpeg",
+    link: "/research/anatomical-engineering#research-publications",
+    category: "Research Publication",
     isImage: true,
-    caption: "3D Model Design",
+    caption: "UCLA Research Poster",
   },
   {
     id: 3,
