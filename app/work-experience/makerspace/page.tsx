@@ -38,13 +38,13 @@ function SpindleSanderGuardModel() {
       const center = box.getCenter(new THREE.Vector3())
       const size = box.getSize(new THREE.Vector3())
 
-      // Create a wrapper group to handle centering
+      // Create a wrapper group to handle centering and rotation
       const wrapper = new THREE.Group()
 
       // Add the cloned scene to the wrapper
       wrapper.add(clonedScene)
 
-      // Move the cloned scene so its center is at the wrapper's origin
+      // Move the cloned scene so its geometric center is at the wrapper's origin
       clonedScene.position.copy(center).multiplyScalar(-1)
 
       // Scale the model to fit nicely
@@ -92,13 +92,13 @@ function MiterSawAdapterV2Model() {
       const center = box.getCenter(new THREE.Vector3())
       const size = box.getSize(new THREE.Vector3())
 
-      // Create a wrapper group to handle centering
+      // Create a wrapper group to handle centering and rotation
       const wrapper = new THREE.Group()
 
       // Add the cloned scene to the wrapper
       wrapper.add(clonedScene)
 
-      // Move the cloned scene so its center is at the wrapper's origin
+      // Move the cloned scene so its geometric center is at the wrapper's origin
       clonedScene.position.copy(center).multiplyScalar(-1)
 
       // Scale the model to fit nicely
@@ -194,7 +194,7 @@ function MiterSawAdapterV2Scene() {
   return (
     <div className="w-full h-64 bg-green-100 rounded-lg overflow-hidden">
       <Canvas
-        camera={{ position: [0, 0, 3], fov: 60 }}
+        camera={{ position: [0, 5, 5], fov: 35 }}
         onError={(error) => console.error("Canvas error:", error)}
         gl={{ antialias: true, alpha: false }}
       >
