@@ -1,7 +1,18 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Download, GraduationCap, Briefcase, Award, User, Mail, MapPin, ExternalLink } from "lucide-react"
+import {
+  ArrowLeft,
+  Download,
+  GraduationCap,
+  Briefcase,
+  Award,
+  User,
+  Mail,
+  MapPin,
+  ExternalLink,
+  BadgeIcon as Certificate,
+} from "lucide-react"
 
 export default function ResumePage() {
   return (
@@ -213,6 +224,56 @@ export default function ResumePage() {
                   <li>• Developed vocational skills in marketing and content creation</li>
                   <li>• Contributed to accessibility-focused product promotion</li>
                 </ul>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Professional Certifications */}
+        <Card className="border-blue-100 shadow-lg mb-8">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-2xl">
+              <Certificate className="w-6 h-6 text-blue-500" />
+              Professional Certifications
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-6">
+              <div className="border-l-4 border-indigo-500 pl-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="text-xl font-semibold text-gray-900">Neuroscience and Neurotechnology Primer</h3>
+                  <a
+                    href="https://credentials.neurotechmicrocreds.com/bd68d39f-eba9-421a-9fac-35e5262cf644#acc.01mbgjGV"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-2 py-1 text-xs font-medium bg-indigo-100 text-indigo-800 rounded-full hover:bg-indigo-200 transition-colors"
+                  >
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    View Credential
+                  </a>
+                </div>
+                <p className="text-lg text-gray-700 mb-2">Queen's University</p>
+                <p className="text-gray-600 mb-3">Microcredential Program</p>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Comprehensive microcredential program covering fundamental principles of neuroscience, brain-computer
+                  interfaces, and emerging neurotechnology applications. Gained expertise in neural signal processing,
+                  EEG analysis, and the development of brain-controlled devices for assistive technology applications.
+                  Verified digital credential demonstrating competency in neurotechnology fundamentals.
+                </p>
+              </div>
+
+              <div className="border-l-4 border-purple-500 pl-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  BCI & Neurotechnology Masterclass EEG & Eyetracking
+                </h3>
+                <p className="text-lg text-gray-700 mb-2">G.Tec Medical Engineering GmbH</p>
+                <p className="text-gray-600 mb-3">Completed June 17, 2025</p>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Advanced masterclass focusing on brain-computer interfaces and neurotechnology applications. Covered
+                  comprehensive training in EEG signal processing, eyetracking technologies, and their integration for
+                  neurotechnology applications. Gained hands-on experience with state-of-the-art BCI systems and
+                  real-time neural signal analysis techniques used in medical and research applications.
+                </p>
               </div>
             </div>
           </CardContent>
