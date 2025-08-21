@@ -31,10 +31,10 @@ export default function PsyonicPage() {
           <div className="w-20 h-20 bg-gradient-to-br from-orange-400 to-red-600 rounded-lg mb-6 flex items-center justify-center mx-auto">
             <Briefcase className="w-10 h-10 text-white" />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Psyonic Internship Experience</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Psyonic Mechatronics Internship</h1>
           <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-600 mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Summer 2024 Mechatronics Internship at the forefront of prosthetic technology innovation
+            Contributing to prosthetic technology production and testing
           </p>
         </div>
 
@@ -216,73 +216,6 @@ export default function PsyonicPage() {
               <div className="mt-4 text-center">
                 <p className="text-sm text-gray-600"></p>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Impact & Learning Outcomes */}
-        <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-10 text-white">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-medium mb-4">Impact & Learning Outcomes</h3>
-            <p className="text-slate-300 leading-relaxed max-w-3xl mx-auto">
-              My internship at Psyonic provided invaluable experience in cutting-edge prosthetic technology development,
-              user-centered design, and the intersection of engineering and human needs.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-              <h4 className="font-semibold mb-4">Technical Growth</h4>
-              <ul className="text-slate-300 space-y-2 text-sm">
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Advanced mechatronics integration
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Manufacturing process improvement
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Quality control system design
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-              <h4 className="font-semibold mb-4">User-Centered Design</h4>
-              <ul className="text-slate-300 space-y-2 text-sm">
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-red-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Direct collaboration with end users
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-red-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Accessibility-focused engineering
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-red-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Real-world testing methodologies
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-              <h4 className="font-semibold mb-4">Professional Impact</h4>
-              <ul className="text-slate-300 space-y-2 text-sm">
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Contributed to product development
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Enhanced testing protocols
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Improved manufacturing efficiency
-                </li>
-              </ul>
             </div>
           </div>
         </div>

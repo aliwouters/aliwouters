@@ -194,9 +194,9 @@ export default function MakerspacePage() {
             <Wrench className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">UCLA Makerspace Technician</h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-600 mx-auto mb-6"></div>
+          <p className="text-lg text-orange-600 font-medium mb-2">August 2023 - Present</p>
           <p className="text-lg text-gray-600">
-            Facilitating innovation through hands-on technical support and creative problem-solving
+            Facilitating student innovation through hands-on technical support and creative problem-solving
           </p>
         </div>
 
@@ -249,7 +249,7 @@ export default function MakerspacePage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-xl">
                   <Cog className="w-5 h-5 text-orange-500" />
-                  Professional Makerspace Projects
+                  Examples of Professional Makerspace Projects
                 </CardTitle>
               </CardHeader>
               <CardContent>

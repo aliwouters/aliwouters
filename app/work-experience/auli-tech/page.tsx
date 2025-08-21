@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Users, Video, Target, ExternalLink, Play, Heart } from "lucide-react"
+import { ArrowLeft, Users, Video, Target, ExternalLink, Play } from "lucide-react"
 import Image from "next/image"
 
 export default function AuliTechPage() {
@@ -55,20 +55,26 @@ export default function AuliTechPage() {
                 to living, with their flagship product being the Cato - an affordable alternative to traditional
                 eye-tracking systems.
               </p>
-              <div className="bg-yellow-50 p-4 rounded-lg mb-6">
-                <p className="text-yellow-800 font-medium text-sm">
-                  "REMOVE IMPEDIMENTS TO LIVING" - Auli Tech's core mission
-                </p>
+              <div className="flex gap-4">
+                <a
+                  href="https://www.auli.tech/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                  Visit Auli Tech Website
+                </a>
+                <a
+                  href="https://films.radiowest.org/film/autonomous"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                >
+                  <Play className="w-5 h-5" />
+                  Watch Spero's Story
+                </a>
               </div>
-              <a
-                href="https://www.auli.tech/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-              >
-                <ExternalLink className="w-5 h-5" />
-                Visit Auli Tech Website
-              </a>
             </div>
             <div className="lg:col-span-5">
               <div className="rounded-2xl overflow-hidden border border-yellow-200 shadow-lg">
@@ -174,29 +180,6 @@ export default function AuliTechPage() {
                     </li>
                   </ul>
                 </div>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="bg-yellow-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-gray-800 mb-2">Skills Taught:</h4>
-                    <ul className="text-gray-700 text-sm space-y-1">
-                      <li>• Synthesia.io platform navigation</li>
-                      <li>• Video scripting and storyboarding</li>
-                      <li>• Marketing content strategy</li>
-                      <li>• YouTube channel management</li>
-                      <li>• Professional presentation skills</li>
-                    </ul>
-                  </div>
-                  <div className="bg-yellow-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-gray-800 mb-2">Outcomes:</h4>
-                    <ul className="text-gray-700 text-sm space-y-1">
-                      <li>• Successful YouTube channel launch</li>
-                      <li>• Professional marketing videos created</li>
-                      <li>• Enhanced digital literacy skills</li>
-                      <li>• Increased confidence in content creation</li>
-                      <li>• Marketable vocational skills developed</li>
-                    </ul>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -216,7 +199,7 @@ export default function AuliTechPage() {
                       className="w-full h-auto object-cover"
                     />
                   </div>
-                  <div className="text-center">
+                  <div className="text-center mb-6">
                     <p className="text-sm text-gray-600 mb-4">
                       "Brooklynn Watson: Thriving on Assistive Tech" - An interview showcasing her journey and the
                       impact of assistive technology on independence.
@@ -231,90 +214,20 @@ export default function AuliTechPage() {
                       Watch on YouTube
                     </a>
                   </div>
+
+                  {/* Project Philosophy - moved from Impact section */}
+                  <div className="bg-white/80 rounded-lg p-4 border border-yellow-200">
+                    <h4 className="font-semibold text-gray-800 mb-3">Project Philosophy</h4>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      This collaboration demonstrated that technology is most powerful when it serves to amplify human
+                      potential and create opportunities for independence, creativity, and professional growth. By
+                      combining assistive technology with vocational skill development, we created a pathway for
+                      meaningful career development in the digital marketing space.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Impact & Learning Outcomes */}
-        <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-10 text-white">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-medium mb-4 flex items-center justify-center gap-2">
-              <Heart className="w-6 h-6 text-yellow-400" />
-              Impact & Personal Growth
-            </h3>
-            <p className="text-slate-300 leading-relaxed max-w-3xl mx-auto">
-              This project exemplified the intersection of technology, education, and human empowerment. Working with a
-              quadriplegic student to develop marketable skills while creating valuable content for the assistive
-              technology community was both professionally and personally transformative.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-              <h4 className="font-semibold mb-4">Student Empowerment</h4>
-              <ul className="text-slate-300 space-y-2 text-sm">
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Developed marketable digital skills
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Built confidence in content creation
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Created professional marketing portfolio
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-              <h4 className="font-semibold mb-4">Community Impact</h4>
-              <ul className="text-slate-300 space-y-2 text-sm">
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Educational content for Cato users
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Increased awareness of assistive tech
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Representation in tech marketing
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-              <h4 className="font-semibold mb-4">Personal Learning</h4>
-              <ul className="text-slate-300 space-y-2 text-sm">
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Inclusive design principles
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Assistive technology applications
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></span>
-                  Mentorship and teaching skills
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-8 bg-white/5 rounded-2xl p-6">
-            <h4 className="font-semibold mb-4 text-center">Project Philosophy</h4>
-            <p className="text-slate-300 text-center leading-relaxed">
-              This collaboration demonstrated that technology is most powerful when it serves to amplify human potential
-              and create opportunities for independence, creativity, and professional growth. By combining assistive
-              technology with vocational skill development, we created a pathway for meaningful career development in
-              the digital marketing space.
-            </p>
           </div>
         </div>
       </div>

@@ -29,8 +29,7 @@ export default function WorkExperiencePage() {
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Professional Experience</h1>
             <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              My professional journey spans innovative companies and organizations, each contributing to my expertise in
-              technology, engineering, and research.
+              My industry experience spans innovative companies and organizations, each contributing to developing my skills in technology, engineering, and research.
             </p>
           </div>
 
@@ -43,10 +42,9 @@ export default function WorkExperiencePage() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-medium text-slate-900 mb-2">Psyonic</h3>
-                  <p className="text-orange-600 font-medium mb-4 text-sm">Prosthetic Technology Research</p>
+                  <p className="text-orange-600 font-medium mb-4 text-sm">Mechatronics Intern </p>
                   <p className="text-slate-600 mb-6 leading-relaxed text-sm">
-                    Contributing to cutting-edge prosthetic technology and neural interface development at a leading
-                    bionic limb company, focusing on user-centered design and advanced control systems.
+                    Contributing to cutting-edge prosthetic technology development at a leading bionic limb company, focusing on user-centered testing and control system fabrication.
                   </p>
                 </div>
                 <div className="mt-auto">
@@ -70,10 +68,9 @@ export default function WorkExperiencePage() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-medium text-slate-900 mb-2">Auli Tech</h3>
-                  <p className="text-blue-600 font-medium mb-4 text-sm">Assistive Technology Development</p>
+                  <p className="text-blue-600 font-medium mb-4 text-sm">Assistive Technology Intern</p>
                   <p className="text-slate-600 mb-6 leading-relaxed text-sm">
-                    Working with innovative assistive technology solutions, contributing to the development of the Cato
-                    device and collaborating on marketing content creation with users.
+                    Worked with innovative assistive technology solutions and collaborated on marketing content creation with users.
                   </p>
                 </div>
                 <div className="mt-auto">

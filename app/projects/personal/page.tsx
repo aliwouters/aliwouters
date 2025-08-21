@@ -121,56 +121,6 @@ export default function PersonalProjectsPage() {
                 </div>
               </div>
             </div>
-
-            {/* Personal Philosophy Section */}
-            <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-10 text-white">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-medium mb-4">Creative Philosophy</h3>
-                <p className="text-slate-300 leading-relaxed max-w-3xl mx-auto">
-                  These personal projects represent my belief that creativity and technical skills are complementary
-                  forces. They provide an outlet for experimentation, learning, and self-expression outside the
-                  constraints of formal research and professional work.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <h4 className="font-semibold mb-4">Creative Process</h4>
-                  <ul className="text-slate-300 space-y-2 text-sm">
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-teal-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Exploration and experimentation
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-teal-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Iterative design and refinement
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-teal-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Integration of art and technology
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <h4 className="font-semibold mb-4">Learning Outcomes</h4>
-                  <ul className="text-slate-300 space-y-2 text-sm">
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Enhanced problem-solving skills
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Cross-disciplinary thinking
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Technical skill diversification
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
