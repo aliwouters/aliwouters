@@ -1,21 +1,14 @@
 "use client"
 
-import React from "react"
-
-import { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Wrench, Lightbulb, Users, Target, Cog, Hammer } from "lucide-react"
 import Image from "next/image"
-import dynamic from "next/dynamic"
+import { Canvas, useFrame } from "@react-three/fiber"
+import { OrbitControls, useGLTF, Html } from "@react-three/drei"
 import * as THREE from "three"
-
-// Dynamically import React Three Fiber components with SSR disabled
-const Canvas = dynamic(() => import("@react-three/fiber").then((mod) => mod.Canvas), { ssr: false })
-const OrbitControls = dynamic(() => import("@react-three/drei").then((mod) => mod.OrbitControls), { ssr: false })
-const useGLTF = dynamic(() => import("@react-three/drei").then((mod) => mod.useGLTF), { ssr: false })
-const Html = dynamic(() => import("@react-three/drei").then((mod) => mod.Html), { ssr: false })
 
 // Loading component for 3D models
 function ModelLoader() {
@@ -29,78 +22,119 @@ function ModelLoader() {
   )
 }
 
-// 3D Pea Model Component
-function ThreeDPeaModel() {
-  const { scene } = useGLTF("/models/3dpea-assembled-design-v2.glb")
-  const [mounted, setMounted] = useState(false)
+// Spindle Sander Guard Model Component with Auto-Rotation
+function SpindleSanderGuardModel() {
+  const { scene } = useGLTF("/models/spindle-sander-guard.glb")
+  const meshRef = useRef<THREE.Group>(null)
+  const [centeredScene, setCenteredScene] = useState<THREE.Object3D | null>(null)
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    if (scene) {
+      // Clone the scene to avoid modifying the original
+      const clonedScene = scene.clone()
 
-  if (!mounted) return null
+      // Calculate bounding box and center the model
+      const box = new THREE.Box3().setFromObject(clonedScene)
+      const center = box.getCenter(new THREE.Vector3())
+      const size = box.getSize(new THREE.Vector3())
 
-  if (!scene || !scene.children || scene.children.length === 0) {
+      // Create a wrapper group to handle centering
+      const wrapper = new THREE.Group()
+
+      // Add the cloned scene to the wrapper
+      wrapper.add(clonedScene)
+
+      // Move the cloned scene so its center is at the wrapper's origin
+      clonedScene.position.copy(center).multiplyScalar(-1)
+
+      // Scale the model to fit nicely
+      const maxDim = Math.max(size.x, size.y, size.z)
+      if (maxDim > 0) {
+        const scale = 3 / maxDim
+        wrapper.scale.setScalar(scale)
+      }
+
+      setCenteredScene(wrapper)
+    }
+  }, [scene])
+
+  // Auto-rotation around the model's center
+  useFrame((state, delta) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += delta * 0.4
+    }
+  })
+
+  if (!centeredScene) {
     return null
   }
 
-  // Calculate bounding box and center the model
-  try {
-    const box = new THREE.Box3().setFromObject(scene)
-    const center = box.getCenter(new THREE.Vector3())
-    const size = box.getSize(new THREE.Vector3())
-
-    // Center the model
-    scene.position.copy(center).multiplyScalar(-1)
-
-    // Scale the model to fit nicely
-    const maxDim = Math.max(size.x, size.y, size.z)
-    const scale = 2 / maxDim
-    scene.scale.setScalar(scale)
-  } catch (error) {
-    console.warn("Error calculating bounding box:", error)
-  }
-
-  return <primitive object={scene} />
+  return (
+    <group ref={meshRef}>
+      <primitive object={centeredScene} />
+    </group>
+  )
 }
 
-// Miter Saw Adapter Model Component
-function MiterSawAdapterModel() {
-  const { scene } = useGLTF("/models/miter-saw-adapter.glb")
-  const [mounted, setMounted] = useState(false)
+// Miter Saw Adapter V2 Model Component with Auto-Rotation
+function MiterSawAdapterV2Model() {
+  const { scene } = useGLTF("/models/miter-saw-adapter-v2.glb")
+  const meshRef = useRef<THREE.Group>(null)
+  const [centeredScene, setCenteredScene] = useState<THREE.Object3D | null>(null)
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    if (scene) {
+      // Clone the scene to avoid modifying the original
+      const clonedScene = scene.clone()
 
-  if (!mounted) return null
+      // Calculate bounding box and center the model
+      const box = new THREE.Box3().setFromObject(clonedScene)
+      const center = box.getCenter(new THREE.Vector3())
+      const size = box.getSize(new THREE.Vector3())
 
-  if (!scene || !scene.children || scene.children.length === 0) {
+      // Create a wrapper group to handle centering
+      const wrapper = new THREE.Group()
+
+      // Add the cloned scene to the wrapper
+      wrapper.add(clonedScene)
+
+      // Move the cloned scene so its center is at the wrapper's origin
+      clonedScene.position.copy(center).multiplyScalar(-1)
+
+      // Scale the model to fit nicely
+      const maxDim = Math.max(size.x, size.y, size.z)
+      if (maxDim > 0) {
+        const scale = 3 / maxDim
+        wrapper.scale.setScalar(scale)
+      }
+
+      // Start the model upside down
+      wrapper.rotation.z = Math.PI
+
+      setCenteredScene(wrapper)
+    }
+  }, [scene])
+
+  // Auto-rotation around the model's center
+  useFrame((state, delta) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += delta * 0.4
+    }
+  })
+
+  if (!centeredScene) {
     return null
   }
 
-  // Calculate bounding box and center the model
-  try {
-    const box = new THREE.Box3().setFromObject(scene)
-    const center = box.getCenter(new THREE.Vector3())
-    const size = box.getSize(new THREE.Vector3())
-
-    // Center the model
-    scene.position.copy(center).multiplyScalar(-1)
-
-    // Scale the model to fit nicely
-    const maxDim = Math.max(size.x, size.y, size.z)
-    const scale = 2 / maxDim
-    scene.scale.setScalar(scale)
-  } catch (error) {
-    console.warn("Error calculating bounding box:", error)
-  }
-
-  return <primitive object={scene} />
+  return (
+    <group ref={meshRef}>
+      <primitive object={centeredScene} />
+    </group>
+  )
 }
 
 // 3D Scene Components
-function ThreeDPeaScene() {
+function SpindleSanderGuardScene() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -109,23 +143,29 @@ function ThreeDPeaScene() {
 
   if (!mounted) {
     return (
-      <div className="w-full h-64 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg flex items-center justify-center">
+      <div className="w-full h-64 bg-blue-100 rounded-lg flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-2"></div>
-          <p className="text-slate-600">Loading 3D Model...</p>
+          <p className="text-blue-700">Loading 3D Model...</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="w-full h-64 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg overflow-hidden">
-      <Canvas camera={{ position: [0, 0, 5], fov: 50 }} onError={(error) => console.error("Canvas error:", error)}>
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} />
-        <pointLight position={[-10, -10, -10]} intensity={0.3} />
+    <div className="w-full h-64 bg-blue-100 rounded-lg overflow-hidden">
+      <Canvas
+        camera={{ position: [0, 0, 3], fov: 60 }}
+        onError={(error) => console.error("Canvas error:", error)}
+        gl={{ antialias: true, alpha: false }}
+      >
+        <color attach="background" args={["#dbeafe"]} />
+        <ambientLight intensity={0.7} />
+        <directionalLight position={[5, 5, 5]} intensity={1.2} />
+        <directionalLight position={[-5, -5, -5]} intensity={0.6} />
+        <pointLight position={[0, 5, 0]} intensity={0.8} />
         <React.Suspense fallback={<ModelLoader />}>
-          <ThreeDPeaModel />
+          <SpindleSanderGuardModel />
         </React.Suspense>
         <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} />
       </Canvas>
@@ -133,7 +173,7 @@ function ThreeDPeaScene() {
   )
 }
 
-function MiterSawAdapterScene() {
+function MiterSawAdapterV2Scene() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -142,23 +182,29 @@ function MiterSawAdapterScene() {
 
   if (!mounted) {
     return (
-      <div className="w-full h-64 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg flex items-center justify-center">
+      <div className="w-full h-64 bg-green-100 rounded-lg flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-2"></div>
-          <p className="text-slate-600">Loading 3D Model...</p>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600 mx-auto mb-2"></div>
+          <p className="text-green-700">Loading 3D Model...</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="w-full h-64 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg overflow-hidden">
-      <Canvas camera={{ position: [0, 0, 5], fov: 50 }} onError={(error) => console.error("Canvas error:", error)}>
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} />
-        <pointLight position={[-10, -10, -10]} intensity={0.3} />
+    <div className="w-full h-64 bg-green-100 rounded-lg overflow-hidden">
+      <Canvas
+        camera={{ position: [0, 0, 3], fov: 60 }}
+        onError={(error) => console.error("Canvas error:", error)}
+        gl={{ antialias: true, alpha: false }}
+      >
+        <color attach="background" args={["#dcfce7"]} />
+        <ambientLight intensity={0.7} />
+        <directionalLight position={[5, 5, 5]} intensity={1.2} />
+        <directionalLight position={[-5, -5, -5]} intensity={0.6} />
+        <pointLight position={[0, 5, 0]} intensity={0.8} />
         <React.Suspense fallback={<ModelLoader />}>
-          <MiterSawAdapterModel />
+          <MiterSawAdapterV2Model />
         </React.Suspense>
         <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} />
       </Canvas>
@@ -242,202 +288,191 @@ export default function MakerspacePage() {
           </CardContent>
         </Card>
 
-        {/* Professional Projects */}
-        <div className="flex flex-col lg:flex-row gap-8 mb-8">
-          <div className="flex-1">
-            <Card className="border-orange-100 shadow-lg h-full">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-xl">
-                  <Cog className="w-5 h-5 text-orange-500" />
-                  Examples of Professional Makerspace Projects
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-6">
-                  {/* 3D Pea Project */}
-                  <div className="bg-orange-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-gray-800 mb-2">3D Pea - Assistive Technology Device</h4>
-                    <div className="mb-4">
-                      <ThreeDPeaScene />
+        {/* Professional Projects - Full Width */}
+        <Card className="border-orange-100 shadow-lg mb-8">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-2xl">
+              <Cog className="w-6 h-6 text-orange-500" />
+              Examples of Professional Makerspace Projects
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-6">
+              {/* 3D Interactive Projects Grid */}
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-orange-50 p-6 rounded-lg">
+                  <h4 className="font-semibold text-gray-800 text-lg mb-4">Spindle Sander Guard</h4>
+                  <div className="mb-4">
+                    <SpindleSanderGuardScene />
+                  </div>
+                  <p className="text-gray-700 text-sm mb-4">
+                    Custom safety guard designed for the spindle sander to improve user protection while maintaining
+                    full functionality and visibility during operation. This project demonstrates advanced CAD design
+                    and safety engineering principles.
+                  </p>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="bg-white p-3 rounded text-center">
+                      <p className="text-sm text-gray-600 font-medium">Enhanced Safety</p>
+                      <p className="text-xs text-gray-500">Improved user protection</p>
                     </div>
-                    <p className="text-gray-700 text-sm mb-3">
-                      Collaborated on the development of an innovative assistive technology device designed to help
-                      individuals with limited mobility. The 3D Pea represents a breakthrough in accessible design,
-                      combining ergonomic principles with advanced manufacturing techniques.
-                    </p>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-white p-3 rounded">
-                        <h5 className="font-medium text-gray-800 text-sm mb-1">Technical Contributions:</h5>
-                        <ul className="text-xs text-gray-600 space-y-1">
-                          <li>• 3D modeling and prototyping</li>
-                          <li>• Material selection and testing</li>
-                          <li>• Manufacturing process optimization</li>
-                        </ul>
-                      </div>
-                      <div className="bg-white p-3 rounded">
-                        <h5 className="font-medium text-gray-800 text-sm mb-1">Impact:</h5>
-                        <ul className="text-xs text-gray-600 space-y-1">
-                          <li>• Improved accessibility for users</li>
-                          <li>• Cost-effective manufacturing</li>
-                          <li>• Scalable design solution</li>
-                        </ul>
-                      </div>
+                    <div className="bg-white p-3 rounded text-center">
+                      <p className="text-sm text-gray-600 font-medium">Custom Fit</p>
+                      <p className="text-xs text-gray-500">Precision engineered</p>
                     </div>
                   </div>
+                </div>
 
-                  {/* Miter Saw Adapter */}
-                  <div className="bg-orange-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-gray-800 mb-2">Precision Miter Saw Adapter</h4>
-                    <div className="mb-4">
-                      <MiterSawAdapterScene />
+                <div className="bg-orange-50 p-6 rounded-lg">
+                  <h4 className="font-semibold text-gray-800 text-lg mb-4">Miter Saw Adapter</h4>
+                  <div className="mb-4">
+                    <MiterSawAdapterV2Scene />
+                  </div>
+                  <p className="text-gray-700 text-sm mb-4">
+                    Precision adapter designed to enhance the versatility and accuracy of the miter saw for specialized
+                    cutting operations and improved workshop efficiency. Features modular design for multiple
+                    applications.
+                  </p>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="bg-white p-3 rounded text-center">
+                      <p className="text-sm text-gray-600 font-medium">Precision Cuts</p>
+                      <p className="text-xs text-gray-500">Enhanced accuracy</p>
                     </div>
-                    <p className="text-gray-700 text-sm mb-3">
-                      Designed and manufactured a custom adapter to enhance the precision and versatility of the
-                      makerspace's miter saw. This project demonstrates advanced problem-solving skills and the ability
-                      to create practical solutions for workshop efficiency.
-                    </p>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-white p-3 rounded">
-                        <h5 className="font-medium text-gray-800 text-sm mb-1">Engineering Process:</h5>
-                        <ul className="text-xs text-gray-600 space-y-1">
-                          <li>• Problem identification and analysis</li>
-                          <li>• CAD design and simulation</li>
-                          <li>• Iterative prototyping and testing</li>
-                        </ul>
-                      </div>
-                      <div className="bg-white p-3 rounded">
-                        <h5 className="font-medium text-gray-800 text-sm mb-1">Results:</h5>
-                        <ul className="text-xs text-gray-600 space-y-1">
-                          <li>• Increased cutting precision</li>
-                          <li>• Enhanced user safety</li>
-                          <li>• Improved workflow efficiency</li>
-                        </ul>
-                      </div>
+                    <div className="bg-white p-3 rounded text-center">
+                      <p className="text-sm text-gray-600 font-medium">Versatile Setup</p>
+                      <p className="text-xs text-gray-500">Multiple configurations</p>
                     </div>
                   </div>
+                </div>
+              </div>
 
-                  {/* Additional Professional Projects */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white p-3 rounded-lg border border-orange-200">
-                      <div className="h-40 bg-gradient-to-br from-red-100 to-orange-100 rounded mb-3 overflow-hidden">
-                        <Image
-                          src="/images/professional-red-organizer.jpeg"
-                          alt="Custom red tool organizer with multiple compartments for workshop organization"
-                          width={200}
-                          height={160}
-                          className="w-full h-full object-cover"
-                        />
+              {/* Additional Professional Projects */}
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-white p-4 rounded-lg border border-orange-200">
+                  <div className="h-32 bg-gradient-to-br from-red-100 to-orange-100 rounded mb-3 overflow-hidden">
+                    <Image
+                      src="/images/professional-red-organizer.jpeg"
+                      alt="Custom red tool organizer with multiple compartments for workshop organization"
+                      width={400}
+                      height={160}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h5 className="font-medium text-gray-800 text-base mb-2">Workshop Organization System</h5>
+                  <p className="text-sm text-gray-600">
+                    Custom tool organizers designed to optimize workspace efficiency and tool accessibility. Features
+                    modular compartments and color-coded sections for improved workflow.
+                  </p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border border-orange-200">
+                  <div className="h-32 bg-gradient-to-br from-blue-100 to-purple-100 rounded mb-3 overflow-hidden">
+                    <Image
+                      src="/images/professional-ironing-setup.jpeg"
+                      alt="Professional ironing and fabric preparation station setup in makerspace"
+                      width={400}
+                      height={160}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h5 className="font-medium text-gray-800 text-base mb-2">Textile Processing Station</h5>
+                  <p className="text-sm text-gray-600">
+                    Specialized setup for fabric preparation and textile project support in the makerspace. Includes
+                    temperature control and safety features for various fabric types.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Workshop Projects - Full Width */}
+        <Card className="border-orange-100 shadow-lg mb-8">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-2xl">
+              <Hammer className="w-6 h-6 text-orange-500" />
+              Workshop & Teaching Projects
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-6">
+              <div className="bg-orange-50 p-6 rounded-lg">
+                <h4 className="font-semibold text-gray-800 text-lg mb-4">Educational Workshop Development</h4>
+                <p className="text-gray-700 mb-6">
+                  Designed and led hands-on workshops to teach students fundamental making skills, from basic tool
+                  safety to advanced fabrication techniques. These workshops foster creativity while building practical
+                  technical competencies.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div className="bg-white p-4 rounded-lg border border-orange-200">
+                    <div className="h-32 bg-gradient-to-br from-amber-100 to-yellow-100 rounded mb-3 overflow-hidden">
+                      <Image
+                        src="/images/workshop-wooden-maze.jpeg"
+                        alt="Handcrafted wooden maze puzzle demonstrating precision woodworking techniques"
+                        width={400}
+                        height={160}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="font-medium text-gray-800 text-base mb-2">Precision Woodworking</h5>
+                    <p className="text-sm text-gray-600">
+                      Teaching traditional joinery and precision cutting techniques through engaging puzzle projects
+                      that combine craftsmanship with problem-solving skills.
+                    </p>
+                  </div>
+                  <div className="bg-white p-4 rounded-lg border border-orange-200">
+                    <div className="h-32 bg-gradient-to-br from-blue-100 to-indigo-100 rounded mb-3 overflow-hidden">
+                      <Image
+                        src="/images/workshop-snoopy-tote-bag.jpeg"
+                        alt="Custom Snoopy-themed tote bag showcasing textile design and printing techniques"
+                        width={400}
+                        height={160}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h5 className="font-medium text-gray-800 text-base mb-2">Textile Design Workshop</h5>
+                    <p className="text-sm text-gray-600">
+                      Combining digital design with traditional textile techniques for custom apparel creation,
+                      including screen printing and heat transfer methods.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 rounded-lg border border-orange-200">
+                  <h5 className="font-medium text-gray-800 text-lg mb-4">Workshop Impact & Outcomes:</h5>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-orange-200 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <Users className="w-6 h-6 text-orange-700" />
                       </div>
-                      <h5 className="font-medium text-gray-800 text-sm mb-1">Workshop Organization System</h5>
-                      <p className="text-xs text-gray-600">
-                        Custom tool organizers designed to optimize workspace efficiency and tool accessibility
+                      <p className="text-sm text-gray-700 font-medium mb-1">Student Engagement</p>
+                      <p className="text-sm text-gray-600">
+                        High participation and skill retention rates across all workshop sessions
                       </p>
                     </div>
-                    <div className="bg-white p-3 rounded-lg border border-orange-200">
-                      <div className="h-40 bg-gradient-to-br from-blue-100 to-purple-100 rounded mb-3 overflow-hidden">
-                        <Image
-                          src="/images/professional-ironing-setup.jpeg"
-                          alt="Professional ironing and fabric preparation station setup in makerspace"
-                          width={200}
-                          height={160}
-                          className="w-full h-full object-cover"
-                        />
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-orange-200 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <Lightbulb className="w-6 h-6 text-orange-700" />
                       </div>
-                      <h5 className="font-medium text-gray-800 text-sm mb-1">Textile Processing Station</h5>
-                      <p className="text-xs text-gray-600">
-                        Specialized setup for fabric preparation and textile project support in the makerspace
+                      <p className="text-sm text-gray-700 font-medium mb-1">Innovation</p>
+                      <p className="text-sm text-gray-600">
+                        Creative problem-solving development through hands-on projects
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-orange-200 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <Target className="w-6 h-6 text-orange-700" />
+                      </div>
+                      <p className="text-sm text-gray-700 font-medium mb-1">Skill Building</p>
+                      <p className="text-sm text-gray-600">
+                        Practical technical competency growth in fabrication technologies
                       </p>
                     </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Workshop Projects */}
-          <div className="flex-1">
-            <Card className="border-orange-100 shadow-lg h-full">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-xl">
-                  <Hammer className="w-5 h-5 text-orange-500" />
-                  Workshop & Teaching Projects
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-6">
-                  <div className="bg-orange-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-gray-800 mb-3">Educational Workshop Development</h4>
-                    <p className="text-gray-700 text-sm mb-4">
-                      Designed and led hands-on workshops to teach students fundamental making skills, from basic tool
-                      safety to advanced fabrication techniques. These workshops foster creativity while building
-                      practical technical competencies.
-                    </p>
-
-                    <div className="grid grid-cols-2 gap-4 mb-4">
-                      <div className="bg-white p-3 rounded-lg border border-orange-200">
-                        <div className="h-40 bg-gradient-to-br from-amber-100 to-yellow-100 rounded mb-3 overflow-hidden">
-                          <Image
-                            src="/images/workshop-wooden-maze.jpeg"
-                            alt="Handcrafted wooden maze puzzle demonstrating precision woodworking techniques"
-                            width={200}
-                            height={160}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <h5 className="font-medium text-gray-800 text-sm mb-1">Precision Woodworking</h5>
-                        <p className="text-xs text-gray-600">
-                          Teaching traditional joinery and precision cutting techniques through engaging puzzle projects
-                        </p>
-                      </div>
-                      <div className="bg-white p-3 rounded-lg border border-orange-200">
-                        <div className="h-40 bg-gradient-to-br from-blue-100 to-indigo-100 rounded mb-3 overflow-hidden">
-                          <Image
-                            src="/images/workshop-snoopy-tote-bag.jpeg"
-                            alt="Custom Snoopy-themed tote bag showcasing textile design and printing techniques"
-                            width={200}
-                            height={160}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <h5 className="font-medium text-gray-800 text-sm mb-1">Textile Design Workshop</h5>
-                        <p className="text-xs text-gray-600">
-                          Combining digital design with traditional textile techniques for custom apparel creation
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="bg-white p-4 rounded-lg border border-orange-200">
-                      <h5 className="font-medium text-gray-800 mb-2">Workshop Impact & Outcomes:</h5>
-                      <div className="grid md:grid-cols-3 gap-4">
-                        <div className="text-center">
-                          <div className="w-8 h-8 bg-orange-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                            <Users className="w-4 h-4 text-orange-700" />
-                          </div>
-                          <p className="text-xs text-gray-700 font-medium">Student Engagement</p>
-                          <p className="text-xs text-gray-600">High participation and skill retention rates</p>
-                        </div>
-                        <div className="text-center">
-                          <div className="w-8 h-8 bg-orange-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                            <Lightbulb className="w-4 h-4 text-orange-700" />
-                          </div>
-                          <p className="text-xs text-gray-700 font-medium">Innovation</p>
-                          <p className="text-xs text-gray-600">Creative problem-solving development</p>
-                        </div>
-                        <div className="text-center">
-                          <div className="w-8 h-8 bg-orange-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                            <Target className="w-4 h-4 text-orange-700" />
-                          </div>
-                          <p className="text-xs text-gray-700 font-medium">Skill Building</p>
-                          <p className="text-xs text-gray-600">Practical technical competency growth</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Personal Projects */}
         <Card className="border-orange-100 shadow-lg">
@@ -455,7 +490,7 @@ export default function MakerspacePage() {
 
             <div className="grid md:grid-cols-4 gap-4">
               <div className="bg-orange-50 p-4 rounded-lg">
-                <div className="h-40 bg-gradient-to-br from-purple-100 to-pink-100 rounded mb-3 overflow-hidden">
+                <div className="h-32 bg-gradient-to-br from-purple-100 to-pink-100 rounded mb-3 overflow-hidden">
                   <Image
                     src="/images/personal-vase-flowers.jpeg"
                     alt="3D printed decorative vase with fresh flowers showcasing artistic design capabilities"
@@ -472,7 +507,7 @@ export default function MakerspacePage() {
               </div>
 
               <div className="bg-orange-50 p-4 rounded-lg">
-                <div className="h-40 bg-gradient-to-br from-blue-100 to-cyan-100 rounded mb-3 overflow-hidden">
+                <div className="h-32 bg-gradient-to-br from-blue-100 to-cyan-100 rounded mb-3 overflow-hidden">
                   <Image
                     src="/images/personal-cyanotype.jpeg"
                     alt="Cyanotype photography print showing botanical subjects in classic blue and white"
@@ -489,7 +524,7 @@ export default function MakerspacePage() {
               </div>
 
               <div className="bg-orange-50 p-4 rounded-lg">
-                <div className="h-40 bg-gradient-to-br from-amber-100 to-orange-100 rounded mb-3 overflow-hidden">
+                <div className="h-32 bg-gradient-to-br from-amber-100 to-orange-100 rounded mb-3 overflow-hidden">
                   <Image
                     src="/images/personal-wooden-frame.jpeg"
                     alt="Precision-crafted wooden frame demonstrating advanced joinery and finishing techniques"
@@ -506,7 +541,7 @@ export default function MakerspacePage() {
               </div>
 
               <div className="bg-orange-50 p-4 rounded-lg">
-                <div className="h-40 bg-gradient-to-br from-red-100 to-pink-100 rounded mb-3 overflow-hidden">
+                <div className="h-32 bg-gradient-to-br from-red-100 to-pink-100 rounded mb-3 overflow-hidden">
                   <Image
                     src="/images/personal-knife-box.jpeg"
                     alt="Handcrafted wooden knife storage box showing attention to detail and craftsmanship"
