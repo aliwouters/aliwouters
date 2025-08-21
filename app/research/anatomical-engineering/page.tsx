@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Microscope, Cog, Zap, ExternalLink, ArrowRight, Play, Database, BarChart3 } from "lucide-react"
+import { ArrowLeft, Microscope, Cog, Zap, ExternalLink, ArrowRight, Database, BarChart3 } from "lucide-react"
 import Image from "next/image"
 
 export default function AnatomicalEngineeringPage() {
@@ -213,13 +213,10 @@ export default function AnatomicalEngineeringPage() {
                       <p className="text-gray-600 text-sm">4 Degrees of Freedom</p>
                     </div>
                   </div>
-                  <p className="text-gray-600 text-sm mb-4">
-                    Revolutionary bioelectric control system using muscle activation signals to control robotic tentacle
-                    movement through EMG sensors.
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <Play className="w-4 h-4 text-purple-600" />
-                    <span className="text-purple-600 text-sm font-medium">Video Demonstration Available</span>
+                  <div className="w-full aspect-square bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg overflow-hidden">
+                    <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8548%20%281%29%20%281%29-MlreCKkora0uV8xwCSDLJF12gwuuBQ.mov" type="video/mp4" />
+                    </video>
                   </div>
                 </div>
 
@@ -234,13 +231,10 @@ export default function AnatomicalEngineeringPage() {
                       <p className="text-gray-600 text-sm">4 Degrees of Freedom</p>
                     </div>
                   </div>
-                  <p className="text-gray-600 text-sm mb-4">
-                    Interactive control system with real-time joystick input for precise tentacle manipulation and
-                    directional control.
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <Microscope className="w-4 h-4 text-blue-600" />
-                    <span className="text-blue-600 text-sm font-medium">3D Model & Video Available</span>
+                  <div className="w-full aspect-square bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg overflow-hidden">
+                    <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8708%20%281%29%20%281%29-6XERDZOozF1rQ4f0PfkvZ2jiI6UteT.mov" type="video/mp4" />
+                    </video>
                   </div>
                 </div>
 
@@ -255,13 +249,10 @@ export default function AnatomicalEngineeringPage() {
                       <p className="text-gray-600 text-sm">2 Degrees of Freedom</p>
                     </div>
                   </div>
-                  <p className="text-gray-600 text-sm mb-4">
-                    Advanced tentacle mechanism with dual-axis movement capabilities using spring steel backbone and
-                    cable actuation.
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <Microscope className="w-4 h-4 text-teal-600" />
-                    <span className="text-teal-600 text-sm font-medium">Interactive 3D Model</span>
+                  <div className="w-full aspect-square bg-gradient-to-br from-teal-100 to-cyan-100 rounded-lg overflow-hidden">
+                    <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7860%20%282%29-wxcQvPYv1hMPpIlkFcQ2IW1ujByjLo.mov" type="video/mp4" />
+                    </video>
                   </div>
                 </div>
 
@@ -276,13 +267,10 @@ export default function AnatomicalEngineeringPage() {
                       <p className="text-gray-600 text-sm">1 Degree of Freedom</p>
                     </div>
                   </div>
-                  <p className="text-gray-600 text-sm mb-4">
-                    Bio-inspired finger mechanism with cable-driven actuation using heat-formed nylon tubing and Kevlar
-                    cables.
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <Play className="w-4 h-4 text-green-600" />
-                    <span className="text-green-600 text-sm font-medium">Multiple Video Demos</span>
+                  <div className="w-full aspect-square bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg overflow-hidden">
+                    <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7386%20%281%29%20%281%29-tTGxmk0YDG9P0hq8QbpGYG9SFunSJF.mov" type="video/mp4" />
+                    </video>
                   </div>
                 </div>
               </div>

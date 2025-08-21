@@ -108,7 +108,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                   <h4 className="font-semibold text-gray-800 mb-4">Project Documentation</h4>
                   <div className="w-full h-80 bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg overflow-hidden mb-4 flex items-center justify-center">
                     <video autoPlay loop muted playsInline className="w-full h-full object-cover rounded-lg">
-                      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8548%20%281%29%20%281%29-ctq7iUDmuLMabHZdj3EHF93exN1NJO.mov" type="video/mp4" />
+                      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8548%20%281%29%20%281%29-MlreCKkora0uV8xwCSDLJF12gwuuBQ.mov" type="video/mp4" />
                     </video>
                   </div>
                   <div className="text-center">
@@ -232,7 +232,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                   <h4 className="font-semibold text-gray-800 mb-4">Project Documentation</h4>
                   <div className="w-full h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg overflow-hidden mb-4 flex items-center justify-center">
                     <video autoPlay loop muted playsInline className="w-full h-full object-cover rounded-lg">
-                      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8708%20%281%29%20%281%29-cedTqu9picgFLNWYYO03DCUraHrVaM.mov" type="video/mp4" />
+                      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8708%20%281%29%20%281%29-6XERDZOozF1rQ4f0PfkvZ2jiI6UteT.mov" type="video/mp4" />
                     </video>
                   </div>
                   <div className="text-center">

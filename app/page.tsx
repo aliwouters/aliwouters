@@ -35,7 +35,7 @@ const featuredProjects = [
     title: "Analog Joystick Controlled Tentacle with 4 Degrees of Freedom",
     description:
       "Advanced tentacle system with analog joystick control for intuitive real-time manipulation across four independent degrees of freedom",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8708%20%281%29%20%281%29-cedTqu9picgFLNWYYO03DCUraHrVaM.mov",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8708%20%281%29%20%281%29-6XERDZOozF1rQ4f0PfkvZ2jiI6UteT.mov",
     link: "/research/anatomical-engineering#analog-joystick-4-degrees-of-freedom",
     category: "Anatomical Engineering",
     isVideo: true,
@@ -46,7 +46,7 @@ const featuredProjects = [
     title: "Binary EMG Controlled Tentacle with 4 Degrees of Freedom",
     description:
       "Revolutionary biomedical interface using electromyography sensors to control robotic tentacle movement through muscle contractions",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8548%20%281%29%20%281%29-ctq7iUDmuLMabHZdj3EHF93exN1NJO.mov",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8548%20%281%29%20%281%29-MlreCKkora0uV8xwCSDLJF12gwuuBQ.mov",
     link: "/research/anatomical-engineering#binary-emg-4-degrees-of-freedom",
     category: "Anatomical Engineering",
     isVideo: true,
