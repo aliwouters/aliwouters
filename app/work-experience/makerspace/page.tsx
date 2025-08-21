@@ -348,12 +348,12 @@ export default function MakerspacePage() {
               {/* Additional Professional Projects */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white p-4 rounded-lg border border-orange-200">
-                  <div className="h-32 bg-gradient-to-br from-red-100 to-orange-100 rounded mb-3 overflow-hidden">
+                  <div className="aspect-square bg-gradient-to-br from-red-100 to-orange-100 rounded mb-3 overflow-hidden">
                     <Image
                       src="/images/professional-red-organizer.jpeg"
                       alt="Custom red tool organizer with multiple compartments for workshop organization"
-                      width={400}
-                      height={160}
+                      width={300}
+                      height={300}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -364,12 +364,12 @@ export default function MakerspacePage() {
                   </p>
                 </div>
                 <div className="bg-white p-4 rounded-lg border border-orange-200">
-                  <div className="h-32 bg-gradient-to-br from-blue-100 to-purple-100 rounded mb-3 overflow-hidden">
+                  <div className="aspect-square bg-gradient-to-br from-blue-100 to-purple-100 rounded mb-3 overflow-hidden">
                     <Image
                       src="/images/professional-ironing-setup.jpeg"
                       alt="Professional ironing and fabric preparation station setup in makerspace"
-                      width={400}
-                      height={160}
+                      width={300}
+                      height={300}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -404,12 +404,12 @@ export default function MakerspacePage() {
 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div className="bg-white p-4 rounded-lg border border-orange-200">
-                    <div className="h-32 bg-gradient-to-br from-amber-100 to-yellow-100 rounded mb-3 overflow-hidden">
+                    <div className="aspect-square bg-gradient-to-br from-amber-100 to-yellow-100 rounded mb-3 overflow-hidden">
                       <Image
                         src="/images/workshop-wooden-maze.jpeg"
                         alt="Handcrafted wooden maze puzzle demonstrating precision woodworking techniques"
-                        width={400}
-                        height={160}
+                        width={300}
+                        height={300}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -420,12 +420,12 @@ export default function MakerspacePage() {
                     </p>
                   </div>
                   <div className="bg-white p-4 rounded-lg border border-orange-200">
-                    <div className="h-32 bg-gradient-to-br from-blue-100 to-indigo-100 rounded mb-3 overflow-hidden">
+                    <div className="aspect-square bg-gradient-to-br from-blue-100 to-indigo-100 rounded mb-3 overflow-hidden">
                       <Image
                         src="/images/workshop-snoopy-tote-bag.jpeg"
                         alt="Custom Snoopy-themed tote bag showcasing textile design and printing techniques"
-                        width={400}
-                        height={160}
+                        width={300}
+                        height={300}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -490,12 +490,12 @@ export default function MakerspacePage() {
 
             <div className="grid md:grid-cols-4 gap-4">
               <div className="bg-orange-50 p-4 rounded-lg">
-                <div className="h-32 bg-gradient-to-br from-purple-100 to-pink-100 rounded mb-3 overflow-hidden">
+                <div className="aspect-square bg-gradient-to-br from-purple-100 to-pink-100 rounded mb-3 overflow-hidden">
                   <Image
                     src="/images/personal-vase-flowers.jpeg"
                     alt="3D printed decorative vase with fresh flowers showcasing artistic design capabilities"
                     width={200}
-                    height={160}
+                    height={200}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -507,12 +507,12 @@ export default function MakerspacePage() {
               </div>
 
               <div className="bg-orange-50 p-4 rounded-lg">
-                <div className="h-32 bg-gradient-to-br from-blue-100 to-cyan-100 rounded mb-3 overflow-hidden">
+                <div className="aspect-square bg-gradient-to-br from-blue-100 to-cyan-100 rounded mb-3 overflow-hidden">
                   <Image
                     src="/images/personal-cyanotype.jpeg"
                     alt="Cyanotype photography print showing botanical subjects in classic blue and white"
                     width={200}
-                    height={160}
+                    height={200}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -524,12 +524,12 @@ export default function MakerspacePage() {
               </div>
 
               <div className="bg-orange-50 p-4 rounded-lg">
-                <div className="h-32 bg-gradient-to-br from-amber-100 to-orange-100 rounded mb-3 overflow-hidden">
+                <div className="aspect-square bg-gradient-to-br from-amber-100 to-orange-100 rounded mb-3 overflow-hidden">
                   <Image
                     src="/images/personal-wooden-frame.jpeg"
                     alt="Precision-crafted wooden frame demonstrating advanced joinery and finishing techniques"
                     width={200}
-                    height={160}
+                    height={200}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -541,12 +541,12 @@ export default function MakerspacePage() {
               </div>
 
               <div className="bg-orange-50 p-4 rounded-lg">
-                <div className="h-32 bg-gradient-to-br from-red-100 to-pink-100 rounded mb-3 overflow-hidden">
+                <div className="aspect-square bg-gradient-to-br from-red-100 to-pink-100 rounded mb-3 overflow-hidden">
                   <Image
                     src="/images/personal-knife-box.jpeg"
                     alt="Handcrafted wooden knife storage box showing attention to detail and craftsmanship"
                     width={200}
-                    height={160}
+                    height={200}
                     className="w-full h-full object-cover"
                   />
                 </div>
