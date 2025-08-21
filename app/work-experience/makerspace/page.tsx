@@ -550,60 +550,6 @@ export default function MakerspacePage() {
                   </p>
                 </div>
               </div>
-
-              <div className="mt-6 bg-teal-50 p-4 rounded-lg">
-                <p className="text-teal-800 text-sm">
-                  <strong>Note:</strong> Personal projects allow me to stay current with new fabrication techniques,
-                  test equipment limits, and develop creative solutions that often inform my professional work with
-                  students.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Impact & Skills Development */}
-          <Card className="border-green-100 shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl">Impact & Professional Development</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                My role as Makerspace Technician has developed my technical expertise while allowing me to foster
-                creativity and innovation in the student community. This position bridges technical skills with
-                educational mentorship, creating an environment where learning and making intersect.
-              </p>
-
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-green-50 p-6 rounded-lg text-center">
-                  <div className="w-12 h-12 bg-green-200 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Users className="w-6 h-6 text-green-700" />
-                  </div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Student Mentorship</h4>
-                  <p className="text-gray-600 text-sm">
-                    Guiding hundreds of students through project realization and technical skill development
-                  </p>
-                </div>
-
-                <div className="bg-green-50 p-6 rounded-lg text-center">
-                  <div className="w-12 h-12 bg-green-200 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Settings className="w-6 h-6 text-green-700" />
-                  </div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Technical Mastery</h4>
-                  <p className="text-gray-600 text-sm">
-                    Comprehensive expertise across digital fabrication and traditional workshop tools
-                  </p>
-                </div>
-
-                <div className="bg-green-50 p-6 text-center">
-                  <div className="w-12 h-12 bg-green-200 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Lightbulb className="w-6 h-6 text-green-700" />
-                  </div>
-                  <h4 className="font-medium text-gray-800 mb-2">Innovation Culture</h4>
-                  <p className="text-gray-600 text-sm">
-                    Creating an environment where creative problem-solving and hands-on learning thrive
-                  </p>
-                </div>
-              </div>
             </CardContent>
           </Card>
         </div>
