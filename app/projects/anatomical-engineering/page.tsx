@@ -80,7 +80,7 @@ export default function AnatomicalEngineeringProjectsPage() {
               <div className="flex-1">
                 <h3 className="text-lg font-semibold">Analog EMG Controlled Tentacle with 4 Degrees of Freedom</h3>
                 <p className="text-gray-200 text-sm">
-                  Next-generation continuous control system with proportional muscle activation
+                  Continuous control system with proportional muscle activation
                 </p>
               </div>
               <div className="px-3 py-1 bg-white/20 rounded-full text-xs font-medium">Coming Soon</div>
@@ -97,7 +97,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                 Binary EMG Controlled Tentacle with 4 Degrees of Freedom
               </CardTitle>
               <p className="text-purple-100 mt-2">
-                Revolutionary bioelectric control system using muscle activation signals
+                Binary bioelectric control system using muscle activation signals
               </p>
             </CardHeader>
             <CardContent className="p-8">
@@ -123,7 +123,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                     <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
                       <h5 className="font-semibold text-gray-800 mb-2">EMG Control System</h5>
                       <p className="text-gray-600 text-sm">
-                        This innovative system uses electromyography (EMG) sensors to detect muscle contractions,
+                        This system uses electromyography (EMG) sensors to detect muscle contractions,
                         converting biological signals into digital control commands for the tentacle.
                       </p>
                     </div>
@@ -145,7 +145,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                   <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
                     <h6 className="font-medium text-gray-700 mb-2">Assistive Devices</h6>
                     <p className="text-gray-600 text-sm">
-                      Revolutionary applications in assistive technology for individuals with mobility limitations.
+                      Assistive technology for individuals with mobility limitations.
                     </p>
                   </div>
                   <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
@@ -157,7 +157,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                   <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
                     <h6 className="font-medium text-gray-700 mb-2">Rehabilitation</h6>
                     <p className="text-gray-600 text-sm">
-                      Innovative rehabilitation tools for motor function recovery and therapy applications.
+                      Rehabilitation tools for motor function recovery and therapy applications.
                     </p>
                   </div>
                 </div>
@@ -290,7 +290,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                 <Cog className="w-6 h-6" />
                 Actuated Cable Driven Tentacle with 2 Degrees of Freedom
               </CardTitle>
-              <p className="text-teal-100 mt-2">Advanced tentacle mechanism with dual-axis movement capabilities</p>
+              <p className="text-teal-100 mt-2">Tentacle mechanism with counter pulling capabilities</p>
             </CardHeader>
             <CardContent className="p-8">
               {/* 3D Model and Video - Equal width side by side */}
@@ -460,7 +460,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                       />
                     </video>
                     <div className="p-2">
-                      <p className="text-xs text-gray-700 font-medium">Production</p>
+                      <p className="text-xs text-gray-700 font-medium">Replication</p>
                     </div>
                   </div>
 

@@ -330,13 +330,21 @@ export default function ResumePage() {
             </p>
             <div className="flex gap-4">
               <Button asChild className="bg-blue-600 hover:bg-blue-700">
-                <a href="/documents/alizee-wouters-resume.pdf" download className="flex items-center gap-2">
+                <a
+                  href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8548%20%281%29%20%281%29-MlreCKkora0uV8xwCSDLJF12gwuuBQ.mov"
+                  download="Alizee-Wouters-Resume.pdf"
+                  className="flex items-center gap-2"
+                >
                   <Download className="w-4 h-4" />
                   Download Resume (PDF)
                 </a>
               </Button>
               <Button asChild variant="outline" className="border-blue-300 bg-transparent">
-                <a href="/documents/ucla-transcript.pdf" download className="flex items-center gap-2">
+                <a
+                  href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7386%20%281%29%20%281%29-tTGxmk0YDG9P0hq8QbpGYG9SFunSJF.mov"
+                  download="UCLA-Transcript-Alizee-Wouters.pdf"
+                  className="flex items-center gap-2"
+                >
                   <Download className="w-4 h-4" />
                   Academic Transcript
                 </a>
