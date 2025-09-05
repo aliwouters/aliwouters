@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -9,50 +9,6 @@ import { Mail, Linkedin, ExternalLink, ArrowRight, Check, ChevronLeft, ChevronRi
 import AnimatedBackground from "@/components/AnimatedBackground"
 
 const featuredProjects = [
-  {
-    id: 1,
-    title: "1 Degree of Freedom Tentacle",
-    description: "Bio-inspired soft robotics with single-axis actuation for precise manipulation tasks",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7386%20%281%29%20%281%29-NxdSxlxVzRa6VgKxLDQbu8lFqasnoL.mov",
-    link: "/research/anatomical-engineering#1-degree-of-freedom",
-    category: "Anatomical Engineering",
-    isVideo: true,
-    caption: "Full Hand Demonstration",
-  },
-  {
-    id: 2,
-    title: "Pilot Study on the Impact of Proprioception on Referred Control",
-    description:
-      "Research investigating how control mapping between human and referred degrees of freedom affects myoelectric neuromuscular control performance using antagonistic muscle pairs for intuitive robotic device operation",
-    image: "/images/proprioception-referred-control-study.jpeg",
-    link: "/research/anatomical-engineering#research-publications",
-    category: "Research Publication",
-    isImage: true,
-    caption: "UCLA Research Poster",
-  },
-  {
-    id: 3,
-    title: "Analog Joystick Controlled Tentacle with 4 Degrees of Freedom",
-    description:
-      "Advanced tentacle system with analog joystick control for intuitive real-time manipulation across four independent degrees of freedom",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8708%20%281%29%20%281%29-6XERDZOozF1rQ4f0PfkvZ2jiI6UteT.mov",
-    link: "/research/anatomical-engineering#analog-joystick-4-degrees-of-freedom",
-    category: "Anatomical Engineering",
-    isVideo: true,
-    caption: "Analog Joystick Control Demonstration",
-  },
-  {
-    id: 4,
-    title: "Binary EMG Controlled Tentacle with 4 Degrees of Freedom",
-    description:
-      "Revolutionary biomedical interface using electromyography sensors to control robotic tentacle movement through muscle contractions",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8548%20%281%29%20%281%29-MlreCKkora0uV8xwCSDLJF12gwuuBQ.mov",
-    link: "/research/anatomical-engineering#binary-emg-4-degrees-of-freedom",
-    category: "Anatomical Engineering",
-    isVideo: true,
-    caption: "Binary EMG Control Demonstration",
-  },
   {
     id: 5,
     title: "Visualizing High-Dimensional Data with t-SNE",
@@ -64,20 +20,55 @@ const featuredProjects = [
     isImage: true,
     caption: "t-SNE Visualization Results",
   },
+  {
+    id: 4,
+    title: "Binary EMG Controlled Tentacle with 4 Degrees of Freedom",
+    description:
+      "Revolutionary biomedical interface using electromyography sensors to control robotic tentacle movement through muscle contractions",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8548%20%281%29%20%281%29-MlreCKkora0uV8xwCSDLJF12gwuuBQ.mov",
+    link: "/projects/anatomical-engineering",
+    category: "Anatomical Engineering",
+    isVideo: true,
+    caption: "Binary EMG Control Demonstration",
+  },
+  {
+    id: 3,
+    title: "Analog Joystick Controlled Tentacle with 4 Degrees of Freedom",
+    description:
+      "Advanced tentacle system with analog joystick control for intuitive real-time manipulation across four independent degrees of freedom",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8708%20%281%29%20%281%29-6XERDZOozF1rQ4f0PfkvZ2jiI6UteT.mov",
+    link: "/projects/anatomical-engineering",
+    category: "Anatomical Engineering",
+    isVideo: true,
+    caption: "Analog Joystick Control Demonstration",
+  },
+  {
+    id: 2,
+    title: "Pilot Study on the Impact of Proprioception on Referred Control",
+    description:
+      "Research investigating how control mapping between human and referred degrees of freedom affects myoelectric neuromuscular control performance using antagonistic muscle pairs for intuitive robotic device operation",
+    image: "/images/proprioception-referred-control-study.jpeg",
+    link: "/research/anatomical-engineering",
+    category: "Research Publication",
+    isImage: true,
+    caption: "UCLA Research Poster",
+  },
+  {
+    id: 1,
+    title: "1 Degree of Freedom Tentacle",
+    description: "Bio-inspired soft robotics with single-axis actuation for precise manipulation tasks",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7386%20%281%29%20%281%29-NxdSxlxVzRa6VgKxLDQbu8lFqasnoL.mov",
+    link: "/projects/anatomical-engineering",
+    category: "Anatomical Engineering",
+    isVideo: true,
+    caption: "Full Hand Demonstration",
+  },
 ]
 
 export default function HomePage() {
   const [emailCopied, setEmailCopied] = useState(false)
   const [currentProject, setCurrentProject] = useState(0)
-
-  // Auto-rotate carousel
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentProject((prev) => (prev + 1) % featuredProjects.length)
-    }, 5000) // Change every 5 seconds
-
-    return () => clearInterval(timer)
-  }, [])
 
   const handleEmailClick = async () => {
     const email = "ali.wout.3003@gmail.com"

@@ -154,7 +154,7 @@ export default function AnatomicalEngineeringPage() {
           </Card>
 
           {/* Research Publications */}
-          <Card className="border-purple-100 shadow-lg">
+          <Card className="border-purple-100 shadow-lg" id="research-publications">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
                 <BarChart3 className="w-6 h-6 text-purple-500" />
@@ -203,7 +203,10 @@ export default function AnatomicalEngineeringPage() {
               {/* Project Previews Grid */}
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 {/* Binary EMG Controlled Tentacle */}
-                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-200">
+                <div
+                  className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-200"
+                  id="binary-emg-4-degrees-of-freedom"
+                >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
                       <Zap className="w-6 h-6 text-white" />
@@ -221,7 +224,10 @@ export default function AnatomicalEngineeringPage() {
                 </div>
 
                 {/* Analog Joystick Controlled Tentacle */}
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-200">
+                <div
+                  className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-200"
+                  id="analog-joystick-4-degrees-of-freedom"
+                >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
                       <Cog className="w-6 h-6 text-white" />
@@ -257,7 +263,10 @@ export default function AnatomicalEngineeringPage() {
                 </div>
 
                 {/* Finger Model */}
-                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border border-green-200">
+                <div
+                  className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border border-green-200"
+                  id="1-degree-of-freedom"
+                >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
                       <Zap className="w-6 h-6 text-white" />
