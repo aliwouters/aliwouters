@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -11,10 +13,188 @@ import {
   Mail,
   MapPin,
   ExternalLink,
-  BadgeIcon as Certificate,
+  Briefcase as Certificate,
 } from "lucide-react"
 
 export default function ResumePage() {
+  const handleDownloadResume = async () => {
+    try {
+      // Import jsPDF dynamically to avoid SSR issues
+      const { jsPDF } = await import("jspdf")
+
+      // Fetch the resume image
+      const response = await fetch(
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Alizee%20Wouters%20CV%202025-1-gF2IFRRiRbOmmgitszMfSHWCrU7LNB.png",
+      )
+      const blob = await response.blob()
+
+      // Create an image element to get dimensions
+      const img = new Image()
+      img.crossOrigin = "anonymous"
+
+      return new Promise((resolve, reject) => {
+        img.onload = () => {
+          try {
+            // Create PDF with appropriate dimensions
+            // Standard letter size is 8.5 x 11 inches (216 x 279 mm)
+            const pdf = new jsPDF({
+              orientation: "portrait",
+              unit: "mm",
+              format: "letter",
+            })
+
+            // Calculate dimensions to fit the image properly
+            const pdfWidth = 216 // Letter width in mm
+            const pdfHeight = 279 // Letter height in mm
+            const imgAspectRatio = img.width / img.height
+            const pdfAspectRatio = pdfWidth / pdfHeight
+
+            let finalWidth, finalHeight, x, y
+
+            if (imgAspectRatio > pdfAspectRatio) {
+              // Image is wider than PDF ratio
+              finalWidth = pdfWidth
+              finalHeight = pdfWidth / imgAspectRatio
+              x = 0
+              y = (pdfHeight - finalHeight) / 2
+            } else {
+              // Image is taller than PDF ratio
+              finalHeight = pdfHeight
+              finalWidth = pdfHeight * imgAspectRatio
+              x = (pdfWidth - finalWidth) / 2
+              y = 0
+            }
+
+            // Add the image to PDF
+            const canvas = document.createElement("canvas")
+            const ctx = canvas.getContext("2d")
+            canvas.width = img.width
+            canvas.height = img.height
+            ctx?.drawImage(img, 0, 0)
+
+            const imgData = canvas.toDataURL("image/jpeg", 0.95)
+            pdf.addImage(imgData, "JPEG", x, y, finalWidth, finalHeight)
+
+            // Save the PDF
+            pdf.save("Alizee-Wouters-Resume.pdf")
+            resolve(true)
+          } catch (error) {
+            reject(error)
+          }
+        }
+
+        img.onerror = () => {
+          reject(new Error("Failed to load image"))
+        }
+
+        img.src = URL.createObjectURL(blob)
+      })
+    } catch (error) {
+      console.error("PDF generation failed:", error)
+      // Fallback to PNG download if PDF generation fails
+      try {
+        const response = await fetch(
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Alizee%20Wouters%20CV%202025-1-gF2IFRRiRbOmmgitszMfSHWCrU7LNB.png",
+        )
+        const blob = await response.blob()
+        const url = window.URL.createObjectURL(blob)
+        const link = document.createElement("a")
+        link.href = url
+        link.download = "Alizee-Wouters-Resume.png"
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+        window.URL.revokeObjectURL(url)
+      } catch (fallbackError) {
+        console.error("Fallback download also failed:", fallbackError)
+      }
+    }
+  }
+
+  const handleDownloadTranscript = async () => {
+    try {
+      // Import jsPDF dynamically to avoid SSR issues
+      const { jsPDF } = await import("jspdf")
+
+      // Array of transcript page URLs in order
+      const transcriptPages = [
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/305994733_WOUTERS.ALIZEE_U1_20250905035709-1-YW7Hx1bZgB1Wgk9N3KGHlI5X7xMWRI.png", // Page 1
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/305994733_WOUTERS.ALIZEE_U1_20250905035709-2-CE4EDrNo1UywgOLchG6bzGwvgjrLGd.png", // Page 2
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/305994733_WOUTERS.ALIZEE_U1_20250905035709-3-CF70sZ9h1GrNE0TwxJjqLC6xSOqGsV.png", // Page 3
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/305994733_WOUTERS.ALIZEE_U1_20250905035709-4-l5j3UE0fnL41MmOUyyNIAyQl8hplLD.png", // Page 4
+      ]
+
+      // Fetch all transcript pages
+      const imagePromises = transcriptPages.map(async (url) => {
+        const response = await fetch(url)
+        const blob = await response.blob()
+        return new Promise((resolve, reject) => {
+          const img = new Image()
+          img.crossOrigin = "anonymous"
+          img.onload = () => resolve(img)
+          img.onerror = () => reject(new Error(`Failed to load image: ${url}`))
+          img.src = URL.createObjectURL(blob)
+        })
+      })
+
+      // Wait for all images to load
+      const images = await Promise.all(imagePromises)
+
+      // Create PDF with appropriate dimensions
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "letter",
+      })
+
+      const pdfWidth = 216 // Letter width in mm
+      const pdfHeight = 279 // Letter height in mm
+
+      // Add each page to the PDF
+      images.forEach((img, index) => {
+        if (index > 0) {
+          pdf.addPage() // Add new page for subsequent images
+        }
+
+        // Calculate dimensions to fit the image properly
+        const imgAspectRatio = img.width / img.height
+        const pdfAspectRatio = pdfWidth / pdfHeight
+
+        let finalWidth, finalHeight, x, y
+
+        if (imgAspectRatio > pdfAspectRatio) {
+          // Image is wider than PDF ratio
+          finalWidth = pdfWidth
+          finalHeight = pdfWidth / imgAspectRatio
+          x = 0
+          y = (pdfHeight - finalHeight) / 2
+        } else {
+          // Image is taller than PDF ratio
+          finalHeight = pdfHeight
+          finalWidth = pdfHeight * imgAspectRatio
+          x = (pdfWidth - finalWidth) / 2
+          y = 0
+        }
+
+        // Create canvas to convert image to data URL
+        const canvas = document.createElement("canvas")
+        const ctx = canvas.getContext("2d")
+        canvas.width = img.width
+        canvas.height = img.height
+        ctx?.drawImage(img, 0, 0)
+
+        const imgData = canvas.toDataURL("image/jpeg", 0.95)
+        pdf.addImage(imgData, "JPEG", x, y, finalWidth, finalHeight)
+      })
+
+      // Save the PDF
+      pdf.save("UCLA-Transcript-Alizee-Wouters.pdf")
+    } catch (error) {
+      console.error("Transcript download failed:", error)
+      alert("Download failed. Please try again or contact support.")
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
       {/* Navigation */}
@@ -108,6 +288,22 @@ export default function ResumePage() {
                   science engineering minor provides expertise in statistical analysis, data visualization, and
                   large-scale data processing.
                 </p>
+                <div className="mt-4 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                  <h4 className="font-semibold text-blue-800 mb-2">Academic Honors</h4>
+                  <div className="text-sm text-blue-700">
+                    <p className="mb-2">
+                      <strong>Dean's Honor List:</strong> 7 quarters (Fall 2022, Winter 2023, Spring 2023, Fall 2023,
+                      Winter 2024, Fall 2024, Spring 2025)
+                    </p>
+                    <p className="mb-1">
+                      <strong>Cumulative GPA:</strong> 3.867
+                    </p>
+                    <p>
+                      <strong>Total Units Completed:</strong> 214.0 (including 72.0 transfer credits from Advanced
+                      Placement)
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {/* Queen's University */}
@@ -125,12 +321,13 @@ export default function ResumePage() {
               {/* High School */}
               <div className="border-l-4 border-green-500 pl-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">San Pasqual High School</h3>
-                <p className="text-lg text-gray-700 mb-2">High School Diploma</p>
+                <p className="text-lg text-gray-700 mb-2">High School Diploma - Valedictorian</p>
                 <p className="text-gray-600 mb-3">Graduated 2022</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Strong foundation in STEM subjects with particular emphasis on mathematics, physics, and computer
-                  science. Participated in advanced placement courses and extracurricular activities that fostered
-                  analytical thinking and problem-solving skills essential for higher education and research pursuits.
+                  Graduated as valedictorian with the highest academic achievement in the class. Strong foundation in
+                  STEM subjects with particular emphasis on mathematics, physics, and computer science. Participated in
+                  advanced placement courses and extracurricular activities that fostered analytical thinking and
+                  problem-solving skills essential for higher education and research pursuits.
                 </p>
               </div>
             </div>
@@ -329,25 +526,17 @@ export default function ResumePage() {
               collaborators and employers.
             </p>
             <div className="flex gap-4">
-              <Button asChild className="bg-blue-600 hover:bg-blue-700">
-                <a
-                  href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8548%20%281%29%20%281%29-MlreCKkora0uV8xwCSDLJF12gwuuBQ.mov"
-                  download="Alizee-Wouters-Resume.pdf"
-                  className="flex items-center gap-2"
-                >
-                  <Download className="w-4 h-4" />
-                  Download Resume (PDF)
-                </a>
+              <Button onClick={handleDownloadResume} className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2">
+                <Download className="w-4 h-4" />
+                Download Resume (PDF)
               </Button>
-              <Button asChild variant="outline" className="border-blue-300 bg-transparent">
-                <a
-                  href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7386%20%281%29%20%281%29-tTGxmk0YDG9P0hq8QbpGYG9SFunSJF.mov"
-                  download="UCLA-Transcript-Alizee-Wouters.pdf"
-                  className="flex items-center gap-2"
-                >
-                  <Download className="w-4 h-4" />
-                  Academic Transcript
-                </a>
+              <Button
+                onClick={handleDownloadTranscript}
+                variant="outline"
+                className="border-blue-300 bg-transparent flex items-center gap-2"
+              >
+                <Download className="w-4 h-4" />
+                Academic Transcript
               </Button>
             </div>
           </CardContent>
