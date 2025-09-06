@@ -282,12 +282,21 @@ export default function ResumePage() {
                 <p className="text-gray-600 mb-2">Bachelor of Science in Cognitive Science</p>
                 <p className="text-gray-600 mb-3">Specialization in Computing • Minor in Data Science Engineering</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Pursuing an interdisciplinary degree that combines psychology, neuroscience, computer science, and
-                  philosophy to understand the mind and intelligence. The computing specialization focuses on artificial
-                  intelligence, machine learning, and computational modeling of cognitive processes, while the data
-                  science engineering minor provides expertise in statistical analysis, data visualization, and
-                  large-scale data processing.
+                  Pursuing an interdisciplinary degree that combines cognitive psychology, neuroscience, computer
+                  science, and mathematics to understand intelligent systems, both real and artificial. The
+                  Specialization in Computing provides an extensive education in computer science and its applications
+                  in cognitive psychology and neuroscience while the data science engineering minor exposes students to
+                  the entire life cycle of data science, from both foundational and application perspectives.
                 </p>
+                <div className="mt-4 text-sm text-gray-600">
+                  <p className="mb-1">
+                    <strong>Cumulative GPA:</strong> 3.867
+                  </p>
+                  <p className="mb-3">
+                    <strong>Total Units Completed:</strong> 214.0 (including 72.0 transfer credits from Advanced
+                    Placement)
+                  </p>
+                </div>
                 <div className="mt-4 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-400">
                   <h4 className="font-semibold text-blue-800 mb-2">Academic Honors</h4>
                   <div className="text-sm text-blue-700">
@@ -295,39 +304,35 @@ export default function ResumePage() {
                       <strong>Dean's Honor List:</strong> 7 quarters (Fall 2022, Winter 2023, Spring 2023, Fall 2023,
                       Winter 2024, Fall 2024, Spring 2025)
                     </p>
-                    <p className="mb-1">
-                      <strong>Cumulative GPA:</strong> 3.867
-                    </p>
-                    <p>
-                      <strong>Total Units Completed:</strong> 214.0 (including 72.0 transfer credits from Advanced
-                      Placement)
-                    </p>
                   </div>
                 </div>
               </div>
 
               {/* Queen's University */}
               <div className="border-l-4 border-purple-500 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Queen's University</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Queen's University 2024</h3>
                 <p className="text-lg text-gray-700 mb-2">Neuroscience and Neurotechnology Primer</p>
-                <p className="text-gray-600 mb-3">Microcredential Program</p>
+                <p className="text-gray-600 mb-3">Neurotech Microcredential Program (NTMC)</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Comprehensive program covering fundamental principles of neuroscience, brain-computer interfaces, and
-                  emerging neurotechnology applications. Gained expertise in neural signal processing, EEG analysis, and
-                  the development of brain-controlled devices for assistive technology applications.
+                  Comprehensive microcredential program covering fundamental neuroscience principles and various types
+                  of neurotechnologies. The program focused on four core modules: foundations of neuroscience,
+                  neuroprosthetics, neuroimaging, and neurostimulation primer. Gained skills in differentiating between
+                  neurotechnologies and their use cases, exploring brain atlases and neuronal models to understand brain
+                  systems relevant for neurotech, and comparing applications of various neurotechnologies in assessing
+                  brain structure and function.
                 </p>
               </div>
 
               {/* High School */}
               <div className="border-l-4 border-green-500 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">San Pasqual High School</h3>
-                <p className="text-lg text-gray-700 mb-2">High School Diploma - Valedictorian</p>
-                <p className="text-gray-600 mb-3">Graduated 2022</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">San Pasqual High School 2022</h3>
+                <p className="text-lg text-gray-700 mb-2">High School Diploma</p>
+                <p className="text-gray-600 mb-3">Valedictorian. Golden Eagle Award (top school honor)</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Graduated as valedictorian with the highest academic achievement in the class. Strong foundation in
-                  STEM subjects with particular emphasis on mathematics, physics, and computer science. Participated in
-                  advanced placement courses and extracurricular activities that fostered analytical thinking and
-                  problem-solving skills essential for higher education and research pursuits.
+                  Strong foundation in STEM subjects with particular emphasis on mathematics, biology, chemistry,
+                  physics, and computer science. Participated in advanced placement courses and extracurricular
+                  activities that fostered analytical thinking and problem-solving skills essential for higher education
+                  and research pursuits.
                 </p>
               </div>
             </div>
@@ -345,18 +350,18 @@ export default function ResumePage() {
           <CardContent>
             <div className="space-y-6">
               <div className="border-l-4 border-blue-500 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Neurotechnology Research</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Neurotechnology Research 2022 - 2025</h3>
                 <p className="text-gray-600 mb-3">Brain-Computer Interfaces & Neural Signal Processing</p>
                 <ul className="text-gray-700 space-y-1 text-sm">
                   <li>• Developed brain-controlled prosthetic devices using EEG signal processing</li>
                   <li>• Created discrete EEG systems for real-time emotion and stress detection</li>
-                  <li>• Won first place at California Neurotechnology Conference</li>
                   <li>• Applied machine learning algorithms for neural pattern recognition</li>
+                  <li>• Won first place at California Neurotechnology Conference</li>
                 </ul>
               </div>
 
               <div className="border-l-4 border-purple-500 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Cognitive Science Research</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Cognitive Science Research 2024</h3>
                 <p className="text-gray-600 mb-3">Zili Lab - UCLA Psychology Department</p>
                 <ul className="text-gray-700 space-y-1 text-sm">
                   <li>• Lab Manager for cognitive abilities research in card game players</li>
@@ -367,13 +372,15 @@ export default function ResumePage() {
               </div>
 
               <div className="border-l-4 border-green-500 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Anatomical Engineering Research</h3>
-                <p className="text-gray-600 mb-3">Bio-inspired Robotics & Soft Actuators</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Anatomics Research 2025</h3>
+                <p className="text-gray-600 mb-3">The Anatomical Engineering Group of Dr. Clites</p>
                 <ul className="text-gray-700 space-y-1 text-sm">
                   <li>• Designed and fabricated multi-degree-of-freedom tentacle robots</li>
                   <li>• Developed cable-driven actuation systems for soft robotics</li>
                   <li>• Created 3D models and prototypes for biomimetic manipulation</li>
                   <li>• Integrated control systems for precise robotic movement</li>
+                  <li>• Data processing and analysis using Vicon and Nexus software</li>
+                  <li>• Motion capture data collection and biomechanical analysis</li>
                 </ul>
               </div>
             </div>
@@ -391,7 +398,7 @@ export default function ResumePage() {
           <CardContent>
             <div className="space-y-6">
               <div className="border-l-4 border-orange-500 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">UCLA Makerspace Technician</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">UCLA Makerspace Technician 2023-2025</h3>
                 <p className="text-gray-600 mb-3">Technical Support & Innovation Facilitation</p>
                 <ul className="text-gray-700 space-y-1 text-sm">
                   <li>• Provided technical support across multiple fabrication technologies</li>
@@ -402,7 +409,7 @@ export default function ResumePage() {
               </div>
 
               <div className="border-l-4 border-red-500 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Psyonic - Prosthetics Intern</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Psyonic - Mechatronics Intern 2024</h3>
                 <p className="text-gray-600 mb-3">Bionic Hand Development & Testing</p>
                 <ul className="text-gray-700 space-y-1 text-sm">
                   <li>• Contributed to advanced prosthetic hand development and testing</li>
@@ -413,7 +420,9 @@ export default function ResumePage() {
               </div>
 
               <div className="border-l-4 border-teal-500 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Auli Tech - Marketing Collaborator</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  Auli Tech - Assistive Technology Intern 2024
+                </h3>
                 <p className="text-gray-600 mb-3">Assistive Technology Marketing & Content Creation</p>
                 <ul className="text-gray-700 space-y-1 text-sm">
                   <li>• Collaborated on marketing content for assistive technology devices</li>
@@ -449,8 +458,8 @@ export default function ResumePage() {
                     View Credential
                   </a>
                 </div>
-                <p className="text-lg text-gray-700 mb-2">Queen's University</p>
-                <p className="text-gray-600 mb-3">Microcredential Program</p>
+                <p className="text-lg text-gray-700 mb-2">Queen's University 2024</p>
+                <p className="text-gray-600 mb-3">Neurotech Microcredential Program (NTMC)</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   Comprehensive microcredential program covering fundamental principles of neuroscience, brain-computer
                   interfaces, and emerging neurotechnology applications. Gained expertise in neural signal processing,
@@ -489,24 +498,55 @@ export default function ResumePage() {
               <div className="bg-blue-50 p-4 rounded-lg">
                 <h4 className="font-semibold text-gray-800 mb-2">Technical Skills:</h4>
                 <ul className="text-gray-700 space-y-1 text-sm">
-                  <li>• Python, R, MATLAB programming</li>
-                  <li>• Machine learning and data analysis</li>
-                  <li>• 3D modeling (CAD, SolidWorks)</li>
-                  <li>• EEG signal processing and analysis</li>
-                  <li>• Statistical analysis and visualization</li>
-                  <li>• Experimental design and methodology</li>
+                  <li>
+                    • <strong>Programming:</strong> MATLAB, C++, Python, R, Algorithms
+                  </li>
+                  <li>
+                    • <strong>Math:</strong> Calculus series, Linear Algebra, Probability, Algorithms, Discrete
+                    Structures
+                  </li>
+                  <li>
+                    • <strong>Psychology:</strong> Cognitive Psychology, Behavioral Neuroscience, Linguistics, Research
+                    Methods
+                  </li>
+                  <li>
+                    • <strong>Neurotechnology:</strong> Neuroanatomy, Neuroprosthetics, Neuroimaging, Neurostimulation
+                  </li>
+                  <li>
+                    • <strong>Software:</strong> Vicon, Synthesia, Photoshop, Illustrator, Autodesk Fusion 360,
+                    SolidWorks, MS Office
+                  </li>
+                  <li>
+                    • <strong>Fabrication:</strong> 3D Printing, Laser Cutting/Engraving, Electronics Assembly,
+                    Woodworking, Soldering, Sewing, Embroidery, Transfer Vinyl
+                  </li>
+                  <li>
+                    • <strong>Languages:</strong> Fluent in French and English (USA, France, and Belgium nationalities)
+                  </li>
                 </ul>
               </div>
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-gray-800 mb-2">Research & Leadership:</h4>
-                <ul className="text-gray-700 space-y-1 text-sm">
-                  <li>• Lab management and team coordination</li>
-                  <li>• Project planning and execution</li>
-                  <li>• Scientific writing and presentation</li>
-                  <li>• User testing and interview facilitation</li>
-                  <li>• Workshop development and instruction</li>
-                  <li>• Cross-disciplinary collaboration</li>
-                </ul>
+              <div className="space-y-6">
+                <div className="bg-blue-50 p-4 rounded-lg">
+                  <h4 className="font-semibold text-gray-800 mb-2">Work in Progress:</h4>
+                  <ul className="text-gray-700 space-y-1 text-sm">
+                    <li>• Artificial Intelligence</li>
+                    <li>• Lab in Functional Neuroimaging</li>
+                    <li>• Biological and Artificial Neural Networks</li>
+                  </ul>
+                </div>
+                <div className="bg-blue-50 p-4 rounded-lg">
+                  <h4 className="font-semibold text-gray-800 mb-2">Research & Leadership:</h4>
+                  <ul className="text-gray-700 space-y-1 text-sm">
+                    <li>• Lab management and team coordination</li>
+                    <li>• Project planning and execution</li>
+                    <li>• Scientific writing and presentation</li>
+                    <li>• User testing and interview facilitation</li>
+                    <li>• Workshop development and instruction</li>
+                    <li>• Cross-disciplinary collaboration</li>
+                    <li>• Motion capture processing and analysis</li>
+                    <li>• Experimental design and methodology</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </CardContent>
