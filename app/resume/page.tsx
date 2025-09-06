@@ -223,9 +223,6 @@ export default function ResumePage() {
           </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Resume</h1>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600">
-            Comprehensive overview of my academic background, research experience, and professional achievements
-          </p>
         </div>
 
         {/* Contact Information */}
@@ -274,12 +271,15 @@ export default function ResumePage() {
               {/* UCLA */}
               <div className="border-l-4 border-blue-500 pl-6">
                 <div className="flex items-center gap-2 mb-2">
-                  <h3 className="text-xl font-semibold text-gray-900">University of California, Los Angeles (UCLA)</h3>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    University of California, Los Angeles (UCLA) 2022-2026
+                  </h3>
                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                     Work in Progress
                   </span>
                 </div>
-                <p className="text-lg text-gray-700 mb-2">Bachelor of Science in Cognitive Science</p>
+                <p className="text-gray-600 mb-2">College Honors Program. Rose Gilbert Honor Scholarship recipient</p>
+                <p className="text-gray-600 mb-2">Bachelor of Science in Cognitive Science</p>
                 <p className="text-gray-600 mb-3">Specialization in Computing • Minor in Data Science Engineering</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   Pursuing an interdisciplinary degree that combines psychology, neuroscience, computer science, and
