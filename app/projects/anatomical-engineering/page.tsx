@@ -79,9 +79,7 @@ export default function AnatomicalEngineeringProjectsPage() {
               </div>
               <div className="flex-1">
                 <h3 className="text-lg font-semibold">Analog EMG Controlled Tentacle with 4 Degrees of Freedom</h3>
-                <p className="text-gray-200 text-sm">
-                  Continuous control system with proportional muscle activation
-                </p>
+                <p className="text-gray-200 text-sm">Continuous control system with proportional muscle activation</p>
               </div>
               <div className="px-3 py-1 bg-white/20 rounded-full text-xs font-medium">Coming Soon</div>
             </div>
@@ -96,9 +94,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                 <Zap className="w-6 h-6" />
                 Binary EMG Controlled Tentacle with 4 Degrees of Freedom
               </CardTitle>
-              <p className="text-purple-100 mt-2">
-                Binary bioelectric control system using muscle activation signals
-              </p>
+              <p className="text-purple-100 mt-2">Binary bioelectric control system using muscle activation signals</p>
             </CardHeader>
             <CardContent className="p-8">
               {/* Video and Description */}
@@ -123,8 +119,8 @@ export default function AnatomicalEngineeringProjectsPage() {
                     <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
                       <h5 className="font-semibold text-gray-800 mb-2">EMG Control System</h5>
                       <p className="text-gray-600 text-sm">
-                        This system uses electromyography (EMG) sensors to detect muscle contractions,
-                        converting biological signals into digital control commands for the tentacle.
+                        This system uses electromyography (EMG) sensors to detect muscle contractions, converting
+                        biological signals into digital control commands for the tentacle.
                       </p>
                     </div>
                     <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
@@ -481,6 +477,17 @@ export default function AnatomicalEngineeringProjectsPage() {
             </CardContent>
           </Card>
         </div>
+
+        {/* Back to Top Button */}
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+          aria-label="Back to top"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+        </button>
       </div>
     </div>
   )

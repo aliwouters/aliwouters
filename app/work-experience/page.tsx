@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Briefcase, Cpu, Wrench, ArrowRight } from "lucide-react"
@@ -29,7 +31,8 @@ export default function WorkExperiencePage() {
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Professional Experience</h1>
             <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              My industry experience spans innovative companies and organizations, each contributing to developing my skills in technology, engineering, and research.
+              My industry experience spans innovative companies and organizations, each contributing to developing my
+              skills in technology, engineering, and research.
             </p>
           </div>
 
@@ -44,7 +47,8 @@ export default function WorkExperiencePage() {
                   <h3 className="text-xl font-medium text-slate-900 mb-2">Psyonic</h3>
                   <p className="text-orange-600 font-medium mb-4 text-sm">Mechatronics Intern </p>
                   <p className="text-slate-600 mb-6 leading-relaxed text-sm">
-                    Contributing to cutting-edge prosthetic technology development at a leading bionic limb company, focusing on user-centered testing and control system fabrication.
+                    Contributing to cutting-edge prosthetic technology development at a leading bionic limb company,
+                    focusing on user-centered testing and control system fabrication.
                   </p>
                 </div>
                 <div className="mt-auto">
@@ -70,7 +74,8 @@ export default function WorkExperiencePage() {
                   <h3 className="text-xl font-medium text-slate-900 mb-2">Auli Tech</h3>
                   <p className="text-blue-600 font-medium mb-4 text-sm">Assistive Technology Intern</p>
                   <p className="text-slate-600 mb-6 leading-relaxed text-sm">
-                    Worked with innovative assistive technology solutions and collaborated on marketing content creation with users.
+                    Worked with innovative assistive technology solutions and collaborated on marketing content creation
+                    with users.
                   </p>
                 </div>
                 <div className="mt-auto">
@@ -116,6 +121,17 @@ export default function WorkExperiencePage() {
           </div>
         </div>
       </div>
+
+      {/* Back to Top Button */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+        aria-label="Back to top"
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+      </button>
     </div>
   )
 }

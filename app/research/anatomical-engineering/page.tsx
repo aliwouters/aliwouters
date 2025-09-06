@@ -299,54 +299,18 @@ export default function AnatomicalEngineeringPage() {
               </div>
             </CardContent>
           </Card>
-
-          {/* Undergraduate Research Work */}
-          <Card className="border-green-100 shadow-lg">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-2xl">
-                <Cog className="w-6 h-6 text-green-500" />
-                Undergraduate Research Assistant
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 mb-4">
-                As an undergraduate research assistant in the anatomical engineering lab, I primarily work with motion
-                capture systems, using Vicon cameras and software to track human movement and perform comprehensive data
-                processing. This work contributes to advancing our understanding of human biomechanics and motor
-                control.
-              </p>
-              <div className="bg-green-50 p-4 rounded-lg mb-4">
-                <h4 className="font-semibold text-gray-800 mb-2">Current Research Focus:</h4>
-                <p className="text-gray-700 mb-3">
-                  I'm currently contributing to a referential control project that explores using the activation of
-                  specific muscle groups to control virtual muscles. This innovative approach has significant
-                  implications for advancing motor control modeling and developing next-generation rehabilitation
-                  technologies.
-                </p>
-              </div>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="bg-green-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-gray-800 mb-2">Technical Skills:</h4>
-                  <ul className="text-gray-700 text-sm space-y-1">
-                    <li>• Vicon motion capture system operation</li>
-                    <li>• Human movement tracking and analysis</li>
-                    <li>• Biomechanical data processing</li>
-                    <li>• Motion capture software proficiency</li>
-                  </ul>
-                </div>
-                <div className="bg-green-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-gray-800 mb-2">Research Applications:</h4>
-                  <ul className="text-gray-700 text-sm space-y-1">
-                    <li>• Motor control modeling</li>
-                    <li>• Rehabilitation technology development</li>
-                    <li>• Virtual muscle control systems</li>
-                    <li>• Muscle activation pattern analysis</li>
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
+
+        {/* Back to Top Button */}
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+          aria-label="Back to top"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+        </button>
       </div>
     </div>
   )

@@ -1,8 +1,12 @@
+"use client"
+
+import type React from "react"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Brain, Cpu, FlaskConical, ArrowRight } from "lucide-react"
 
-export default function ResearchPage() {
+const ResearchPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Navigation */}
@@ -152,6 +156,19 @@ export default function ResearchPage() {
           </div>
         </div>
       </div>
+
+      {/* Back to Top Button */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+        aria-label="Back to top"
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+      </button>
     </div>
   )
 }
+
+export default ResearchPage
