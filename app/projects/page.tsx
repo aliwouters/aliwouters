@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Database, Microscope, Heart } from "lucide-react"
+import { ArrowLeft, Database, Microscope, Heart, Code } from "lucide-react"
 
 export default function ProjectsPage() {
   useEffect(() => {
@@ -44,7 +44,7 @@ export default function ProjectsPage() {
           </div>
 
           {/* Project Categories Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Data Science & Engineering */}
             <Card className="h-full flex flex-col border-slate-200/50 hover:border-blue-300 transition-all duration-300 hover:shadow-lg group">
               <CardHeader className="pb-4">
@@ -101,6 +101,36 @@ export default function ProjectsPage() {
                 </div>
                 <Button asChild className="w-full bg-green-600 hover:bg-green-700">
                   <Link href="/projects/anatomical-engineering">View Projects</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* MATLAB Projects */}
+            <Card className="h-full flex flex-col border-slate-200/50 hover:border-orange-300 transition-all duration-300 hover:shadow-lg group">
+              <CardHeader className="pb-4">
+                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
+                  <Code className="w-6 h-6 text-orange-600" />
+                </div>
+                <CardTitle className="text-xl font-medium text-slate-900">MATLAB</CardTitle>
+                <CardDescription className="text-slate-600 leading-relaxed">
+                  Computational psychology projects using MATLAB and Psychtoolbox for experimental design, data
+                  collection, and analysis in psychological research applications.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-0 mt-auto">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <Badge variant="secondary" className="bg-orange-50 text-orange-700 border-orange-200">
+                    Psychtoolbox
+                  </Badge>
+                  <Badge variant="secondary" className="bg-orange-50 text-orange-700 border-orange-200">
+                    Experimental Design
+                  </Badge>
+                  <Badge variant="secondary" className="bg-orange-50 text-orange-700 border-orange-200">
+                    Data Analysis
+                  </Badge>
+                </div>
+                <Button asChild className="w-full bg-orange-600 hover:bg-orange-700">
+                  <Link href="/projects/matlab">View Projects</Link>
                 </Button>
               </CardContent>
             </Card>
