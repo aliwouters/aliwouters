@@ -15,17 +15,6 @@ export default function MatlabProjectsPage() {
 
   const projects = [
     {
-      id: 8,
-      title: "Visual Change Detection with Mouse Response",
-      description:
-        "This MATLAB/Psychtoolbox project measures visual change detection with mouse responses. In each trial, two blue circles appear; after a random delay, one circle briefly changes luminance (lighter or darker). Participants click the circle that changed as fast as possible. The program randomizes trial types and delays, records response times and accuracy, and saves results to a subject-specific .mat file.",
-      tags: ["Change Detection", "Mouse Response", "Visual Perception", "Reaction Time"],
-      icon: <MousePointer className="w-6 h-6" />,
-      githubUrl: "https://github.com/aliwouters/MatLab-Projects/blob/main/Psych20BHomework8.m",
-      color: "cyan",
-      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screen%20Recording%202025-09-06%20203545-bofEP6MwBQs3pT2rR2rXhjn5tzhCh4.mp4",
-    },
-    {
       id: 7,
       title: "Audiovisual Perception Study",
       description:
@@ -57,6 +46,17 @@ export default function MatlabProjectsPage() {
       githubUrl: "https://github.com/aliwouters/MatLab-Projects/blob/main/Psych20BHomework5.m",
       color: "rose",
       video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/20250907-0310-12.8199673-Xta2MQBZZJMb0IueJt2NEGvVqJ7anV.mp4",
+    },
+    {
+      id: 8,
+      title: "Visual Change Detection with Mouse Response",
+      description:
+        "This MATLAB/Psychtoolbox project measures visual change detection with mouse responses. In each trial, two blue circles appear; after a random delay, one circle briefly changes luminance (lighter or darker). Participants click the circle that changed as fast as possible. The program randomizes trial types and delays, records response times and accuracy, and saves results to a subject-specific .mat file.",
+      tags: ["Change Detection", "Mouse Response", "Visual Perception", "Reaction Time"],
+      icon: <MousePointer className="w-6 h-6" />,
+      githubUrl: "https://github.com/aliwouters/MatLab-Projects/blob/main/Psych20BHomework8.m",
+      color: "cyan",
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screen%20Recording%202025-09-06%20203545-bofEP6MwBQs3pT2rR2rXhjn5tzhCh4.mp4",
     },
     {
       id: 4,

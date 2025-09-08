@@ -14,6 +14,7 @@ import {
   MapPin,
   ExternalLink,
   Briefcase as Certificate,
+  Home,
 } from "lucide-react"
 
 export default function ResumePage() {
@@ -195,6 +196,20 @@ export default function ResumePage() {
     }
   }
 
+  const handleViewLabSafety = () => {
+    window.open(
+      "https://worksafe.ucla.edu/UCLA/Programs/Standard/Control/Certificate.wml?HID=1801836&EMail=0",
+      "_blank",
+    )
+  }
+
+  const handleViewFireSafety = () => {
+    window.open(
+      "https://worksafe.ucla.edu/UCLA/Programs/Standard/Control/Certificate.wml?HID=1839397&EMail=0",
+      "_blank",
+    )
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
       {/* Navigation */}
@@ -207,8 +222,14 @@ export default function ResumePage() {
             <div className="flex gap-2">
               <Button asChild variant="outline" size="sm">
                 <Link href="/" className="flex items-center gap-2">
+                  <Home className="w-4 h-4" />
+                  Home
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="sm">
+                <Link href="/" className="flex items-center gap-2">
                   <ArrowLeft className="w-4 h-4" />
-                  Back to Home
+                  Back
                 </Link>
               </Button>
             </div>
@@ -460,12 +481,6 @@ export default function ResumePage() {
                 </div>
                 <p className="text-lg text-gray-700 mb-2">Queen's University 2024</p>
                 <p className="text-gray-600 mb-3">Neurotech Microcredential Program (NTMC)</p>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Comprehensive microcredential program covering fundamental principles of neuroscience, brain-computer
-                  interfaces, and emerging neurotechnology applications. Gained expertise in neural signal processing,
-                  EEG analysis, and the development of brain-controlled devices for assistive technology applications.
-                  Verified digital credential demonstrating competency in neurotechnology fundamentals.
-                </p>
               </div>
 
               <div className="border-l-4 border-purple-500 pl-6">
@@ -474,12 +489,42 @@ export default function ResumePage() {
                 </h3>
                 <p className="text-lg text-gray-700 mb-2">G.Tec Medical Engineering GmbH</p>
                 <p className="text-gray-600 mb-3">Completed June 17, 2025</p>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Advanced masterclass focusing on brain-computer interfaces and neurotechnology applications. Covered
-                  comprehensive training in EEG signal processing, eyetracking technologies, and their integration for
-                  neurotechnology applications. Gained hands-on experience with state-of-the-art BCI systems and
-                  real-time neural signal analysis techniques used in medical and research applications.
-                </p>
+              </div>
+
+              <div className="border-l-4 border-orange-500 pl-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="text-xl font-semibold text-gray-900">Laboratory Safety Fundamentals</h3>
+                  <button
+                    onClick={handleViewLabSafety}
+                    className="inline-flex items-center px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800 rounded-full hover:bg-orange-200 transition-colors"
+                  >
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    View Certificate
+                  </button>
+                </div>
+                <p className="text-lg text-gray-700 mb-2">UCLA WorkSafe</p>
+                <p className="text-gray-600 mb-3">Laboratory Safety Training Program</p>
+              </div>
+
+              <div className="border-l-4 border-red-500 pl-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="text-xl font-semibold text-gray-900">Fire and Life Safety Online Training</h3>
+                  <button
+                    onClick={handleViewFireSafety}
+                    className="inline-flex items-center px-2 py-1 text-xs font-medium bg-red-100 text-red-800 rounded-full hover:bg-red-200 transition-colors"
+                  >
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    View Certificate
+                  </button>
+                </div>
+                <p className="text-lg text-gray-700 mb-2">UCLA WorkSafe</p>
+                <p className="text-gray-600 mb-3">Fire Safety and Emergency Response Training</p>
+              </div>
+
+              <div className="border-l-4 border-green-500 pl-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">FERPA Training</h3>
+                <p className="text-lg text-gray-700 mb-2">UCLA</p>
+                <p className="text-gray-600 mb-3">Family Educational Rights and Privacy Act Training</p>
               </div>
             </div>
           </CardContent>
