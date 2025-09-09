@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Eye, Brain, BarChart } from "lucide-react"
+import { ArrowLeft, Eye, Brain, BarChart, Home } from "lucide-react"
 
 export default function CognitiveSciencePage() {
   return (
@@ -17,9 +17,15 @@ export default function CognitiveSciencePage() {
             </Link>
             <div className="flex gap-2">
               <Button asChild variant="outline" size="sm">
+                <Link href="/" className="flex items-center gap-2">
+                  <Home className="w-4 h-4" />
+                  Home
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="sm">
                 <Link href="/research" className="flex items-center gap-2">
                   <ArrowLeft className="w-4 h-4" />
-                  Back to Research
+                  Research
                 </Link>
               </Button>
             </div>

@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Heart } from "lucide-react"
+import { ArrowLeft, Heart, Home } from "lucide-react"
 import Image from "next/image"
 
 export default function PersonalProjectsPage() {
@@ -15,11 +15,17 @@ export default function PersonalProjectsPage() {
             <Link href="/" className="text-2xl font-light text-slate-900 tracking-wide">
               Alizee Wouters
             </Link>
-            <div className="flex gap-3">
+            <div className="flex items-center gap-3">
               <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
                 <Link href="/projects" className="flex items-center gap-2">
                   <ArrowLeft className="w-4 h-4" />
                   Projects
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
+                <Link href="/" className="flex items-center gap-2">
+                  <Home className="w-4 h-4" />
+                  Home
                 </Link>
               </Button>
             </div>

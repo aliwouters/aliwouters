@@ -21,6 +21,12 @@ export default function SchoolOutreachPage() {
                   Community
                 </Link>
               </Button>
+              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
+                <Link href="/" className="flex items-center gap-2">
+                  <ArrowLeft className="w-4 h-4" />
+                  Home
+                </Link>
+              </Button>
             </div>
           </div>
         </div>

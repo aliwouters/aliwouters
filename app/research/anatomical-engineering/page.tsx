@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Microscope, Cog, Zap, ExternalLink, ArrowRight, Database, BarChart3 } from "lucide-react"
+import { ArrowLeft, Microscope, Cog, Zap, ExternalLink, ArrowRight, Database, BarChart3, Home } from "lucide-react"
 import Image from "next/image"
 
 export default function AnatomicalEngineeringPage() {
@@ -18,9 +18,15 @@ export default function AnatomicalEngineeringPage() {
             </Link>
             <div className="flex gap-2">
               <Button asChild variant="outline" size="sm">
+                <Link href="/" className="flex items-center gap-2">
+                  <Home className="w-4 h-4" />
+                  Home
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="sm">
                 <Link href="/research" className="flex items-center gap-2">
                   <ArrowLeft className="w-4 h-4" />
-                  Back to Research
+                  Research
                 </Link>
               </Button>
             </div>

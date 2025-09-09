@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Briefcase, Zap, Users, ExternalLink } from "lucide-react"
+import { ArrowLeft, Briefcase, Zap, Users, ExternalLink, Home } from "lucide-react"
 import Image from "next/image"
 
 export default function PsyonicPage() {
@@ -17,9 +17,15 @@ export default function PsyonicPage() {
             </Link>
             <div className="flex gap-2">
               <Button asChild variant="outline" size="sm">
+                <Link href="/" className="flex items-center gap-2">
+                  <Home className="w-4 h-4" />
+                  Home
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="sm">
                 <Link href="/work-experience" className="flex items-center gap-2">
                   <ArrowLeft className="w-4 h-4" />
-                  Back to Work Experience
+                  Work Experience
                 </Link>
               </Button>
             </div>

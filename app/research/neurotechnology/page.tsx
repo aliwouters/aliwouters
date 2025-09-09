@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Brain, Zap, Activity, Target, ExternalLink, Trophy, Users } from "lucide-react"
+import { ArrowLeft, Brain, Zap, Activity, Target, ExternalLink, Trophy, Users, Home } from "lucide-react"
 import Image from "next/image"
 
 export default function NeurotechnologyPage() {
@@ -16,6 +16,12 @@ export default function NeurotechnologyPage() {
               Alizee Wouters
             </Link>
             <div className="flex gap-3">
+              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
+                <Link href="/" className="flex items-center gap-2">
+                  <Home className="w-4 h-4" />
+                  Home
+                </Link>
+              </Button>
               <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
                 <Link href="/research" className="flex items-center gap-2">
                   <ArrowLeft className="w-4 h-4" />

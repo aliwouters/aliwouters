@@ -4,7 +4,7 @@ import { Suspense } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Microscope, Cog, Zap, Github } from "lucide-react"
+import { ArrowLeft, Microscope, Cog, Zap, Github, Home } from "lucide-react"
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls, useGLTF, Environment, Html } from "@react-three/drei"
 
@@ -50,7 +50,13 @@ export default function AnatomicalEngineeringProjectsPage() {
               <Button asChild variant="outline" size="sm">
                 <Link href="/projects" className="flex items-center gap-2">
                   <ArrowLeft className="w-4 h-4" />
-                  Back to Projects
+                  Projects
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="sm">
+                <Link href="/" className="flex items-center gap-2">
+                  <Home className="w-4 h-4" />
+                  Home
                 </Link>
               </Button>
             </div>

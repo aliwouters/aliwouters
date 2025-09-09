@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Wrench, Users, Lightbulb, Settings, FolderOpen, GraduationCap } from "lucide-react"
+import { ArrowLeft, Wrench, Users, Lightbulb, Settings, FolderOpen, GraduationCap, Home } from "lucide-react"
 import { Suspense } from "react"
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls, useGLTF, Environment, Html } from "@react-three/drei"
@@ -52,9 +52,15 @@ export default function MakerspacePage() {
             </Link>
             <div className="flex gap-2">
               <Button asChild variant="outline" size="sm">
+                <Link href="/" className="flex items-center gap-2">
+                  <Home className="w-4 h-4" />
+                  Home
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="sm">
                 <Link href="/work-experience" className="flex items-center gap-2">
                   <ArrowLeft className="w-4 h-4" />
-                  Back to Work Experience
+                  Work Experience
                 </Link>
               </Button>
             </div>

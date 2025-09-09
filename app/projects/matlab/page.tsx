@@ -144,7 +144,7 @@ export default function MatlabProjectsPage() {
               <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
                 <Link href="/projects" className="flex items-center gap-2">
                   <ArrowLeft className="w-4 h-4" />
-                  Back to Projects
+                  Projects
                 </Link>
               </Button>
               <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">

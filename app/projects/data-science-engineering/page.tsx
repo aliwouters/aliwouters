@@ -2,7 +2,16 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, BarChart3, Dna, TrendingUp, Microscope, ExternalLink, Scale3D as Scatter3D } from "lucide-react"
+import {
+  ArrowLeft,
+  BarChart3,
+  Dna,
+  TrendingUp,
+  Microscope,
+  ExternalLink,
+  Scale3D as Scatter3D,
+  Home,
+} from "lucide-react"
 
 export default function DataScienceEngineeringPage() {
   return (
@@ -14,11 +23,17 @@ export default function DataScienceEngineeringPage() {
             <Link href="/" className="text-2xl font-light text-slate-900 tracking-wide">
               Alizee Wouters
             </Link>
-            <div className="flex gap-3">
+            <div className="flex items-center gap-3">
               <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
                 <Link href="/projects" className="flex items-center gap-2">
                   <ArrowLeft className="w-4 h-4" />
                   Projects
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
+                <Link href="/" className="flex items-center gap-2">
+                  <Home className="w-4 h-4" />
+                  Home
                 </Link>
               </Button>
             </div>
