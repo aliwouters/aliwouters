@@ -209,6 +209,10 @@ export default function ResumePage() {
     )
   }
 
+  const handleViewNarcanCertificate = () => {
+    window.open("/documents/end-overdose-narcan-certificate.pdf", "_blank")
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
       {/* Navigation */}
@@ -518,6 +522,22 @@ export default function ResumePage() {
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">FERPA Training</h3>
                 <p className="text-lg text-gray-700 mb-2">UCLA</p>
                 <p className="text-gray-600 mb-3">Family Educational Rights and Privacy Act Training</p>
+              </div>
+
+              {/* End Overdose Narcan Training */}
+              <div className="border-l-4 border-pink-500 pl-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="text-xl font-semibold text-gray-900">End Overdose Narcan Training</h3>
+                  <button
+                    onClick={handleViewNarcanCertificate}
+                    className="inline-flex items-center px-2 py-1 text-xs font-medium bg-pink-100 text-pink-800 rounded-full hover:bg-pink-200 transition-colors"
+                  >
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    View Certificate
+                  </button>
+                </div>
+                <p className="text-lg text-gray-700 mb-2">End Overdose</p>
+                <p className="text-gray-600 mb-3">Completed September 11, 2025</p>
               </div>
             </div>
           </CardContent>
