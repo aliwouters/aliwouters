@@ -50,293 +50,6 @@ export default function NeurotechnologyPage() {
 
           {/* Research Projects */}
           <div className="space-y-16">
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
-              <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center">
-                    <Zap className="w-8 h-8 text-white" />
-                  </div>
-                </div>
-                <div className="lg:col-span-10">
-                  <h3 className="text-2xl font-medium text-slate-900 mb-4">CruX - Brain-Controlled Pincher</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    Developing an innovative brain-controlled prosthetic pincher that translates neural signals into
-                    precise mechanical movements. This type of research would represent a significant advancement in
-                    assistive technology for individuals with motor impairments.
-                  </p>
-
-                  <div className="grid md:grid-cols-2 gap-6 mb-6">
-                    <div className="space-y-6">
-                      <div className="bg-blue-50 rounded-2xl p-6">
-                        <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
-                          <Target className="w-5 h-5 text-blue-600" />
-                          Key Features
-                        </h4>
-                        <ul className="text-slate-700 space-y-2">
-                          <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
-                            Real-time EEG signal processing
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
-                            Machine learning-based intent recognition
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
-                            Precise motor control algorithms
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
-                            User-adaptive calibration system
-                          </li>
-                        </ul>
-                      </div>
-
-                      <div className="bg-blue-50 rounded-2xl p-6">
-                        <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
-                          <Target className="w-5 h-5 text-blue-600" />
-                          Technical Approach
-                        </h4>
-                        <p className="text-slate-700 text-sm leading-relaxed">
-                          Utilizing advanced signal processing techniques combined with machine learning algorithms to
-                          decode motor intentions from neural activity, enabling intuitive control of prosthetic
-                          devices.
-                        </p>
-                      </div>
-
-                      <div className="bg-amber-50 rounded-2xl p-6 border border-amber-200">
-                        <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
-                          <Target className="w-5 h-5 text-amber-600" />
-                          Outcome
-                        </h4>
-                        <p className="text-slate-700 text-sm leading-relaxed">
-                          Our team was partially successful in developing the brain-controlled interface. While we
-                          achieved significant progress in EEG signal processing and mechanical control, we encountered
-                          challenges with motor imagery classification that prevented full implementation of the
-                          intended brain-control functionality. This experience provided valuable insights into the
-                          complexities of brain-computer interface development.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="bg-slate-50 rounded-2xl p-6">
-                      <h4 className="font-semibold text-slate-900 mb-3">Hardware Implementation</h4>
-                      <div className="relative">
-                        <div className="rounded-2xl overflow-hidden border border-blue-200 shadow-lg">
-                          <Image
-                            src="/images/crux-brain-pincher.jpeg"
-                            alt="CruX brain-controlled pincher robotic arm with control electronics, showing the physical implementation of the brain-computer interface system"
-                            width={300}
-                            height={400}
-                            className="w-full h-auto object-cover"
-                          />
-                        </div>
-                        <div className="mt-3 text-center">
-                          <p className="text-sm text-slate-600">
-                            Physical implementation with Arduino control board and multi-jointed articulated arm
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Project Documentation Links */}
-                  <div className="bg-blue-50 rounded-2xl p-6">
-                    <h4 className="font-semibold text-slate-900 mb-4">Project Documentation</h4>
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <a
-                        href="https://docs.google.com/presentation/d/1cWC6TjJJL-B-fmr4Tyk7YvJxk5iAy02wZV_ZKVp1GWs/edit?slide=id.p#slide=id.p"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 bg-white hover:bg-blue-50 border border-blue-200 rounded-lg p-4 transition-colors"
-                      >
-                        <ExternalLink className="w-5 h-5 text-blue-600" />
-                        <div>
-                          <p className="font-medium text-slate-900">Project Proposal</p>
-                          <p className="text-sm text-slate-600">Initial project concept and methodology</p>
-                        </div>
-                      </a>
-                      <a
-                        href="https://docs.google.com/presentation/d/1OCY-NMioLosHl-sckusI5GpqvFdAB2_lpDTKidcp0-8/edit?slide=id.p#slide=id.p"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 bg-white hover:bg-blue-50 border border-blue-200 rounded-lg p-4 transition-colors"
-                      >
-                        <ExternalLink className="w-5 h-5 text-blue-600" />
-                        <div>
-                          <p className="font-medium text-slate-900">Project Presentation</p>
-                          <p className="text-sm text-slate-600">Final results and demonstration</p>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
-              <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center">
-                    <Activity className="w-8 h-8 text-white" />
-                  </div>
-                </div>
-                <div className="lg:col-span-10">
-                  <h3 className="text-2xl font-medium text-slate-900 mb-4">Emotion Detection with EEG</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    Research focused on developing wearable EEG systems capable of real-time emotion recognition. This
-                    work has applications in mental health monitoring, human-computer interaction, and adaptive user
-                    interfaces.
-                  </p>
-
-                  {/* EEG Development Process Images */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-slate-900 mb-4">Development Process & Hardware</h4>
-                    <div className="grid grid-cols-4 gap-4">
-                      {/* EEG Cap with Logo */}
-                      <div className="bg-emerald-50 rounded-lg p-3">
-                        <div className="aspect-square rounded-lg overflow-hidden border border-emerald-200 mb-3">
-                          <Image
-                            src="/images/eeg-cap-logo.jpeg"
-                            alt="EEG cap with brain-circuit logo design"
-                            width={200}
-                            height={200}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <p className="text-xs text-slate-600 text-center">Branding: customized cap with CruX logo</p>
-                      </div>
-
-                      {/* CAD Design */}
-                      <div className="bg-emerald-50 rounded-lg p-3">
-                        <div className="aspect-square rounded-lg overflow-hidden border border-emerald-200 mb-3">
-                          <Image
-                            src="/images/eeg-cad-design.jpeg"
-                            alt="CAD design of EEG headset showing 3D modeling process"
-                            width={200}
-                            height={200}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <p className="text-xs text-slate-600 text-center">
-                          3D CAD modeling of the EEG electrode casings: developed such that gel electrodes can be
-                          removed and cleaned
-                        </p>
-                      </div>
-
-                      {/* Electrode Array Interior */}
-                      <div className="bg-emerald-50 rounded-lg p-3">
-                        <div className="aspect-square rounded-lg overflow-hidden border border-emerald-200 mb-3">
-                          <Image
-                            src="/images/eeg-electrodes-inside.jpeg"
-                            alt="Interior view of EEG cap showing electrode placement and wiring"
-                            width={200}
-                            height={200}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <p className="text-xs text-slate-600 text-center">
-                          Electrode integration: electrode casings were 3D printed with flexible TPU for user comfort
-                        </p>
-                      </div>
-
-                      {/* Video Demo */}
-                      <div className="bg-emerald-50 rounded-lg p-3">
-                        <div className="aspect-square rounded-lg overflow-hidden border border-emerald-200 mb-3">
-                          <video
-                            controls
-                            className="w-full h-full object-cover"
-                            poster="/placeholder.svg?height=200&width=200&text=EEG+Demo"
-                          >
-                            <source
-                              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_9874-IjrX6N3MVV1KMIN4avfDnMHNr8uhcT.MOV"
-                              type="video/quicktime"
-                            />
-                            <source
-                              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_9874-IjrX6N3MVV1KMIN4avfDnMHNr8uhcT.MOV"
-                              type="video/mp4"
-                            />
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                        <p className="text-xs text-slate-600 text-center">
-                          Completed discrete EEG headset: worn by one of our project presenters
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6 mb-6">
-                    <div className="bg-emerald-50 rounded-2xl p-6">
-                      <h4 className="font-semibold text-slate-900 mb-3">Research Areas</h4>
-                      <ul className="text-slate-700 space-y-2">
-                        <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
-                          Signal acquisition and preprocessing
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
-                          Feature extraction from neural oscillations
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
-                          Deep learning classification models
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
-                          Wearable device integration
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div className="bg-slate-50 rounded-2xl p-6">
-                      <h4 className="font-semibold text-slate-900 mb-3">Applications</h4>
-                      <p className="text-slate-600 text-sm leading-relaxed">
-                        Creating systems that can monitor emotional states in real-time, enabling personalized
-                        interventions and adaptive technologies that respond to user emotional needs.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Project Documentation Link */}
-                  <div className="bg-emerald-50 rounded-2xl p-6 mb-6">
-                    <h4 className="font-semibold text-slate-900 mb-4">Project Documentation</h4>
-                    <a
-                      href="https://docs.google.com/presentation/d/1fPS0Ay2W_059HFDyExSL4MkaLow2HHIPaFNvYy6kt4Y/edit?slide=id.p#slide=id.p"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-white hover:bg-emerald-50 border border-emerald-200 rounded-lg p-4 transition-colors"
-                    >
-                      <ExternalLink className="w-5 h-5 text-emerald-600" />
-                      <div>
-                        <p className="font-medium text-slate-900">Project Presentation</p>
-                        <p className="text-sm text-slate-600">Complete project slideshow and results</p>
-                      </div>
-                    </a>
-                  </div>
-
-                  {/* California Neurotechnology Conference */}
-                  <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border border-amber-200">
-                    <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
-                      <Trophy className="w-5 h-5 text-amber-600" />
-                      California Neurotechnology Conference
-                    </h4>
-                    <p className="text-slate-700 text-sm leading-relaxed mb-3">
-                      Our emotion detection EEG project was presented at the California Neurotechnology Conference in a
-                      competitive research presentation. The project won first place, earning recognition for innovation
-                      in wearable neurotechnology and real-time emotion recognition systems.
-                    </p>
-                    <div className="bg-white/50 rounded-lg p-3">
-                      <p className="text-xs text-slate-600">
-                        <strong>Award:</strong> First Place Winner - Neuroscience and Neurotechnology Primer with
-                        Queen's University
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* Stress Detection EEG Applied to Poker */}
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
@@ -507,6 +220,295 @@ export default function NeurotechnologyPage() {
                         </p>
                       </div>
                     </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Emotion Detection with EEG */}
+            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+              <div className="grid lg:grid-cols-12 gap-8">
+                <div className="lg:col-span-2">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center">
+                    <Activity className="w-8 h-8 text-white" />
+                  </div>
+                </div>
+                <div className="lg:col-span-10">
+                  <h3 className="text-2xl font-medium text-slate-900 mb-4">Emotion Detection with EEG</h3>
+                  <p className="text-slate-600 mb-6 leading-relaxed">
+                    Research focused on developing wearable EEG systems capable of real-time emotion recognition. This
+                    work has applications in mental health monitoring, human-computer interaction, and adaptive user
+                    interfaces.
+                  </p>
+
+                  {/* EEG Development Process Images */}
+                  <div className="mb-6">
+                    <h4 className="font-semibold text-slate-900 mb-4">Development Process & Hardware</h4>
+                    <div className="grid grid-cols-4 gap-4">
+                      {/* EEG Cap with Logo */}
+                      <div className="bg-emerald-50 rounded-lg p-3">
+                        <div className="aspect-square rounded-lg overflow-hidden border border-emerald-200 mb-3">
+                          <Image
+                            src="/images/eeg-cap-logo.jpeg"
+                            alt="EEG cap with brain-circuit logo design"
+                            width={200}
+                            height={200}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <p className="text-xs text-slate-600 text-center">Branding: customized cap with CruX logo</p>
+                      </div>
+
+                      {/* CAD Design */}
+                      <div className="bg-emerald-50 rounded-lg p-3">
+                        <div className="aspect-square rounded-lg overflow-hidden border border-emerald-200 mb-3">
+                          <Image
+                            src="/images/eeg-cad-design.jpeg"
+                            alt="CAD design of EEG headset showing 3D modeling process"
+                            width={200}
+                            height={200}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <p className="text-xs text-slate-600 text-center">
+                          3D CAD modeling of the EEG electrode casings: developed such that gel electrodes can be
+                          removed and cleaned
+                        </p>
+                      </div>
+
+                      {/* Electrode Array Interior */}
+                      <div className="bg-emerald-50 rounded-lg p-3">
+                        <div className="aspect-square rounded-lg overflow-hidden border border-emerald-200 mb-3">
+                          <Image
+                            src="/images/eeg-electrodes-inside.jpeg"
+                            alt="Interior view of EEG cap showing electrode placement and wiring"
+                            width={200}
+                            height={200}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <p className="text-xs text-slate-600 text-center">
+                          Electrode integration: electrode casings were 3D printed with flexible TPU for user comfort
+                        </p>
+                      </div>
+
+                      {/* Video Demo */}
+                      <div className="bg-emerald-50 rounded-lg p-3">
+                        <div className="aspect-square rounded-lg overflow-hidden border border-emerald-200 mb-3">
+                          <video
+                            controls
+                            className="w-full h-full object-cover"
+                            poster="/placeholder.svg?height=200&width=200&text=EEG+Demo"
+                          >
+                            <source
+                              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_9874-IjrX6N3MVV1KMIN4avfDnMHNr8uhcT.MOV"
+                              type="video/quicktime"
+                            />
+                            <source
+                              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_9874-IjrX6N3MVV1KMIN4avfDnMHNr8uhcT.MOV"
+                              type="video/mp4"
+                            />
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                        <p className="text-xs text-slate-600 text-center">
+                          Completed discrete EEG headset: worn by one of our project presenters
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div className="bg-emerald-50 rounded-2xl p-6">
+                      <h4 className="font-semibold text-slate-900 mb-3">Research Areas</h4>
+                      <ul className="text-slate-700 space-y-2">
+                        <li className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
+                          Signal acquisition and preprocessing
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
+                          Feature extraction from neural oscillations
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
+                          Deep learning classification models
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
+                          Wearable device integration
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-slate-50 rounded-2xl p-6">
+                      <h4 className="font-semibold text-slate-900 mb-3">Applications</h4>
+                      <p className="text-slate-600 text-sm leading-relaxed">
+                        Creating systems that can monitor emotional states in real-time, enabling personalized
+                        interventions and adaptive technologies that respond to user emotional needs.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Project Documentation Link */}
+                  <div className="bg-emerald-50 rounded-2xl p-6 mb-6">
+                    <h4 className="font-semibold text-slate-900 mb-4">Project Documentation</h4>
+                    <a
+                      href="https://docs.google.com/presentation/d/1fPS0Ay2W_059HFDyExSL4MkaLow2HHIPaFNvYy6kt4Y/edit?slide=id.p#slide=id.p"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 bg-white hover:bg-emerald-50 border border-emerald-200 rounded-lg p-4 transition-colors"
+                    >
+                      <ExternalLink className="w-5 h-5 text-emerald-600" />
+                      <div>
+                        <p className="font-medium text-slate-900">Project Presentation</p>
+                        <p className="text-sm text-slate-600">Complete project slideshow and results</p>
+                      </div>
+                    </a>
+                  </div>
+
+                  {/* California Neurotechnology Conference */}
+                  <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border border-amber-200">
+                    <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                      <Trophy className="w-5 h-5 text-amber-600" />
+                      California Neurotechnology Conference
+                    </h4>
+                    <p className="text-slate-700 text-sm leading-relaxed mb-3">
+                      Our emotion detection EEG project was presented at the California Neurotechnology Conference in a
+                      competitive research presentation. The project won first place, earning recognition for innovation
+                      in wearable neurotechnology and real-time emotion recognition systems.
+                    </p>
+                    <div className="bg-white/50 rounded-lg p-3">
+                      <p className="text-xs text-slate-600">
+                        <strong>Award:</strong> First Place Winner - Neuroscience and Neurotechnology Primer with
+                        Queen's University
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* CruX - Brain-Controlled Pincher */}
+            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+              <div className="grid lg:grid-cols-12 gap-8">
+                <div className="lg:col-span-2">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center">
+                    <Zap className="w-8 h-8 text-white" />
+                  </div>
+                </div>
+                <div className="lg:col-span-10">
+                  <h3 className="text-2xl font-medium text-slate-900 mb-4">CruX - Brain-Controlled Pincher</h3>
+                  <p className="text-slate-600 mb-6 leading-relaxed">
+                    Developing an innovative brain-controlled prosthetic pincher that translates neural signals into
+                    precise mechanical movements. This type of research would represent a significant advancement in
+                    assistive technology for individuals with motor impairments.
+                  </p>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div className="space-y-6">
+                      <div className="bg-blue-50 rounded-2xl p-6">
+                        <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                          <Target className="w-5 h-5 text-blue-600" />
+                          Key Features
+                        </h4>
+                        <ul className="text-slate-700 space-y-2">
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                            Real-time EEG signal processing
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                            Machine learning-based intent recognition
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                            Precise motor control algorithms
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                            User-adaptive calibration system
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div className="bg-blue-50 rounded-2xl p-6">
+                        <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                          <Target className="w-5 h-5 text-blue-600" />
+                          Technical Approach
+                        </h4>
+                        <p className="text-slate-700 text-sm leading-relaxed">
+                          Utilizing advanced signal processing techniques combined with machine learning algorithms to
+                          decode motor intentions from neural activity, enabling intuitive control of prosthetic
+                          devices.
+                        </p>
+                      </div>
+
+                      <div className="bg-amber-50 rounded-2xl p-6 border border-amber-200">
+                        <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                          <Target className="w-5 h-5 text-amber-600" />
+                          Outcome
+                        </h4>
+                        <p className="text-slate-700 text-sm leading-relaxed">
+                          Our team was partially successful in developing the brain-controlled interface. While we
+                          achieved significant progress in EEG signal processing and mechanical control, we encountered
+                          challenges with motor imagery classification that prevented full implementation of the
+                          intended brain-control functionality. This experience provided valuable insights into the
+                          complexities of brain-computer interface development.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="bg-slate-50 rounded-2xl p-6">
+                      <h4 className="font-semibold text-slate-900 mb-3">Hardware Implementation</h4>
+                      <div className="relative">
+                        <div className="rounded-2xl overflow-hidden border border-blue-200 shadow-lg">
+                          <Image
+                            src="/images/crux-brain-pincher.jpeg"
+                            alt="CruX brain-controlled pincher robotic arm with control electronics, showing the physical implementation of the brain-computer interface system"
+                            width={300}
+                            height={400}
+                            className="w-full h-auto object-cover"
+                          />
+                        </div>
+                        <div className="mt-3 text-center">
+                          <p className="text-sm text-slate-600">
+                            Physical implementation with Arduino control board and multi-jointed articulated arm
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Project Documentation Links */}
+                  <div className="bg-blue-50 rounded-2xl p-6">
+                    <h4 className="font-semibold text-slate-900 mb-4">Project Documentation</h4>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <a
+                        href="https://docs.google.com/presentation/d/1cWC6TjJJL-B-fmr4Tyk7YvJxk5iAy02wZV_ZKVp1GWs/edit?slide=id.p#slide=id.p"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 bg-white hover:bg-blue-50 border border-blue-200 rounded-lg p-4 transition-colors"
+                      >
+                        <ExternalLink className="w-5 h-5 text-blue-600" />
+                        <div>
+                          <p className="font-medium text-slate-900">Project Proposal</p>
+                          <p className="text-sm text-slate-600">Initial project concept and methodology</p>
+                        </div>
+                      </a>
+                      <a
+                        href="https://docs.google.com/presentation/d/1OCY-NMioLosHl-sckusI5GpqvFdAB2_lpDTKidcp0-8/edit?slide=id.p#slide=id.p"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 bg-white hover:bg-blue-50 border border-blue-200 rounded-lg p-4 transition-colors"
+                      >
+                        <ExternalLink className="w-5 h-5 text-blue-600" />
+                        <div>
+                          <p className="font-medium text-slate-900">Project Presentation</p>
+                          <p className="text-sm text-slate-600">Final results and demonstration</p>
+                        </div>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
