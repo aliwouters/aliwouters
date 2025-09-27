@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import ClientLayout from "./ClientLayout"
 
 export const metadata: Metadata = {
-  title: "Alizee Wouters - Bioengineering Student & Researcher",
+  title: "Alizee Wouters",
   description:
     "Alizee Wouters is a UCLA Bioengineering student specializing in neurotechnology, cognitive science, and anatomical engineering. Explore her research, projects, and professional experience in biomedical engineering and AI.",
   keywords: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://alizeewouters.com",
     siteName: "Alizee Wouters Portfolio",
-    title: "Alizee Wouters - Bioengineering Student & Researcher",
+    title: "Alizee Wouters",
     description:
       "UCLA Bioengineering student specializing in neurotechnology, cognitive science, and anatomical engineering. Explore research, projects, and professional experience.",
     images: [
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alizee Wouters - Bioengineering Student & Researcher",
+    title: "Alizee Wouters",
     description:
       "UCLA Bioengineering student specializing in neurotechnology, cognitive science, and anatomical engineering.",
     images: ["/images/alizee-photo.jpg"],
