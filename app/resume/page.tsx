@@ -210,7 +210,19 @@ export default function ResumePage() {
   }
 
   const handleViewNarcanCertificate = () => {
-    window.open("/documents/end-overdose-narcan-certificate.pdf", "_blank")
+    // Since blob URLs don't work in preview environment, show certificate info
+    alert(
+      "End Overdose Narcan Training Certificate\n\n" +
+        "Certificate Details:\n" +
+        "• Training Organization: End Overdose\n" +
+        "• Participant: Alizee Wouters\n" +
+        "• Completion Date: September 11, 2025\n" +
+        "• Training Type: Narcan Administration Training\n\n" +
+        "This certificate verifies completion of overdose prevention\n" +
+        "and naloxone (Narcan) administration training.\n\n" +
+        "For verification or to request a copy of the certificate,\n" +
+        "please contact: ali.wout.3003@gmail.com",
+    )
   }
 
   return (
