@@ -79,15 +79,10 @@ export const metadata: Metadata = {
     maximumScale: 1,
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.png", sizes: "16x16", type: "image/png" },
-    ],
-    apple: [{ url: "/favicon.png", sizes: "180x180", type: "image/png" }],
+    icon: "/favicon.ico",
     shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
   },
-  manifest: "/manifest.json",
 }
 
 export default function RootLayout({
