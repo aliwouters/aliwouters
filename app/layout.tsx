@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     images: ["/images/alizee-photo.jpg"],
   },
   verification: {
-    google: "your-google-verification-code", // Replace with actual verification code when available
+    google: "your-google-verification-code",
   },
   category: "portfolio",
   classification: "bioengineering portfolio",
@@ -80,11 +80,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon.png", sizes: "16x16", type: "image/png" },
     ],
     apple: [{ url: "/favicon.png", sizes: "180x180", type: "image/png" }],
-    shortcut: "/favicon.png",
+    shortcut: "/favicon.ico",
   },
   manifest: "/manifest.json",
 }
