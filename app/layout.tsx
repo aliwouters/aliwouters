@@ -1,30 +1,69 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
 import ClientLayout from "./ClientLayout"
+
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Alizee Wouters",
   description:
-    "Alizee Wouters is a UCLA Bioengineering student specializing in neurotechnology, cognitive science, and anatomical engineering. Explore her research, projects, and professional experience in biomedical engineering and AI.",
+    "Bioengineering student at UCLA specializing in neurotechnology, brain-computer interfaces, and cognitive science. Experienced in research, prosthetic development, and assistive technology.",
   keywords: [
     "Alizee Wouters",
     "bioengineering",
     "neurotechnology",
-    "cognitive science",
-    "UCLA",
-    "biomedical engineering",
-    "research",
-    "anatomical engineering",
-    "prosthetics",
     "brain-computer interfaces",
-    "MATLAB",
-    "Python",
-    "CAD design",
-    "3D modeling",
+    "UCLA",
+    "cognitive science",
+    "prosthetics",
+    "research",
+    "neuroscience",
+    "artificial intelligence",
+    "machine learning",
+    "signal processing",
+    "EEG",
+    "assistive technology",
+    "robotics",
   ],
   authors: [{ name: "Alizee Wouters" }],
   creator: "Alizee Wouters",
   publisher: "Alizee Wouters",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://alizeewouters.com"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Alizee Wouters",
+    description:
+      "Bioengineering student at UCLA specializing in neurotechnology, brain-computer interfaces, and cognitive science.",
+    url: "https://alizeewouters.com",
+    siteName: "Alizee Wouters",
+    images: [
+      {
+        url: "/images/alizee-photo.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Alizee Wouters - Bioengineering Student & Researcher",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Alizee Wouters",
+    description:
+      "Bioengineering student at UCLA specializing in neurotechnology, brain-computer interfaces, and cognitive science.",
+    images: ["/images/alizee-photo.jpg"],
+  },
   robots: {
     index: true,
     follow: true,
@@ -36,57 +75,15 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://alizeewouters.com",
-    siteName: "Alizee Wouters Portfolio",
-    title: "Alizee Wouters",
-    description:
-      "UCLA Bioengineering student specializing in neurotechnology, cognitive science, and anatomical engineering. Explore research, projects, and professional experience.",
-    images: [
-      {
-        url: "/images/alizee-photo.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Alizee Wouters - Bioengineering Student",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Alizee Wouters",
-    description:
-      "UCLA Bioengineering student specializing in neurotechnology, cognitive science, and anatomical engineering.",
-    images: ["/images/alizee-photo.jpg"],
-  },
-  verification: {
-    google: "your-google-verification-code",
-  },
-  category: "portfolio",
-  classification: "bioengineering portfolio",
-  generator: "Next.js",
-  applicationName: "Alizee Wouters Portfolio",
-  referrer: "origin-when-cross-origin",
-  colorScheme: "light dark",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },
-  ],
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
   icons: {
     icon: [
       { url: "/favicon.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon.png", sizes: "16x16", type: "image/png" },
     ],
     apple: [{ url: "/favicon.png", sizes: "180x180", type: "image/png" }],
-    shortcut: "/favicon.png",
   },
   manifest: "/manifest.json",
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -94,7 +91,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <ClientLayout>{children}</ClientLayout>
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          <ClientLayout>{children}</ClientLayout>
+        </ThemeProvider>
+      </body>
+    </html>
+  )
 }
-
-import "./globals.css"
