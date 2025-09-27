@@ -1,0 +1,26 @@
+{
+  "name": "Alizee Wouters Portfolio",
+  "short_name": "Alizee Wouters",
+  "description": "UCLA Bioengineering student specializing in neurotechnology, cognitive science, and anatomical engineering",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["education", "portfolio", "bioengineering"],
+  "lang": "en-US"
+}
