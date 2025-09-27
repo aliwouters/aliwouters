@@ -2,49 +2,51 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Briefcase, Cpu, Wrench, ArrowRight } from "lucide-react"
+import { Briefcase, Cpu, Wrench, ArrowRight, Home } from "lucide-react"
 
 export default function WorkExperiencePage() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Navigation */}
       <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200/50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <Link href="/" className="text-2xl font-light text-slate-900 tracking-wide">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4 sm:py-6">
+            <Link href="/" className="text-xl sm:text-2xl font-light text-slate-900 tracking-wide">
               Alizee Wouters
             </Link>
             <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
               <Link href="/" className="flex items-center gap-2">
-                <ArrowLeft className="w-4 h-4" />
-                Home
+                <Home className="w-4 h-4" />
+                <span className="hidden sm:inline">Home</span>
               </Link>
             </Button>
           </div>
         </div>
       </nav>
 
-      <div className="pt-16 pb-24">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <div className="pt-12 sm:pt-16 pb-16 sm:pb-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-20">
-            <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Professional Experience</h1>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto mb-8"></div>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <div className="text-center mb-16 sm:mb-20">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 mb-4 sm:mb-6">
+              Professional Experience
+            </h1>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto mb-6 sm:mb-8"></div>
+            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               My industry experience spans innovative companies and organizations, each contributing to developing my
               skills in technology, engineering, and research.
             </p>
           </div>
 
           {/* Experience Timeline */}
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="group">
-              <div className="bg-white rounded-3xl p-8 border border-slate-200/50 hover:border-orange-200 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10 h-full flex flex-col">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-orange-200 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10 h-full flex flex-col">
                 <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6">
                   <Briefcase className="w-8 h-8 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-medium text-slate-900 mb-2">Psyonic</h3>
+                  <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-2">Psyonic</h3>
                   <p className="text-orange-600 font-medium mb-4 text-sm">Mechatronics Intern </p>
                   <p className="text-slate-600 mb-6 leading-relaxed text-sm">
                     Contributing to cutting-edge prosthetic technology development at a leading bionic limb company,
@@ -66,12 +68,12 @@ export default function WorkExperiencePage() {
             </div>
 
             <div className="group">
-              <div className="bg-white rounded-3xl p-8 border border-slate-200/50 hover:border-blue-200 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 h-full flex flex-col">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-blue-200 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 h-full flex flex-col">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6">
                   <Cpu className="w-8 h-8 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-medium text-slate-900 mb-2">Auli Tech</h3>
+                  <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-2">Auli Tech</h3>
                   <p className="text-blue-600 font-medium mb-4 text-sm">Assistive Technology Intern</p>
                   <p className="text-slate-600 mb-6 leading-relaxed text-sm">
                     Worked with innovative assistive technology solutions and collaborated on marketing content creation
@@ -92,13 +94,13 @@ export default function WorkExperiencePage() {
               </div>
             </div>
 
-            <div className="group">
-              <div className="bg-white rounded-3xl p-8 border border-slate-200/50 hover:border-emerald-200 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/10 h-full flex flex-col">
+            <div className="group sm:col-span-2 lg:col-span-1">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-emerald-200 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/10 h-full flex flex-col">
                 <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mb-6">
                   <Wrench className="w-8 h-8 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-medium text-slate-900 mb-2">UCLA Makerspace</h3>
+                  <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-2">UCLA Makerspace</h3>
                   <p className="text-emerald-600 font-medium mb-4 text-sm">Makerspace Technician</p>
                   <p className="text-slate-600 mb-6 leading-relaxed text-sm">
                     Managing technical equipment and facilitating student projects in UCLA's makerspace, providing
@@ -125,10 +127,10 @@ export default function WorkExperiencePage() {
       {/* Back to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
         aria-label="Back to top"
       >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
       </button>
