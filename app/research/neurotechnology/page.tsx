@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Brain, Zap, Activity, Target, ExternalLink, Trophy, Users, Home } from "lucide-react"
+import { ArrowLeft, Brain, Zap, Activity, Target, ExternalLink, Trophy, Users, Home, Globe } from "lucide-react"
 import Image from "next/image"
 
 export default function NeurotechnologyPage() {
@@ -42,10 +42,24 @@ export default function NeurotechnologyPage() {
             </div>
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Neurotechnology Research</h1>
             <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-blue-700 mx-auto mb-8"></div>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-6">
               Pioneering brain-computer interfaces and neural signal processing technologies that transform how we
               interact with machines.
             </p>
+
+            {/* CruX Club Link */}
+            <div className="flex justify-center">
+              <a
+                href="https://www.cruxucla.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
+              >
+                <Globe className="w-4 h-4" />
+                All projects developed through CruX UCLA
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
           </div>
 
           {/* Research Projects */}
