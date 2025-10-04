@@ -208,6 +208,27 @@ export default function AnatomicalEngineeringPage() {
 
               {/* Project Previews Grid */}
               <div className="grid md:grid-cols-2 gap-6 mb-6">
+                {/* Analog EMG Controlled Tentacle - UPDATED */}
+                <div
+                  className="bg-gradient-to-br from-indigo-50 to-violet-50 rounded-2xl p-6 border border-indigo-200"
+                  id="analog-emg-4-degrees-of-freedom"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-lg flex items-center justify-center">
+                      <Zap className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800">Analog EMG Controlled Tentacle</h4>
+                      <p className="text-gray-600 text-sm">4 Degrees of Freedom</p>
+                    </div>
+                  </div>
+                  <div className="w-full aspect-square bg-gradient-to-br from-indigo-100 to-violet-100 rounded-lg overflow-hidden">
+                    <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/-487967345448332010820251003_192912-IHpZjVTrQRE6h4n9dV7K6RJemUyeyn.mov" type="video/mp4" />
+                    </video>
+                  </div>
+                </div>
+
                 {/* Binary EMG Controlled Tentacle */}
                 <div
                   className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-200"

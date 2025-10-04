@@ -10,7 +10,18 @@ import AnimatedBackground from "@/components/AnimatedBackground"
 
 const featuredProjects = [
   {
-    id: 5,
+    id: 1,
+    title: "Analog EMG Controlled Tentacle with 4 Degrees of Freedom",
+    description:
+      "Advanced proportional control system using analog muscle activation signals for continuous, natural movement that responds to contraction intensity. Used in research studies investigating referential control of agonist-antagonist muscle pairs.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/-487967345448332010820251003_192912-IHpZjVTrQRE6h4n9dV7K6RJemUyeyn.mov",
+    link: "/projects/anatomical-engineering",
+    category: "Anatomical Engineering",
+    isVideo: true,
+    caption: "Analog EMG Control Demonstration",
+  },
+  {
+    id: 2,
     title: "Visualizing High-Dimensional Data with t-SNE",
     description:
       "Advanced dimensionality reduction technique for visualizing complex datasets and understanding data structure in lower dimensions",
@@ -19,17 +30,6 @@ const featuredProjects = [
     category: "Data Science Engineering",
     isImage: true,
     caption: "t-SNE Visualization Results",
-  },
-  {
-    id: 4,
-    title: "Binary EMG Controlled Tentacle with 4 Degrees of Freedom",
-    description:
-      "Revolutionary biomedical interface using electromyography sensors to control robotic tentacle movement through muscle contractions",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8548%20%281%29%20%281%29-MlreCKkora0uV8xwCSDLJF12gwuuBQ.mov",
-    link: "/projects/anatomical-engineering",
-    category: "Anatomical Engineering",
-    isVideo: true,
-    caption: "Binary EMG Control Demonstration",
   },
   {
     id: 3,
@@ -43,18 +43,18 @@ const featuredProjects = [
     caption: "UCLA Research Poster",
   },
   {
-    id: 2,
+    id: 4,
     title: "Discrete EEG Headset for Stress Detection",
     description:
       "Advanced wearable neurotechnology system completely concealed within a baseball cap for unobtrusive monitoring of cognitive load and stress responses during competitive gaming scenarios",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled%20video%20-%20Made%20with%20Clipchamp%20%281%29-EufULAPMShPCDVCuR5XnQ2edfpK6qP.mp4", // Updated video source
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled%20video%20-%20Made%20with%20Clipchamp%20%281%29-EufULAPMShPCDVCuR5XnQ2edfpK6qP.mp4",
     link: "/research/neurotechnology",
     category: "Neurotechnology Research",
     isVideo: true,
     caption: "Discrete EEG System Demo",
   },
   {
-    id: 1,
+    id: 5,
     title: "Analog Joystick Controlled Tentacle with 4 Degrees of Freedom",
     description:
       "Advanced tentacle system with analog joystick control for intuitive real-time manipulation across four independent degrees of freedom",
@@ -326,7 +326,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Projects Carousel - Tentacle Series */}
+      {/* Featured Projects Carousel */}
       <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-50 to-blue-50/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">

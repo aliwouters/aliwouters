@@ -80,7 +80,7 @@ export const metadata: Metadata = {
       { url: "/favicon.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon.png", sizes: "16x16", type: "image/png" },
     ],
-    apple: [{ url: "/favicon.png", sizes: "180x180", type: "image/png" }],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   manifest: "/manifest.json",
     generator: 'v0.app'
@@ -92,7 +92,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationOnChange>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <ClientLayout>{children}</ClientLayout>

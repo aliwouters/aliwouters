@@ -76,23 +76,75 @@ export default function AnatomicalEngineeringProjectsPage() {
           </p>
         </div>
 
-        {/* Coming Soon Banner */}
-        <div className="mb-8">
-          <div className="bg-gradient-to-r from-gray-500 to-slate-600 text-white rounded-lg p-4 shadow-lg">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                <Zap className="w-6 h-6" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold">Analog EMG Controlled Tentacle with 4 Degrees of Freedom</h3>
-                <p className="text-gray-200 text-sm">Continuous control system with proportional muscle activation</p>
-              </div>
-              <div className="px-3 py-1 bg-white/20 rounded-full text-xs font-medium">Coming Soon</div>
-            </div>
-          </div>
-        </div>
-
         <div className="space-y-12">
+          {/* Analog EMG Controlled Tentacle */}
+          <Card className="border-indigo-200 shadow-xl bg-gradient-to-br from-indigo-50 to-violet-50">
+            <CardHeader className="bg-gradient-to-r from-indigo-500 to-violet-600 text-white rounded-t-lg">
+              <CardTitle className="flex items-center gap-2 text-2xl">
+                <Zap className="w-6 h-6" />
+                Analog EMG Controlled Tentacle with 4 Degrees of Freedom
+              </CardTitle>
+              <p className="text-indigo-100 mt-2">
+                Continuous proportional control system using analog muscle activation signals
+              </p>
+            </CardHeader>
+            <CardContent className="p-8">
+              {/* Videos Side by Side */}
+              <div className="grid grid-cols-2 gap-6 mb-6">
+                {/* Video 1 */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-indigo-100">
+                  <h4 className="font-semibold text-gray-800 mb-4">Control System Demo</h4>
+                  <div className="w-full h-80 bg-gradient-to-br from-indigo-100 to-violet-100 rounded-lg overflow-hidden mb-4 flex items-center justify-center">
+                    <video autoPlay loop muted playsInline className="w-full h-full object-cover rounded-lg">
+                      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/-487967345448332010820251003_192912-IHpZjVTrQRE6h4n9dV7K6RJemUyeyn.mov" type="video/mp4" />
+                    </video>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-gray-600 text-sm">Analog EMG Control in Action</p>
+                  </div>
+                </div>
+
+                {/* Video 2 */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-indigo-100">
+                  <h4 className="font-semibold text-gray-800 mb-4">Proportional Response</h4>
+                  <div className="w-full h-80 bg-gradient-to-br from-indigo-100 to-violet-100 rounded-lg overflow-hidden mb-4 flex items-center justify-center">
+                    <video autoPlay loop muted playsInline className="w-full h-full object-cover rounded-lg">
+                      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/-747288150443556990120251003_193345%20%281%29-mhEk6G4QSArOrxK6h26tAjBI8dWN2Z.mov" type="video/mp4" />
+                    </video>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-gray-600 text-sm">Precise Movement Control</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project Overview */}
+              <div className="bg-white rounded-lg p-6 border border-indigo-200 shadow-md mb-4">
+                <h5 className="font-semibold text-gray-800 mb-3">Project Overview</h5>
+                <div className="space-y-4">
+                  <div className="bg-indigo-50 p-4 rounded-lg border border-indigo-200">
+                    <h6 className="font-semibold text-gray-800 mb-2">Analog EMG Control System</h6>
+                    <p className="text-gray-600 text-sm">
+                      This advanced system uses analog electromyography (EMG) sensors to detect continuous muscle
+                      activation levels, enabling proportional control of the tentacle's four degrees of freedom. Unlike
+                      binary systems, this provides smooth, natural movement that responds to the intensity of muscle
+                      contractions.
+                    </p>
+                  </div>
+                  <div className="bg-indigo-50 p-4 rounded-lg border border-indigo-200">
+                    <h6 className="font-semibold text-gray-800 mb-2">Research Application</h6>
+                    <p className="text-gray-600 text-sm">
+                      This project was developed for research studies investigating referential control of
+                      agonist-antagonist muscle pairs. The system explores how humans can intuitively control robotic
+                      devices through natural muscle activation patterns, advancing our understanding of human-machine
+                      interfaces for prosthetics and assistive devices.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Binary EMG Controlled Tentacle */}
           <Card className="border-purple-200 shadow-xl bg-gradient-to-br from-purple-50 to-pink-50">
             <CardHeader className="bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-t-lg">
