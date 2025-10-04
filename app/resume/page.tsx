@@ -18,81 +18,13 @@ import {
 
 export default function ResumePage() {
   const handleDownloadResume = () => {
-    // Direct link approach - opens the file which triggers download
+    // Direct link approach - opens the file which triggers download in new tab
     window.open("http://tmpfiles.org/dl/3140441/alizeewouterscvfall2025v2.pdf", "_blank")
   }
 
-  const handleDownloadTranscript = async () => {
-    try {
-      const { jsPDF } = await import("jspdf")
-
-      const transcriptPages = [
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/305994733_WOUTERS.ALIZEE_U1_20250905035709-1-YW7Hx1bZgB1Wgk9N3KGHlI5X7xMWRI.png",
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/305994733_WOUTERS.ALIZEE_U1_20250905035709-2-CE4EDrNo1UywgOLchG6bzGwvgjrLGd.png",
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/305994733_WOUTERS.ALIZEE_U1_20250905035709-3-CF70sZ9h1GrNE0TwxJjqLC6xSOqGsV.png",
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/305994733_WOUTERS.ALIZEE_U1_20250905035709-4-l5j3UE0fnL41MmOUyyNIAyQl8hplLD.png",
-      ]
-
-      const imagePromises = transcriptPages.map(async (url) => {
-        const response = await fetch(url)
-        const blob = await response.blob()
-        return new Promise((resolve, reject) => {
-          const img = new Image()
-          img.crossOrigin = "anonymous"
-          img.onload = () => resolve(img)
-          img.onerror = () => reject(new Error(`Failed to load image: ${url}`))
-          img.src = URL.createObjectURL(blob)
-        })
-      })
-
-      const images = await Promise.all(imagePromises)
-
-      const pdf = new jsPDF({
-        orientation: "portrait",
-        unit: "mm",
-        format: "letter",
-      })
-
-      const pdfWidth = 216
-      const pdfHeight = 279
-
-      images.forEach((img: any, index) => {
-        if (index > 0) {
-          pdf.addPage()
-        }
-
-        const imgAspectRatio = img.width / img.height
-        const pdfAspectRatio = pdfWidth / pdfHeight
-
-        let finalWidth, finalHeight, x, y
-
-        if (imgAspectRatio > pdfAspectRatio) {
-          finalWidth = pdfWidth
-          finalHeight = pdfWidth / imgAspectRatio
-          x = 0
-          y = (pdfHeight - finalHeight) / 2
-        } else {
-          finalHeight = pdfHeight
-          finalWidth = pdfHeight * imgAspectRatio
-          x = (pdfWidth - finalWidth) / 2
-          y = 0
-        }
-
-        const canvas = document.createElement("canvas")
-        const ctx = canvas.getContext("2d")
-        canvas.width = img.width
-        canvas.height = img.height
-        ctx?.drawImage(img, 0, 0)
-
-        const imgData = canvas.toDataURL("image/jpeg", 0.95)
-        pdf.addImage(imgData, "JPEG", x, y, finalWidth, finalHeight)
-      })
-
-      pdf.save("UCLA-Transcript-Alizee-Wouters.pdf")
-    } catch (error) {
-      console.error("Transcript download failed:", error)
-      alert("Download failed. Please try again or contact support.")
-    }
+  const handleDownloadTranscript = () => {
+    // Direct link approach - opens the file which triggers download in new tab
+    window.open("http://tmpfiles.org/dl/3141146/305994733_wouters.alizee_u1_20251004043153.pdf", "_blank")
   }
 
   const handleViewLabSafety = () => {
