@@ -36,7 +36,7 @@ importers:
         specifier: latest
         version: 16.0.7(expo@54.0.12(@babel/core@7.28.3)(react-native@0.81.4(@babel/core@7.28.3)(@react-native/metro-config@0.81.0(@babel/core@7.28.3))(@types/react@18.0.0)(react@18.0.0))(react@18.0.0))(react-dom@18.0.0(react@18.0.0))(react-native@0.81.4(@babel/core@7.28.3)(@react-native/metro-config@0.81.0(@babel/core@7.28.3))(@types/react@18.0.0)(react@18.0.0))(react@18.0.0)
       framer-motion:
-        specifier: ^10.16.5
+        specifier: 10.16.5
         version: 10.16.5(react-dom@18.0.0(react@18.0.0))(react@18.0.0)
       jspdf:
         specifier: latest
@@ -79,11 +79,11 @@ importers:
         specifier: ^18
         version: 18.0.0
       '@types/three':
-        specifier: ^0.159.0
+        specifier: 0.159.0
         version: 0.159.0
       autoprefixer:
-        specifier: ^10.4.16
-        version: 10.4.20(postcss@8.5.0)
+        specifier: 10.4.16
+        version: 10.4.16(postcss@8.5.0)
       postcss:
         specifier: ^8.5
         version: 8.5.0
@@ -1209,8 +1209,8 @@ packages:
   async-limiter@1.0.1:
     resolution: {integrity: sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==}
 
-  autoprefixer@10.4.20:
-    resolution: {integrity: sha512-XY25y5xSv/wEoqzDyXXME4AFfkZI0P23z6Fs3YgymDnKJkCGOnkL0iTxCa85UTqaSgfcqyf3UA6+c7wUvx/16g==}
+  autoprefixer@10.4.16:
+    resolution: {integrity: sha512-7vd3UC6xKp0HLfua5IjZlcXvGAGy7cBAXTg2lyQ/8WpNhd6SiZ8Be+xm3FyBSYJx5GKcpRCzBh7RH4/0dnY+uQ==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
@@ -4893,7 +4893,7 @@ snapshots:
 
   async-limiter@1.0.1: {}
 
-  autoprefixer@10.4.20(postcss@8.5.0):
+  autoprefixer@10.4.16(postcss@8.5.0):
     dependencies:
       browserslist: 4.25.3
       caniuse-lite: 1.0.30001735

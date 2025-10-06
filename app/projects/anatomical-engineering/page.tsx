@@ -1,42 +1,57 @@
 "use client"
 
-import { Suspense } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Microscope, Cog, Zap, Github, Home } from "lucide-react"
-import { Canvas } from "@react-three/fiber"
-import { OrbitControls, useGLTF, Environment, Html } from "@react-three/drei"
+import dynamic from "next/dynamic"
 
-// 3D Model Components for Tentacle Project
-function TentacleModel1D() {
-  const { scene } = useGLTF("/models/1d-tentacle-all-parts.glb")
-  return <primitive object={scene} scale={[1, 1, 1]} rotation={[Math.PI / 2, 0, 0]} />
-}
+// Dynamically import 3D model viewers with no SSR
+const TentacleCablesViewer = dynamic(
+  () => import("@/components/TentacleModels").then((mod) => mod.TentacleCablesViewer),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex items-center justify-center h-full">
+        <div className="flex items-center gap-2 text-slate-600">
+          <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+          Loading 3D Model...
+        </div>
+      </div>
+    ),
+  },
+)
 
-function TentacleModel2D() {
-  const { scene } = useGLTF("/models/2d-tentacle-all-parts.glb")
-  return <primitive object={scene} scale={[1, 1, 1]} />
-}
+const Tentacle2DViewer = dynamic(() => import("@/components/TentacleModels").then((mod) => mod.Tentacle2DViewer), {
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center h-full">
+      <div className="flex items-center gap-2 text-slate-600">
+        <div className="w-4 h-4 border-2 border-teal-600 border-t-transparent rounded-full animate-spin"></div>
+        Loading 3D Model...
+      </div>
+    </div>
+  ),
+})
 
-function TentacleModelCables() {
-  const { scene } = useGLTF("/models/tentacle-design-cables.glb")
-  return <primitive object={scene} scale={[1, 1, 1]} />
-}
-
-// Loading component
-function ModelLoader() {
-  return (
-    <Html center>
-      <div className="flex items-center gap-2 text-slate-600 bg-white p-4 rounded-lg shadow-lg">
+const Tentacle1DViewer = dynamic(() => import("@/components/TentacleModels").then((mod) => mod.Tentacle1DViewer), {
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center h-full">
+      <div className="flex items-center gap-2 text-slate-600">
         <div className="w-4 h-4 border-2 border-green-600 border-t-transparent rounded-full animate-spin"></div>
         Loading 3D Model...
       </div>
-    </Html>
-  )
-}
+    </div>
+  ),
+})
 
 export default function AnatomicalEngineeringProjectsPage() {
+  // Force dynamic rendering
+  const dynamicRendering = "force-dynamic"
+  const dynamicParams = true
+  const revalidate = 0
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
       {/* Navigation */}
@@ -217,7 +232,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                 </div>
               </div>
 
-              {/* GitHub Link - More prominent button */}
+              {/* GitHub Link */}
               <div className="flex items-center justify-center pt-4 border-t border-purple-200">
                 <a
                   href="https://github.com/aliwouters/Binary-EMG-Control-for-4-Degrees-of-Freedom-Tentacle-/tree/main"
@@ -244,34 +259,12 @@ export default function AnatomicalEngineeringProjectsPage() {
               </p>
             </CardHeader>
             <CardContent className="p-8">
-              {/* 3D Model and Video - Equal width side by side */}
+              {/* 3D Model and Video */}
               <div className="grid grid-cols-2 gap-6 mb-6">
                 {/* 3D Model - Left side */}
                 <div className="w-full bg-white rounded-2xl p-6 shadow-lg border border-blue-100">
                   <div className="w-full h-80 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg overflow-hidden mb-4">
-                    <Canvas
-                      camera={{ position: [50, 50, 150], fov: 70, near: 0.1, far: 1000 }}
-                      style={{ background: "linear-gradient(135deg, #f0fdfa 0%, #a5f3fc 100%)" }}
-                    >
-                      <ambientLight intensity={0.6} />
-                      <directionalLight position={[10, 10, 5]} intensity={1.2} />
-                      <Suspense fallback={<ModelLoader />}>
-                        <TentacleModelCables />
-                        <Environment preset="studio" />
-                      </Suspense>
-                      <OrbitControls
-                        enablePan={true}
-                        enableZoom={true}
-                        enableRotate={true}
-                        autoRotate={true}
-                        autoRotateSpeed={2}
-                        maxPolarAngle={Math.PI}
-                        minPolarAngle={0}
-                        target={[0, 50, 0]}
-                        enableDamping={true}
-                        dampingFactor={0.05}
-                      />
-                    </Canvas>
+                    <TentacleCablesViewer />
                   </div>
                   <div className="text-center">
                     <h4 className="font-semibold text-gray-800 mb-2">Interactive 3D Model</h4>
@@ -322,7 +315,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                 </div>
               </div>
 
-              {/* GitHub Link - More prominent button */}
+              {/* GitHub Link */}
               <div className="flex items-center justify-center pt-4 border-t border-blue-200">
                 <a
                   href="https://github.com/aliwouters/Analog-Joystick-Controls-4-Degrees-of-Freedom-Tentacle-"
@@ -347,34 +340,12 @@ export default function AnatomicalEngineeringProjectsPage() {
               <p className="text-teal-100 mt-2">Tentacle mechanism with counter pulling capabilities</p>
             </CardHeader>
             <CardContent className="p-8">
-              {/* 3D Model and Video - Equal width side by side */}
+              {/* 3D Model and Video */}
               <div className="grid grid-cols-2 gap-6 mb-6">
                 {/* 3D Model - Left side */}
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-teal-100">
                   <div className="w-full h-80 bg-gradient-to-br from-teal-100 to-cyan-100 rounded-lg overflow-hidden mb-4">
-                    <Canvas
-                      camera={{ position: [50, 50, 150], fov: 90, near: 0.1, far: 1000 }}
-                      style={{ background: "linear-gradient(135deg, #ecfdf5 0%, #a7f3d0 100%)" }}
-                    >
-                      <ambientLight intensity={0.6} />
-                      <directionalLight position={[10, 10, 5]} intensity={1.2} />
-                      <Suspense fallback={<ModelLoader />}>
-                        <TentacleModel2D />
-                        <Environment preset="studio" />
-                      </Suspense>
-                      <OrbitControls
-                        enablePan={true}
-                        enableZoom={true}
-                        enableRotate={true}
-                        autoRotate={true}
-                        autoRotateSpeed={2}
-                        maxPolarAngle={Math.PI}
-                        minPolarAngle={0}
-                        target={[0, 45, 0]}
-                        enableDamping={true}
-                        dampingFactor={0.05}
-                      />
-                    </Canvas>
+                    <Tentacle2DViewer />
                   </div>
                   <div className="text-center">
                     <h4 className="font-semibold text-gray-800 mb-2">Interactive 3D Model</h4>
@@ -444,29 +415,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                 {/* 3D Model - Large box on left (60% width) */}
                 <div className="w-[60%] bg-white rounded-2xl p-6 shadow-lg border border-green-100">
                   <div className="w-full h-[500px] bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg overflow-hidden mb-4">
-                    <Canvas
-                      camera={{ position: [70, 70, 150], fov: 45, near: 0.1, far: 1000 }}
-                      style={{ background: "linear-gradient(135deg, #f0fdf4 0%, #d1fae5 100%)" }}
-                    >
-                      <ambientLight intensity={0.6} />
-                      <directionalLight position={[10, 10, 5]} intensity={1.2} />
-                      <Suspense fallback={<ModelLoader />}>
-                        <TentacleModel1D />
-                        <Environment preset="studio" />
-                      </Suspense>
-                      <OrbitControls
-                        enablePan={true}
-                        enableZoom={true}
-                        enableRotate={true}
-                        autoRotate={true}
-                        autoRotateSpeed={2}
-                        maxPolarAngle={Math.PI}
-                        minPolarAngle={0}
-                        target={[0, -30, 0]}
-                        enableDamping={true}
-                        dampingFactor={0.05}
-                      />
-                    </Canvas>
+                    <Tentacle1DViewer />
                   </div>
                   <div className="text-center mb-4">
                     <h4 className="font-semibold text-gray-800 mb-2">Interactive 3D Model</h4>
@@ -492,7 +441,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                 <div className="w-[40%] space-y-3">
                   <h4 className="font-semibold text-gray-800 text-sm mb-3">Project Documentation</h4>
 
-                  {/* Video 1 - Testing Phase */}
+                  {/* Video 1 */}
                   <div className="bg-white rounded-lg border border-green-200 overflow-hidden shadow-md">
                     <video autoPlay loop muted playsInline className="w-full aspect-square object-cover">
                       <source
@@ -505,7 +454,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                     </div>
                   </div>
 
-                  {/* Video 2 - Operational Demo */}
+                  {/* Video 2 */}
                   <div className="bg-white rounded-lg border border-green-200 overflow-hidden shadow-md">
                     <video autoPlay loop muted playsInline className="w-full aspect-square object-cover">
                       <source
@@ -518,7 +467,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                     </div>
                   </div>
 
-                  {/* Video 3 - Movement Demo */}
+                  {/* Video 3 */}
                   <div className="bg-white rounded-lg border border-green-200 overflow-hidden shadow-md">
                     <video autoPlay loop muted playsInline className="w-full aspect-square object-cover">
                       <source
