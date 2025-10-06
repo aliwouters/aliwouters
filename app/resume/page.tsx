@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
@@ -15,148 +16,186 @@ import {
   Briefcase as Certificate,
   Home,
 } from "lucide-react"
-import { useState } from "react"
 
 export default function ResumePage() {
-  const [isGeneratingResume, setIsGeneratingResume] = useState(false)
-  const [isGeneratingTranscript, setIsGeneratingTranscript] = useState(false)
+  const [isDownloading, setIsDownloading] = useState(false)
+  const [isViewingTranscript, setIsViewingTranscript] = useState(false)
 
   const handleDownloadResume = async () => {
-    setIsGeneratingResume(true)
     try {
-      // Dynamically import jsPDF
+      // Import jsPDF dynamically to avoid SSR issues
       const { jsPDF } = await import("jspdf")
 
-      // Create new PDF with letter size
-      const pdf = new jsPDF({
-        orientation: "portrait",
-        unit: "in",
-        format: "letter",
-      })
+      // Fetch the resume image
+      const response = await fetch(
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Alizee%20Wouters%20CV%202025-1-gF2IFRRiRbOmmgitszMfSHWCrU7LNB.png",
+      )
+      const blob = await response.blob()
 
-      // Letter size dimensions in inches
-      const pageWidth = 8.5
-      const pageHeight = 11
+      // Create an image element to get dimensions
+      const img = new Image()
+      img.crossOrigin = "anonymous"
 
-      // Create image element and wait for it to load
-      await new Promise<void>((resolve, reject) => {
-        const img = new Image()
-        img.crossOrigin = "anonymous"
+      return new Promise((resolve, reject) => {
         img.onload = () => {
-          // Calculate aspect ratio to fit the image properly
-          const imgWidth = img.width
-          const imgHeight = img.height
-          const imgAspectRatio = imgWidth / imgHeight
-          const pageAspectRatio = pageWidth / pageHeight
+          try {
+            // Create PDF with appropriate dimensions
+            // Standard letter size is 8.5 x 11 inches (216 x 279 mm)
+            const pdf = new jsPDF({
+              orientation: "portrait",
+              unit: "mm",
+              format: "letter",
+            })
 
-          let finalWidth = pageWidth
-          let finalHeight = pageHeight
-          let xOffset = 0
-          let yOffset = 0
+            // Calculate dimensions to fit the image properly
+            const pdfWidth = 216 // Letter width in mm
+            const pdfHeight = 279 // Letter height in mm
+            const imgAspectRatio = img.width / img.height
+            const pdfAspectRatio = pdfWidth / pdfHeight
 
-          // Scale image to fit page while maintaining aspect ratio
-          if (imgAspectRatio > pageAspectRatio) {
-            // Image is wider than page ratio
-            finalHeight = pageWidth / imgAspectRatio
-            yOffset = (pageHeight - finalHeight) / 2
-          } else {
-            // Image is taller than page ratio
-            finalWidth = pageHeight * imgAspectRatio
-            xOffset = (pageWidth - finalWidth) / 2
+            let finalWidth, finalHeight, x, y
+
+            if (imgAspectRatio > pdfAspectRatio) {
+              // Image is wider than PDF ratio
+              finalWidth = pdfWidth
+              finalHeight = pdfWidth / imgAspectRatio
+              x = 0
+              y = (pdfHeight - finalHeight) / 2
+            } else {
+              // Image is taller than PDF ratio
+              finalHeight = pdfHeight
+              finalWidth = pdfHeight * imgAspectRatio
+              x = (pdfWidth - finalWidth) / 2
+              y = 0
+            }
+
+            // Add the image to PDF
+            const canvas = document.createElement("canvas")
+            const ctx = canvas.getContext("2d")
+            canvas.width = img.width
+            canvas.height = img.height
+            ctx?.drawImage(img, 0, 0)
+
+            const imgData = canvas.toDataURL("image/jpeg", 0.95)
+            pdf.addImage(imgData, "JPEG", x, y, finalWidth, finalHeight)
+
+            // Save the PDF
+            pdf.save("Alizee-Wouters-Resume.pdf")
+            resolve(true)
+          } catch (error) {
+            reject(error)
           }
-
-          // Add image to PDF with proper scaling
-          pdf.addImage(img, "PNG", xOffset, yOffset, finalWidth, finalHeight, undefined, "FAST")
-          resolve()
         }
-        img.onerror = reject
-        img.src = "/documents/resume-updated.png"
-      })
 
-      // Save the PDF
-      pdf.save("Alizee-Wouters-Resume.pdf")
+        img.onerror = () => {
+          reject(new Error("Failed to load image"))
+        }
+
+        img.src = URL.createObjectURL(blob)
+      })
     } catch (error) {
-      console.error("Error generating PDF:", error)
-      alert("Failed to generate resume PDF. Please try again.")
-    } finally {
-      setIsGeneratingResume(false)
+      console.error("PDF generation failed:", error)
+      // Fallback to PNG download if PDF generation fails
+      try {
+        const response = await fetch(
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Alizee%20Wouters%20CV%202025-1-gF2IFRRiRbOmmgitszMfSHWCrU7LNB.png",
+        )
+        const blob = await response.blob()
+        const url = window.URL.createObjectURL(blob)
+        const link = document.createElement("a")
+        link.href = url
+        link.download = "Alizee-Wouters-Resume.png"
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+        window.URL.revokeObjectURL(url)
+      } catch (fallbackError) {
+        console.error("Fallback download also failed:", fallbackError)
+      }
     }
   }
 
   const handleDownloadTranscript = async () => {
-    setIsGeneratingTranscript(true)
     try {
-      // Dynamically import jsPDF
+      // Import jsPDF dynamically to avoid SSR issues
       const { jsPDF } = await import("jspdf")
 
-      // Array of transcript page images
-      const pages = [
-        "/documents/transcript-page-1-updated.png",
-        "/documents/transcript-page-2-updated.png",
-        "/documents/transcript-page-3-updated.png",
-        "/documents/transcript-page-4-updated.png",
+      // Array of transcript page URLs in order
+      const transcriptPages = [
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/305994733_WOUTERS.ALIZEE_U1_20250905035709-1-YW7Hx1bZgB1Wgk9N3KGHlI5X7xMWRI.png", // Page 1
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/305994733_WOUTERS.ALIZEE_U1_20250905035709-2-CE4EDrNo1UywgOLchG6bzGwvgjrLGd.png", // Page 2
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/305994733_WOUTERS.ALIZEE_U1_20250905035709-3-CF70sZ9h1GrNE0TwxJjqLC6xSOqGsV.png", // Page 3
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/305994733_WOUTERS.ALIZEE_U1_20250905035709-4-l5j3UE0fnL41MmOUyyNIAyQl8hplLD.png", // Page 4
       ]
 
-      // Create new PDF with letter size
+      // Fetch all transcript pages
+      const imagePromises = transcriptPages.map(async (url) => {
+        const response = await fetch(url)
+        const blob = await response.blob()
+        return new Promise((resolve, reject) => {
+          const img = new Image()
+          img.crossOrigin = "anonymous"
+          img.onload = () => resolve(img)
+          img.onerror = () => reject(new Error(`Failed to load image: ${url}`))
+          img.src = URL.createObjectURL(blob)
+        })
+      })
+
+      // Wait for all images to load
+      const images = await Promise.all(imagePromises)
+
+      // Create PDF with appropriate dimensions
       const pdf = new jsPDF({
         orientation: "portrait",
-        unit: "in",
+        unit: "mm",
         format: "letter",
       })
 
-      // Letter size dimensions in inches
-      const pageWidth = 8.5
-      const pageHeight = 11
+      const pdfWidth = 216 // Letter width in mm
+      const pdfHeight = 279 // Letter height in mm
 
-      // Load and add each image to the PDF
-      for (let i = 0; i < pages.length; i++) {
-        if (i > 0) {
-          pdf.addPage()
+      // Add each page to the PDF
+      images.forEach((img, index) => {
+        if (index > 0) {
+          pdf.addPage() // Add new page for subsequent images
         }
 
-        // Create image element and wait for it to load
-        await new Promise<void>((resolve, reject) => {
-          const img = new Image()
-          img.crossOrigin = "anonymous"
-          img.onload = () => {
-            // Calculate aspect ratio to fit the image properly
-            const imgWidth = img.width
-            const imgHeight = img.height
-            const imgAspectRatio = imgWidth / imgHeight
-            const pageAspectRatio = pageWidth / pageHeight
+        // Calculate dimensions to fit the image properly
+        const imgAspectRatio = img.width / img.height
+        const pdfAspectRatio = pdfWidth / pdfHeight
 
-            let finalWidth = pageWidth
-            let finalHeight = pageHeight
-            let xOffset = 0
-            let yOffset = 0
+        let finalWidth, finalHeight, x, y
 
-            // Scale image to fit page while maintaining aspect ratio
-            if (imgAspectRatio > pageAspectRatio) {
-              // Image is wider than page ratio
-              finalHeight = pageWidth / imgAspectRatio
-              yOffset = (pageHeight - finalHeight) / 2
-            } else {
-              // Image is taller than page ratio
-              finalWidth = pageHeight * imgAspectRatio
-              xOffset = (pageWidth - finalWidth) / 2
-            }
+        if (imgAspectRatio > pdfAspectRatio) {
+          // Image is wider than PDF ratio
+          finalWidth = pdfWidth
+          finalHeight = pdfWidth / imgAspectRatio
+          x = 0
+          y = (pdfHeight - finalHeight) / 2
+        } else {
+          // Image is taller than PDF ratio
+          finalHeight = pdfHeight
+          finalWidth = pdfHeight * imgAspectRatio
+          x = (pdfWidth - finalWidth) / 2
+          y = 0
+        }
 
-            // Add image to PDF with proper scaling
-            pdf.addImage(img, "PNG", xOffset, yOffset, finalWidth, finalHeight, undefined, "FAST")
-            resolve()
-          }
-          img.onerror = reject
-          img.src = pages[i]
-        })
-      }
+        // Create canvas to convert image to data URL
+        const canvas = document.createElement("canvas")
+        const ctx = canvas.getContext("2d")
+        canvas.width = img.width
+        canvas.height = img.height
+        ctx?.drawImage(img, 0, 0)
+
+        const imgData = canvas.toDataURL("image/jpeg", 0.95)
+        pdf.addImage(imgData, "JPEG", x, y, finalWidth, finalHeight)
+      })
 
       // Save the PDF
       pdf.save("UCLA-Transcript-Alizee-Wouters.pdf")
     } catch (error) {
-      console.error("Error generating PDF:", error)
-      alert("Failed to generate transcript PDF. Please try again.")
-    } finally {
-      setIsGeneratingTranscript(false)
+      console.error("Transcript download failed:", error)
+      alert("Download failed. Please try again or contact support.")
     }
   }
 
@@ -182,6 +221,7 @@ export default function ResumePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
+      {/* Navigation */}
       <nav className="bg-white/80 backdrop-blur-sm border-b border-blue-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
@@ -209,6 +249,7 @@ export default function ResumePage() {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto mb-6"></div>
         </div>
 
+        {/* Contact Information - MOVED TO TOP */}
         <Card className="border-blue-100 shadow-lg mb-8">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
@@ -241,6 +282,7 @@ export default function ResumePage() {
           </CardContent>
         </Card>
 
+        {/* Resume Download - TEXT REMOVED */}
         <Card className="border-blue-100 shadow-lg mb-8">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
@@ -250,27 +292,23 @@ export default function ResumePage() {
           </CardHeader>
           <CardContent>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                onClick={handleDownloadResume}
-                disabled={isGeneratingResume}
-                className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 min-w-[220px]"
-              >
+              <Button onClick={handleDownloadResume} className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2">
                 <Download className="w-4 h-4" />
-                {isGeneratingResume ? "Loading..." : "Download Resume (PDF)"}
+                Download Resume (PDF)
               </Button>
               <Button
                 onClick={handleDownloadTranscript}
-                disabled={isGeneratingTranscript}
                 variant="outline"
-                className="border-blue-300 bg-transparent flex items-center gap-2 min-w-[200px]"
+                className="border-blue-300 bg-transparent flex items-center gap-2"
               >
                 <Download className="w-4 h-4" />
-                {isGeneratingTranscript ? "Loading..." : "Academic Transcript"}
+                Academic Transcript
               </Button>
             </div>
           </CardContent>
         </Card>
 
+        {/* Formal Education */}
         <Card className="border-blue-100 shadow-lg mb-8">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
@@ -280,6 +318,7 @@ export default function ResumePage() {
           </CardHeader>
           <CardContent>
             <div className="space-y-6">
+              {/* UCLA */}
               <div className="border-l-4 border-blue-500 pl-6">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
                   <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
@@ -323,6 +362,7 @@ export default function ResumePage() {
                 </div>
               </div>
 
+              {/* Queen's University */}
               <div className="border-l-4 border-purple-500 pl-6">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Queen's University 2024</h3>
                 <p className="text-base sm:text-lg text-gray-700 mb-2">Neuroscience and Neurotechnology Primer</p>
@@ -337,6 +377,7 @@ export default function ResumePage() {
                 </p>
               </div>
 
+              {/* High School */}
               <div className="border-l-4 border-green-500 pl-6">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">San Pasqual High School 2022</h3>
                 <p className="text-base sm:text-lg text-gray-700 mb-2">High School Diploma</p>
@@ -354,6 +395,7 @@ export default function ResumePage() {
           </CardContent>
         </Card>
 
+        {/* Research Experience */}
         <Card className="border-blue-100 shadow-lg mb-8">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
@@ -407,6 +449,7 @@ export default function ResumePage() {
           </CardContent>
         </Card>
 
+        {/* Professional Experience */}
         <Card className="border-blue-100 shadow-lg mb-8">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
@@ -460,6 +503,7 @@ export default function ResumePage() {
           </CardContent>
         </Card>
 
+        {/* Skills & Competencies */}
         <Card className="border-blue-100 shadow-lg mb-8">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
@@ -526,6 +570,7 @@ export default function ResumePage() {
           </CardContent>
         </Card>
 
+        {/* Professional Certifications - AT BOTTOM */}
         <Card className="border-blue-100 shadow-lg mb-8">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
@@ -602,6 +647,7 @@ export default function ResumePage() {
                 </p>
               </div>
 
+              {/* End Overdose Narcan Training */}
               <div className="border-l-4 border-pink-500 pl-6">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
                   <h3 className="text-lg sm:text-xl font-semibold text-gray-900">End Overdose Narcan Training</h3>
@@ -620,6 +666,7 @@ export default function ResumePage() {
           </CardContent>
         </Card>
 
+        {/* Back to Top Button */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"

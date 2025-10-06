@@ -4,43 +4,43 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Wrench, Users, Lightbulb, Settings, FolderOpen, GraduationCap, Home } from "lucide-react"
+import { Suspense } from "react"
+import { Canvas } from "@react-three/fiber"
+import { OrbitControls, useGLTF, Environment, Html } from "@react-three/drei"
+import * as THREE from "three"
 import Image from "next/image"
-import dynamic from "next/dynamic"
 
-// Dynamically import 3D model viewers with no SSR
-const MiterSawAdapterViewer = dynamic(
-  () => import("@/components/MakerspaceModels").then((mod) => mod.MiterSawAdapterViewer),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="flex items-center justify-center h-full">
-        <div className="flex items-center gap-2 text-slate-600">
-          <div className="w-4 h-4 border-2 border-green-600 border-t-transparent rounded-full animate-spin"></div>
-          Loading 3D Model...
-        </div>
-      </div>
-    ),
-  },
-)
+// 3D Model Component for Miter Saw Adapter
+function MiterSawAdapterModel() {
+  const { scene } = useGLTF("/models/miter-saw-adapter.glb")
+  return <primitive object={scene} scale={[1.5, 1.5, 1.5]} rotation={[Math.PI, 0, 0]} />
+}
 
-const ThreeDPeaViewer = dynamic(() => import("@/components/MakerspaceModels").then((mod) => mod.ThreeDPeaViewer), {
-  ssr: false,
-  loading: () => (
-    <div className="flex items-center justify-center h-full">
+// 3D Model Component for 3D Pea Design
+function ThreeDPeaModel() {
+  const { scene } = useGLTF("/models/3dpea-assembled-design-v2.glb")
+
+  // Center the model by computing its bounding box
+  const box = new THREE.Box3().setFromObject(scene)
+  const center = box.getCenter(new THREE.Vector3())
+  scene.position.sub(center)
+
+  return <primitive object={scene} scale={[0.25, 0.25, 0.25]} rotation={[0, 0, 0]} position={[0, 0, 0]} />
+}
+
+// Loading component
+function ModelLoader() {
+  return (
+    <Html center>
       <div className="flex items-center gap-2 text-slate-600">
-        <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-4 h-4 border-2 border-green-600 border-t-transparent rounded-full animate-spin"></div>
         Loading 3D Model...
       </div>
-    </div>
-  ),
-})
+    </Html>
+  )
+}
 
 export default function MakerspacePage() {
-  // Force dynamic rendering
-  const dynamicRendering = "force-dynamic"
-  const dynamicParams = true
-  const revalidate = 0
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-50">
       {/* Navigation */}
@@ -222,7 +222,29 @@ export default function MakerspacePage() {
                   {/* 3D Model */}
                   <div className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl p-4 mb-4">
                     <div className="w-full h-64 rounded-lg overflow-hidden">
-                      <ThreeDPeaViewer />
+                      <Canvas
+                        camera={{ position: [60, 60, 60], fov: 60, near: 0.1, far: 1000 }}
+                        style={{ background: "linear-gradient(135deg, #dbeafe 0%, #cffafe 100%)" }}
+                      >
+                        <ambientLight intensity={0.6} />
+                        <directionalLight position={[10, 10, 5]} intensity={1.2} />
+                        <Suspense fallback={<ModelLoader />}>
+                          <ThreeDPeaModel />
+                          <Environment preset="studio" />
+                        </Suspense>
+                        <OrbitControls
+                          enablePan={true}
+                          enableZoom={true}
+                          enableRotate={true}
+                          autoRotate={true}
+                          autoRotateSpeed={1}
+                          maxPolarAngle={Math.PI}
+                          minPolarAngle={0}
+                          target={[0, 15, 0]}
+                          enableDamping={true}
+                          dampingFactor={0.05}
+                        />
+                      </Canvas>
                     </div>
                     <p className="text-gray-600 text-xs mt-2">Click and drag to rotate, scroll to zoom</p>
                   </div>
@@ -254,7 +276,29 @@ export default function MakerspacePage() {
                   {/* 3D Model */}
                   <div className="bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl p-4 mb-4">
                     <div className="w-full h-64 rounded-lg overflow-hidden">
-                      <MiterSawAdapterViewer />
+                      <Canvas
+                        camera={{ position: [75, 75, 75], fov: 50, near: 0.1, far: 1000 }}
+                        style={{ background: "linear-gradient(135deg, #f0fdf4 0%, #d1fae5 100%)" }}
+                      >
+                        <ambientLight intensity={0.6} />
+                        <directionalLight position={[10, 10, 5]} intensity={1.2} />
+                        <Suspense fallback={<ModelLoader />}>
+                          <MiterSawAdapterModel />
+                          <Environment preset="studio" />
+                        </Suspense>
+                        <OrbitControls
+                          enablePan={true}
+                          enableZoom={true}
+                          enableRotate={true}
+                          autoRotate={true}
+                          autoRotateSpeed={2}
+                          maxPolarAngle={Math.PI}
+                          minPolarAngle={0}
+                          target={[0, -15, 0]}
+                          enableDamping={true}
+                          dampingFactor={0.05}
+                        />
+                      </Canvas>
                     </div>
                     <p className="text-gray-600 text-xs mt-2">Click and drag to rotate, scroll to zoom</p>
                   </div>
@@ -351,7 +395,7 @@ export default function MakerspacePage() {
                 </div>
               </div>
 
-              {/* Workshop project examples */}
+              {/* Workshop project examples - now with 4 items */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white rounded-lg p-4 border border-gray-200">
                   <div className="relative w-48 h-48 mx-auto mb-3 rounded-lg overflow-hidden">
@@ -446,7 +490,7 @@ export default function MakerspacePage() {
                 personal interests and hobbies.
               </p>
 
-              {/* Personal project images */}
+              {/* Personal project images - now includes 4 projects */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white rounded-lg p-4 border border-gray-200">
                   <div className="relative w-48 h-48 mx-auto mb-3 rounded-lg overflow-hidden">
