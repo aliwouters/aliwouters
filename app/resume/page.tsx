@@ -89,12 +89,12 @@ export default function ResumePage() {
       // Dynamically import jsPDF
       const { jsPDF } = await import("jspdf")
 
-      // Array of transcript page images
+      // Array of transcript page images - UPDATED PATHS
       const pages = [
-        "/documents/transcript-page-1.png",
-        "/documents/transcript-page-2.png",
-        "/documents/transcript-page-3.png",
-        "/documents/transcript-page-4.png",
+        "/documents/transcript-page-1-updated.png",
+        "/documents/transcript-page-2-updated.png",
+        "/documents/transcript-page-3-updated.png",
+        "/documents/transcript-page-4-updated.png",
       ]
 
       // Create new PDF with letter size
@@ -210,7 +210,7 @@ export default function ResumePage() {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto mb-6"></div>
         </div>
 
-        {/* Contact Information - MOVED TO TOP */}
+        {/* Contact Information */}
         <Card className="border-blue-100 shadow-lg mb-8">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
@@ -243,7 +243,7 @@ export default function ResumePage() {
           </CardContent>
         </Card>
 
-        {/* Resume Download */}
+        {/* Resume Download - FIXED WIDTH BUTTONS */}
         <Card className="border-blue-100 shadow-lg mb-8">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
@@ -256,19 +256,19 @@ export default function ResumePage() {
               <Button
                 onClick={handleDownloadResume}
                 disabled={isGeneratingResume}
-                className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 min-w-[220px]"
+                className="bg-blue-600 hover:bg-blue-700 flex items-center justify-center gap-2 w-full sm:w-[220px]"
               >
                 <Download className="w-4 h-4" />
-                {isGeneratingResume ? "Generating PDF..." : "Download Resume (PDF)"}
+                <span>{isGeneratingResume ? "Loading..." : "Download Resume (PDF)"}</span>
               </Button>
               <Button
                 onClick={handleDownloadTranscript}
                 disabled={isGeneratingTranscript}
                 variant="outline"
-                className="border-blue-300 bg-transparent flex items-center gap-2 min-w-[200px]"
+                className="border-blue-300 bg-transparent flex items-center justify-center gap-2 w-full sm:w-[200px]"
               >
                 <Download className="w-4 h-4" />
-                {isGeneratingTranscript ? "Generating PDF..." : "Academic Transcript"}
+                <span>{isGeneratingTranscript ? "Loading..." : "Academic Transcript"}</span>
               </Button>
             </div>
           </CardContent>
@@ -536,7 +536,7 @@ export default function ResumePage() {
           </CardContent>
         </Card>
 
-        {/* Professional Certifications - AT BOTTOM */}
+        {/* Professional Certifications */}
         <Card className="border-blue-100 shadow-lg mb-8">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
@@ -613,7 +613,6 @@ export default function ResumePage() {
                 </p>
               </div>
 
-              {/* End Overdose Narcan Training */}
               <div className="border-l-4 border-pink-500 pl-6">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
                   <h3 className="text-lg sm:text-xl font-semibold text-gray-900">End Overdose Narcan Training</h3>
