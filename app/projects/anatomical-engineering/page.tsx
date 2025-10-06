@@ -47,11 +47,6 @@ const Tentacle1DViewer = dynamic(() => import("@/components/TentacleModels").the
 })
 
 export default function AnatomicalEngineeringProjectsPage() {
-  // Force dynamic rendering
-  const dynamicRendering = "force-dynamic"
-  const dynamicParams = true
-  const revalidate = 0
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
       {/* Navigation */}
