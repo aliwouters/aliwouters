@@ -15,14 +15,149 @@ import {
   Briefcase as Certificate,
   Home,
 } from "lucide-react"
+import { useState } from "react"
 
 export default function ResumePage() {
-  const handleDownloadResume = () => {
-    window.open("https://blob.v0.app/SxYzm.pdf", "_blank")
+  const [isGeneratingResume, setIsGeneratingResume] = useState(false)
+  const [isGeneratingTranscript, setIsGeneratingTranscript] = useState(false)
+
+  const handleDownloadResume = async () => {
+    setIsGeneratingResume(true)
+    try {
+      // Dynamically import jsPDF
+      const { jsPDF } = await import("jspdf")
+
+      // Create new PDF with letter size
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "in",
+        format: "letter",
+      })
+
+      // Letter size dimensions in inches
+      const pageWidth = 8.5
+      const pageHeight = 11
+
+      // Create image element and wait for it to load
+      await new Promise<void>((resolve, reject) => {
+        const img = new Image()
+        img.crossOrigin = "anonymous"
+        img.onload = () => {
+          // Calculate aspect ratio to fit the image properly
+          const imgWidth = img.width
+          const imgHeight = img.height
+          const imgAspectRatio = imgWidth / imgHeight
+          const pageAspectRatio = pageWidth / pageHeight
+
+          let finalWidth = pageWidth
+          let finalHeight = pageHeight
+          let xOffset = 0
+          let yOffset = 0
+
+          // Scale image to fit page while maintaining aspect ratio
+          if (imgAspectRatio > pageAspectRatio) {
+            // Image is wider than page ratio
+            finalHeight = pageWidth / imgAspectRatio
+            yOffset = (pageHeight - finalHeight) / 2
+          } else {
+            // Image is taller than page ratio
+            finalWidth = pageHeight * imgAspectRatio
+            xOffset = (pageWidth - finalWidth) / 2
+          }
+
+          // Add image to PDF with proper scaling
+          pdf.addImage(img, "PNG", xOffset, yOffset, finalWidth, finalHeight, undefined, "FAST")
+          resolve()
+        }
+        img.onerror = reject
+        img.src = "/documents/resume-updated.png"
+      })
+
+      // Save the PDF
+      pdf.save("Alizee-Wouters-Resume.pdf")
+    } catch (error) {
+      console.error("Error generating PDF:", error)
+      alert("Failed to generate resume PDF. Please try again.")
+    } finally {
+      setIsGeneratingResume(false)
+    }
   }
 
-  const handleDownloadTranscript = () => {
-    window.open("https://blob.v0.app/zBw8x.pdf", "_blank")
+  const handleDownloadTranscript = async () => {
+    setIsGeneratingTranscript(true)
+    try {
+      // Dynamically import jsPDF
+      const { jsPDF } = await import("jspdf")
+
+      // Array of transcript page images
+      const pages = [
+        "/documents/transcript-page-1-updated.png",
+        "/documents/transcript-page-2-updated.png",
+        "/documents/transcript-page-3-updated.png",
+        "/documents/transcript-page-4-updated.png",
+      ]
+
+      // Create new PDF with letter size
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "in",
+        format: "letter",
+      })
+
+      // Letter size dimensions in inches
+      const pageWidth = 8.5
+      const pageHeight = 11
+
+      // Load and add each image to the PDF
+      for (let i = 0; i < pages.length; i++) {
+        if (i > 0) {
+          pdf.addPage()
+        }
+
+        // Create image element and wait for it to load
+        await new Promise<void>((resolve, reject) => {
+          const img = new Image()
+          img.crossOrigin = "anonymous"
+          img.onload = () => {
+            // Calculate aspect ratio to fit the image properly
+            const imgWidth = img.width
+            const imgHeight = img.height
+            const imgAspectRatio = imgWidth / imgHeight
+            const pageAspectRatio = pageWidth / pageHeight
+
+            let finalWidth = pageWidth
+            let finalHeight = pageHeight
+            let xOffset = 0
+            let yOffset = 0
+
+            // Scale image to fit page while maintaining aspect ratio
+            if (imgAspectRatio > pageAspectRatio) {
+              // Image is wider than page ratio
+              finalHeight = pageWidth / imgAspectRatio
+              yOffset = (pageHeight - finalHeight) / 2
+            } else {
+              // Image is taller than page ratio
+              finalWidth = pageHeight * imgAspectRatio
+              xOffset = (pageWidth - finalWidth) / 2
+            }
+
+            // Add image to PDF with proper scaling
+            pdf.addImage(img, "PNG", xOffset, yOffset, finalWidth, finalHeight, undefined, "FAST")
+            resolve()
+          }
+          img.onerror = reject
+          img.src = pages[i]
+        })
+      }
+
+      // Save the PDF
+      pdf.save("UCLA-Transcript-Alizee-Wouters.pdf")
+    } catch (error) {
+      console.error("Error generating PDF:", error)
+      alert("Failed to generate transcript PDF. Please try again.")
+    } finally {
+      setIsGeneratingTranscript(false)
+    }
   }
 
   const handleViewLabSafety = () => {
@@ -115,17 +250,22 @@ export default function ResumePage() {
           </CardHeader>
           <CardContent>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button onClick={handleDownloadResume} className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2">
+              <Button
+                onClick={handleDownloadResume}
+                disabled={isGeneratingResume}
+                className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 min-w-[220px]"
+              >
                 <Download className="w-4 h-4" />
-                Download Resume (PDF)
+                {isGeneratingResume ? "Loading..." : "Download Resume (PDF)"}
               </Button>
               <Button
                 onClick={handleDownloadTranscript}
+                disabled={isGeneratingTranscript}
                 variant="outline"
-                className="border-blue-300 bg-transparent flex items-center gap-2"
+                className="border-blue-300 bg-transparent flex items-center gap-2 min-w-[200px]"
               >
                 <Download className="w-4 h-4" />
-                Academic Transcript
+                {isGeneratingTranscript ? "Loading..." : "Academic Transcript"}
               </Button>
             </div>
           </CardContent>
