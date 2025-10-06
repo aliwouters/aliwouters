@@ -18,13 +18,11 @@ import {
 
 export default function ResumePage() {
   const handleDownloadResume = () => {
-    // Direct link approach - opens the file which triggers download in new tab
-    window.open("http://tmpfiles.org/dl/3140441/alizeewouterscvfall2025v2.pdf", "_blank")
+    window.open("https://blob.v0.app/SxYzm.pdf", "_blank")
   }
 
   const handleDownloadTranscript = () => {
-    // Direct link approach - opens the file which triggers download in new tab
-    window.open("http://tmpfiles.org/dl/3141146/305994733_wouters.alizee_u1_20251004043153.pdf", "_blank")
+    window.open("https://blob.v0.app/zBw8x.pdf", "_blank")
   }
 
   const handleViewLabSafety = () => {
