@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
@@ -26,7 +28,7 @@ const featuredProjects = [
     description:
       "Research investigating how control mapping between human and referred degrees of freedom affects myoelectric neuromuscular control performance using antagonistic muscle pairs for intuitive robotic device operation",
     image: "/images/proprioception-referred-control-study.jpeg",
-    link: "/research/anatomical-engineering",
+    link: "/research/anatomical-engineering#research-publications",
     category: "Research Publication",
     isImage: true,
     caption: "UCLA Research Poster",
@@ -177,6 +179,11 @@ export default function HomePage() {
         />
       )
     }
+  }
+
+  const handleLearnMoreClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
+    e.preventDefault()
+    window.location.href = link
   }
 
   return (
@@ -338,7 +345,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Projects Carousel */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-50 to-blue-50/30">
+      <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl font-light text-slate-900 mb-4 sm:mb-6">Featured Projects</h2>
@@ -395,7 +402,10 @@ export default function HomePage() {
                         <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 transition-all duration-500">
                           {featuredProjects[currentProject].description}
                         </p>
-                        <a href={featuredProjects[currentProject].link}>
+                        <a
+                          href={featuredProjects[currentProject].link}
+                          onClick={(e) => handleLearnMoreClick(e, featuredProjects[currentProject].link)}
+                        >
                           <Button className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                             <span className="relative z-10 flex items-center justify-center gap-2 text-sm sm:text-base">
                               Learn More

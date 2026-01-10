@@ -5,8 +5,21 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Microscope, Cog, Zap, ExternalLink, ArrowRight, Database, BarChart3, Home } from "lucide-react"
 import Image from "next/image"
+import { useEffect } from "react"
 
 export default function AnatomicalEngineeringPage() {
+  useEffect(() => {
+    if (window.location.hash) {
+      const hash = window.location.hash
+      setTimeout(() => {
+        const element = document.querySelector(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" })
+        }
+      }, 100)
+    }
+  }, [])
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
       {/* Navigation */}
@@ -18,15 +31,15 @@ export default function AnatomicalEngineeringPage() {
             </Link>
             <div className="flex gap-2">
               <Button asChild variant="outline" size="sm">
-                <Link href="/" className="flex items-center gap-2">
-                  <Home className="w-4 h-4" />
-                  Home
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="sm">
                 <Link href="/research" className="flex items-center gap-2">
                   <ArrowLeft className="w-4 h-4" />
                   Research
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="sm">
+                <Link href="/" className="flex items-center gap-2">
+                  <Home className="w-4 h-4" />
+                  Home
                 </Link>
               </Button>
             </div>

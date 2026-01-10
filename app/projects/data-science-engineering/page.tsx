@@ -14,8 +14,21 @@ import {
   ImageIcon,
 } from "lucide-react"
 import Image from "next/image"
+import { useEffect } from "react"
 
 export default function DataScienceEngineeringPage() {
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      setTimeout(() => {
+        const element = document.querySelector(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" })
+        }
+      }, 100)
+    }
+  }, [])
+
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Navigation */}
