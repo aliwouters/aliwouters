@@ -5,15 +5,19 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Suspense } from "react"
 import { Canvas } from "@react-three/fiber"
-import { OrbitControls, Environment, useGLTF, Html } from "@react-three/drei"
+import { OrbitControls, Environment, useGLTF } from "@react-three/drei"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Cog, Zap, FileText, Presentation, ArrowLeft, Home } from "lucide-react"
-import * as THREE from "three"
 
 function AnkleExoModel() {
   const { scene } = useGLTF("/models/ankle-exo-series-elastic.glb")
 
   return <primitive object={scene} scale={[1, 1, 1]} />
+}
+
+function AnkleExoWebsiteModel() {
+  const { scene } = useGLTF("/models/ankle-exo-website.glb")
+  return <primitive object={scene} scale={[1, 1, 1]} rotation={[0, Math.PI, 0]} />
 }
 
 function TentacleModel1D() {
@@ -31,17 +35,16 @@ function TentacleModelCables() {
   return <primitive object={scene} scale={[1, 1, 1]} />
 }
 
-function ModelLoader() {
-  return (
-    <Html center>
-      <div className="text-gray-600 text-sm">Loading 3D Model...</div>
-    </Html>
-  )
-}
+const ModelLoader = () => (
+  <mesh>
+    <boxGeometry args={[1, 1, 1]} />
+    <meshStandardMaterial color="gray" />
+  </mesh>
+)
 
 export default function AnatomicalEngineeringPage() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
       {/* Navigation */}
       <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200/50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -86,7 +89,7 @@ export default function AnatomicalEngineeringPage() {
         {/* Projects */}
         <div className="max-w-6xl mx-auto px-6 lg:px-8 space-y-16">
           {/* Aged Plantarflexor Bionic Assistance Device project */}
-          <Card className="border-emerald-200 shadow-xl bg-gradient-to-br from-emerald-50 to-teal-50">
+          <Card id="ankle-exoskeleton" className="border-emerald-200 shadow-xl from-emerald-50 to-teal-50 scroll-mt-20">
             <CardHeader className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-t-lg">
               <CardTitle className="flex items-center gap-2 text-2xl">
                 <Cog className="w-6 h-6" />
@@ -98,53 +101,39 @@ export default function AnatomicalEngineeringPage() {
             </CardHeader>
             <CardContent className="p-8">
               <div className="grid md:grid-cols-2 gap-6 mb-6">
-                {/* 3D Model Section */}
+                {/* 3D Model Viewer */}
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-emerald-100">
                   <h4 className="font-semibold text-gray-800 mb-4 text-center">Interactive 3D Model</h4>
-                  <div className="w-full h-96 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-lg overflow-hidden mb-4 relative">
+                  <div className="w-full h-96 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg overflow-hidden">
                     <Canvas
-                      camera={{
-                        position: [-703.3, 1755.2, 1713.8],
-                        fov: 75,
-                        near: 0.1,
-                        far: 10000,
-                      }}
-                      gl={{
-                        toneMapping: THREE.ACESFilmicToneMapping,
-                        toneMappingExposure: 0.8,
-                      }}
-                      shadows
-                      style={{ background: "linear-gradient(135deg, #ecfdf5 0%, #a7f3d0 100%)" }}
+                      camera={{ position: [100, 1200, 2000], fov: 75, near: 0.1, far: 20000 }}
+                      style={{ background: "linear-gradient(135deg, #d1fae5 0%, #99f6e4 100%)" }}
                     >
-                      <ambientLight intensity={1.2} />
-                      <directionalLight
-                        position={[1000, 3000, 1000]}
-                        intensity={1.5}
-                        castShadow
-                        shadow-bias={-0.0001}
-                      />
-                      <directionalLight position={[-1000, 1000, 1000]} intensity={0.5} />
-
+                      <ambientLight intensity={0.6} />
+                      <directionalLight position={[10, 10, 5]} intensity={1.2} />
                       <Suspense fallback={<ModelLoader />}>
-                        <AnkleExoModel />
+                        <AnkleExoWebsiteModel />
+                        <Environment preset="studio" />
                       </Suspense>
-
                       <OrbitControls
-                        key="ankle-exo-controls"
-                        target={[-226.9, 1624.8, 1791.5]}
+                        makeDefault
                         enablePan={true}
                         enableZoom={true}
                         enableRotate={true}
-                        minDistance={10}
-                        maxDistance={5000}
-                        autoRotate={false}
+                        autoRotate={true}
+                        maxPolarAngle={Math.PI}
+                        minPolarAngle={0}
+                        target={[0, 1000, 0]}
+                        enableDamping={true}
+                        dampingFactor={0.05}
+                        rotateSpeed={1}
                       />
-
-                      <Environment preset="sunset" />
                     </Canvas>
                   </div>
-                  <div className="text-center">
-                    <p className="text-gray-600 text-sm">Click and drag to rotate, scroll to zoom</p>
+                  <div className="text-center mt-4">
+                    <p className="text-gray-600 text-sm">
+                      Click and drag to rotate, scroll to zoom, right-click to pan
+                    </p>
                   </div>
                 </div>
 
@@ -243,7 +232,10 @@ export default function AnatomicalEngineeringPage() {
           </Card>
 
           {/* Analog EMG Controlled Tentacle */}
-          <Card className="border-indigo-200 shadow-xl bg-gradient-to-br from-indigo-50 to-violet-50">
+          <Card
+            id="analog-emg-tentacle"
+            className="border-indigo-200 shadow-xl bg-gradient-to-br from-indigo-50 to-violet-50 scroll-mt-20"
+          >
             <CardHeader className="bg-gradient-to-r from-indigo-500 to-violet-600 text-white rounded-t-lg">
               <CardTitle className="flex items-center gap-2 text-2xl">
                 <Zap className="w-6 h-6" />
@@ -448,6 +440,7 @@ export default function AnatomicalEngineeringPage() {
                         target={[0, 50, 0]}
                         enableDamping={true}
                         dampingFactor={0.05}
+                        zoomSpeed={-0.5}
                       />
                     </Canvas>
                   </div>
@@ -552,6 +545,7 @@ export default function AnatomicalEngineeringPage() {
                         target={[0, 45, 0]}
                         enableDamping={true}
                         dampingFactor={0.05}
+                        zoomSpeed={-0.5}
                       />
                     </Canvas>
                   </div>
@@ -639,6 +633,7 @@ export default function AnatomicalEngineeringPage() {
                         target={[0, -30, 0]}
                         enableDamping={true}
                         dampingFactor={0.05}
+                        zoomSpeed={-0.5}
                       />
                     </Canvas>
                   </div>

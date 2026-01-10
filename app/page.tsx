@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -15,7 +15,7 @@ const featuredProjects = [
     description:
       "Advanced proportional control system using analog muscle activation signals for continuous, natural movement that responds to contraction intensity. Used in research studies investigating referential control of agonist-antagonist muscle pairs.",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/-487967345448332010820251003_192912-IHpZjVTrQRE6h4n9dV7K6RJemUyeyn.mov",
-    link: "/projects/anatomical-engineering",
+    link: "/projects/anatomical-engineering#analog-emg-tentacle",
     category: "Anatomical Engineering",
     isVideo: true,
     caption: "Analog EMG Control Demonstration",
@@ -37,7 +37,7 @@ const featuredProjects = [
     description:
       "Series elastic actuator design for ankle plantarflexion assistance targeting aged populations with reduced mobility and gait performance.",
     image: "/images/screenshot-202025-12-03-20125041.png",
-    link: "/projects/anatomical-engineering",
+    link: "/projects/anatomical-engineering#ankle-exoskeleton",
     category: "Anatomical Engineering",
     isImage: true,
     caption: "Technical Design Rendering",
@@ -48,7 +48,7 @@ const featuredProjects = [
     description:
       "Deep learning model using U-Net architecture trained on STL-10 dataset to automatically colorize grayscale images with perceptual loss optimization.",
     image: "/images/psych-20119d-20poster-20-281-29-1.jpeg",
-    link: "/projects/data-science-engineering",
+    link: "/projects/data-science-engineering#unet-colorization",
     category: "Data Science Engineering",
     isImage: true,
     caption: "Research Poster",
@@ -59,7 +59,7 @@ const featuredProjects = [
     description:
       "Advanced dimensionality reduction technique for visualizing complex datasets and understanding data structure in lower dimensions",
     image: "/images/tsne-sigma-1.png",
-    link: "/projects/data-science-engineering",
+    link: "/projects/data-science-engineering#tsne-visualization",
     category: "Data Science Engineering",
     isImage: true,
     caption: "t-SNE Visualization Results",
@@ -70,6 +70,17 @@ export default function HomePage() {
   const [emailCopied, setEmailCopied] = useState(false)
   const [currentProject, setCurrentProject] = useState(0)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  useEffect(() => {
+    // Handle hash navigation when page loads
+    const hash = window.location.hash
+    if (hash) {
+      const element = document.querySelector(hash)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" })
+      }
+    }
+  }, [])
 
   const handleEmailClick = async () => {
     const email = "ali.wout.3003@gmail.com"
@@ -384,20 +395,15 @@ export default function HomePage() {
                         <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 transition-all duration-500">
                           {featuredProjects[currentProject].description}
                         </p>
-                        <div className="flex items-center gap-4">
-                          <Button
-                            asChild
-                            className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white transition-colors duration-150 hover:scale-105 active:scale-95 transform w-full sm:w-auto"
-                          >
-                            <Link
-                              href={featuredProjects[currentProject].link}
-                              className="flex items-center justify-center gap-2"
-                            >
+                        <a href={featuredProjects[currentProject].link}>
+                          <Button className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                            <span className="relative z-10 flex items-center justify-center gap-2 text-sm sm:text-base">
                               Learn More
-                              <ArrowRight className="w-4 h-4" />
-                            </Link>
+                              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                            </span>
+                            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                           </Button>
-                        </div>
+                        </a>
                       </div>
                     </div>
                   </CardContent>

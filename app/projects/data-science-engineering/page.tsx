@@ -59,84 +59,86 @@ export default function DataScienceEngineeringPage() {
           </div>
 
           {/* Projects */}
-          <div className="space-y-16">
-            <div className="bg-white rounded-3xl overflow-hidden border border-slate-200/50 shadow-lg">
-              <div className="p-10">
-                <div className="grid lg:grid-cols-12 gap-8">
-                  <div className="lg:col-span-2">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center">
-                      <ImageIcon className="w-8 h-8 text-white" />
-                    </div>
+          <div className="max-w-5xl mx-auto space-y-16">
+            {/* U-Net Colorization Project */}
+            <div
+              id="unet-colorization"
+              className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg scroll-mt-20"
+            >
+              <div className="grid lg:grid-cols-12 gap-8">
+                <div className="lg:col-span-2">
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center">
+                    <ImageIcon className="w-8 h-8 text-white" />
                   </div>
-                  <div className="lg:col-span-10">
-                    <h3 className="text-2xl font-medium text-slate-900 mb-6">
-                      Converting Grayscale to Color Using U-Net Image-to-Image Translation
-                    </h3>
+                </div>
+                <div className="lg:col-span-10">
+                  <h3 className="text-2xl font-medium text-slate-900 mb-6">
+                    Converting Grayscale to Color Using U-Net Image-to-Image Translation
+                  </h3>
 
-                    {/* Poster positioned below title */}
-                    <div className="mb-6">
-                      <Image
-                        src="/images/psych-20119d-20poster-20-281-29-1.jpeg"
-                        alt="U-Net Image Colorization Research Poster - Alizee Wouters, Mia Waksman, Michelle Ly, and Lucia Kajganic"
-                        width={1920}
-                        height={1080}
-                        className="w-full h-auto rounded-xl shadow-lg"
-                        priority
-                      />
+                  {/* Poster positioned below title */}
+                  <div className="mb-6">
+                    <Image
+                      src="/images/psych-20119d-20poster-20-281-29-1.jpeg"
+                      alt="U-Net Image Colorization Research Poster - Alizee Wouters, Mia Waksman, Michelle Ly, and Lucia Kajganic"
+                      width={1920}
+                      height={1080}
+                      className="w-full h-auto rounded-xl shadow-lg"
+                      priority
+                    />
+                  </div>
+
+                  <p className="text-slate-600 mb-6 leading-relaxed">
+                    Automatic colorization of grayscale images using U-Net architecture trained on STL-10 dataset
+                    (10,000 training images). Two approaches were evaluated: L1 + Perceptual Loss (VGG16) for saturated
+                    colors, and L1 Loss alone for higher accuracy. The 4-layer encoder-decoder architecture with
+                    1,024-channel bottleneck achieves strong results on common features while maintaining appropriate
+                    uncertainty for ambiguous elements.
+                  </p>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="bg-purple-50 rounded-2xl p-6">
+                      <h4 className="font-semibold text-slate-900 mb-3">Project Repository</h4>
+                      <p className="text-slate-600 text-sm mb-4 leading-relaxed">
+                        Complete U-Net implementation with training pipeline, loss functions, and evaluation metrics
+                        available on GitHub.
+                      </p>
+                      <Button
+                        asChild
+                        className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-sm"
+                      >
+                        <a
+                          href="https://github.com/aliwouters/-Converting-Grayscale-to-Color-Using-U-Net-Image-to-Image-Translation.-"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          View on GitHub
+                        </a>
+                      </Button>
                     </div>
 
-                    <p className="text-slate-600 mb-6 leading-relaxed">
-                      Automatic colorization of grayscale images using U-Net architecture trained on STL-10 dataset
-                      (10,000 training images). Two approaches were evaluated: L1 + Perceptual Loss (VGG16) for
-                      saturated colors, and L1 Loss alone for higher accuracy. The 4-layer encoder-decoder architecture
-                      with 1,024-channel bottleneck achieves strong results on common features while maintaining
-                      appropriate uncertainty for ambiguous elements.
-                    </p>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="bg-purple-50 rounded-2xl p-6">
-                        <h4 className="font-semibold text-slate-900 mb-3">Project Repository</h4>
-                        <p className="text-slate-600 text-sm mb-4 leading-relaxed">
-                          Complete U-Net implementation with training pipeline, loss functions, and evaluation metrics
-                          available on GitHub.
-                        </p>
-                        <Button
-                          asChild
-                          className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-sm"
-                        >
-                          <a
-                            href="https://github.com/aliwouters/-Converting-Grayscale-to-Color-Using-U-Net-Image-to-Image-Translation.-"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2"
-                          >
-                            <ExternalLink className="w-4 h-4" />
-                            View on GitHub
-                          </a>
-                        </Button>
-                      </div>
-
-                      <div className="bg-slate-50 rounded-2xl p-6">
-                        <h4 className="font-semibold text-slate-900 mb-3">Model Architecture</h4>
-                        <ul className="text-slate-700 space-y-2 text-sm">
-                          <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></span>
-                            U-Net with 4 encoding/decoding layers
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></span>
-                            L1 + Perceptual Loss (VGG16)
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></span>
-                            Adam optimizer with data augmentation
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></span>
-                            Trained on Google Colab T4 GPU
-                          </li>
-                        </ul>
-                      </div>
+                    <div className="bg-slate-50 rounded-2xl p-6">
+                      <h4 className="font-semibold text-slate-900 mb-3">Model Architecture</h4>
+                      <ul className="text-slate-700 space-y-2 text-sm">
+                        <li className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></span>
+                          U-Net with 4 encoding/decoding layers
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></span>
+                          L1 + Perceptual Loss (VGG16)
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></span>
+                          Adam optimizer with data augmentation
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></span>
+                          Trained on Google Colab T4 GPU
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -440,7 +442,11 @@ export default function DataScienceEngineeringPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+            {/* t-SNE Visualization Project */}
+            <div
+              id="tsne-visualization"
+              className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg scroll-mt-20"
+            >
               <div className="grid lg:grid-cols-12 gap-8">
                 <div className="lg:col-span-2">
                   <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center">
