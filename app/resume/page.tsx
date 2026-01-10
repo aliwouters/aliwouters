@@ -24,60 +24,19 @@ export default function ResumePage() {
   const handleDownloadResume = async () => {
     setIsGeneratingResume(true)
     try {
-      // Dynamically import jsPDF
-      const { jsPDF } = await import("jspdf")
-
-      // Create new PDF with letter size
-      const pdf = new jsPDF({
-        orientation: "portrait",
-        unit: "in",
-        format: "letter",
-      })
-
-      // Letter size dimensions in inches
-      const pageWidth = 8.5
-      const pageHeight = 11
-
-      // Create image element and wait for it to load
-      await new Promise<void>((resolve, reject) => {
-        const img = new Image()
-        img.crossOrigin = "anonymous"
-        img.onload = () => {
-          // Calculate aspect ratio to fit the image properly
-          const imgWidth = img.width
-          const imgHeight = img.height
-          const imgAspectRatio = imgWidth / imgHeight
-          const pageAspectRatio = pageWidth / pageHeight
-
-          let finalWidth = pageWidth
-          let finalHeight = pageHeight
-          let xOffset = 0
-          let yOffset = 0
-
-          // Scale image to fit page while maintaining aspect ratio
-          if (imgAspectRatio > pageAspectRatio) {
-            // Image is wider than page ratio
-            finalHeight = pageWidth / imgAspectRatio
-            yOffset = (pageHeight - finalHeight) / 2
-          } else {
-            // Image is taller than page ratio
-            finalWidth = pageHeight * imgAspectRatio
-            xOffset = (pageWidth - finalWidth) / 2
-          }
-
-          // Add image to PDF with proper scaling
-          pdf.addImage(img, "PNG", xOffset, yOffset, finalWidth, finalHeight, undefined, "FAST")
-          resolve()
-        }
-        img.onerror = reject
-        img.src = "/documents/resume-fall-2025.png"
-      })
-
-      // Save the PDF
-      pdf.save("Alizee-Wouters-Resume.pdf")
+      const response = await fetch("/documents/resume-2026.pdf")
+      const blob = await response.blob()
+      const url = window.URL.createObjectURL(blob)
+      const link = document.createElement("a")
+      link.href = url
+      link.download = "Alizee-Wouters-Resume.pdf"
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      window.URL.revokeObjectURL(url)
     } catch (error) {
-      console.error("Error generating PDF:", error)
-      alert("Failed to generate resume PDF. Please try again.")
+      console.error("Error downloading resume:", error)
+      alert("Failed to download resume PDF. Please try again.")
     } finally {
       setIsGeneratingResume(false)
     }
@@ -86,75 +45,19 @@ export default function ResumePage() {
   const handleDownloadTranscript = async () => {
     setIsGeneratingTranscript(true)
     try {
-      // Dynamically import jsPDF
-      const { jsPDF } = await import("jspdf")
-
-      // Array of transcript page images - UPDATED PATHS
-      const pages = [
-        "/documents/transcript-page-1-updated.png",
-        "/documents/transcript-page-2-updated.png",
-        "/documents/transcript-page-3-updated.png",
-        "/documents/transcript-page-4-updated.png",
-      ]
-
-      // Create new PDF with letter size
-      const pdf = new jsPDF({
-        orientation: "portrait",
-        unit: "in",
-        format: "letter",
-      })
-
-      // Letter size dimensions in inches
-      const pageWidth = 8.5
-      const pageHeight = 11
-
-      // Load and add each image to the PDF
-      for (let i = 0; i < pages.length; i++) {
-        if (i > 0) {
-          pdf.addPage()
-        }
-
-        // Create image element and wait for it to load
-        await new Promise<void>((resolve, reject) => {
-          const img = new Image()
-          img.crossOrigin = "anonymous"
-          img.onload = () => {
-            // Calculate aspect ratio to fit the image properly
-            const imgWidth = img.width
-            const imgHeight = img.height
-            const imgAspectRatio = imgWidth / imgHeight
-            const pageAspectRatio = pageWidth / pageHeight
-
-            let finalWidth = pageWidth
-            let finalHeight = pageHeight
-            let xOffset = 0
-            let yOffset = 0
-
-            // Scale image to fit page while maintaining aspect ratio
-            if (imgAspectRatio > pageAspectRatio) {
-              // Image is wider than page ratio
-              finalHeight = pageWidth / imgAspectRatio
-              yOffset = (pageHeight - finalHeight) / 2
-            } else {
-              // Image is taller than page ratio
-              finalWidth = pageHeight * imgAspectRatio
-              xOffset = (pageWidth - finalWidth) / 2
-            }
-
-            // Add image to PDF with proper scaling
-            pdf.addImage(img, "PNG", xOffset, yOffset, finalWidth, finalHeight, undefined, "FAST")
-            resolve()
-          }
-          img.onerror = reject
-          img.src = pages[i]
-        })
-      }
-
-      // Save the PDF
-      pdf.save("UCLA-Transcript-Alizee-Wouters.pdf")
+      const response = await fetch("/documents/transcript-2026.pdf")
+      const blob = await response.blob()
+      const url = window.URL.createObjectURL(blob)
+      const link = document.createElement("a")
+      link.href = url
+      link.download = "Alizee-Wouters-Transcript.pdf"
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      window.URL.revokeObjectURL(url)
     } catch (error) {
-      console.error("Error generating PDF:", error)
-      alert("Failed to generate transcript PDF. Please try again.")
+      console.error("Error downloading transcript:", error)
+      alert("Failed to download transcript. Please try again.")
     } finally {
       setIsGeneratingTranscript(false)
     }

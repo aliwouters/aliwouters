@@ -1,17 +1,24 @@
 "use client"
 
-import { Suspense } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Microscope, Cog, Zap, Github, Home } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Suspense } from "react"
 import { Canvas } from "@react-three/fiber"
-import { OrbitControls, useGLTF, Environment, Html } from "@react-three/drei"
+import { OrbitControls, Environment, useGLTF, Html } from "@react-three/drei"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Cog, Zap, FileText, Presentation, ArrowLeft, Home } from "lucide-react"
+import * as THREE from "three"
 
-// 3D Model Components for Tentacle Project
+function AnkleExoModel() {
+  const { scene } = useGLTF("/models/ankle-exo-series-elastic.glb")
+
+  return <primitive object={scene} scale={[1, 1, 1]} />
+}
+
 function TentacleModel1D() {
   const { scene } = useGLTF("/models/1d-tentacle-all-parts.glb")
-  return <primitive object={scene} scale={[1, 1, 1]} rotation={[Math.PI / 2, 0, 0]} />
+  return <primitive object={scene} scale={[1, 1, 1]} />
 }
 
 function TentacleModel2D() {
@@ -24,36 +31,32 @@ function TentacleModelCables() {
   return <primitive object={scene} scale={[1, 1, 1]} />
 }
 
-// Loading component
 function ModelLoader() {
   return (
     <Html center>
-      <div className="flex items-center gap-2 text-slate-600 bg-white p-4 rounded-lg shadow-lg">
-        <div className="w-4 h-4 border-2 border-green-600 border-t-transparent rounded-full animate-spin"></div>
-        Loading 3D Model...
-      </div>
+      <div className="text-gray-600 text-sm">Loading 3D Model...</div>
     </Html>
   )
 }
 
-export default function AnatomicalEngineeringProjectsPage() {
+export default function AnatomicalEngineeringPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
+    <div className="min-h-screen bg-slate-50">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-sm border-b border-green-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <Link href="/" className="text-2xl font-bold text-gray-900">
+      <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200/50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center py-6">
+            <Link href="/" className="text-2xl font-light text-slate-900 tracking-wide">
               Alizee Wouters
             </Link>
-            <div className="flex gap-2">
-              <Button asChild variant="outline" size="sm">
+            <div className="flex items-center gap-3">
+              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
                 <Link href="/projects" className="flex items-center gap-2">
                   <ArrowLeft className="w-4 h-4" />
                   Projects
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="sm">
+              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
                 <Link href="/" className="flex items-center gap-2">
                   <Home className="w-4 h-4" />
                   Home
@@ -64,19 +67,181 @@ export default function AnatomicalEngineeringProjectsPage() {
         </div>
       </nav>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-lg mb-6 flex items-center justify-center mx-auto">
-            <Microscope className="w-10 h-10 text-white" />
+      <div className="pt-16 pb-24">
+        {/* Header */}
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-3xl mb-8 flex items-center justify-center mx-auto">
+              <Cog className="w-12 h-12 text-white" />
+            </div>
+            <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Anatomical Engineering</h1>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-700 mx-auto mb-8"></div>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              Developing bio-inspired robotic systems and assistive devices through biomechanical analysis,
+              EMG-controlled interfaces, and anatomical modeling.
+            </p>
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Anatomical Engineering Projects</h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600">
-            Bio-inspired robotic systems and EMG-controlled devices for medical and research applications
-          </p>
         </div>
 
-        <div className="space-y-12">
+        {/* Projects */}
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 space-y-16">
+          {/* Aged Plantarflexor Bionic Assistance Device project */}
+          <Card className="border-emerald-200 shadow-xl bg-gradient-to-br from-emerald-50 to-teal-50">
+            <CardHeader className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-t-lg">
+              <CardTitle className="flex items-center gap-2 text-2xl">
+                <Cog className="w-6 h-6" />
+                Aged Plantarflexor Bionic Assistance Device
+              </CardTitle>
+              <p className="text-emerald-100 mt-2">
+                Ankle exoskeleton with series elastic actuation to assist age-related plantarflexor muscle weakness
+              </p>
+            </CardHeader>
+            <CardContent className="p-8">
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                {/* 3D Model Section */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-emerald-100">
+                  <h4 className="font-semibold text-gray-800 mb-4 text-center">Interactive 3D Model</h4>
+                  <div className="w-full h-96 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-lg overflow-hidden mb-4 relative">
+                    <Canvas
+                      camera={{
+                        position: [-703.3, 1755.2, 1713.8],
+                        fov: 75,
+                        near: 0.1,
+                        far: 10000,
+                      }}
+                      gl={{
+                        toneMapping: THREE.ACESFilmicToneMapping,
+                        toneMappingExposure: 0.8,
+                      }}
+                      shadows
+                      style={{ background: "linear-gradient(135deg, #ecfdf5 0%, #a7f3d0 100%)" }}
+                    >
+                      <ambientLight intensity={1.2} />
+                      <directionalLight
+                        position={[1000, 3000, 1000]}
+                        intensity={1.5}
+                        castShadow
+                        shadow-bias={-0.0001}
+                      />
+                      <directionalLight position={[-1000, 1000, 1000]} intensity={0.5} />
+
+                      <Suspense fallback={<ModelLoader />}>
+                        <AnkleExoModel />
+                      </Suspense>
+
+                      <OrbitControls
+                        key="ankle-exo-controls"
+                        target={[-226.9, 1624.8, 1791.5]}
+                        enablePan={true}
+                        enableZoom={true}
+                        enableRotate={true}
+                        minDistance={10}
+                        maxDistance={5000}
+                        autoRotate={false}
+                      />
+
+                      <Environment preset="sunset" />
+                    </Canvas>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-gray-600 text-sm">Click and drag to rotate, scroll to zoom</p>
+                  </div>
+                </div>
+
+                {/* Static Technical Rendering */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-emerald-100">
+                  <h4 className="font-semibold text-gray-800 mb-4 text-center">Technical Design Rendering</h4>
+                  <div className="w-full h-96 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                    <img
+                      src="/images/ankle-exo-side-view.png"
+                      alt="Ankle Exoskeleton Technical Rendering"
+                      className="w-full h-full object-contain p-4"
+                    />
+                  </div>
+                  <div className="text-center mt-4">
+                    <p className="text-gray-600 text-sm">Side view showing series elastic actuation system</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg p-6 border border-emerald-200 shadow-md mb-6">
+                <h5 className="font-semibold text-gray-800 mb-4">Project Overview</h5>
+                <div className="space-y-3">
+                  <p className="text-gray-600 text-sm">
+                    Age-related plantarflexor weakness affects over 61 million adults, reducing ankle power during
+                    push-off and increasing fall risk. Using OpenSim biomechanical modeling, we designed a series
+                    elastic actuator ankle exoskeleton that delivers optimally-timed assistive torque during late
+                    stance.
+                  </p>
+                  <p className="text-gray-600 text-sm">
+                    The device reduced metabolic cost from 575 J to 553 J (96% restoration), provided up to 100 Nm
+                    plantarflexion moment during push-off, and achieved 90% motor efficiency with a total system mass of
+                    just 1.87 kg.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg p-6 border border-emerald-200 shadow-md mb-6">
+                <h5 className="font-semibold text-gray-800 mb-4">Key Technical Specifications</h5>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-emerald-50 p-4 rounded-lg border border-emerald-200">
+                    <h6 className="font-medium text-gray-700 mb-2">Actuation System</h6>
+                    <ul className="text-gray-600 text-sm space-y-1">
+                      <li>• Maxon EC-4pole 30 motor (200W, 90% efficiency)</li>
+                      <li>• GP 32 HP planetary gearhead (53:1 ratio)</li>
+                      <li>• Custom spring (k = 3175 N/m, stores 31.5 J)</li>
+                      <li>• Bowden cable transmission (3.78 cm pulley)</li>
+                    </ul>
+                  </div>
+                  <div className="bg-emerald-50 p-4 rounded-lg border border-emerald-200">
+                    <h6 className="font-medium text-gray-700 mb-2">Performance</h6>
+                    <ul className="text-gray-600 text-sm space-y-1">
+                      <li>• 36.2 W continuous power, 89.7 W peak</li>
+                      <li>• Up to 100 Nm plantarflexion torque</li>
+                      <li>• 96% metabolic efficiency restoration</li>
+                      <li>• Total system mass: 1.87 kg</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-emerald-200">
+                <div className="flex-1 flex items-center gap-3 bg-white rounded-lg p-3 border border-emerald-200">
+                  <img
+                    src="/images/screenshot-202026-01-05-20163235.png"
+                    alt="Presentation Cover"
+                    className="w-24 h-24 object-cover rounded border border-emerald-300"
+                  />
+                  <a
+                    href="https://docs.google.com/presentation/d/1rYraVGMTkk1HoRBqk7ufDVxR03wsuUf4mzUPYt9o3no/edit?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+                  >
+                    <Presentation className="w-4 h-4" />
+                    View Presentation
+                  </a>
+                </div>
+                <div className="flex-1 flex items-center gap-3 bg-white rounded-lg p-3 border border-emerald-200">
+                  <img
+                    src="/images/screenshot-202026-01-05-20163416.png"
+                    alt="Report Cover"
+                    className="w-24 h-24 object-cover rounded border border-gray-300"
+                  />
+                  <a
+                    href="/documents/ankle-exo-report.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+                  >
+                    <FileText className="w-4 h-4" />
+                    Read Technical Report
+                  </a>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Analog EMG Controlled Tentacle */}
           <Card className="border-indigo-200 shadow-xl bg-gradient-to-br from-indigo-50 to-violet-50">
             <CardHeader className="bg-gradient-to-r from-indigo-500 to-violet-600 text-white rounded-t-lg">
@@ -120,7 +285,7 @@ export default function AnatomicalEngineeringProjectsPage() {
 
               {/* Project Overview */}
               <div className="bg-white rounded-lg p-6 border border-indigo-200 shadow-md mb-4">
-                <h5 className="font-semibold text-gray-800 mb-3">Project Overview</h5>
+                <h5 className="font-semibold text-gray-800 mb-4">Project Overview</h5>
                 <div className="space-y-4">
                   <div className="bg-indigo-50 p-4 rounded-lg border border-indigo-200">
                     <h6 className="font-semibold text-gray-800 mb-2">Analog EMG Control System</h6>
@@ -141,6 +306,18 @@ export default function AnatomicalEngineeringProjectsPage() {
                     </p>
                   </div>
                 </div>
+              </div>
+
+              <div className="flex items-center justify-center pt-4 border-t border-indigo-200">
+                <a
+                  href="https://www.canva.com/design/DAGxf2dB4Tg/DZXi_LGPFzPU6c0SIgeO0g/edit?utm_content=DAGxf2dB4Tg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                >
+                  <FileText className="w-5 h-5" />
+                  View Full Project Report
+                </a>
               </div>
             </CardContent>
           </Card>
@@ -225,7 +402,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium transition-colors"
                 >
-                  <Github className="w-5 h-5" />
+                  <Badge className="w-5 h-5" />
                   View Arduino & Python Code on GitHub
                 </a>
               </div>
@@ -260,6 +437,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                         <Environment preset="studio" />
                       </Suspense>
                       <OrbitControls
+                        makeDefault
                         enablePan={true}
                         enableZoom={true}
                         enableRotate={true}
@@ -330,7 +508,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium transition-colors"
                 >
-                  <Github className="w-5 h-5" />
+                  <Badge className="w-5 h-5" />
                   View Arduino Code on GitHub
                 </a>
               </div>
@@ -358,18 +536,19 @@ export default function AnatomicalEngineeringProjectsPage() {
                     >
                       <ambientLight intensity={0.6} />
                       <directionalLight position={[10, 10, 5]} intensity={1.2} />
+                      <directionalLight position={[-10, -10, -10]} intensity={0.8} />
+                      <pointLight position={[0, 0, 10]} intensity={1} />
                       <Suspense fallback={<ModelLoader />}>
                         <TentacleModel2D />
                         <Environment preset="studio" />
                       </Suspense>
                       <OrbitControls
+                        makeDefault
                         enablePan={true}
                         enableZoom={true}
                         enableRotate={true}
                         autoRotate={true}
                         autoRotateSpeed={2}
-                        maxPolarAngle={Math.PI}
-                        minPolarAngle={0}
                         target={[0, 45, 0]}
                         enableDamping={true}
                         dampingFactor={0.05}
@@ -377,10 +556,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                     </Canvas>
                   </div>
                   <div className="text-center">
-                    <h4 className="font-semibold text-gray-800 mb-2">Interactive 3D Model</h4>
-                    <p className="text-gray-600 text-sm">
-                      Click and drag to rotate, scroll to zoom, right-click to pan
-                    </p>
+                    <p className="text-gray-600 text-sm">Click and drag to rotate, scroll to zoom</p>
                   </div>
                 </div>
 
@@ -389,10 +565,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                   <h4 className="font-semibold text-gray-800 mb-4">Project Documentation</h4>
                   <div className="w-full h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg overflow-hidden mb-4 flex items-center justify-center">
                     <video autoPlay loop muted playsInline className="w-full h-full object-cover rounded-lg">
-                      <source
-                        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7860%20%282%29-IvbHBGHnknvvuwEVPAhNAwysibili3.mov"
-                        type="video/mp4"
-                      />
+                      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7860%20%282%29-IvbHBGHnknvvuwEVPAhNAwysibili3.mov" type="video/mp4" />
                     </video>
                   </div>
                   <div className="text-center">
@@ -455,6 +628,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                         <Environment preset="studio" />
                       </Suspense>
                       <OrbitControls
+                        makeDefault
                         enablePan={true}
                         enableZoom={true}
                         enableRotate={true}
@@ -495,10 +669,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                   {/* Video 1 - Testing Phase */}
                   <div className="bg-white rounded-lg border border-green-200 overflow-hidden shadow-md">
                     <video autoPlay loop muted playsInline className="w-full aspect-square object-cover">
-                      <source
-                        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7380%20%281%29-rmRrKlHHikkAdAK1JrvcIk30yHday7.MOV"
-                        type="video/mp4"
-                      />
+                      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7380%20%281%29-rmRrKlHHikkAdAK1JrvcIk30yHday7.MOV" type="video/mp4" />
                     </video>
                     <div className="p-2">
                       <p className="text-xs text-gray-700 font-medium">Test Finger</p>
@@ -508,10 +679,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                   {/* Video 2 - Operational Demo */}
                   <div className="bg-white rounded-lg border border-green-200 overflow-hidden shadow-md">
                     <video autoPlay loop muted playsInline className="w-full aspect-square object-cover">
-                      <source
-                        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7381-18DzB9TbijsTpdD90skBSVOeNXjCu3.MOV"
-                        type="video/mp4"
-                      />
+                      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7381-18DzB9TbijsTpdD90skBSVOeNXjCu3.MOV" type="video/mp4" />
                     </video>
                     <div className="p-2">
                       <p className="text-xs text-gray-700 font-medium">Replication</p>
@@ -521,10 +689,7 @@ export default function AnatomicalEngineeringProjectsPage() {
                   {/* Video 3 - Movement Demo */}
                   <div className="bg-white rounded-lg border border-green-200 overflow-hidden shadow-md">
                     <video autoPlay loop muted playsInline className="w-full aspect-square object-cover">
-                      <source
-                        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7386%20%281%29%20%281%29-NxdSxlxVzRa6VgKxLDQbu8lFqasnoL.mov"
-                        type="video/mp4"
-                      />
+                      <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7386%20%281%29%20%281%29-NxdSxlxVzRa6VgKxLDQbu8lFqasnoL.mov" type="video/mp4" />
                     </video>
                     <div className="p-2">
                       <p className="text-xs text-gray-700 font-medium">Full Hand Demonstration</p>

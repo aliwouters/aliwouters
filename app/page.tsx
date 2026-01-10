@@ -22,17 +22,6 @@ const featuredProjects = [
   },
   {
     id: 2,
-    title: "Visualizing High-Dimensional Data with t-SNE",
-    description:
-      "Advanced dimensionality reduction technique for visualizing complex datasets and understanding data structure in lower dimensions",
-    image: "/images/tsne-sigma-1.png",
-    link: "/projects/data-science-engineering",
-    category: "Data Science Engineering",
-    isImage: true,
-    caption: "t-SNE Visualization Results",
-  },
-  {
-    id: 3,
     title: "Pilot Study on the Impact of Proprioception on Referred Control",
     description:
       "Research investigating how control mapping between human and referred degrees of freedom affects myoelectric neuromuscular control performance using antagonistic muscle pairs for intuitive robotic device operation",
@@ -43,26 +32,37 @@ const featuredProjects = [
     caption: "UCLA Research Poster",
   },
   {
-    id: 4,
-    title: "Discrete EEG Headset for Stress Detection",
+    id: 3,
+    title: "Aged Plantarflexor Bionic Assistance Device",
     description:
-      "Advanced wearable neurotechnology system completely concealed within a baseball cap for unobtrusive monitoring of cognitive load and stress responses during competitive gaming scenarios",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled%20video%20-%20Made%20with%20Clipchamp%20%281%29-EufULAPMShPCDVCuR5XnQ2edfpK6qP.mp4",
-    link: "/research/neurotechnology",
-    category: "Neurotechnology Research",
-    isVideo: true,
-    caption: "Discrete EEG System Demo",
+      "Series elastic actuator design for ankle plantarflexion assistance targeting aged populations with reduced mobility and gait performance.",
+    image: "/images/screenshot-202025-12-03-20125041.png",
+    link: "/projects/anatomical-engineering",
+    category: "Anatomical Engineering",
+    isImage: true,
+    caption: "Technical Design Rendering",
+  },
+  {
+    id: 4,
+    title: "Converting Grayscale to Color Using U-Net Image-to-Image Translation",
+    description:
+      "Deep learning model using U-Net architecture trained on STL-10 dataset to automatically colorize grayscale images with perceptual loss optimization.",
+    image: "/images/psych-20119d-20poster-20-281-29-1.jpeg",
+    link: "/projects/data-science-engineering",
+    category: "Data Science Engineering",
+    isImage: true,
+    caption: "Research Poster",
   },
   {
     id: 5,
-    title: "Analog Joystick Controlled Tentacle with 4 Degrees of Freedom",
+    title: "Visualizing High-Dimensional Data with t-SNE",
     description:
-      "Advanced tentacle system with analog joystick control for intuitive real-time manipulation across four independent degrees of freedom",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8708%20%281%29%20%281%29-6XERDZOozF1rQ4f0PfkvZ2jiI6UteT.mov",
-    link: "/projects/anatomical-engineering",
-    category: "Anatomical Engineering",
-    isVideo: true,
-    caption: "Analog Joystick Control Demonstration",
+      "Advanced dimensionality reduction technique for visualizing complex datasets and understanding data structure in lower dimensions",
+    image: "/images/tsne-sigma-1.png",
+    link: "/projects/data-science-engineering",
+    category: "Data Science Engineering",
+    isImage: true,
+    caption: "t-SNE Visualization Results",
   },
 ]
 
