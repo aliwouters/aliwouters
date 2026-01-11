@@ -4,7 +4,7 @@ import type React from "react"
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Brain, Cpu, FlaskConical, ArrowRight } from "lucide-react"
+import { ArrowLeft, Brain, FlaskConical, ArrowRight } from "lucide-react"
 
 const ResearchPage: React.FC = () => {
   return (
@@ -39,7 +39,7 @@ const ResearchPage: React.FC = () => {
           </div>
 
           {/* Research Areas */}
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="group">
               <div className="bg-white rounded-3xl p-8 border border-slate-200/50 hover:border-purple-200 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10 h-full flex flex-col">
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
@@ -70,44 +70,6 @@ const ResearchPage: React.FC = () => {
                     className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white w-full"
                   >
                     <Link href="/research/anatomical-engineering" className="flex items-center justify-center gap-2">
-                      Explore Research
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            <div className="group">
-              <div className="bg-white rounded-3xl p-8 border border-slate-200/50 hover:border-blue-200 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 h-full flex flex-col">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-6">
-                  <Cpu className="w-8 h-8 text-white" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-medium text-slate-900 mb-2">Neurotechnology</h3>
-                  <p className="text-blue-600 font-medium mb-4 text-sm">Brain-Computer Interface Research</p>
-                  <p className="text-slate-600 mb-6 leading-relaxed text-sm">
-                    Developing brain-computer interfaces and EEG systems, including the CruX brain-controlled pincher
-                    project and custom EEG cap design for improved neural signal acquisition.
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">
-                      Brain-Computer Interfaces
-                    </span>
-                    <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">
-                      EEG Signal Processing
-                    </span>
-                    <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">
-                      Hardware Development
-                    </span>
-                  </div>
-                </div>
-                <div className="mt-auto">
-                  <Button
-                    asChild
-                    className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white w-full"
-                  >
-                    <Link href="/research/neurotechnology" className="flex items-center justify-center gap-2">
                       Explore Research
                       <ArrowRight className="w-4 h-4" />
                     </Link>

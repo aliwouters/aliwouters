@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Database, Microscope, Heart, Code } from "lucide-react"
+import { ArrowLeft, Database, Microscope, Heart, Code, Brain } from "lucide-react"
 
 export default function ProjectsPage() {
   useEffect(() => {
@@ -105,28 +105,58 @@ export default function ProjectsPage() {
               </CardContent>
             </Card>
 
-            {/* MATLAB Projects */}
+            {/* Neurotechnology */}
+            <Card className="h-full flex flex-col border-slate-200/50 hover:border-purple-300 transition-all duration-300 hover:shadow-lg group">
+              <CardHeader className="pb-4">
+                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-200 transition-colors">
+                  <Brain className="w-6 h-6 text-purple-600" />
+                </div>
+                <CardTitle className="text-xl font-medium text-slate-900">Neurotechnology</CardTitle>
+                <CardDescription className="text-slate-600 leading-relaxed">
+                  Brain-computer interfaces, EEG signal processing, and neural technology projects exploring emotion
+                  detection, stress monitoring, and cognitive state classification systems.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-0 mt-auto">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <Badge variant="secondary" className="bg-purple-50 text-purple-700 border-purple-200">
+                    EEG
+                  </Badge>
+                  <Badge variant="secondary" className="bg-purple-50 text-purple-700 border-purple-200">
+                    Brain-Computer Interface
+                  </Badge>
+                  <Badge variant="secondary" className="bg-purple-50 text-purple-700 border-purple-200">
+                    Signal Processing
+                  </Badge>
+                </div>
+                <Button asChild className="w-full bg-purple-600 hover:bg-purple-700">
+                  <Link href="/projects/neurotechnology">View Projects</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Computer Science */}
             <Card className="h-full flex flex-col border-slate-200/50 hover:border-orange-300 transition-all duration-300 hover:shadow-lg group">
               <CardHeader className="pb-4">
                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
                   <Code className="w-6 h-6 text-orange-600" />
                 </div>
-                <CardTitle className="text-xl font-medium text-slate-900">MATLAB</CardTitle>
+                <CardTitle className="text-xl font-medium text-slate-900">Computer Science</CardTitle>
                 <CardDescription className="text-slate-600 leading-relaxed">
-                  Computational psychology projects using MATLAB and Psychtoolbox for experimental design, data
-                  collection, and analysis in psychological research applications.
+                  Software development projects including C++ game programming and MATLAB-based computational psychology
+                  experiments for experimental design, data collection, and behavioral research analysis.
                 </CardDescription>
               </CardHeader>
               <CardContent className="pt-0 mt-auto">
                 <div className="flex flex-wrap gap-2 mb-4">
                   <Badge variant="secondary" className="bg-orange-50 text-orange-700 border-orange-200">
-                    Psychtoolbox
+                    C++
                   </Badge>
                   <Badge variant="secondary" className="bg-orange-50 text-orange-700 border-orange-200">
-                    Experimental Design
+                    MATLAB
                   </Badge>
                   <Badge variant="secondary" className="bg-orange-50 text-orange-700 border-orange-200">
-                    Data Analysis
+                    Game Development
                   </Badge>
                 </div>
                 <Button asChild className="w-full bg-orange-600 hover:bg-orange-700">

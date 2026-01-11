@@ -15,6 +15,18 @@ export default function MatlabProjectsPage() {
 
   const projects = [
     {
+      id: 9,
+      title: "Monster Maze Game",
+      description:
+        "An ASCII-based dungeon crawler game built in C++. Navigate through multiple maze levels while fighting goblins, snakewomen, and boogey men that intelligently track and attack the player. Collect various weapons with different attack ranges and damage values, and discover scrolls that grant special powers like increased strength and accuracy. Battle through the levels to reach the golden idol and claim victory.",
+      tags: ["Game Development", "ASCII Graphics", "AI Pathfinding", "Object-Oriented Design"],
+      icon: <Code className="w-6 h-6" />,
+      githubUrl: "https://github.com/aliwouters/Monster-Maze-Game-",
+      color: "red",
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Recording%202026-01-11%20143008%20%281%29%20%281%29-BwiqkcP1hmr9yRhiiDGoi76FzieFCl.mp4",
+      language: "C++",
+    },
+    {
       id: 7,
       title: "Audiovisual Perception Study",
       description:
@@ -24,6 +36,7 @@ export default function MatlabProjectsPage() {
       githubUrl: "https://github.com/aliwouters/MatLab-Projects/blob/main/Psych20BHomework7.m",
       color: "indigo",
       video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screen%20Recording%202025-09-06%20195651-Mcm7rvXFNPhCnYvtfipVh4jI3xOCuq.mp4",
+      language: "MATLAB",
     },
     {
       id: 6,
@@ -35,6 +48,7 @@ export default function MatlabProjectsPage() {
       githubUrl: "https://github.com/aliwouters/MatLab-Projects/blob/main/Psych20BHomework6.m",
       color: "teal",
       video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screen%20Recording%202025-09-06%20200436-U8J4XyGUd0L86sRTm7WDLo0RCMCh3U.mp4",
+      language: "MATLAB",
     },
     {
       id: 5,
@@ -46,6 +60,7 @@ export default function MatlabProjectsPage() {
       githubUrl: "https://github.com/aliwouters/MatLab-Projects/blob/main/Psych20BHomework5.m",
       color: "rose",
       video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/20250907-0310-12.8199673-Xta2MQBZZJMb0IueJt2NEGvVqJ7anV.mp4",
+      language: "MATLAB",
     },
     {
       id: 8,
@@ -57,6 +72,7 @@ export default function MatlabProjectsPage() {
       githubUrl: "https://github.com/aliwouters/MatLab-Projects/blob/main/Psych20BHomework8.m",
       color: "cyan",
       video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screen%20Recording%202025-09-06%20203545-bofEP6MwBQs3pT2rR2rXhjn5tzhCh4.mp4",
+      language: "MATLAB",
     },
     {
       id: 4,
@@ -68,6 +84,7 @@ export default function MatlabProjectsPage() {
       githubUrl: "https://github.com/aliwouters/MatLab-Projects/blob/main/Psych20BHomework4.m",
       color: "orange",
       video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screen%20Recording%202025-09-06%20201736-YHHSupNymvOEdUYmPF0ubGVpGTkfYu.mp4",
+      language: "MATLAB",
     },
     {
       id: 3,
@@ -79,6 +96,7 @@ export default function MatlabProjectsPage() {
       githubUrl: "https://github.com/aliwouters/MatLab-Projects/blob/main/Psych20BHomework3.m",
       color: "purple",
       video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screen%20Recording%202025-09-06%20201954-2dbIVaWZrw5BtRmMUhMzRjurNAqAup.mp4",
+      language: "MATLAB",
     },
     {
       id: 2,
@@ -90,6 +108,7 @@ export default function MatlabProjectsPage() {
       githubUrl: "https://github.com/aliwouters/MatLab-Projects/blob/main/Psych20BHomework2.m",
       color: "green",
       image: "/images/matlab-psychtoolbox-display-hq.png",
+      language: "MATLAB",
     },
     {
       id: 1,
@@ -100,6 +119,8 @@ export default function MatlabProjectsPage() {
       icon: <Code className="w-6 h-6" />,
       githubUrl: "https://github.com/aliwouters/MatLab-Projects/blob/main/Psych20BHomework1.m",
       color: "blue",
+      image: "/images/matlab-matrix-operations-hq.png",
+      language: "MATLAB",
     },
   ]
 
@@ -113,6 +134,7 @@ export default function MatlabProjectsPage() {
       teal: "bg-teal-100 text-teal-600 group-hover:bg-teal-200 border-teal-200 hover:border-teal-300",
       indigo: "bg-indigo-100 text-indigo-600 group-hover:bg-indigo-200 border-indigo-200 hover:border-indigo-300",
       cyan: "bg-cyan-100 text-cyan-600 group-hover:bg-cyan-200 border-cyan-200 hover:border-cyan-300",
+      red: "bg-red-100 text-red-600 group-hover:bg-red-200 border-red-200 hover:border-red-300",
     }
     return colorMap[color as keyof typeof colorMap] || colorMap.blue
   }
@@ -127,6 +149,7 @@ export default function MatlabProjectsPage() {
       teal: "bg-teal-600 hover:bg-teal-700",
       indigo: "bg-indigo-600 hover:bg-indigo-700",
       cyan: "bg-cyan-600 hover:bg-cyan-700",
+      red: "bg-red-600 hover:bg-red-700",
     }
     return buttonMap[color as keyof typeof buttonMap] || buttonMap.blue
   }
@@ -162,11 +185,11 @@ export default function MatlabProjectsPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">MATLAB</h1>
+            <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Computer Science</h1>
             <div className="mt-8">
               <Button asChild variant="outline" className="border-slate-300 bg-transparent hover:bg-slate-100">
                 <Link
-                  href="https://github.com/aliwouters/MatLab-Projects/tree/main"
+                  href="https://github.com/aliwouters?tab=repositories"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2"
@@ -204,6 +227,16 @@ export default function MatlabProjectsPage() {
                         <CardDescription className="text-slate-600 leading-relaxed mb-4 md:mb-6 text-sm md:text-base">
                           {project.description}
                         </CardDescription>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {project.language && (
+                            <Badge
+                              variant="secondary"
+                              className={`bg-${project.language === "C++" ? "blue" : "orange"}-500/10 text-${project.language === "C++" ? "blue" : "orange"}-500 border-${project.language === "C++" ? "blue" : "orange"}-500/20 text-xs font-medium`}
+                            >
+                              {project.language}
+                            </Badge>
+                          )}
+                        </div>
                         <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
                           {project.tags.map((tag, index) => (
                             <Badge
@@ -290,6 +323,16 @@ export default function MatlabProjectsPage() {
                     <CardDescription className="text-slate-600 leading-relaxed mb-6 text-base">
                       {project.description}
                     </CardDescription>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.language && (
+                        <Badge
+                          variant="secondary"
+                          className={`bg-${project.language === "C++" ? "blue" : "orange"}-500/10 text-${project.language === "C++" ? "blue" : "orange"}-500 border-${project.language === "C++" ? "blue" : "orange"}-500/20 text-xs font-medium`}
+                        >
+                          {project.language}
+                        </Badge>
+                      )}
+                    </div>
                     <div className="flex flex-wrap gap-2 mb-8">
                       {project.tags.map((tag, index) => (
                         <Badge key={index} variant="secondary" className="bg-slate-100 text-slate-700 border-slate-200">
