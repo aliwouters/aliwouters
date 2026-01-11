@@ -213,10 +213,10 @@ export default function ResumePage() {
                 </p>
                 <div className="mt-4 text-sm text-gray-600">
                   <p className="mb-1">
-                    <strong>Cumulative GPA:</strong> 3.867
+                    <strong>Cumulative GPA:</strong> 3.9
                   </p>
                   <p className="mb-3">
-                    <strong>Total Units Completed:</strong> 214.0 (including 72.0 transfer credits from Advanced
+                    <strong>Total Units Completed:</strong> 233.0 (including 72.0 transfer credits from Advanced
                     Placement)
                   </p>
                 </div>
@@ -224,8 +224,8 @@ export default function ResumePage() {
                   <h4 className="font-semibold text-blue-800 mb-2">Academic Honors</h4>
                   <div className="text-sm text-blue-700">
                     <p className="mb-2">
-                      <strong>Dean's Honor List:</strong> 7 quarters (Fall 2022, Winter 2023, Spring 2023, Fall 2023,
-                      Winter 2024, Fall 2024, Spring 2025)
+                      <strong>Dean's Honor List:</strong> 8 quarters (Fall 2022, Winter 2023, Spring 2023, Fall 2023,
+                      Winter 2024, Fall 2024, Spring 2025, Fall 2025)
                     </p>
                   </div>
                 </div>
