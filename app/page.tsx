@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Linkedin, ExternalLink, ArrowRight, Check, ChevronLeft, ChevronRight, Menu, X } from "lucide-react"
 import AnimatedBackground from "@/components/AnimatedBackground"
+import LanguageToggle from "@/components/LanguageToggle"
 
 const featuredProjects = [
   {
@@ -197,7 +198,7 @@ export default function HomePage() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex space-x-8 xl:space-x-10">
+            <div className="hidden lg:flex space-x-8 xl:space-x-10 items-center">
               <Link href="/resume" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
                 Resume
               </Link>
@@ -216,6 +217,7 @@ export default function HomePage() {
               <Link href="/community" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
                 Community
               </Link>
+              <LanguageToggle />
             </div>
 
             {/* Mobile Menu Button */}
@@ -266,6 +268,9 @@ export default function HomePage() {
                 >
                   Community
                 </Link>
+                <div className="px-2 py-1 border-t border-slate-200 pt-4">
+                  <LanguageToggle />
+                </div>
               </div>
             </div>
           )}
@@ -274,6 +279,7 @@ export default function HomePage() {
 
       {/* Hero Section with Neural Network Animation */}
       <section className="pt-16 sm:pt-24 lg:pt-32 pb-16 sm:pb-24 lg:pb-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        {/* Import LanguageToggle component */}
         <AnimatedBackground />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-20 items-center">
