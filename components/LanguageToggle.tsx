@@ -195,23 +195,25 @@ export default function LanguageToggle() {
       <div
         ref={containerRef}
         onClick={handleClick}
-        className={`relative flex items-center w-[68px] h-8 bg-slate-200 rounded-lg p-1 select-none ${!isReady ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover:bg-slate-300"}`}
+        className={`relative flex items-center w-[62px] h-7 bg-slate-200 rounded-md select-none ${!isReady ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
+        style={{ padding: "2px" }}
         title={currentLang === "en" ? "Traduire en français" : "Translate to English"}
       >
         {/* Inset sliding square */}
         <div
           onMouseDown={handleMouseDown}
           onTouchStart={handleTouchStart}
-          className={`absolute w-[30px] h-6 bg-white rounded-md shadow-sm ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+          className={`absolute w-[28px] h-[24px] bg-white rounded shadow-sm ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
           style={{
             transform: `translateX(${dragOffset}px)`,
             transition: isDragging ? "none" : "transform 300ms ease-in-out",
+            left: "2px",
           }}
         />
         
         {/* EN label */}
         <span
-          className={`relative z-10 w-[30px] text-center text-xs font-semibold pointer-events-none ${
+          className={`relative z-10 w-[29px] text-center text-xs font-semibold pointer-events-none ${
             visualLang === "en"
               ? "bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent"
               : "text-slate-400"
@@ -223,7 +225,7 @@ export default function LanguageToggle() {
         
         {/* FR label */}
         <span
-          className={`relative z-10 w-[30px] text-center text-xs font-semibold pointer-events-none ${
+          className={`relative z-10 w-[29px] text-center text-xs font-semibold pointer-events-none ${
             visualLang === "fr"
               ? "bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent"
               : "text-slate-400"
