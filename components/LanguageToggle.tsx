@@ -1,8 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Globe } from "lucide-react"
-import { Button } from "@/components/ui/button"
 
 declare global {
   interface Window {
@@ -18,10 +16,7 @@ export default function LanguageToggle() {
   useEffect(() => {
     const checkInitialLanguage = () => {
       const translateCookie = document.cookie.split("; ").find((row) => row.startsWith("googtrans="))
-      console.log("[v0] Initial cookie:", translateCookie)
-
       if (translateCookie && translateCookie.includes("/fr")) {
-        console.log("[v0] Setting initial language to French")
         setCurrentLang("fr")
       }
     }
@@ -29,14 +24,12 @@ export default function LanguageToggle() {
     checkInitialLanguage()
 
     if (!document.getElementById("google-translate-script")) {
-      console.log("[v0] Loading Google Translate script")
       const script = document.createElement("script")
       script.id = "google-translate-script"
       script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
       script.async = true
 
       window.googleTranslateElementInit = () => {
-        console.log("[v0] Google Translate initialized")
         new window.google.translate.TranslateElement(
           {
             pageLanguage: "en",
@@ -47,26 +40,18 @@ export default function LanguageToggle() {
         )
 
         setTimeout(() => {
-          console.log("[v0] Toggle ready")
           setIsReady(true)
-        }, 2000)
+        }, 1500)
       }
 
       document.body.appendChild(script)
     } else {
-      console.log("[v0] Script already loaded")
       setIsReady(true)
     }
   }, [])
 
   const changeLanguage = (targetLang: "en" | "fr") => {
-    console.log("[v0] ========================================")
-    console.log("[v0] Button clicked! Target language:", targetLang)
-    console.log("[v0] Current language:", currentLang)
-    console.log("[v0] ========================================")
-
     const domain = window.location.hostname
-    console.log("[v0] Domain:", domain)
 
     // Clear existing cookies
     document.cookie = "googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT"
@@ -74,17 +59,12 @@ export default function LanguageToggle() {
     document.cookie = `googtrans=; path=/; domain=.${domain}; expires=Thu, 01 Jan 1970 00:00:01 GMT`
 
     if (targetLang === "fr") {
-      console.log("[v0] Setting French cookie and reloading")
       document.cookie = `googtrans=/en/fr; path=/`
       document.cookie = `googtrans=/en/fr; path=/; domain=${domain}`
     } else {
-      console.log("[v0] Setting English cookie and reloading")
       document.cookie = `googtrans=/en/en; path=/`
       document.cookie = `googtrans=/en/en; path=/; domain=${domain}`
     }
-
-    console.log("[v0] Cookie after setting:", document.cookie)
-    console.log("[v0] Reloading page...")
 
     setTimeout(() => {
       window.location.reload()
@@ -92,9 +72,8 @@ export default function LanguageToggle() {
   }
 
   const toggleLanguage = () => {
-    console.log("[v0] Toggle clicked")
     const newLang = currentLang === "en" ? "fr" : "en"
-    console.log("[v0] Switching from", currentLang, "to", newLang)
+    setCurrentLang(newLang)
     changeLanguage(newLang)
   }
 
@@ -102,17 +81,41 @@ export default function LanguageToggle() {
     <>
       <div id="google_translate_element" style={{ display: "none" }} />
 
-      <Button
+      <button
         onClick={toggleLanguage}
-        variant="ghost"
-        size="sm"
-        className="flex items-center gap-2 text-slate-600 hover:text-emerald-600 transition-colors"
         disabled={!isReady}
+        className={`relative flex items-center w-[72px] h-8 bg-slate-800 rounded-md overflow-hidden transition-opacity ${!isReady ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover:bg-slate-700"}`}
         title={currentLang === "en" ? "Traduire en français" : "Translate to English"}
       >
-        <Globe className="w-4 h-4" />
-        <span className="font-medium">{currentLang === "en" ? "FR" : "EN"}</span>
-      </Button>
+        {/* Sliding indicator */}
+        <div
+          className={`absolute w-9 h-8 bg-slate-900 rounded-md transition-transform duration-300 ease-in-out ${
+            currentLang === "fr" ? "translate-x-[36px]" : "translate-x-0"
+          }`}
+        />
+        
+        {/* EN label */}
+        <span
+          className={`relative z-10 flex-1 text-center text-xs font-semibold transition-all duration-300 ${
+            currentLang === "en"
+              ? "bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent"
+              : "text-slate-500"
+          }`}
+        >
+          EN
+        </span>
+        
+        {/* FR label */}
+        <span
+          className={`relative z-10 flex-1 text-center text-xs font-semibold transition-all duration-300 ${
+            currentLang === "fr"
+              ? "bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent"
+              : "text-slate-500"
+          }`}
+        >
+          FR
+        </span>
+      </button>
 
       <style jsx global>{`
         .goog-te-banner-frame,
