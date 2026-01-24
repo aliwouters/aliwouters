@@ -95,17 +95,23 @@ export default function LanguageToggle() {
     }
   }, [currentLang])
 
+  const hasDraggedRef = useRef(false)
+
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!isReady) return
     e.preventDefault()
+    e.stopPropagation()
     setIsDragging(true)
+    hasDraggedRef.current = false
     startXRef.current = e.clientX
     startOffsetRef.current = dragOffset
   }
 
   const handleTouchStart = (e: React.TouchEvent) => {
     if (!isReady) return
+    e.stopPropagation()
     setIsDragging(true)
+    hasDraggedRef.current = false
     startXRef.current = e.touches[0].clientX
     startOffsetRef.current = dragOffset
   }
@@ -113,6 +119,9 @@ export default function LanguageToggle() {
   const handleMove = useCallback((clientX: number) => {
     if (!isDragging) return
     const delta = clientX - startXRef.current
+    if (Math.abs(delta) > 3) {
+      hasDraggedRef.current = true
+    }
     const newOffset = Math.max(0, Math.min(MAX_OFFSET, startOffsetRef.current + delta))
     setDragOffset(newOffset)
   }, [isDragging])
@@ -128,8 +137,18 @@ export default function LanguageToggle() {
   const handleEnd = useCallback(() => {
     if (!isDragging) return
     setIsDragging(false)
-    snapToPosition(dragOffset)
-  }, [isDragging, dragOffset, snapToPosition])
+    
+    // If user just clicked without dragging, toggle to the other side
+    if (!hasDraggedRef.current) {
+      const newLang = currentLang === "en" ? "fr" : "en"
+      const newOffset = newLang === "fr" ? MAX_OFFSET : 0
+      setDragOffset(newOffset)
+      setCurrentLang(newLang)
+      changeLanguage(newLang)
+    } else {
+      snapToPosition(dragOffset)
+    }
+  }, [isDragging, dragOffset, snapToPosition, currentLang])
 
   useEffect(() => {
     if (isDragging) {
