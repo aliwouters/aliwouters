@@ -84,22 +84,22 @@ export default function LanguageToggle() {
       <button
         onClick={toggleLanguage}
         disabled={!isReady}
-        className={`relative flex items-center w-[72px] h-8 bg-slate-800 rounded-md overflow-hidden transition-opacity ${!isReady ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover:bg-slate-700"}`}
+        className={`relative flex items-center w-[68px] h-8 bg-slate-200 rounded-lg p-1 transition-opacity ${!isReady ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover:bg-slate-300"}`}
         title={currentLang === "en" ? "Traduire en français" : "Translate to English"}
       >
-        {/* Sliding indicator */}
+        {/* Inset sliding square */}
         <div
-          className={`absolute w-9 h-8 bg-slate-900 rounded-md transition-transform duration-300 ease-in-out ${
-            currentLang === "fr" ? "translate-x-[36px]" : "translate-x-0"
+          className={`absolute w-[30px] h-6 bg-white rounded-md shadow-sm transition-transform duration-300 ease-in-out ${
+            currentLang === "fr" ? "translate-x-[30px]" : "translate-x-0"
           }`}
         />
         
         {/* EN label */}
         <span
-          className={`relative z-10 flex-1 text-center text-xs font-semibold transition-all duration-300 ${
+          className={`relative z-10 w-[30px] text-center text-xs font-semibold transition-all duration-300 ${
             currentLang === "en"
               ? "bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent"
-              : "text-slate-500"
+              : "text-slate-400"
           }`}
         >
           EN
@@ -107,10 +107,10 @@ export default function LanguageToggle() {
         
         {/* FR label */}
         <span
-          className={`relative z-10 flex-1 text-center text-xs font-semibold transition-all duration-300 ${
+          className={`relative z-10 w-[30px] text-center text-xs font-semibold transition-all duration-300 ${
             currentLang === "fr"
               ? "bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent"
-              : "text-slate-500"
+              : "text-slate-400"
           }`}
         >
           FR
