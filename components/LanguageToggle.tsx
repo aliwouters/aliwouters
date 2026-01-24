@@ -1,8 +1,8 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { Globe } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import React from "react"
+
+import { useEffect, useState, useRef, useCallback } from "react"
 
 declare global {
   interface Window {
@@ -14,29 +14,33 @@ declare global {
 export default function LanguageToggle() {
   const [currentLang, setCurrentLang] = useState<"en" | "fr">("en")
   const [isReady, setIsReady] = useState(false)
+  const [isDragging, setIsDragging] = useState(false)
+  const [dragOffset, setDragOffset] = useState(0)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const startXRef = useRef(0)
+  const startOffsetRef = useRef(0)
+
+  const SLIDER_WIDTH = 30
+  const MAX_OFFSET = 30
 
   useEffect(() => {
     const checkInitialLanguage = () => {
       const translateCookie = document.cookie.split("; ").find((row) => row.startsWith("googtrans="))
-      console.log("[v0] Initial cookie:", translateCookie)
-
       if (translateCookie && translateCookie.includes("/fr")) {
-        console.log("[v0] Setting initial language to French")
         setCurrentLang("fr")
+        setDragOffset(MAX_OFFSET)
       }
     }
 
     checkInitialLanguage()
 
     if (!document.getElementById("google-translate-script")) {
-      console.log("[v0] Loading Google Translate script")
       const script = document.createElement("script")
       script.id = "google-translate-script"
       script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
       script.async = true
 
       window.googleTranslateElementInit = () => {
-        console.log("[v0] Google Translate initialized")
         new window.google.translate.TranslateElement(
           {
             pageLanguage: "en",
@@ -47,26 +51,18 @@ export default function LanguageToggle() {
         )
 
         setTimeout(() => {
-          console.log("[v0] Toggle ready")
           setIsReady(true)
-        }, 2000)
+        }, 1500)
       }
 
       document.body.appendChild(script)
     } else {
-      console.log("[v0] Script already loaded")
       setIsReady(true)
     }
   }, [])
 
   const changeLanguage = (targetLang: "en" | "fr") => {
-    console.log("[v0] ========================================")
-    console.log("[v0] Button clicked! Target language:", targetLang)
-    console.log("[v0] Current language:", currentLang)
-    console.log("[v0] ========================================")
-
     const domain = window.location.hostname
-    console.log("[v0] Domain:", domain)
 
     // Clear existing cookies
     document.cookie = "googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT"
@@ -74,45 +70,171 @@ export default function LanguageToggle() {
     document.cookie = `googtrans=; path=/; domain=.${domain}; expires=Thu, 01 Jan 1970 00:00:01 GMT`
 
     if (targetLang === "fr") {
-      console.log("[v0] Setting French cookie and reloading")
       document.cookie = `googtrans=/en/fr; path=/`
       document.cookie = `googtrans=/en/fr; path=/; domain=${domain}`
     } else {
-      console.log("[v0] Setting English cookie and reloading")
       document.cookie = `googtrans=/en/en; path=/`
       document.cookie = `googtrans=/en/en; path=/; domain=${domain}`
     }
-
-    console.log("[v0] Cookie after setting:", document.cookie)
-    console.log("[v0] Reloading page...")
 
     setTimeout(() => {
       window.location.reload()
     }, 100)
   }
 
-  const toggleLanguage = () => {
-    console.log("[v0] Toggle clicked")
-    const newLang = currentLang === "en" ? "fr" : "en"
-    console.log("[v0] Switching from", currentLang, "to", newLang)
-    changeLanguage(newLang)
+  const snapToPosition = useCallback((offset: number) => {
+    const midpoint = MAX_OFFSET / 2
+    const newLang = offset > midpoint ? "fr" : "en"
+    const newOffset = offset > midpoint ? MAX_OFFSET : 0
+    
+    setDragOffset(newOffset)
+    
+    if (newLang !== currentLang) {
+      setCurrentLang(newLang)
+      changeLanguage(newLang)
+    }
+  }, [currentLang])
+
+  const hasDraggedRef = useRef(false)
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!isReady) return
+    e.preventDefault()
+    e.stopPropagation()
+    setIsDragging(true)
+    hasDraggedRef.current = false
+    startXRef.current = e.clientX
+    startOffsetRef.current = dragOffset
   }
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!isReady) return
+    e.stopPropagation()
+    setIsDragging(true)
+    hasDraggedRef.current = false
+    startXRef.current = e.touches[0].clientX
+    startOffsetRef.current = dragOffset
+  }
+
+  const handleMove = useCallback((clientX: number) => {
+    if (!isDragging) return
+    const delta = clientX - startXRef.current
+    if (Math.abs(delta) > 3) {
+      hasDraggedRef.current = true
+    }
+    const newOffset = Math.max(0, Math.min(MAX_OFFSET, startOffsetRef.current + delta))
+    setDragOffset(newOffset)
+  }, [isDragging])
+
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    handleMove(e.clientX)
+  }, [handleMove])
+
+  const handleTouchMove = useCallback((e: TouchEvent) => {
+    handleMove(e.touches[0].clientX)
+  }, [handleMove])
+
+  const handleEnd = useCallback(() => {
+    if (!isDragging) return
+    setIsDragging(false)
+    
+    // If user just clicked without dragging, toggle to the other side
+    if (!hasDraggedRef.current) {
+      const newLang = currentLang === "en" ? "fr" : "en"
+      const newOffset = newLang === "fr" ? MAX_OFFSET : 0
+      setDragOffset(newOffset)
+      setCurrentLang(newLang)
+      changeLanguage(newLang)
+    } else {
+      snapToPosition(dragOffset)
+    }
+  }, [isDragging, dragOffset, snapToPosition, currentLang])
+
+  useEffect(() => {
+    if (isDragging) {
+      window.addEventListener("mousemove", handleMouseMove)
+      window.addEventListener("mouseup", handleEnd)
+      window.addEventListener("touchmove", handleTouchMove)
+      window.addEventListener("touchend", handleEnd)
+    }
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove)
+      window.removeEventListener("mouseup", handleEnd)
+      window.removeEventListener("touchmove", handleTouchMove)
+      window.removeEventListener("touchend", handleEnd)
+    }
+  }, [isDragging, handleMouseMove, handleTouchMove, handleEnd])
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (!isReady) return
+    // Only toggle on click if we weren't dragging
+    const rect = containerRef.current?.getBoundingClientRect()
+    if (!rect) return
+    
+    const clickX = e.clientX - rect.left
+    const midpoint = rect.width / 2
+    const newLang = clickX > midpoint ? "fr" : "en"
+    const newOffset = clickX > midpoint ? MAX_OFFSET : 0
+    
+    setDragOffset(newOffset)
+    
+    if (newLang !== currentLang) {
+      setCurrentLang(newLang)
+      changeLanguage(newLang)
+    }
+  }
+
+  // Calculate which language appears selected based on current drag position
+  const visualLang = dragOffset > MAX_OFFSET / 2 ? "fr" : "en"
 
   return (
     <>
       <div id="google_translate_element" style={{ display: "none" }} />
 
-      <Button
-        onClick={toggleLanguage}
-        variant="ghost"
-        size="sm"
-        className="flex items-center gap-2 text-slate-600 hover:text-emerald-600 transition-colors"
-        disabled={!isReady}
+      <div
+        ref={containerRef}
+        onClick={handleClick}
+        className={`relative flex items-center w-[62px] h-7 bg-slate-200 rounded-md select-none ${!isReady ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
+        style={{ padding: "2px" }}
         title={currentLang === "en" ? "Traduire en français" : "Translate to English"}
       >
-        <Globe className="w-4 h-4" />
-        <span className="font-medium">{currentLang === "en" ? "FR" : "EN"}</span>
-      </Button>
+        {/* Inset sliding square */}
+        <div
+          onMouseDown={handleMouseDown}
+          onTouchStart={handleTouchStart}
+          className={`absolute w-[28px] h-[24px] bg-white rounded shadow-sm ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+          style={{
+            transform: `translateX(${dragOffset}px)`,
+            transition: isDragging ? "none" : "transform 300ms ease-in-out",
+            left: "2px",
+          }}
+        />
+        
+        {/* EN label */}
+        <span
+          className={`relative z-10 w-[29px] text-center text-xs font-semibold pointer-events-none ${
+            visualLang === "en"
+              ? "bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent"
+              : "text-slate-400"
+          }`}
+          style={{ transition: isDragging ? "none" : "all 300ms" }}
+        >
+          EN
+        </span>
+        
+        {/* FR label */}
+        <span
+          className={`relative z-10 w-[29px] text-center text-xs font-semibold pointer-events-none ${
+            visualLang === "fr"
+              ? "bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent"
+              : "text-slate-400"
+          }`}
+          style={{ transition: isDragging ? "none" : "all 300ms" }}
+        >
+          FR
+        </span>
+      </div>
 
       <style jsx global>{`
         .goog-te-banner-frame,
