@@ -56,7 +56,7 @@ export default function NeurotechnologyPage() {
                 className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
               >
                 <Globe className="w-4 h-4" />
-                All projects developed through CruX UCLA
+                Most projects developed through CruX UCLA
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>
@@ -247,6 +247,16 @@ export default function NeurotechnologyPage() {
                 href="/projects/neurotechnology/phosphene-simulator"
                 className="group block bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-6 border border-teal-200/50 transition-all hover:shadow-lg hover:border-teal-300/70"
               >
+                {/* Project screenshot */}
+                <div className="mb-5 rounded-xl overflow-hidden border border-teal-200/50">
+                  <Image
+                    src="/images/phosphene-simulator.png"
+                    alt="Phosphene Vision Simulator interface showing camera feed, brightness matrix, phosphene map, and occipital cortex map panels"
+                    width={1200}
+                    height={400}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-teal-600 transition-colors">
                     <Eye className="w-6 h-6 text-white" />
