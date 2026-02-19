@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Brain, Zap, Activity, Target, ExternalLink, Trophy, Users, Home, Globe } from "lucide-react"
+import { ArrowLeft, Brain, Zap, Activity, Target, ExternalLink, Trophy, Users, Home, Globe, Eye } from "lucide-react"
 import Image from "next/image"
 
 export default function NeurotechnologyPage() {
@@ -232,6 +232,57 @@ export default function NeurotechnologyPage() {
                   </Button>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Personal Projects */}
+          <div className="mb-16">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-light text-slate-900 mb-2">Personal Projects</h2>
+              <p className="text-slate-600">Independent research and development</p>
+            </div>
+
+            <div className="grid md:grid-cols-1 gap-6">
+              <Link
+                href="/projects/neurotechnology/phosphene-simulator"
+                className="group block bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-6 border border-teal-200/50 transition-all hover:shadow-lg hover:border-teal-300/70"
+              >
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-teal-600 transition-colors">
+                    <Eye className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="inline-block px-3 py-1 bg-teal-500/10 text-teal-700 text-xs font-medium rounded-full mb-2">
+                      Personal Project
+                    </div>
+                    <h3 className="text-lg font-medium text-slate-900 mb-2 group-hover:text-teal-700 transition-colors">
+                      Phosphene Vision Simulator
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      An interactive simulator that models how a visual cortex prosthesis translates camera input into
+                      phosphene patterns on the primary visual cortex (V1). Implements retinotopic mapping to visualize
+                      how electrical stimulation of cortical neurons would produce perceived points of light, providing
+                      insight into the future of cortical visual prosthetics.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <span className="inline-flex items-center justify-center gap-2 text-sm font-medium rounded-md px-4 py-2 bg-teal-600 text-white group-hover:bg-teal-700 transition-colors flex-1 text-center">
+                    <ExternalLink className="w-4 h-4" />
+                    Open Simulator
+                  </span>
+                  <span
+                    className="inline-flex items-center justify-center gap-2 text-sm font-medium rounded-md px-4 py-2 border border-teal-300 text-teal-700 bg-transparent flex-1 text-center"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      window.open("https://github.com/aliwouters/Phosphene-Vision-Simulator-", "_blank")
+                    }}
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Source Code
+                  </span>
+                </div>
+              </Link>
             </div>
           </div>
 
