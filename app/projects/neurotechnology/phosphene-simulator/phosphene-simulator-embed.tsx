@@ -8,7 +8,7 @@ export default function PhospheneSimulatorEmbed() {
   return (
     <div className="flex flex-col h-screen bg-neutral-950">
       {/* Navigation Bar */}
-      <nav className="bg-neutral-950 border-b border-neutral-800 flex-shrink-0">
+      <nav className="bg-neutral-900 border-b border-neutral-800 flex-shrink-0">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <Link
