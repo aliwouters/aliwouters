@@ -85,10 +85,8 @@ export default function SynterMedPage() {
                 />
               </div>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                UCLA Health is consistently ranked among the top hospitals in the nation and is the best in California
-                and Los Angeles by U.S. News &amp; World Report. Its Nuclear Medicine and Molecular Imaging program is a
-                recognized leader in brain PET, pioneering advanced techniques for imaging neurodegenerative and
-                metabolic disorders and translating them into clinical care.
+                UCLA Health is a top-ranked academic medical center whose Nuclear Medicine and Molecular Imaging program
+                is a recognized leader in brain PET research.
               </p>
               <a
                 href="https://uclahealth.org"
@@ -143,7 +141,7 @@ export default function SynterMedPage() {
               />
             </figure>
             <p className="text-center text-sm text-gray-500 italic">
-              Note: research patient data shown has been anonymized.
+              Note: research data shown has been anonymized.
             </p>
           </div>
         </div>
