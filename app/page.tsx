@@ -493,17 +493,16 @@ export default function HomePage() {
           <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/50 shadow-sm">
             <div className="max-w-4xl mx-auto">
               <p className="text-lg sm:text-xl leading-relaxed text-slate-600 mb-6 sm:mb-8">
-                Right now, I'm a neuroengineer-in-training working at the intersection of the brain, the body, and the
-                technology that connects them. My days are split between graduate coursework in biomedical engineering
-                and hands-on research — designing experiments, writing code to make sense of the data, and building
-                systems that translate neural signals into something usable.
+                I'm a master's student in Biomedical Engineering and Neuroengineering at Georgia Tech and Emory. I split
+                my time between graduate coursework and research, moving between the classroom, the lab, and the code
+                editor as I learn how the brain, the body, and the technology between them fit together.
               </p>
               <p className="text-base sm:text-lg leading-relaxed text-slate-600">
-                Lately I've been diving deep into quantitative neuroimaging, analyzing PET data to better understand how
-                Alzheimer's disease takes hold, while continuing to explore brain-controlled interfaces and assistive
-                technology. I'm drawn to problems that don't fit neatly into one discipline, and I love the process of
-                learning whatever it takes — a new imaging pipeline, a new programming tool, a new way of thinking — to
-                move an idea forward.
+                My research at SynterMed and UCLA Health focuses on quantitative neuroimaging. I analyze FDG and tau PET
+                scans in Python, validate neuroimaging software across processing settings and diagnostic groups, and
+                study how tau accumulation and glucose metabolism relate in the detection of Alzheimer's disease.
+                Outside of that work, I keep building brain-controlled interfaces and assistive technology, drawn to
+                problems that do not fit neatly into a single field.
               </p>
             </div>
           </div>
