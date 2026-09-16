@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Brain, Activity, ExternalLink, Home } from "lucide-react"
+import { ArrowLeft, Activity, ExternalLink, Home } from "lucide-react"
 import Image from "next/image"
 
 export default function SynterMedPage() {
@@ -36,9 +36,6 @@ export default function SynterMedPage() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <div className="w-20 h-20 bg-gradient-to-br from-violet-400 to-purple-600 rounded-lg mb-6 flex items-center justify-center mx-auto">
-            <Brain className="w-10 h-10 text-white" />
-          </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Neuronuclear Medicine and Imaging Consultant</h1>
           <div className="w-24 h-1 bg-gradient-to-r from-violet-500 to-purple-600 mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -81,7 +78,7 @@ export default function SynterMedPage() {
                   alt="UCLA Health logo"
                   width={320}
                   height={110}
-                  className="h-14 w-auto object-contain"
+                  className="h-20 w-auto object-contain"
                 />
               </div>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">

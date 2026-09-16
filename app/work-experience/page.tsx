@@ -43,13 +43,13 @@ export default function WorkExperiencePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="group">
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-orange-200 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10 h-full flex flex-col">
-                <div className="h-24 flex items-center mb-6">
+                <div className="h-24 flex items-center justify-center mb-6">
                   <Image
                     src="/images/psyonic-logo.png"
                     alt="Psyonic logo"
                     width={260}
                     height={96}
-                    className="h-full w-auto max-w-[240px] object-contain object-left"
+                    className="h-full w-auto max-w-[240px] object-contain"
                   />
                 </div>
                 <div className="flex-1">
@@ -75,13 +75,13 @@ export default function WorkExperiencePage() {
 
             <div className="group">
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-blue-200 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 h-full flex flex-col">
-                <div className="h-24 flex items-center mb-6">
+                <div className="h-24 flex items-center justify-center mb-6">
                   <Image
                     src="/images/auli-tech-logo.png"
                     alt="Auli Tech logo"
                     width={260}
                     height={96}
-                    className="h-full w-auto max-w-[240px] object-contain object-left"
+                    className="h-full w-auto max-w-[240px] object-contain"
                   />
                 </div>
                 <div className="flex-1">
@@ -107,13 +107,13 @@ export default function WorkExperiencePage() {
 
             <div className="group">
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-violet-200 transition-all duration-500 hover:shadow-2xl hover:shadow-violet-500/10 h-full flex flex-col">
-                <div className="h-24 flex items-center mb-6">
+                <div className="h-24 flex items-center justify-center mb-6">
                   <Image
                     src="/images/syntermed-logo.png"
                     alt="SynterMed and UCLA Health"
                     width={260}
                     height={96}
-                    className="h-full w-auto max-w-[240px] object-contain object-left"
+                    className="h-full w-auto max-w-[240px] object-contain"
                   />
                 </div>
                 <div className="flex-1">
@@ -142,13 +142,13 @@ export default function WorkExperiencePage() {
 
             <div className="group">
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-emerald-200 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/10 h-full flex flex-col">
-                <div className="h-24 flex items-center mb-6">
+                <div className="h-28 flex items-center justify-center mb-6">
                   <Image
                     src="/images/makerspace-logo.png"
                     alt="Makerspace on the Hill logo"
-                    width={200}
-                    height={96}
-                    className="h-full w-auto max-w-[160px] object-contain object-left"
+                    width={240}
+                    height={112}
+                    className="h-full w-auto max-w-[200px] object-contain"
                   />
                 </div>
                 <div className="flex-1">
