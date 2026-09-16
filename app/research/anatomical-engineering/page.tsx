@@ -186,6 +186,18 @@ export default function AnatomicalEngineeringPage() {
                 how humans can intuitively control robotic devices through muscle activation patterns.
               </p>
 
+              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl border border-purple-200 shadow-sm p-6 mb-6">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                    Coming Soon
+                  </span>
+                </div>
+                <h4 className="font-semibold text-gray-800 mb-2">Upcoming Publication</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  A publication on the electromagnetic suspension of transfemoral prostheses is coming soon.
+                </p>
+              </div>
+
               <div className="bg-white rounded-2xl border border-purple-200 shadow-lg overflow-hidden">
                 <div className="p-6">
                   <h4 className="font-semibold text-gray-800 mb-4">Featured Research Poster</h4>

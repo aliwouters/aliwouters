@@ -493,9 +493,11 @@ export default function HomePage() {
           <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/50 shadow-sm">
             <div className="max-w-4xl mx-auto">
               <p className="text-lg sm:text-xl leading-relaxed text-slate-600 mb-6 sm:mb-8">
-                I'm a UCLA student in Cognitive Science and Data Science Engineering, with a certification in
-                Neuroscience and Neurotechnology. My contributions span from developing brain-controlled interfaces to
-                understanding the fundamental mechanisms of human cognition.
+                I'm a graduate student pursuing an M.S. in Biomedical Engineering with a Specialization in
+                Neuroengineering through the joint program at the Georgia Institute of Technology and Emory University
+                (expected June 2027). I completed my undergraduate studies at UCLA in Cognitive Science and Data Science
+                Engineering, with a certification in Neuroscience and Neurotechnology. My contributions span from
+                developing brain-controlled interfaces to understanding the fundamental mechanisms of human cognition.
               </p>
               <p className="text-base sm:text-lg leading-relaxed text-slate-600">
                 Currently pursuing research in anatomical engineering while contributing to groundbreaking projects in
