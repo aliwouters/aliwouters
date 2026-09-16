@@ -85,6 +85,15 @@ export default function HomePage() {
     }
   }, [])
 
+  useEffect(() => {
+    // Auto-advance the featured projects carousel. The timer resets whenever
+    // currentProject changes, so manual navigation restarts the countdown.
+    const interval = setInterval(() => {
+      setCurrentProject((prev) => (prev + 1) % featuredProjects.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [currentProject])
+
   const handleEmailClick = async () => {
     const email = "ali.wout.3003@gmail.com"
 
@@ -360,10 +369,10 @@ export default function HomePage() {
 
           <div className="relative">
             {/* Carousel Container */}
-            <div className="flex items-center gap-3 sm:gap-6">
+            <div className="flex items-center justify-center gap-3 sm:gap-6">
               {/* Previous Project Preview - Hidden on mobile */}
               <div
-                className="hidden xl:block w-48 opacity-60 hover:opacity-80 transition-opacity cursor-pointer"
+                className="hidden lg:block w-40 xl:w-48 shrink-0 opacity-60 hover:opacity-80 transition-opacity cursor-pointer"
                 onClick={prevProject}
               >
                 <Card className="border-slate-200/50 shadow-md bg-white/60">
@@ -382,7 +391,7 @@ export default function HomePage() {
               </div>
 
               {/* Main Project */}
-              <div className="flex-1 max-w-4xl">
+              <div className="flex-1 max-w-4xl mx-auto">
                 <Card className="border-slate-200/50 shadow-lg bg-white/80 backdrop-blur-sm">
                   <CardContent className="p-0">
                     <div className="grid lg:grid-cols-2 gap-0">
@@ -428,7 +437,7 @@ export default function HomePage() {
 
               {/* Next Project Preview - Hidden on mobile */}
               <div
-                className="hidden xl:block w-48 opacity-60 hover:opacity-80 transition-opacity cursor-pointer"
+                className="hidden lg:block w-40 xl:w-48 shrink-0 opacity-60 hover:opacity-80 transition-opacity cursor-pointer"
                 onClick={nextProject}
               >
                 <Card className="border-slate-200/50 shadow-md bg-white/60">
