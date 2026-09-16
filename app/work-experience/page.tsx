@@ -154,8 +154,8 @@ export default function WorkExperiencePage() {
                 <div className="flex-1">
                   <p className="text-emerald-600 font-semibold mb-4 text-lg sm:text-xl">Makerspace Technician</p>
                   <p className="text-slate-600 mb-6 leading-relaxed text-sm">
-                    Managing technical equipment and facilitating student projects in UCLA's makerspace, providing
-                    expertise in 3D printing, laser cutting, and advanced manufacturing techniques.
+                    Managed technical equipment and facilitated student projects in UCLA's makerspace from 2023 to 2026,
+                    providing expertise in 3D printing, laser cutting, and advanced manufacturing techniques.
                   </p>
                 </div>
                 <div className="mt-auto">
@@ -164,6 +164,38 @@ export default function WorkExperiencePage() {
                     className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white w-full"
                   >
                     <Link href="/work-experience/makerspace" className="flex items-center justify-center gap-2">
+                      Details
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            <div className="group">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-blue-300 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-900/10 h-full flex flex-col">
+                <div className="h-24 flex items-center justify-center mb-6">
+                  <Image
+                    src="/images/braave-logo.png"
+                    alt="Braave logo"
+                    width={260}
+                    height={96}
+                    className="h-14 w-auto max-w-[220px] object-contain"
+                  />
+                </div>
+                <div className="flex-1">
+                  <p className="text-blue-900 font-semibold mb-4 text-lg sm:text-xl">R&amp;D Consultant</p>
+                  <p className="text-slate-600 mb-6 leading-relaxed text-sm">
+                    Developed biological sensor integration methods for Braave&apos;s wearable product line, preparing
+                    the seamlessly embedded sensing technology for clinical trials.
+                  </p>
+                </div>
+                <div className="mt-auto">
+                  <Button
+                    asChild
+                    className="bg-gradient-to-r from-blue-800 to-blue-950 hover:from-blue-900 hover:to-black text-white w-full"
+                  >
+                    <Link href="/work-experience/braave" className="flex items-center justify-center gap-2">
                       Details
                       <ArrowRight className="w-4 h-4" />
                     </Link>

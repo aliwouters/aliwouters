@@ -370,9 +370,21 @@ export default function ResumePage() {
                 </ul>
               </div>
 
+              <div className="border-l-4 border-blue-900 pl-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
+                  Braave - R&D Consultant Nov 2025 - Dec 2025
+                </h3>
+                <p className="text-gray-600 mb-3 text-sm sm:text-base">Wearable Biosensor Integration</p>
+                <ul className="text-gray-700 space-y-1 text-sm">
+                  <li>• Developed biological sensor integration methods for Braave&apos;s wearable product line</li>
+                  <li>• Embedded intimate sensing hardware into soft garments without compromising comfort</li>
+                  <li>• Prepared the seamlessly integrated sensing technology for clinical trials</li>
+                </ul>
+              </div>
+
               <div className="border-l-4 border-orange-500 pl-6">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-                  UCLA Makerspace Technician 2023-2025
+                  UCLA Makerspace Technician 2023-2026
                 </h3>
                 <p className="text-gray-600 mb-3 text-sm sm:text-base">Technical Support & Innovation Facilitation</p>
                 <ul className="text-gray-700 space-y-1 text-sm">
