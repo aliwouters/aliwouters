@@ -87,8 +87,8 @@ export default function WorkExperiencePage() {
                 <div className="flex-1">
                   <p className="text-blue-600 font-semibold mb-4 text-lg sm:text-xl">Assistive Technology Intern</p>
                   <p className="text-slate-600 mb-6 leading-relaxed text-sm">
-                    Worked with innovative assistive technology solutions and collaborated on marketing content creation
-                    with users.
+                    Mentored a quadriplegic user in marketing and content creation, producing professional demo videos
+                    with Synthesia.io and launching a YouTube channel to showcase the Cato assistive device.
                   </p>
                 </div>
                 <div className="mt-auto">
