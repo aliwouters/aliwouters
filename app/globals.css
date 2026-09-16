@@ -88,3 +88,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* On inner pages the fixed language toggle sits in the top-right corner.
+   Reserve room in each page's nav row so its buttons shift left and never sit under the toggle. */
+.with-fixed-lang nav .flex.justify-between.items-center {
+  padding-right: 8.5rem;
+}

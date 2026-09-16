@@ -23,14 +23,20 @@ export default function ClientLayout({
     window.scrollTo(0, 0)
   }, [pathname])
 
+  useEffect(() => {
+    // The real <body> is owned by the root layout, so toggle the clearance
+    // class directly on it. Inner pages get room in their nav for the fixed toggle.
+    document.body.classList.toggle("with-fixed-lang", pathname !== "/")
+  }, [pathname])
+
   return (
     <html lang="en">
       <body className={inter.className}>
         <GoogleTranslateLoader />
         {children}
-        {/* Global language toggle. The home page keeps its own toggle in the nav bar. */}
+        {/* Global language toggle in the top-right corner. The home page keeps its own toggle in the nav bar. */}
         {pathname !== "/" && (
-          <div className="fixed bottom-5 right-5 z-[70] flex items-center gap-2 rounded-full bg-white/90 backdrop-blur-md py-2 pl-3 pr-2 shadow-lg border border-slate-200/70">
+          <div className="fixed top-4 right-4 z-[70] flex items-center gap-2 rounded-full bg-white/90 backdrop-blur-md py-1.5 pl-3 pr-2 shadow-lg border border-slate-200/70">
             <Globe className="w-4 h-4 text-slate-500" />
             <LanguageToggle />
           </div>
