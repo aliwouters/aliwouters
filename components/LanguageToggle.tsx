@@ -24,41 +24,25 @@ export default function LanguageToggle() {
   const MAX_OFFSET = 30
 
   useEffect(() => {
-    const checkInitialLanguage = () => {
-      const translateCookie = document.cookie.split("; ").find((row) => row.startsWith("googtrans="))
-      if (translateCookie && translateCookie.includes("/fr")) {
-        setCurrentLang("fr")
-        setDragOffset(MAX_OFFSET)
-      }
+    const translateCookie = document.cookie.split("; ").find((row) => row.startsWith("googtrans="))
+    if (translateCookie && translateCookie.includes("/fr")) {
+      setCurrentLang("fr")
+      setDragOffset(MAX_OFFSET)
     }
 
-    checkInitialLanguage()
-
-    if (!document.getElementById("google-translate-script")) {
-      const script = document.createElement("script")
-      script.id = "google-translate-script"
-      script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-      script.async = true
-
-      window.googleTranslateElementInit = () => {
-        new window.google.translate.TranslateElement(
-          {
-            pageLanguage: "en",
-            includedLanguages: "en,fr",
-            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-          },
-          "google_translate_element",
-        )
-
-        setTimeout(() => {
-          setIsReady(true)
-        }, 1500)
+    // The Google Translate script is loaded globally by GoogleTranslateLoader.
+    // Poll until the translate widget is available before enabling the toggle.
+    let attempts = 0
+    const interval = setInterval(() => {
+      attempts += 1
+      const widgetReady = !!document.querySelector("#google_translate_element .goog-te-combo") || !!window.google?.translate
+      if (widgetReady || attempts > 40) {
+        setIsReady(true)
+        clearInterval(interval)
       }
+    }, 250)
 
-      document.body.appendChild(script)
-    } else {
-      setIsReady(true)
-    }
+    return () => clearInterval(interval)
   }, [])
 
   const changeLanguage = (targetLang: "en" | "fr") => {
@@ -190,8 +174,6 @@ export default function LanguageToggle() {
 
   return (
     <>
-      <div id="google_translate_element" style={{ display: "none" }} />
-
       <div
         ref={containerRef}
         onClick={handleClick}
@@ -235,19 +217,6 @@ export default function LanguageToggle() {
           FR
         </span>
       </div>
-
-      <style jsx global>{`
-        .goog-te-banner-frame,
-        .goog-te-balloon-frame,
-        div#goog-gt-,
-        .skiptranslate,
-        .goog-te-gadget-icon {
-          display: none !important;
-        }
-        body {
-          top: 0 !important;
-        }
-      `}</style>
     </>
   )
 }

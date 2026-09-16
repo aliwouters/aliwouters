@@ -85,6 +85,15 @@ export default function HomePage() {
     }
   }, [])
 
+  useEffect(() => {
+    // Auto-advance the featured projects carousel. The timer resets whenever
+    // currentProject changes, so manual navigation restarts the countdown.
+    const interval = setInterval(() => {
+      setCurrentProject((prev) => (prev + 1) % featuredProjects.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [currentProject])
+
   const handleEmailClick = async () => {
     const email = "ali.wout.3003@gmail.com"
 
@@ -360,10 +369,10 @@ export default function HomePage() {
 
           <div className="relative">
             {/* Carousel Container */}
-            <div className="flex items-center gap-3 sm:gap-6">
+            <div className="flex items-center justify-center gap-3 sm:gap-6">
               {/* Previous Project Preview - Hidden on mobile */}
               <div
-                className="hidden xl:block w-48 opacity-60 hover:opacity-80 transition-opacity cursor-pointer"
+                className="hidden lg:block w-40 xl:w-48 shrink-0 opacity-60 hover:opacity-80 transition-opacity cursor-pointer"
                 onClick={prevProject}
               >
                 <Card className="border-slate-200/50 shadow-md bg-white/60">
@@ -382,7 +391,7 @@ export default function HomePage() {
               </div>
 
               {/* Main Project */}
-              <div className="flex-1 max-w-4xl">
+              <div className="flex-1 max-w-4xl mx-auto">
                 <Card className="border-slate-200/50 shadow-lg bg-white/80 backdrop-blur-sm">
                   <CardContent className="p-0">
                     <div className="grid lg:grid-cols-2 gap-0">
@@ -428,7 +437,7 @@ export default function HomePage() {
 
               {/* Next Project Preview - Hidden on mobile */}
               <div
-                className="hidden xl:block w-48 opacity-60 hover:opacity-80 transition-opacity cursor-pointer"
+                className="hidden lg:block w-40 xl:w-48 shrink-0 opacity-60 hover:opacity-80 transition-opacity cursor-pointer"
                 onClick={nextProject}
               >
                 <Card className="border-slate-200/50 shadow-md bg-white/60">
@@ -493,14 +502,16 @@ export default function HomePage() {
           <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/50 shadow-sm">
             <div className="max-w-4xl mx-auto">
               <p className="text-lg sm:text-xl leading-relaxed text-slate-600 mb-6 sm:mb-8">
-                I'm a UCLA student in Cognitive Science and Data Science Engineering, with a certification in
-                Neuroscience and Neurotechnology. My contributions span from developing brain-controlled interfaces to
-                understanding the fundamental mechanisms of human cognition.
+                I'm a master's student in Biomedical Engineering and Neuroengineering at Georgia Tech and Emory. I split
+                my time between graduate coursework and research, learning the theory in lectures and putting it to work
+                on real neuroimaging problems.
               </p>
               <p className="text-base sm:text-lg leading-relaxed text-slate-600">
-                Currently pursuing research in anatomical engineering while contributing to groundbreaking projects in
-                neurotechnology and experimental psychology. I believe in the power of interdisciplinary collaboration
-                to solve complex challenges at the intersection of technology and human experience.
+                My research at SynterMed and UCLA Health focuses on quantitative neuroimaging. I analyze FDG and tau PET
+                scans in Python, validate neuroimaging software across processing settings and diagnostic groups, and
+                study how tau accumulation and glucose metabolism relate in the detection of Alzheimer's disease.
+                Outside of that work, I keep building brain-controlled interfaces and assistive technology, drawn to
+                problems that do not fit neatly into a single field.
               </p>
             </div>
           </div>
@@ -539,7 +550,8 @@ export default function HomePage() {
               </div>
               <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-3 sm:mb-4">Work Experience</h3>
               <p className="text-slate-600 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
-                Professional journey through innovative companies including Psyonic, Auli Tech, and UCLA's Makerspace.
+                Professional journey through innovative companies including Psyonic, Auli Tech, SynterMed, and UCLA's
+                Makerspace.
               </p>
               <Link
                 href="/work-experience"

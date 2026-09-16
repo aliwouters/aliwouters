@@ -187,16 +187,35 @@ export default function ResumePage() {
           </CardHeader>
           <CardContent>
             <div className="space-y-6">
-              {/* UCLA */}
-              <div className="border-l-4 border-blue-500 pl-6">
+              {/* Georgia Tech & Emory */}
+              <div className="border-l-4 border-yellow-500 pl-6">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
                   <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
-                    University of California, Los Angeles (UCLA) 2022-2026
+                    Georgia Institute of Technology and Emory University 2025-2027
                   </h3>
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 w-fit">
-                    Work in Progress
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 w-fit">
+                    In Progress
                   </span>
                 </div>
+                <p className="text-base sm:text-lg text-gray-700 mb-2">
+                  Master of Science in Biomedical Engineering
+                </p>
+                <p className="text-gray-600 mb-3 text-sm sm:text-base">
+                  Specialization in Neuroengineering • Expected June 2027
+                </p>
+                <p className="text-sm leading-relaxed text-gray-600">
+                  Pursuing a graduate degree through the joint biomedical engineering program between the Georgia
+                  Institute of Technology and Emory University, with a specialization in neuroengineering. The program
+                  bridges rigorous engineering fundamentals with clinical and neuroscience research to develop
+                  technologies that interface with the nervous system.
+                </p>
+              </div>
+
+              {/* UCLA */}
+              <div className="border-l-4 border-blue-500 pl-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
+                  University of California, Los Angeles (UCLA) 2022-2026
+                </h3>
                 <p className="text-gray-600 mb-2 text-sm sm:text-base">
                   College Honors Program. Rose Gilbert Honor Scholarship recipient
                 </p>
@@ -264,6 +283,90 @@ export default function ResumePage() {
           </CardContent>
         </Card>
 
+        {/* Professional Experience */}
+        <Card className="border-blue-100 shadow-lg mb-8">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
+              <Briefcase className="w-6 h-6 text-blue-500" />
+              Professional Experience
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-6">
+              <div className="border-l-4 border-violet-500 pl-6">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+                    SynterMed, UCLA Health - Neuronuclear Medicine and Imaging Consultant 2026-Present
+                  </h3>
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-violet-100 text-violet-800 w-fit">
+                    Current
+                  </span>
+                </div>
+                <p className="text-gray-600 mb-3 text-sm sm:text-base">Quantitative Neuroimaging Research</p>
+                <ul className="text-gray-700 space-y-1 text-sm">
+                  <li>• Conduct quantitative FDG and tau PET research using NeuroQ and ADNI datasets</li>
+                  <li>• Validate neuroimaging software across versions, processing settings, and diagnostic groups</li>
+                  <li>• Analyze regional relationships between tau accumulation and glucose metabolism in Python</li>
+                  <li>• Study the detection and characterization of Alzheimer&apos;s disease</li>
+                </ul>
+              </div>
+
+              <div className="border-l-4 border-blue-900 pl-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
+                  Braave - R&D Consultant Nov 2025 - Dec 2025
+                </h3>
+                <p className="text-gray-600 mb-3 text-sm sm:text-base">Wearable Biosensor Integration</p>
+                <ul className="text-gray-700 space-y-1 text-sm">
+                  <li>• Developed biological sensor integration methods for Braave&apos;s wearable product line</li>
+                  <li>• Embedded intimate sensing hardware into soft garments without compromising comfort</li>
+                  <li>• Prepared the seamlessly integrated sensing technology for clinical trials</li>
+                </ul>
+              </div>
+
+              <div className="border-l-4 border-orange-500 pl-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
+                  UCLA Makerspace Technician 2023-2026
+                </h3>
+                <p className="text-gray-600 mb-3 text-sm sm:text-base">Technical Support & Innovation Facilitation</p>
+                <ul className="text-gray-700 space-y-1 text-sm">
+                  <li>• Provided technical support across multiple fabrication technologies</li>
+                  <li>• Trained users on 3D printing, laser cutting, and CNC machining</li>
+                  <li>• Developed custom tools and fixtures for improved workshop efficiency</li>
+                  <li>• Led educational workshops on making and fabrication techniques</li>
+                </ul>
+              </div>
+
+              <div className="border-l-4 border-red-500 pl-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
+                  Psyonic - Mechatronics Intern 2024
+                </h3>
+                <p className="text-gray-600 mb-3 text-sm sm:text-base">Bionic Hand Development & Testing</p>
+                <ul className="text-gray-700 space-y-1 text-sm">
+                  <li>• Contributed to advanced prosthetic hand development and testing</li>
+                  <li>• Assisted with production and assembly of robotic hand control systems</li>
+                  <li>• Participated in user testing and feedback collection processes</li>
+                  <li>• Supported quality assurance and product improvement initiatives</li>
+                </ul>
+              </div>
+
+              <div className="border-l-4 border-teal-500 pl-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
+                  Auli Tech - Assistive Technology Intern 2024
+                </h3>
+                <p className="text-gray-600 mb-3 text-sm sm:text-base">
+                  Assistive Technology Marketing & Content Creation
+                </p>
+                <ul className="text-gray-700 space-y-1 text-sm">
+                  <li>• Collaborated on marketing content for assistive technology devices</li>
+                  <li>• Worked with quadriplegic student on authentic user testimonials</li>
+                  <li>• Developed vocational skills in marketing and content creation</li>
+                  <li>• Contributed to accessibility-focused product promotion</li>
+                </ul>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Research Experience */}
         <Card className="border-blue-100 shadow-lg mb-8">
           <CardHeader>
@@ -312,60 +415,6 @@ export default function ResumePage() {
                   <li>• Integrated control systems for precise robotic movement</li>
                   <li>• Data processing and analysis using Vicon and Nexus software</li>
                   <li>• Motion capture data collection and biomechanical analysis</li>
-                </ul>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Professional Experience */}
-        <Card className="border-blue-100 shadow-lg mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
-              <Briefcase className="w-6 h-6 text-blue-500" />
-              Professional Experience
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-6">
-              <div className="border-l-4 border-orange-500 pl-6">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-                  UCLA Makerspace Technician 2023-2025
-                </h3>
-                <p className="text-gray-600 mb-3 text-sm sm:text-base">Technical Support & Innovation Facilitation</p>
-                <ul className="text-gray-700 space-y-1 text-sm">
-                  <li>• Provided technical support across multiple fabrication technologies</li>
-                  <li>• Trained users on 3D printing, laser cutting, and CNC machining</li>
-                  <li>• Developed custom tools and fixtures for improved workshop efficiency</li>
-                  <li>• Led educational workshops on making and fabrication techniques</li>
-                </ul>
-              </div>
-
-              <div className="border-l-4 border-red-500 pl-6">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-                  Psyonic - Mechatronics Intern 2024
-                </h3>
-                <p className="text-gray-600 mb-3 text-sm sm:text-base">Bionic Hand Development & Testing</p>
-                <ul className="text-gray-700 space-y-1 text-sm">
-                  <li>• Contributed to advanced prosthetic hand development and testing</li>
-                  <li>• Assisted with production and assembly of robotic hand control systems</li>
-                  <li>• Participated in user testing and feedback collection processes</li>
-                  <li>• Supported quality assurance and product improvement initiatives</li>
-                </ul>
-              </div>
-
-              <div className="border-l-4 border-teal-500 pl-6">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-                  Auli Tech - Assistive Technology Intern 2024
-                </h3>
-                <p className="text-gray-600 mb-3 text-sm sm:text-base">
-                  Assistive Technology Marketing & Content Creation
-                </p>
-                <ul className="text-gray-700 space-y-1 text-sm">
-                  <li>• Collaborated on marketing content for assistive technology devices</li>
-                  <li>• Worked with quadriplegic student on authentic user testimonials</li>
-                  <li>• Developed vocational skills in marketing and content creation</li>
-                  <li>• Contributed to accessibility-focused product promotion</li>
                 </ul>
               </div>
             </div>

@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Wrench, Users, Lightbulb, Settings, FolderOpen, GraduationCap, Home } from "lucide-react"
+import { ArrowLeft, Users, Lightbulb, Settings, FolderOpen, GraduationCap, Home } from "lucide-react"
 import { Suspense } from "react"
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls, useGLTF, Environment, Html } from "@react-three/drei"
@@ -70,10 +70,7 @@ export default function MakerspacePage() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
-          <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-teal-600 rounded-lg mb-6 flex items-center justify-center mx-auto">
-            <Wrench className="w-10 h-10 text-white" />
-          </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">UCLA Makerspace Experience</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Makerspace Technician</h1>
           <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-teal-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600">
             Makerspace Technician - Empowering student innovation through hands-on technical support

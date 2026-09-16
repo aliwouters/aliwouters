@@ -1,8 +1,9 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Briefcase, Cpu, Wrench, ArrowRight, Home } from "lucide-react"
+import { ArrowRight, Home } from "lucide-react"
 
 export default function WorkExperiencePage() {
   return (
@@ -42,12 +43,17 @@ export default function WorkExperiencePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="group">
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-orange-200 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10 h-full flex flex-col">
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6">
-                  <Briefcase className="w-8 h-8 text-white" />
+                <div className="h-24 flex items-center justify-center mb-6">
+                  <Image
+                    src="/images/psyonic-logo.png"
+                    alt="Psyonic logo"
+                    width={260}
+                    height={96}
+                    className="h-full w-auto max-w-[240px] object-contain"
+                  />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-2">Psyonic</h3>
-                  <p className="text-orange-600 font-medium mb-4 text-sm">Mechatronics Intern </p>
+                  <p className="text-orange-600 font-semibold mb-4 text-lg sm:text-xl">Mechatronics Intern</p>
                   <p className="text-slate-600 mb-6 leading-relaxed text-sm">
                     Contributing to cutting-edge prosthetic technology development at a leading bionic limb company,
                     focusing on user-centered testing and control system fabrication.
@@ -69,15 +75,20 @@ export default function WorkExperiencePage() {
 
             <div className="group">
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-blue-200 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 h-full flex flex-col">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6">
-                  <Cpu className="w-8 h-8 text-white" />
+                <div className="h-24 flex items-center justify-center mb-6">
+                  <Image
+                    src="/images/auli-tech-logo.png"
+                    alt="Auli Tech logo"
+                    width={260}
+                    height={96}
+                    className="h-full w-auto max-w-[240px] object-contain"
+                  />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-2">Auli Tech</h3>
-                  <p className="text-blue-600 font-medium mb-4 text-sm">Assistive Technology Intern</p>
+                  <p className="text-blue-600 font-semibold mb-4 text-lg sm:text-xl">Assistive Technology Intern</p>
                   <p className="text-slate-600 mb-6 leading-relaxed text-sm">
-                    Worked with innovative assistive technology solutions and collaborated on marketing content creation
-                    with users.
+                    Mentored a quadriplegic user in marketing and content creation, producing professional demo videos
+                    with Synthesia.io and launching a YouTube channel to showcase the Cato assistive device.
                   </p>
                 </div>
                 <div className="mt-auto">
@@ -94,17 +105,57 @@ export default function WorkExperiencePage() {
               </div>
             </div>
 
-            <div className="group sm:col-span-2 lg:col-span-1">
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-emerald-200 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/10 h-full flex flex-col">
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mb-6">
-                  <Wrench className="w-8 h-8 text-white" />
+            <div className="group">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-violet-200 transition-all duration-500 hover:shadow-2xl hover:shadow-violet-500/10 h-full flex flex-col">
+                <div className="h-24 flex items-center justify-center mb-6">
+                  <Image
+                    src="/images/syntermed-logo.png"
+                    alt="SynterMed and UCLA Health"
+                    width={260}
+                    height={96}
+                    className="h-full w-auto max-w-[240px] object-contain"
+                  />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-2">UCLA Makerspace</h3>
-                  <p className="text-emerald-600 font-medium mb-4 text-sm">Makerspace Technician</p>
+                  <p className="text-violet-600 font-semibold mb-4 text-lg sm:text-xl">
+                    Neuronuclear Medicine and Imaging Consultant
+                  </p>
                   <p className="text-slate-600 mb-6 leading-relaxed text-sm">
-                    Managing technical equipment and facilitating student projects in UCLA's makerspace, providing
-                    expertise in 3D printing, laser cutting, and advanced manufacturing techniques.
+                    Conducting quantitative neuroimaging research on brain PET analysis and Alzheimer&apos;s disease,
+                    quantifying and validating FDG-PET scans and analyzing tau accumulation and glucose metabolism with
+                    Python.
+                  </p>
+                </div>
+                <div className="mt-auto">
+                  <Button
+                    asChild
+                    className="bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white w-full"
+                  >
+                    <Link href="/work-experience/syntermed" className="flex items-center justify-center gap-2">
+                      Details
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            <div className="group">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-emerald-200 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/10 h-full flex flex-col">
+                <div className="h-28 flex items-center justify-center mb-6">
+                  <Image
+                    src="/images/makerspace-logo.png"
+                    alt="Makerspace on the Hill logo"
+                    width={240}
+                    height={112}
+                    className="h-full w-auto max-w-[200px] object-contain"
+                  />
+                </div>
+                <div className="flex-1">
+                  <p className="text-emerald-600 font-semibold mb-4 text-lg sm:text-xl">Makerspace Technician</p>
+                  <p className="text-slate-600 mb-6 leading-relaxed text-sm">
+                    Managed technical equipment and facilitated student projects in UCLA's makerspace from 2023 to 2026,
+                    providing expertise in 3D printing, laser cutting, and advanced manufacturing techniques.
                   </p>
                 </div>
                 <div className="mt-auto">
@@ -113,6 +164,38 @@ export default function WorkExperiencePage() {
                     className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white w-full"
                   >
                     <Link href="/work-experience/makerspace" className="flex items-center justify-center gap-2">
+                      Details
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            <div className="group">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-blue-300 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-900/10 h-full flex flex-col">
+                <div className="h-24 flex items-center justify-center mb-6">
+                  <Image
+                    src="/images/braave-logo.png"
+                    alt="Braave logo"
+                    width={260}
+                    height={96}
+                    className="h-14 w-auto max-w-[220px] object-contain"
+                  />
+                </div>
+                <div className="flex-1">
+                  <p className="text-blue-900 font-semibold mb-4 text-lg sm:text-xl">R&amp;D Consultant</p>
+                  <p className="text-slate-600 mb-6 leading-relaxed text-sm">
+                    Developed biological sensor integration methods for Braave&apos;s wearable product line, preparing
+                    the seamlessly embedded sensing technology for clinical trials.
+                  </p>
+                </div>
+                <div className="mt-auto">
+                  <Button
+                    asChild
+                    className="bg-gradient-to-r from-blue-800 to-blue-950 hover:from-blue-900 hover:to-black text-white w-full"
+                  >
+                    <Link href="/work-experience/braave" className="flex items-center justify-center gap-2">
                       Details
                       <ArrowRight className="w-4 h-4" />
                     </Link>

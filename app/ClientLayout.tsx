@@ -5,6 +5,8 @@ import { Inter } from "next/font/google"
 import { useEffect } from "react"
 import { usePathname } from "next/navigation"
 import "./globals.css"
+import GoogleTranslateLoader from "@/components/GoogleTranslateLoader"
+import NavLanguageToggle from "@/components/NavLanguageToggle"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -22,7 +24,12 @@ export default function ClientLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <GoogleTranslateLoader />
+        {children}
+        {/* Places the language toggle into each inner page's top nav bar. */}
+        <NavLanguageToggle />
+      </body>
     </html>
   )
 }

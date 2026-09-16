@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Briefcase, Zap, Users, ExternalLink, Home } from "lucide-react"
+import { ArrowLeft, Zap, Users, ExternalLink, Home } from "lucide-react"
 import Image from "next/image"
 
 export default function PsyonicPage() {
@@ -36,10 +36,7 @@ export default function PsyonicPage() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <div className="w-20 h-20 bg-gradient-to-br from-orange-400 to-red-600 rounded-lg mb-6 flex items-center justify-center mx-auto">
-            <Briefcase className="w-10 h-10 text-white" />
-          </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Psyonic Mechatronics Internship</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Mechatronics Intern</h1>
           <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-600 mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Contributing to prosthetic technology production and testing
