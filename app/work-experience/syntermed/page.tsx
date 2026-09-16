@@ -84,10 +84,21 @@ export default function SynterMedPage() {
                   className="h-14 w-auto object-contain"
                 />
               </div>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                UCLA Health is a leading academic medical center where I conduct quantitative neuroimaging research
-                focused on brain PET analysis and the detection and characterization of Alzheimer&apos;s disease.
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                UCLA Health is consistently ranked among the top hospitals in the nation and is the best in California
+                and Los Angeles by U.S. News &amp; World Report. Its Nuclear Medicine and Molecular Imaging program is a
+                recognized leader in brain PET, pioneering advanced techniques for imaging neurodegenerative and
+                metabolic disorders and translating them into clinical care.
               </p>
+              <a
+                href="https://uclahealth.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              >
+                <ExternalLink className="w-5 h-5" />
+                Visit UCLA Health Website
+              </a>
             </div>
           </div>
         </div>
@@ -112,25 +123,28 @@ export default function SynterMedPage() {
             characterization of Alzheimer&apos;s disease.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-4 mt-8">
-            <div className="bg-violet-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-gray-800 mb-2">Key Focus Areas:</h4>
-              <ul className="text-gray-700 text-sm space-y-1">
-                <li>&bull; Quantifying FDG-PET scans with NeuroQ</li>
-                <li>&bull; Validating software across versions &amp; settings</li>
-                <li>&bull; Tau and FDG-PET dataset curation &amp; processing</li>
-                <li>&bull; Alzheimer&apos;s disease detection &amp; characterization</li>
-              </ul>
-            </div>
-            <div className="bg-violet-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-gray-800 mb-2">Technical Methods:</h4>
-              <ul className="text-gray-700 text-sm space-y-1">
-                <li>&bull; Python for regional measurement comparison</li>
-                <li>&bull; Agreement analysis &amp; regression modeling</li>
-                <li>&bull; Data visualization &amp; outlier detection</li>
-                <li>&bull; Cross-group comparison (aging, MCI, AD)</li>
-              </ul>
-            </div>
+          <div className="mt-8 grid gap-6">
+            <figure className="overflow-hidden rounded-2xl border border-violet-100 bg-gray-50">
+              <Image
+                src="/images/fdg-pet-montage.png"
+                alt="Montage of FDG-PET axial brain slices showing regional glucose metabolism"
+                width={2314}
+                height={1440}
+                className="w-full h-auto"
+              />
+            </figure>
+            <figure className="overflow-hidden rounded-2xl border border-violet-100 bg-gray-900">
+              <Image
+                src="/images/neuroq-analysis.png"
+                alt="NeuroQ analysis interface comparing a patient brain PET scan against a normal template with cluster regions and regional Z-score tables"
+                width={2555}
+                height={1435}
+                className="w-full h-auto"
+              />
+            </figure>
+            <p className="text-center text-sm text-gray-500 italic">
+              Note: research patient data shown has been anonymized.
+            </p>
           </div>
         </div>
 
