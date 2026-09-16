@@ -187,6 +187,30 @@ export default function ResumePage() {
           </CardHeader>
           <CardContent>
             <div className="space-y-6">
+              {/* Georgia Tech & Emory */}
+              <div className="border-l-4 border-yellow-500 pl-6">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+                    Georgia Institute of Technology and Emory University 2025-2027
+                  </h3>
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 w-fit">
+                    In Progress
+                  </span>
+                </div>
+                <p className="text-base sm:text-lg text-gray-700 mb-2">
+                  Master of Science in Biomedical Engineering
+                </p>
+                <p className="text-gray-600 mb-3 text-sm sm:text-base">
+                  Specialization in Neuroengineering • Expected June 2027
+                </p>
+                <p className="text-sm leading-relaxed text-gray-600">
+                  Pursuing a graduate degree through the joint biomedical engineering program between the Georgia
+                  Institute of Technology and Emory University, with a specialization in neuroengineering. The program
+                  bridges rigorous engineering fundamentals with clinical and neuroscience research to develop
+                  technologies that interface with the nervous system.
+                </p>
+              </div>
+
               {/* UCLA */}
               <div className="border-l-4 border-blue-500 pl-6">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
@@ -328,6 +352,24 @@ export default function ResumePage() {
           </CardHeader>
           <CardContent>
             <div className="space-y-6">
+              <div className="border-l-4 border-violet-500 pl-6">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+                    SynterMed, UCLA Health - Neuronuclear Medicine and Imaging Consultant 2026-Present
+                  </h3>
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-violet-100 text-violet-800 w-fit">
+                    Current
+                  </span>
+                </div>
+                <p className="text-gray-600 mb-3 text-sm sm:text-base">Quantitative Neuroimaging Research</p>
+                <ul className="text-gray-700 space-y-1 text-sm">
+                  <li>• Conduct quantitative FDG and tau PET research using NeuroQ and ADNI datasets</li>
+                  <li>• Validate neuroimaging software across versions, processing settings, and diagnostic groups</li>
+                  <li>• Analyze regional relationships between tau accumulation and glucose metabolism in Python</li>
+                  <li>• Study the detection and characterization of Alzheimer&apos;s disease</li>
+                </ul>
+              </div>
+
               <div className="border-l-4 border-orange-500 pl-6">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                   UCLA Makerspace Technician 2023-2025
