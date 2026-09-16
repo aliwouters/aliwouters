@@ -213,14 +213,9 @@ export default function ResumePage() {
 
               {/* UCLA */}
               <div className="border-l-4 border-blue-500 pl-6">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
-                    University of California, Los Angeles (UCLA) 2022-2026
-                  </h3>
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 w-fit">
-                    Work in Progress
-                  </span>
-                </div>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
+                  University of California, Los Angeles (UCLA) 2022-2026
+                </h3>
                 <p className="text-gray-600 mb-2 text-sm sm:text-base">
                   College Honors Program. Rose Gilbert Honor Scholarship recipient
                 </p>
@@ -283,60 +278,6 @@ export default function ResumePage() {
                   activities that fostered analytical thinking and problem-solving skills essential for higher education
                   and research pursuits.
                 </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Research Experience */}
-        <Card className="border-blue-100 shadow-lg mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
-              <Award className="w-6 h-6 text-blue-500" />
-              Research Experience
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-6">
-              <div className="border-l-4 border-blue-500 pl-6">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-                  Neurotechnology Research 2022 - 2025
-                </h3>
-                <p className="text-gray-600 mb-3 text-sm sm:text-base">
-                  Brain-Computer Interfaces & Neural Signal Processing
-                </p>
-                <ul className="text-gray-700 space-y-1 text-sm">
-                  <li>• Developed brain-controlled prosthetic devices using EEG signal processing</li>
-                  <li>• Created discrete EEG systems for real-time emotion and stress detection</li>
-                  <li>• Applied machine learning algorithms for neural pattern recognition</li>
-                  <li>• Won first place at California Neurotechnology Conference</li>
-                </ul>
-              </div>
-
-              <div className="border-l-4 border-purple-500 pl-6">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Cognitive Science Research 2024</h3>
-                <p className="text-gray-600 mb-3 text-sm sm:text-base">Zili Lab - UCLA Psychology Department</p>
-                <ul className="text-gray-700 space-y-1 text-sm">
-                  <li>• Lab Manager for cognitive abilities research in card game players</li>
-                  <li>• Conducted user experience research bridging psychology and design</li>
-                  <li>• Investigated graph perception and data visualization comprehension</li>
-                  <li>• Managed research teams and coordinated experimental protocols</li>
-                </ul>
-              </div>
-
-              <div className="border-l-4 border-green-500 pl-6">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Anatomics Research 2025</h3>
-                <p className="text-gray-600 mb-3 text-sm sm:text-base">
-                  The Anatomical Engineering Group of Dr. Clites
-                </p>
-                <ul className="text-gray-700 space-y-1 text-sm">
-                  <li>• Designed and fabricated multi-degree-of-freedom tentacle robots</li>
-                  <li>• Developed cable-driven actuation systems for soft robotics</li>
-                  <li>• Created 3D models and prototypes for biomimetic manipulation</li>
-                  <li>• Integrated control systems for precise robotic movement</li>
-                  <li>• Data processing and analysis using Vicon and Nexus software</li>
-                  <li>• Motion capture data collection and biomechanical analysis</li>
-                </ul>
               </div>
             </div>
           </CardContent>
@@ -420,6 +361,60 @@ export default function ResumePage() {
                   <li>• Worked with quadriplegic student on authentic user testimonials</li>
                   <li>• Developed vocational skills in marketing and content creation</li>
                   <li>• Contributed to accessibility-focused product promotion</li>
+                </ul>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Research Experience */}
+        <Card className="border-blue-100 shadow-lg mb-8">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
+              <Award className="w-6 h-6 text-blue-500" />
+              Research Experience
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-6">
+              <div className="border-l-4 border-blue-500 pl-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
+                  Neurotechnology Research 2022 - 2025
+                </h3>
+                <p className="text-gray-600 mb-3 text-sm sm:text-base">
+                  Brain-Computer Interfaces & Neural Signal Processing
+                </p>
+                <ul className="text-gray-700 space-y-1 text-sm">
+                  <li>• Developed brain-controlled prosthetic devices using EEG signal processing</li>
+                  <li>• Created discrete EEG systems for real-time emotion and stress detection</li>
+                  <li>• Applied machine learning algorithms for neural pattern recognition</li>
+                  <li>• Won first place at California Neurotechnology Conference</li>
+                </ul>
+              </div>
+
+              <div className="border-l-4 border-purple-500 pl-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Cognitive Science Research 2024</h3>
+                <p className="text-gray-600 mb-3 text-sm sm:text-base">Zili Lab - UCLA Psychology Department</p>
+                <ul className="text-gray-700 space-y-1 text-sm">
+                  <li>• Lab Manager for cognitive abilities research in card game players</li>
+                  <li>• Conducted user experience research bridging psychology and design</li>
+                  <li>• Investigated graph perception and data visualization comprehension</li>
+                  <li>• Managed research teams and coordinated experimental protocols</li>
+                </ul>
+              </div>
+
+              <div className="border-l-4 border-green-500 pl-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Anatomics Research 2025</h3>
+                <p className="text-gray-600 mb-3 text-sm sm:text-base">
+                  The Anatomical Engineering Group of Dr. Clites
+                </p>
+                <ul className="text-gray-700 space-y-1 text-sm">
+                  <li>• Designed and fabricated multi-degree-of-freedom tentacle robots</li>
+                  <li>• Developed cable-driven actuation systems for soft robotics</li>
+                  <li>• Created 3D models and prototypes for biomimetic manipulation</li>
+                  <li>• Integrated control systems for precise robotic movement</li>
+                  <li>• Data processing and analysis using Vicon and Nexus software</li>
+                  <li>• Motion capture data collection and biomechanical analysis</li>
                 </ul>
               </div>
             </div>

@@ -494,8 +494,8 @@ export default function HomePage() {
             <div className="max-w-4xl mx-auto">
               <p className="text-lg sm:text-xl leading-relaxed text-slate-600 mb-6 sm:mb-8">
                 I'm a master's student in Biomedical Engineering and Neuroengineering at Georgia Tech and Emory. I split
-                my time between graduate coursework and research, moving between the classroom, the lab, and the code
-                editor as I learn how the brain, the body, and the technology between them fit together.
+                my time between graduate coursework and research, learning the theory in lectures and putting it to work
+                on real neuroimaging problems.
               </p>
               <p className="text-base sm:text-lg leading-relaxed text-slate-600">
                 My research at SynterMed and UCLA Health focuses on quantitative neuroimaging. I analyze FDG and tau PET
