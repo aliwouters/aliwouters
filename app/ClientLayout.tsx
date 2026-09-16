@@ -5,6 +5,7 @@ import { Inter } from "next/font/google"
 import { useEffect } from "react"
 import { usePathname } from "next/navigation"
 import "./globals.css"
+import GoogleTranslateLoader from "@/components/GoogleTranslateLoader"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -22,7 +23,10 @@ export default function ClientLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <GoogleTranslateLoader />
+        {children}
+      </body>
     </html>
   )
 }
