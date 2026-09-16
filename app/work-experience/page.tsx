@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Wrench, ArrowRight, Home } from "lucide-react"
+import { ArrowRight, Home } from "lucide-react"
 
 export default function WorkExperiencePage() {
   return (
@@ -43,18 +43,17 @@ export default function WorkExperiencePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="group">
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-orange-200 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10 h-full flex flex-col">
-                <div className="h-20 flex items-center mb-6">
+                <div className="h-24 flex items-center mb-6">
                   <Image
                     src="/images/psyonic-logo.png"
                     alt="Psyonic logo"
-                    width={220}
-                    height={80}
-                    className="h-full w-auto max-w-[200px] object-contain object-left"
+                    width={260}
+                    height={96}
+                    className="h-full w-auto max-w-[240px] object-contain object-left"
                   />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-2">Psyonic</h3>
-                  <p className="text-orange-600 font-medium mb-4 text-sm">Mechatronics Intern </p>
+                  <p className="text-orange-600 font-semibold mb-4 text-lg sm:text-xl">Mechatronics Intern</p>
                   <p className="text-slate-600 mb-6 leading-relaxed text-sm">
                     Contributing to cutting-edge prosthetic technology development at a leading bionic limb company,
                     focusing on user-centered testing and control system fabrication.
@@ -76,18 +75,17 @@ export default function WorkExperiencePage() {
 
             <div className="group">
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-blue-200 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 h-full flex flex-col">
-                <div className="h-20 flex items-center mb-6">
+                <div className="h-24 flex items-center mb-6">
                   <Image
                     src="/images/auli-tech-logo.png"
                     alt="Auli Tech logo"
-                    width={220}
-                    height={80}
-                    className="h-full w-auto max-w-[200px] object-contain object-left"
+                    width={260}
+                    height={96}
+                    className="h-full w-auto max-w-[240px] object-contain object-left"
                   />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-2">Auli Tech</h3>
-                  <p className="text-blue-600 font-medium mb-4 text-sm">Assistive Technology Intern</p>
+                  <p className="text-blue-600 font-semibold mb-4 text-lg sm:text-xl">Assistive Technology Intern</p>
                   <p className="text-slate-600 mb-6 leading-relaxed text-sm">
                     Worked with innovative assistive technology solutions and collaborated on marketing content creation
                     with users.
@@ -109,18 +107,17 @@ export default function WorkExperiencePage() {
 
             <div className="group">
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-violet-200 transition-all duration-500 hover:shadow-2xl hover:shadow-violet-500/10 h-full flex flex-col">
-                <div className="h-20 flex items-center mb-6">
+                <div className="h-24 flex items-center mb-6">
                   <Image
                     src="/images/syntermed-logo.png"
-                    alt="SynterMed logo"
-                    width={220}
-                    height={80}
-                    className="h-full w-auto max-w-[200px] object-contain object-left"
+                    alt="SynterMed and UCLA Health"
+                    width={260}
+                    height={96}
+                    className="h-full w-auto max-w-[240px] object-contain object-left"
                   />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-2">SynterMed &amp; UCLA Health</h3>
-                  <p className="text-violet-600 font-medium mb-4 text-sm">
+                  <p className="text-violet-600 font-semibold mb-4 text-lg sm:text-xl">
                     Neuronuclear Medicine and Imaging Consultant
                   </p>
                   <p className="text-slate-600 mb-6 leading-relaxed text-sm">
@@ -145,12 +142,17 @@ export default function WorkExperiencePage() {
 
             <div className="group">
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/50 hover:border-emerald-200 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/10 h-full flex flex-col">
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mb-6">
-                  <Wrench className="w-8 h-8 text-white" />
+                <div className="h-24 flex items-center mb-6">
+                  <Image
+                    src="/images/makerspace-logo.png"
+                    alt="Makerspace on the Hill logo"
+                    width={200}
+                    height={96}
+                    className="h-full w-auto max-w-[160px] object-contain object-left"
+                  />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-2">UCLA Makerspace</h3>
-                  <p className="text-emerald-600 font-medium mb-4 text-sm">Makerspace Technician</p>
+                  <p className="text-emerald-600 font-semibold mb-4 text-lg sm:text-xl">Makerspace Technician</p>
                   <p className="text-slate-600 mb-6 leading-relaxed text-sm">
                     Managing technical equipment and facilitating student projects in UCLA's makerspace, providing
                     expertise in 3D printing, laser cutting, and advanced manufacturing techniques.

@@ -541,7 +541,8 @@ export default function HomePage() {
               </div>
               <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-3 sm:mb-4">Work Experience</h3>
               <p className="text-slate-600 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
-                Professional journey through innovative companies including Psyonic, Auli Tech, and UCLA's Makerspace.
+                Professional journey through innovative companies including Psyonic, Auli Tech, SynterMed, and UCLA's
+                Makerspace.
               </p>
               <Link
                 href="/work-experience"
