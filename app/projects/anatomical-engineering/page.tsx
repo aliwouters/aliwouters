@@ -311,18 +311,6 @@ export default function AnatomicalEngineeringPage() {
                   </div>
                 </div>
               </div>
-
-              <div className="flex items-center justify-center pt-4 border-t border-indigo-200">
-                <a
-                  href="https://www.canva.com/design/DAGxf2dB4Tg/DZXi_LGPFzPU6c0SIgeO0g/edit?utm_content=DAGxf2dB4Tg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-                >
-                  <FileText className="w-5 h-5" />
-                  View Full Project Report
-                </a>
-              </div>
             </CardContent>
           </Card>
 
