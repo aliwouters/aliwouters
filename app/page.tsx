@@ -14,7 +14,7 @@ import LanguageToggle from "@/components/LanguageToggle"
 const featuredProjects = [
   {
     id: 1,
-    title: "Analog EMG Controlled Tentacle with 4 Degrees of Freedom",
+    title: "Analog EMG-Controlled Soft Robotic Manipulator",
     description:
       "Advanced proportional control system using analog muscle activation signals for continuous, natural movement that responds to contraction intensity. Used in research studies investigating referential control of agonist-antagonist muscle pairs.",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/-487967345448332010820251003_192912-IHpZjVTrQRE6h4n9dV7K6RJemUyeyn.mov",
