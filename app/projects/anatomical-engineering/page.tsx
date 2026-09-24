@@ -251,7 +251,7 @@ export default function AnatomicalEngineeringPage() {
             <CardHeader className="bg-gradient-to-r from-indigo-500 to-violet-600 text-white rounded-t-lg">
               <CardTitle className="flex items-center gap-2 text-2xl">
                 <Zap className="w-6 h-6" />
-                Analog EMG Controlled Tentacle with 4 Degrees of Freedom
+                Analog EMG-Controlled Soft Robotic Manipulator
               </CardTitle>
               <p className="text-indigo-100 mt-2">
                 Continuous proportional control system using analog muscle activation signals
@@ -295,7 +295,7 @@ export default function AnatomicalEngineeringPage() {
                     <h6 className="font-semibold text-gray-800 mb-2">Analog EMG Control System</h6>
                     <p className="text-gray-600 text-sm">
                       This advanced system uses analog electromyography (EMG) sensors to detect continuous muscle
-                      activation levels, enabling proportional control of the tentacle's four degrees of freedom. Unlike
+                      activation levels, enabling proportional control of the manipulator's movement. Unlike
                       binary systems, this provides smooth, natural movement that responds to the intensity of muscle
                       contractions.
                     </p>
@@ -311,18 +311,6 @@ export default function AnatomicalEngineeringPage() {
                   </div>
                 </div>
               </div>
-
-              <div className="flex items-center justify-center pt-4 border-t border-indigo-200">
-                <a
-                  href="https://www.canva.com/design/DAGxf2dB4Tg/DZXi_LGPFzPU6c0SIgeO0g/edit?utm_content=DAGxf2dB4Tg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-                >
-                  <FileText className="w-5 h-5" />
-                  View Full Project Report
-                </a>
-              </div>
             </CardContent>
           </Card>
 
@@ -331,7 +319,7 @@ export default function AnatomicalEngineeringPage() {
             <CardHeader className="bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-t-lg">
               <CardTitle className="flex items-center gap-2 text-2xl">
                 <Zap className="w-6 h-6" />
-                Binary EMG Controlled Tentacle with 4 Degrees of Freedom
+                Binary EMG Controlled Soft Robotic Manipulator
               </CardTitle>
               <p className="text-purple-100 mt-2">Binary bioelectric control system using muscle activation signals</p>
             </CardHeader>
@@ -418,13 +406,25 @@ export default function AnatomicalEngineeringPage() {
             <CardHeader className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-t-lg">
               <CardTitle className="flex items-center gap-2 text-2xl">
                 <Zap className="w-6 h-6" />
-                Analog Joystick Controlled Tentacle with 4 Degrees of Freedom
+                Analog Joystick Controlled Soft Robotic Manipulator
               </CardTitle>
               <p className="text-blue-100 mt-2">
                 Interactive control system with real-time joystick input for precise tentacle manipulation
               </p>
             </CardHeader>
             <CardContent className="p-8">
+              {/* Project Overview */}
+              <div className="bg-white rounded-lg p-6 border border-blue-200 shadow-md mb-6">
+                <h5 className="font-semibold text-gray-800 mb-3">Project Overview</h5>
+                <p className="text-gray-600 text-sm">
+                  The robotic manipulator uses four tendons routed through a series of articulated joints, arranged in
+                  two opposing pairs. Each pair is controlled by an independent motor, which pulls one tendon while
+                  releasing the opposing tendon to produce bending along its respective axis. Coordinated movement of
+                  both motors allows the manipulator to bend in any direction, achieve a wide range of bending angles,
+                  and trace continuous circular trajectories.
+                </p>
+              </div>
+
               {/* 3D Model and Video - Equal width side by side */}
               <div className="grid grid-cols-2 gap-6 mb-6">
                 {/* 3D Model - Left side */}
@@ -520,12 +520,12 @@ export default function AnatomicalEngineeringPage() {
             </CardContent>
           </Card>
 
-          {/* Actuated Cable Driven Tentacle with 2 Degrees of Freedom */}
+          {/* Dual-Tendon Robotic Manipulator */}
           <Card className="border-teal-200 shadow-xl bg-gradient-to-br from-teal-50 to-cyan-50">
             <CardHeader className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white rounded-t-lg">
               <CardTitle className="flex items-center gap-2 text-2xl">
                 <Cog className="w-6 h-6" />
-                Actuated Cable Driven Tentacle with 2 Degrees of Freedom
+                Dual-Tendon Robotic Manipulator
               </CardTitle>
               <p className="text-teal-100 mt-2">Tentacle mechanism with counter pulling capabilities</p>
             </CardHeader>

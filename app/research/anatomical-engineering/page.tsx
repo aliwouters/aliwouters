@@ -243,8 +243,7 @@ export default function AnatomicalEngineeringPage() {
                       <Zap className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">Analog EMG Controlled Tentacle</h4>
-                      <p className="text-gray-600 text-sm">4 Degrees of Freedom</p>
+                      <h4 className="font-semibold text-gray-800">Analog EMG-Controlled Soft Robotic Manipulator</h4>
                     </div>
                   </div>
                   <div className="w-full aspect-square bg-gradient-to-br from-indigo-100 to-violet-100 rounded-lg overflow-hidden">
@@ -264,8 +263,7 @@ export default function AnatomicalEngineeringPage() {
                       <Zap className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">Binary EMG Controlled Tentacle</h4>
-                      <p className="text-gray-600 text-sm">4 Degrees of Freedom</p>
+                      <h4 className="font-semibold text-gray-800">Binary EMG Controlled Soft Robotic Manipulator</h4>
                     </div>
                   </div>
                   <div className="w-full aspect-square bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg overflow-hidden">
@@ -285,8 +283,7 @@ export default function AnatomicalEngineeringPage() {
                       <Cog className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">Analog Joystick Controlled Tentacle</h4>
-                      <p className="text-gray-600 text-sm">4 Degrees of Freedom</p>
+                      <h4 className="font-semibold text-gray-800">Analog Joystick Controlled Soft Robotic Manipulator</h4>
                     </div>
                   </div>
                   <div className="w-full aspect-square bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg overflow-hidden">
@@ -303,8 +300,7 @@ export default function AnatomicalEngineeringPage() {
                       <Cog className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">Cable Driven Tentacle</h4>
-                      <p className="text-gray-600 text-sm">2 Degrees of Freedom</p>
+                      <h4 className="font-semibold text-gray-800">Dual-Tendon Robotic Manipulator</h4>
                     </div>
                   </div>
                   <div className="w-full aspect-square bg-gradient-to-br from-teal-100 to-cyan-100 rounded-lg overflow-hidden">
