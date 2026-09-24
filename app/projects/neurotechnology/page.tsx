@@ -120,16 +120,6 @@ export default function NeurotechnologyPage() {
 
               {/* Pre-ictal Seizure Detection */}
               <div className="bg-gradient-to-br from-rose-50 to-orange-50 rounded-2xl p-6 border border-rose-200/50">
-                {/* EEG seizure timeline diagram */}
-                <div className="mb-5 mx-auto max-w-md rounded-xl overflow-hidden border border-rose-200/50 bg-white">
-                  <Image
-                    src="/images/seizure-eeg-timeline.png"
-                    alt="EEG timeline showing seizure phases: normal EEG, 30-minute preictal state with subtle pre-seizure patterns, 5-minute buffer, 10-minute ictal seizure event with high-amplitude chaotic spikes, 30-minute post-seizure recovery buffer, and interictal baseline"
-                    width={1900}
-                    height={560}
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
                 <div className="flex items-start gap-4 mb-4">
                   <div className="flex-1">
                     <div className="inline-block px-3 py-1 bg-rose-500/10 text-rose-700 text-xs font-medium rounded-full mb-2">
@@ -144,15 +134,28 @@ export default function NeurotechnologyPage() {
                     </p>
                   </div>
                 </div>
-                {/* EEG preprocessing pipeline: raw signal to CNN input */}
-                <div className="mb-4 mx-auto max-w-[220px] rounded-xl overflow-hidden border border-rose-200/50 bg-white">
-                  <Image
-                    src="/images/eeg-preprocessing-pipeline.png"
-                    alt="Six-panel EEG preprocessing pipeline: raw EEG recording segment, resampled to 256 Hz, bandpass filtered 0.5 to 40 Hz, power spectrogram on a linear scale, log-transformed spectrogram for feature enhancement, and z-score normalized final CNN input"
-                    width={780}
-                    height={980}
-                    className="w-full h-auto object-contain"
-                  />
+                {/* EEG figures side by side */}
+                <div className="mb-4 flex flex-wrap items-center justify-center gap-4">
+                  {/* EEG seizure timeline diagram */}
+                  <div className="flex-1 min-w-[240px] max-w-md rounded-xl overflow-hidden border border-rose-200/50 bg-white">
+                    <Image
+                      src="/images/seizure-eeg-timeline.png"
+                      alt="EEG timeline showing seizure phases: normal EEG, 30-minute preictal state with subtle pre-seizure patterns, 5-minute buffer, 10-minute ictal seizure event with high-amplitude chaotic spikes, 30-minute post-seizure recovery buffer, and interictal baseline"
+                      width={1900}
+                      height={560}
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                  {/* EEG preprocessing pipeline: raw signal to CNN input */}
+                  <div className="w-[180px] rounded-xl overflow-hidden border border-rose-200/50 bg-white">
+                    <Image
+                      src="/images/eeg-preprocessing-pipeline.png"
+                      alt="Six-panel EEG preprocessing pipeline: raw EEG recording segment, resampled to 256 Hz, bandpass filtered 0.5 to 40 Hz, power spectrogram on a linear scale, log-transformed spectrogram for feature enhancement, and z-score normalized final CNN input"
+                      width={780}
+                      height={980}
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
                 </div>
                 <div className="flex gap-3">
                   <Button asChild size="sm" className="flex-1 bg-rose-600 hover:bg-rose-700">
