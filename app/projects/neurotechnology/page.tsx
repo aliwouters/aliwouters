@@ -243,6 +243,61 @@ export default function NeurotechnologyPage() {
             </div>
 
             <div className="grid md:grid-cols-1 gap-6">
+              {/* Pre-ictal Seizure Detection */}
+              <div className="bg-gradient-to-br from-rose-50 to-orange-50 rounded-2xl p-6 border border-rose-200/50">
+                {/* EEG seizure timeline diagram */}
+                <div className="mb-5 rounded-xl overflow-hidden border border-rose-200/50 bg-white">
+                  <Image
+                    src="/images/seizure-eeg-timeline.png"
+                    alt="EEG timeline showing seizure phases: normal EEG, 30-minute preictal state with subtle pre-seizure patterns, 5-minute buffer, 10-minute ictal seizure event with high-amplitude chaotic spikes, 30-minute post-seizure recovery buffer, and interictal baseline"
+                    width={1900}
+                    height={560}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Activity className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="inline-block px-3 py-1 bg-rose-500/10 text-rose-700 text-xs font-medium rounded-full mb-2">
+                      Personal Project
+                    </div>
+                    <h3 className="text-lg font-medium text-slate-900 mb-2">Pre-ictal Seizure Detection</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      Developed a patient-specific deep learning model to investigate pre-ictal seizure detection using
+                      EEG data. Applied signal processing and time-frequency analysis to generate EEG spectrograms and
+                      trained a convolutional neural network (CNN) to distinguish brain activity preceding seizures from
+                      interictal activity.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <Button asChild size="sm" className="flex-1 bg-rose-600 hover:bg-rose-700">
+                    <a
+                      href="https://blobs.vusercontent.net/blob/Alizee%27s%20186B%20Final%20-%20Pre-ictal%20Seizure%20Detection-gR0nuPW7gU154BZHMaFAur9tt3po5t.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      View Slides
+                    </a>
+                  </Button>
+                  <Button asChild size="sm" variant="outline" className="flex-1 border-rose-300 bg-transparent">
+                    <a
+                      href="https://github.com/aliwouters/Pre-Ictal-Seizure-Detection"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Source Code
+                    </a>
+                  </Button>
+                </div>
+              </div>
+
               <Link
                 href="/projects/neurotechnology/phosphene-simulator"
                 className="group block bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-6 border border-teal-200/50 transition-all hover:shadow-lg hover:border-teal-300/70"
