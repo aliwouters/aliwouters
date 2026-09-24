@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Brain, Zap, Activity, Target, ExternalLink, Trophy, Users, Home, Globe, Eye } from "lucide-react"
+import { ArrowLeft, Brain, Zap, Activity, Target, ExternalLink, Trophy, Users, Home, Globe } from "lucide-react"
 import Image from "next/image"
 
 export default function NeurotechnologyPage() {
@@ -85,9 +85,6 @@ export default function NeurotechnologyPage() {
                   />
                 </div>
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-teal-600 transition-colors">
-                    <Eye className="w-6 h-6 text-white" />
-                  </div>
                   <div className="flex-1">
                     <div className="inline-block px-3 py-1 bg-teal-500/10 text-teal-700 text-xs font-medium rounded-full mb-2">
                       Personal Project
@@ -134,9 +131,6 @@ export default function NeurotechnologyPage() {
                   />
                 </div>
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Activity className="w-6 h-6 text-white" />
-                  </div>
                   <div className="flex-1">
                     <div className="inline-block px-3 py-1 bg-rose-500/10 text-rose-700 text-xs font-medium rounded-full mb-2">
                       Personal Project
@@ -149,6 +143,16 @@ export default function NeurotechnologyPage() {
                       interictal activity.
                     </p>
                   </div>
+                </div>
+                {/* EEG preprocessing pipeline: raw signal to CNN input */}
+                <div className="mb-4 rounded-xl overflow-hidden border border-rose-200/50 bg-white">
+                  <Image
+                    src="/images/eeg-preprocessing-pipeline.png"
+                    alt="Six-panel EEG preprocessing pipeline: raw EEG recording segment, resampled to 256 Hz, bandpass filtered 0.5 to 40 Hz, power spectrogram on a linear scale, log-transformed spectrogram for feature enhancement, and z-score normalized final CNN input"
+                    width={780}
+                    height={980}
+                    className="w-full h-auto object-contain"
+                  />
                 </div>
                 <div className="flex gap-3">
                   <Button asChild size="sm" className="flex-1 bg-rose-600 hover:bg-rose-700">
@@ -189,9 +193,6 @@ export default function NeurotechnologyPage() {
                   />
                 </div>
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Zap className="w-6 h-6 text-white" />
-                  </div>
                   <div className="flex-1">
                     <div className="inline-block px-3 py-1 bg-indigo-500/10 text-indigo-700 text-xs font-medium rounded-full mb-2">
                       CruX × g.tec
