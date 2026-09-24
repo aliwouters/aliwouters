@@ -121,7 +121,7 @@ export default function NeurotechnologyPage() {
               {/* Pre-ictal Seizure Detection */}
               <div className="bg-gradient-to-br from-rose-50 to-orange-50 rounded-2xl p-6 border border-rose-200/50">
                 {/* EEG seizure timeline diagram */}
-                <div className="mb-5 rounded-xl overflow-hidden border border-rose-200/50 bg-white">
+                <div className="mb-5 mx-auto max-w-md rounded-xl overflow-hidden border border-rose-200/50 bg-white">
                   <Image
                     src="/images/seizure-eeg-timeline.png"
                     alt="EEG timeline showing seizure phases: normal EEG, 30-minute preictal state with subtle pre-seizure patterns, 5-minute buffer, 10-minute ictal seizure event with high-amplitude chaotic spikes, 30-minute post-seizure recovery buffer, and interictal baseline"
@@ -145,7 +145,7 @@ export default function NeurotechnologyPage() {
                   </div>
                 </div>
                 {/* EEG preprocessing pipeline: raw signal to CNN input */}
-                <div className="mb-4 rounded-xl overflow-hidden border border-rose-200/50 bg-white">
+                <div className="mb-4 mx-auto max-w-[220px] rounded-xl overflow-hidden border border-rose-200/50 bg-white">
                   <Image
                     src="/images/eeg-preprocessing-pipeline.png"
                     alt="Six-panel EEG preprocessing pipeline: raw EEG recording segment, resampled to 256 Hz, bandpass filtered 0.5 to 40 Hz, power spectrogram on a linear scale, log-transformed spectrogram for feature enhancement, and z-score normalized final CNN input"

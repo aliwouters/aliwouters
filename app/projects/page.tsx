@@ -44,9 +44,9 @@ export default function ProjectsPage() {
           </div>
 
           {/* Project Categories Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
             {/* Data Science & Engineering */}
-            <Card className="h-full flex flex-col border-slate-200/50 hover:border-blue-300 transition-all duration-300 hover:shadow-lg group">
+            <Card className="md:col-span-2 h-full flex flex-col border-slate-200/50 hover:border-blue-300 transition-all duration-300 hover:shadow-lg group">
               <CardHeader className="pb-4">
                 <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-200 transition-colors">
                   <Database className="w-6 h-6 text-blue-600" />
@@ -76,7 +76,7 @@ export default function ProjectsPage() {
             </Card>
 
             {/* Anatomical Engineering */}
-            <Card className="h-full flex flex-col border-slate-200/50 hover:border-green-300 transition-all duration-300 hover:shadow-lg group">
+            <Card className="md:col-span-2 h-full flex flex-col border-slate-200/50 hover:border-green-300 transition-all duration-300 hover:shadow-lg group">
               <CardHeader className="pb-4">
                 <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
                   <Microscope className="w-6 h-6 text-green-600" />
@@ -106,7 +106,7 @@ export default function ProjectsPage() {
             </Card>
 
             {/* Neurotechnology */}
-            <Card className="h-full flex flex-col border-slate-200/50 hover:border-purple-300 transition-all duration-300 hover:shadow-lg group">
+            <Card className="md:col-span-2 h-full flex flex-col border-slate-200/50 hover:border-purple-300 transition-all duration-300 hover:shadow-lg group">
               <CardHeader className="pb-4">
                 <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-200 transition-colors">
                   <Brain className="w-6 h-6 text-purple-600" />
@@ -136,7 +136,7 @@ export default function ProjectsPage() {
             </Card>
 
             {/* Computer Science */}
-            <Card className="h-full flex flex-col border-slate-200/50 hover:border-orange-300 transition-all duration-300 hover:shadow-lg group">
+            <Card className="md:col-span-2 md:col-start-2 h-full flex flex-col border-slate-200/50 hover:border-orange-300 transition-all duration-300 hover:shadow-lg group">
               <CardHeader className="pb-4">
                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
                   <Code className="w-6 h-6 text-orange-600" />
@@ -166,7 +166,7 @@ export default function ProjectsPage() {
             </Card>
 
             {/* Personal Projects */}
-            <Card className="h-full flex flex-col border-slate-200/50 hover:border-rose-300 transition-all duration-300 hover:shadow-lg group">
+            <Card className="md:col-span-2 h-full flex flex-col border-slate-200/50 hover:border-rose-300 transition-all duration-300 hover:shadow-lg group">
               <CardHeader className="pb-4">
                 <div className="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-rose-200 transition-colors">
                   <Heart className="w-6 h-6 text-rose-600" />
