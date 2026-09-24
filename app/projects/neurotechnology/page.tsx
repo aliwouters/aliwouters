@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Brain, Zap, Activity, Target, ExternalLink, Trophy, Users, Home, Globe, Eye } from "lucide-react"
+import { ArrowLeft, Brain, Zap, Activity, Target, ExternalLink, Trophy, Users, Home, Globe } from "lucide-react"
 import Image from "next/image"
 
 export default function NeurotechnologyPage() {
@@ -62,179 +62,6 @@ export default function NeurotechnologyPage() {
             </div>
           </div>
 
-          {/* Coming Soon Projects */}
-          <div className="mb-16">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-light text-slate-900 mb-2">Coming Soon</h2>
-              <p className="text-slate-600">Upcoming collaborative research projects in development</p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Project 1: Cognito Workflow Optimization */}
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-200/50">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Brain className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="inline-block px-3 py-1 bg-blue-500/10 text-blue-700 text-xs font-medium rounded-full mb-2">
-                      CruX × g.tec medical engineering GmbH
-                    </div>
-                    <h3 className="text-lg font-medium text-slate-900 mb-2">Cognito Workflow Optimization</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      A BCI built into a normal-looking cap that continuously tracks cognitive states like focus, mental
-                      load, stress, and fatigue in real time.
-                    </p>
-                  </div>
-                </div>
-                <Button asChild size="sm" className="w-full bg-blue-600 hover:bg-blue-700">
-                  <a
-                    href="https://blobs.vusercontent.net/blob/Project%20Proposal%20-%20Cognito%20Workflow%20Optimization%20%281%29-KwCJNWR8Jje81yb7slwqtfNXiuCGBH.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    View Proposal
-                  </a>
-                </Button>
-              </div>
-
-              {/* Project 2: Grand PrEE-G */}
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-200/50">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Zap className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="inline-block px-3 py-1 bg-purple-500/10 text-purple-700 text-xs font-medium rounded-full mb-2">
-                      CruX × g.tec medical engineering GmbH
-                    </div>
-                    <h3 className="text-lg font-medium text-slate-900 mb-2">Grand PrEE-G</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      A competitive racing and tug-of-war game controlled by EEG signals, using alpha waves and
-                      cognitive states to determine player speed and strength.
-                    </p>
-                  </div>
-                </div>
-                <Button asChild size="sm" className="w-full bg-purple-600 hover:bg-purple-700">
-                  <a
-                    href="https://blobs.vusercontent.net/blob/Project%20Proposal%20-%20Grande%20PrEE-G%20%281%29-cT7WJqKR78DTwN1LUUaY9XpkA4SZik.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    View Proposal
-                  </a>
-                </Button>
-              </div>
-
-              {/* Project 3: NeuroMaze */}
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border border-green-200/50">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Target className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="inline-block px-3 py-1 bg-green-500/10 text-green-700 text-xs font-medium rounded-full mb-2">
-                      CruX × g.tec medical engineering GmbH
-                    </div>
-                    <h3 className="text-lg font-medium text-slate-900 mb-2">NeuroMaze</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      An interactive mobile game where users navigate through mazes using solely their brain waves via
-                      SSVEP BCI paradigm, completely hands-free.
-                    </p>
-                  </div>
-                </div>
-                <Button asChild size="sm" className="w-full bg-green-600 hover:bg-green-700">
-                  <a
-                    href="https://blobs.vusercontent.net/blob/Project%20Proposal%20-%20NeuroMaze%20%281%29-wnRchqRAFQC5lzBO2GsVpN1iCYHQmq.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    View Proposal
-                  </a>
-                </Button>
-              </div>
-
-              {/* Project 4: EEG Balatro Card Game */}
-              <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border border-amber-200/50">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 bg-amber-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Trophy className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="inline-block px-3 py-1 bg-amber-500/10 text-amber-700 text-xs font-medium rounded-full mb-2">
-                      CruX × g.tec medical engineering GmbH
-                    </div>
-                    <h3 className="text-lg font-medium text-slate-900 mb-2">EEG Balatro Card Game</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      A hands-free version of the 2024 Game of the Year, controlled via SSVEP to expand accessibility
-                      and offer a revolutionary gaming experience.
-                    </p>
-                  </div>
-                </div>
-                <Button asChild size="sm" className="w-full bg-amber-600 hover:bg-amber-700">
-                  <a
-                    href="https://blobs.vusercontent.net/blob/Project%20Proposal%20-%20EEG%20Balatro%20%281%29-lyIdGLlpZmtmvxee3m41VAw1mrVJWR.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    View Proposal
-                  </a>
-                </Button>
-              </div>
-
-              {/* Project 5: Stretch 3 Robot Assistive Device */}
-              <div className="md:col-span-2 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-6 border border-cyan-200/50">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Activity className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-700 text-xs font-medium rounded-full mb-2">
-                      CruX × Auli.Tech × Hello.Robot
-                    </div>
-                    <h3 className="text-lg font-medium text-slate-900 mb-2">Stretch 3 Robot Assistive Device</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      A collaborative project developing an assistive robotic device using the Stretch 3 platform to
-                      enhance accessibility and independence for users with mobility challenges.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <Button asChild size="sm" className="flex-1 bg-cyan-600 hover:bg-cyan-700">
-                    <a
-                      href="https://docs.google.com/presentation/d/1qC068_tPNU_N6gzoZxzTwyQlnCoOMNo1swhzpSANuSA/edit"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      View Slides
-                    </a>
-                  </Button>
-                  <Button asChild size="sm" variant="outline" className="flex-1 border-cyan-300 bg-transparent">
-                    <a
-                      href="https://docs.google.com/document/d/1iKcoCFXSFJuwgLBRbgg9xqxR82R6-IjpI6o8Csp-I1c/edit?tab=t.0#heading=h.ukh3h57oi4u"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      View Proposal
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Personal Projects */}
           <div className="mb-16">
             <div className="text-center mb-8">
@@ -258,9 +85,6 @@ export default function NeurotechnologyPage() {
                   />
                 </div>
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-teal-600 transition-colors">
-                    <Eye className="w-6 h-6 text-white" />
-                  </div>
                   <div className="flex-1">
                     <div className="inline-block px-3 py-1 bg-teal-500/10 text-teal-700 text-xs font-medium rounded-full mb-2">
                       Personal Project
@@ -293,6 +117,101 @@ export default function NeurotechnologyPage() {
                   </span>
                 </div>
               </Link>
+
+              {/* Pre-ictal Seizure Detection */}
+              <div className="bg-gradient-to-br from-rose-50 to-orange-50 rounded-2xl p-6 border border-rose-200/50">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex-1">
+                    <div className="inline-block px-3 py-1 bg-rose-500/10 text-rose-700 text-xs font-medium rounded-full mb-2">
+                      Personal Project
+                    </div>
+                    <h3 className="text-lg font-medium text-slate-900 mb-2">Pre-ictal Seizure Detection</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      Developed a patient-specific deep learning model to investigate pre-ictal seizure detection using
+                      EEG data. Applied signal processing and time-frequency analysis to generate EEG spectrograms and
+                      trained a convolutional neural network (CNN) to distinguish brain activity preceding seizures from
+                      interictal activity.
+                    </p>
+                  </div>
+                </div>
+                {/* EEG figures side by side */}
+                <div className="mb-4 flex flex-wrap items-center justify-center gap-4">
+                  {/* EEG seizure timeline diagram */}
+                  <div className="flex-1 min-w-[240px] max-w-md rounded-xl overflow-hidden border border-rose-200/50 bg-white">
+                    <Image
+                      src="/images/seizure-eeg-timeline.png"
+                      alt="EEG timeline showing seizure phases: normal EEG, 30-minute preictal state with subtle pre-seizure patterns, 5-minute buffer, 10-minute ictal seizure event with high-amplitude chaotic spikes, 30-minute post-seizure recovery buffer, and interictal baseline"
+                      width={1900}
+                      height={560}
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                  {/* EEG preprocessing pipeline: raw signal to CNN input */}
+                  <div className="w-[180px] rounded-xl overflow-hidden border border-rose-200/50 bg-white">
+                    <Image
+                      src="/images/eeg-preprocessing-pipeline.png"
+                      alt="Six-panel EEG preprocessing pipeline: raw EEG recording segment, resampled to 256 Hz, bandpass filtered 0.5 to 40 Hz, power spectrogram on a linear scale, log-transformed spectrogram for feature enhancement, and z-score normalized final CNN input"
+                      width={780}
+                      height={980}
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <Button asChild size="sm" className="flex-1 bg-rose-600 hover:bg-rose-700">
+                    <a
+                      href="https://blobs.vusercontent.net/blob/Alizee%27s%20186B%20Final%20-%20Pre-ictal%20Seizure%20Detection-gR0nuPW7gU154BZHMaFAur9tt3po5t.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      View Slides
+                    </a>
+                  </Button>
+                  <Button asChild size="sm" variant="outline" className="flex-1 border-rose-300 bg-transparent">
+                    <a
+                      href="https://github.com/aliwouters/Pre-Ictal-Seizure-Detection"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Source Code
+                    </a>
+                  </Button>
+                </div>
+              </div>
+
+              {/* Play With Your Mind: Real-Time Multiplayer BCI Gaming Platform */}
+              <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-6 border border-indigo-200/50">
+                {/* Research poster */}
+                <div className="mb-5 rounded-xl overflow-hidden border border-indigo-200/50 bg-white">
+                  <Image
+                    src="/images/bci-gaming-poster.png"
+                    alt="Research poster titled Play With Your Mind: A Real-Time Multiplayer BCI Gaming Platform, developed with the CruX Consulting Team and g.tec, detailing EEG signal processing, system architecture, the Grand PrEE-G attention-controlled racing game, and the NeuroJack SSVEP card game"
+                    width={2200}
+                    height={1700}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex-1">
+                    <div className="inline-block px-3 py-1 bg-indigo-500/10 text-indigo-700 text-xs font-medium rounded-full mb-2">
+                      CruX × g.tec
+                    </div>
+                    <h3 className="text-lg font-medium text-slate-900 mb-2">
+                      Play With Your Mind: Real-Time Multiplayer BCI Gaming Platform
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      Developed a real-time multiplayer brain-computer interface (BCI) gaming platform in collaboration
+                      with g.tec and CruX at UCLA. Integrated EEG signal processing and machine learning to translate
+                      brain activity into game controls, enabling players to compete in an attention-controlled racing
+                      game and an SSVEP-based card game.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
