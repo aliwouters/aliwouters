@@ -48,9 +48,6 @@ export default function ProjectsPage() {
             {/* Data Science & Engineering */}
             <Card className="md:col-span-2 h-full flex flex-col border-slate-200/50 hover:border-blue-300 transition-all duration-300 hover:shadow-lg group">
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-200 transition-colors">
-                  <Database className="w-6 h-6 text-blue-600" />
-                </div>
                 <CardTitle className="text-xl font-medium text-slate-900">Data Science & Engineering</CardTitle>
                 <CardDescription className="text-slate-600 leading-relaxed">
                   Advanced statistical modeling, machine learning implementations, and data visualization projects
@@ -78,9 +75,6 @@ export default function ProjectsPage() {
             {/* Anatomical Engineering */}
             <Card className="md:col-span-2 h-full flex flex-col border-slate-200/50 hover:border-green-300 transition-all duration-300 hover:shadow-lg group">
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
-                  <Microscope className="w-6 h-6 text-green-600" />
-                </div>
                 <CardTitle className="text-xl font-medium text-slate-900">Anatomical Engineering</CardTitle>
                 <CardDescription className="text-slate-600 leading-relaxed">
                   Bio-inspired robotic systems, EMG-controlled devices, and soft robotics projects exploring the
@@ -108,9 +102,6 @@ export default function ProjectsPage() {
             {/* Neurotechnology */}
             <Card className="md:col-span-2 h-full flex flex-col border-slate-200/50 hover:border-purple-300 transition-all duration-300 hover:shadow-lg group">
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-200 transition-colors">
-                  <Brain className="w-6 h-6 text-purple-600" />
-                </div>
                 <CardTitle className="text-xl font-medium text-slate-900">Neurotechnology</CardTitle>
                 <CardDescription className="text-slate-600 leading-relaxed">
                   Brain-computer interfaces, EEG signal processing, and neural technology projects exploring emotion
@@ -138,9 +129,6 @@ export default function ProjectsPage() {
             {/* Computer Science */}
             <Card className="md:col-span-2 md:col-start-2 h-full flex flex-col border-slate-200/50 hover:border-orange-300 transition-all duration-300 hover:shadow-lg group">
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
-                  <Code className="w-6 h-6 text-orange-600" />
-                </div>
                 <CardTitle className="text-xl font-medium text-slate-900">Computer Science</CardTitle>
                 <CardDescription className="text-slate-600 leading-relaxed">
                   Software development projects including C++ game programming and MATLAB-based computational psychology
@@ -168,9 +156,6 @@ export default function ProjectsPage() {
             {/* Personal Projects */}
             <Card className="md:col-span-2 h-full flex flex-col border-slate-200/50 hover:border-rose-300 transition-all duration-300 hover:shadow-lg group">
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-rose-200 transition-colors">
-                  <Heart className="w-6 h-6 text-rose-600" />
-                </div>
                 <CardTitle className="text-xl font-medium text-slate-900">Personal Projects</CardTitle>
                 <CardDescription className="text-slate-600 leading-relaxed">
                   Creative explorations, hobby projects, and personal interests that showcase diverse skills and passion

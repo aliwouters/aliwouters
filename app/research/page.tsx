@@ -42,9 +42,6 @@ const ResearchPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="group">
               <div className="bg-white rounded-3xl p-8 border border-slate-200/50 hover:border-purple-200 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10 h-full flex flex-col">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
-                  <FlaskConical className="w-8 h-8 text-white" />
-                </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-medium text-slate-900 mb-2">Anatomical Engineering</h3>
                   <p className="text-purple-600 font-medium mb-4 text-sm">Biomedical Research Lab</p>
@@ -80,9 +77,6 @@ const ResearchPage: React.FC = () => {
 
             <div className="group">
               <div className="bg-white rounded-3xl p-8 border border-slate-200/50 hover:border-emerald-200 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/10 h-full flex flex-col">
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mb-6">
-                  <Brain className="w-8 h-8 text-white" />
-                </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-medium text-slate-900 mb-2">Cognitive Science</h3>
                   <p className="text-emerald-600 font-medium mb-4 text-sm">Zili Lab Research</p>

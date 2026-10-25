@@ -35,9 +35,6 @@ export default function CognitiveSciencePage() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
-          <div className="w-20 h-20 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg mb-6 flex items-center justify-center mx-auto">
-            <Eye className="w-10 h-10 text-white" />
-          </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Cognitive Science Research</h1>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-indigo-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600">
@@ -102,21 +99,12 @@ export default function CognitiveSciencePage() {
                 </p>
                 <div className="grid md:grid-cols-3 gap-4">
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-purple-700 font-bold">E</span>
-                    </div>
                     <p className="text-sm text-gray-700">Experimental Design</p>
                   </div>
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-purple-700 font-bold">D</span>
-                    </div>
                     <p className="text-sm text-gray-700">Data Analysis</p>
                   </div>
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-purple-700 font-bold">M</span>
-                    </div>
                     <p className="text-sm text-gray-700">Team Management</p>
                   </div>
                 </div>
@@ -221,27 +209,15 @@ export default function CognitiveSciencePage() {
                 </p>
                 <div className="grid md:grid-cols-4 gap-3">
                   <div className="text-center">
-                    <div className="w-10 h-10 bg-green-200 rounded-full flex items-center justify-center mx-auto mb-1">
-                      <span className="text-green-700 font-bold text-xs">EXP</span>
-                    </div>
                     <p className="text-xs text-gray-700">Controlled Experiments</p>
                   </div>
                   <div className="text-center">
-                    <div className="w-10 h-10 bg-green-200 rounded-full flex items-center justify-center mx-auto mb-1">
-                      <span className="text-green-700 font-bold text-xs">INT</span>
-                    </div>
                     <p className="text-xs text-gray-700">User Interviews</p>
                   </div>
                   <div className="text-center">
-                    <div className="w-10 h-10 bg-green-200 rounded-full flex items-center justify-center mx-auto mb-1">
-                      <span className="text-green-700 font-bold text-xs">VIZ</span>
-                    </div>
                     <p className="text-xs text-gray-700">Visualization Design</p>
                   </div>
                   <div className="text-center">
-                    <div className="w-10 h-10 bg-green-200 rounded-full flex items-center justify-center mx-auto mb-1">
-                      <span className="text-green-700 font-bold text-xs">STAT</span>
-                    </div>
                     <p className="text-xs text-gray-700">Statistical Analysis</p>
                   </div>
                 </div>

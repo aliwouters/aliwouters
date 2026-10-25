@@ -37,9 +37,6 @@ export default function LASBCPage() {
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-20">
-            <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-3xl mb-8 flex items-center justify-center mx-auto">
-              <Mountain className="w-12 h-12 text-white" />
-            </div>
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">LASBC</h1>
             <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8">
@@ -99,11 +96,6 @@ export default function LASBCPage() {
               {/* President */}
               <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
                 <div className="grid lg:grid-cols-12 gap-8">
-                  <div className="lg:col-span-2">
-                    <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center">
-                      <Crown className="w-8 h-8 text-white" />
-                    </div>
-                  </div>
                   <div className="lg:col-span-10">
                     <div className="flex items-center gap-3 mb-4">
                       <h3 className="text-2xl font-medium text-slate-900">President</h3>
@@ -155,11 +147,6 @@ export default function LASBCPage() {
               {/* Public Relations */}
               <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
                 <div className="grid lg:grid-cols-12 gap-8">
-                  <div className="lg:col-span-2">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center">
-                      <Megaphone className="w-8 h-8 text-white" />
-                    </div>
-                  </div>
                   <div className="lg:col-span-10">
                     <div className="flex items-center gap-3 mb-4">
                       <h3 className="text-2xl font-medium text-slate-900">Public Relations</h3>
@@ -199,11 +186,6 @@ export default function LASBCPage() {
               {/* Staff */}
               <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
                 <div className="grid lg:grid-cols-12 gap-8">
-                  <div className="lg:col-span-2">
-                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center">
-                      <UserCheck className="w-8 h-8 text-white" />
-                    </div>
-                  </div>
                   <div className="lg:col-span-10">
                     <div className="flex items-center gap-3 mb-4">
                       <h3 className="text-2xl font-medium text-slate-900">Staff</h3>
@@ -247,11 +229,6 @@ export default function LASBCPage() {
           <div className="space-y-16">
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center">
-                    <Calendar className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">Trip Organization & Logistics</h3>
                   <p className="text-slate-600 mb-6 leading-relaxed">
@@ -298,11 +275,6 @@ export default function LASBCPage() {
 
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center">
-                    <DollarSign className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">Fundraising & Accessibility</h3>
                   <p className="text-slate-600 mb-6 leading-relaxed">
@@ -312,17 +284,11 @@ export default function LASBCPage() {
 
                   <div className="grid md:grid-cols-3 gap-6">
                     <div className="bg-emerald-50 rounded-2xl p-6 text-center">
-                      <div className="w-12 h-12 bg-emerald-200 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <span className="text-emerald-700 font-bold">G</span>
-                      </div>
                       <h4 className="font-semibold text-slate-900 mb-2">Gear Donations</h4>
                       <p className="text-slate-600 text-sm">Equipment giveaways and donations from sponsor partners</p>
                     </div>
 
                     <div className="bg-emerald-50 rounded-2xl p-6 text-center">
-                      <div className="w-12 h-12 bg-emerald-200 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <span className="text-emerald-700 font-bold">P</span>
-                      </div>
                       <h4 className="font-semibold text-slate-900 mb-2">Pass Giveaways</h4>
                       <p className="text-slate-600 text-sm">
                         Free ski pass distributions through corporate partnerships
@@ -330,9 +296,6 @@ export default function LASBCPage() {
                     </div>
 
                     <div className="bg-emerald-50 rounded-2xl p-6 text-center">
-                      <div className="w-12 h-12 bg-emerald-200 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <span className="text-emerald-700 font-bold">S</span>
-                      </div>
                       <h4 className="font-semibold text-slate-900 mb-2">Subsidized Trips</h4>
                       <p className="text-slate-600 text-sm">Reduced-cost trips through fundraising and sponsorships</p>
                     </div>

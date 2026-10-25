@@ -49,9 +49,6 @@ export default function AnatomicalEngineeringPage() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
-          <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-lg mb-6 flex items-center justify-center mx-auto">
-            <Microscope className="w-10 h-10 text-white" />
-          </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Anatomical Engineering Research</h1>
           <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600">
@@ -239,9 +236,6 @@ export default function AnatomicalEngineeringPage() {
                   id="analog-emg-4-degrees-of-freedom"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-lg flex items-center justify-center">
-                      <Zap className="w-6 h-6 text-white" />
-                    </div>
                     <div>
                       <h4 className="font-semibold text-gray-800">Analog EMG-Controlled Soft Robotic Manipulator</h4>
                     </div>
@@ -259,9 +253,6 @@ export default function AnatomicalEngineeringPage() {
                   id="binary-emg-4-degrees-of-freedom"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
-                      <Zap className="w-6 h-6 text-white" />
-                    </div>
                     <div>
                       <h4 className="font-semibold text-gray-800">Binary EMG Controlled Soft Robotic Manipulator</h4>
                     </div>
@@ -279,9 +270,6 @@ export default function AnatomicalEngineeringPage() {
                   id="analog-joystick-4-degrees-of-freedom"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
-                      <Cog className="w-6 h-6 text-white" />
-                    </div>
                     <div>
                       <h4 className="font-semibold text-gray-800">Analog Joystick Controlled Soft Robotic Manipulator</h4>
                     </div>
@@ -296,9 +284,6 @@ export default function AnatomicalEngineeringPage() {
                 {/* 2 DOF Tentacle */}
                 <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-6 border border-teal-200">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg flex items-center justify-center">
-                      <Cog className="w-6 h-6 text-white" />
-                    </div>
                     <div>
                       <h4 className="font-semibold text-gray-800">Dual-Tendon Robotic Manipulator</h4>
                     </div>
@@ -316,9 +301,6 @@ export default function AnatomicalEngineeringPage() {
                   id="1-degree-of-freedom"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
-                      <Zap className="w-6 h-6 text-white" />
-                    </div>
                     <div>
                       <h4 className="font-semibold text-gray-800">Cable Driven Finger Model</h4>
                       <p className="text-gray-600 text-sm">1 Degree of Freedom</p>

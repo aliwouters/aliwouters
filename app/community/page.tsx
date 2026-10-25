@@ -48,9 +48,6 @@ export default function CommunityPage() {
             {/* Plato Society */}
             <Card className="h-full flex flex-col border-slate-200/50 hover:border-blue-300 transition-all duration-300 hover:shadow-lg group">
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-200 transition-colors">
-                  <Users className="w-6 h-6 text-blue-600" />
-                </div>
                 <CardTitle className="text-xl font-medium text-slate-900">Plato Society</CardTitle>
                 <CardDescription className="text-slate-600 leading-relaxed">
                   Intergenerational philosophical discussions exploring AI's impact on society through weekly dialogue
@@ -78,9 +75,6 @@ export default function CommunityPage() {
             {/* School Outreach */}
             <Card className="h-full flex flex-col border-slate-200/50 hover:border-green-300 transition-all duration-300 hover:shadow-lg group">
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
-                  <GraduationCap className="w-6 h-6 text-green-600" />
-                </div>
                 <CardTitle className="text-xl font-medium text-slate-900">School Outreach</CardTitle>
                 <CardDescription className="text-slate-600 leading-relaxed">
                   Educational program development and STEM mentorship through curriculum design, workshop facilitation,
@@ -108,9 +102,6 @@ export default function CommunityPage() {
             {/* Los Angeles Ski and Board Club */}
             <Card className="h-full flex flex-col border-slate-200/50 hover:border-purple-300 transition-all duration-300 hover:shadow-lg group">
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-200 transition-colors">
-                  <Mountain className="w-6 h-6 text-purple-600" />
-                </div>
                 <CardTitle className="text-xl font-medium text-slate-900">Los Angeles Ski and Board Club</CardTitle>
                 <CardDescription className="text-slate-600 leading-relaxed">
                   Leadership roles in UCLA's largest social club, making skiing and snowboarding accessible to over

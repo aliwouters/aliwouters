@@ -106,9 +106,6 @@ export default function ResumePage() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
-          <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg mb-6 flex items-center justify-center mx-auto">
-            <User className="w-10 h-10 text-white" />
-          </div>
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Resume</h1>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto mb-6"></div>
         </div>

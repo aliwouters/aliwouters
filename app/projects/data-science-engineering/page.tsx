@@ -60,9 +60,6 @@ export default function DataScienceEngineeringPage() {
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-20">
-            <div className="w-24 h-24 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-3xl mb-8 flex items-center justify-center mx-auto">
-              <BarChart3 className="w-12 h-12 text-white" />
-            </div>
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Data Science Engineering</h1>
             <div className="w-16 h-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
@@ -79,11 +76,6 @@ export default function DataScienceEngineeringPage() {
               className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg scroll-mt-20"
             >
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center">
-                    <ImageIcon className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-6">
                     Converting Grayscale to Color Using U-Net Image-to-Image Translation
@@ -161,11 +153,6 @@ export default function DataScienceEngineeringPage() {
             {/* Existing projects */}
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center">
-                    <Dna className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">
                     Protein Secondary Structure Prediction Using ESM and Random Forests{" "}
@@ -230,11 +217,6 @@ export default function DataScienceEngineeringPage() {
 
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center">
-                    <TrendingUp className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">
                     Intron-Exon Classification Using DNA Language Models
@@ -301,11 +283,6 @@ export default function DataScienceEngineeringPage() {
 
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-green-600 rounded-2xl flex items-center justify-center">
-                    <Microscope className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">
                     SNP Caller – Identifying Genetic Variants from Sequencing Data
@@ -373,11 +350,6 @@ export default function DataScienceEngineeringPage() {
 
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center">
-                    <BarChart3 className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">
                     Transcript Abundance Estimation with the EM Algorithm
@@ -461,11 +433,6 @@ export default function DataScienceEngineeringPage() {
               className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg scroll-mt-20"
             >
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center">
-                    <Scatter3D className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">
                     Visualizing High-Dimensional Data with t-SNE

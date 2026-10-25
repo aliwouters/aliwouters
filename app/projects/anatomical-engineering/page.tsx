@@ -86,9 +86,6 @@ export default function AnatomicalEngineeringPage() {
         {/* Header */}
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-20">
-            <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-3xl mb-8 flex items-center justify-center mx-auto">
-              <Cog className="w-12 h-12 text-white" />
-            </div>
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Anatomical Engineering</h1>
             <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-700 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">

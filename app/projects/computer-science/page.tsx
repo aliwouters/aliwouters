@@ -30,9 +30,6 @@ export default function ComputerSciencePage() {
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-20">
-            <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl mb-8 flex items-center justify-center mx-auto">
-              <Code className="w-12 h-12 text-white" />
-            </div>
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Computer Science Projects</h1>
             <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-blue-700 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
@@ -45,11 +42,6 @@ export default function ComputerSciencePage() {
           <div className="space-y-16">
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center">
-                    <Globe className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">Web Applications & APIs</h3>
                   <p className="text-slate-600 mb-6 leading-relaxed">
@@ -95,11 +87,6 @@ export default function ComputerSciencePage() {
 
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center">
-                    <Cpu className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">Machine Learning Implementations</h3>
                   <p className="text-slate-600 mb-6 leading-relaxed">
@@ -144,11 +131,6 @@ export default function ComputerSciencePage() {
 
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center">
-                    <Database className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">System Architecture & Design</h3>
                   <p className="text-slate-600 mb-6 leading-relaxed">
@@ -160,21 +142,12 @@ export default function ComputerSciencePage() {
                     <h4 className="font-semibold text-slate-900 mb-3">Design Principles</h4>
                     <div className="grid md:grid-cols-3 gap-4 mt-4">
                       <div className="text-center">
-                        <div className="w-12 h-12 bg-cyan-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                          <span className="text-cyan-700 font-bold">S</span>
-                        </div>
                         <p className="text-sm text-slate-700">Scalability</p>
                       </div>
                       <div className="text-center">
-                        <div className="w-12 h-12 bg-cyan-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                          <span className="text-cyan-700 font-bold">R</span>
-                        </div>
                         <p className="text-sm text-slate-700">Reliability</p>
                       </div>
                       <div className="text-center">
-                        <div className="w-12 h-12 bg-cyan-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                          <span className="text-cyan-700 font-bold">M</span>
-                        </div>
                         <p className="text-sm text-slate-700">Maintainability</p>
                       </div>
                     </div>

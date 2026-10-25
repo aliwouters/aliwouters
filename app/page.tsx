@@ -167,9 +167,6 @@ export default function HomePage() {
           className={`${sizeClasses} bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center transition-all duration-500`}
         >
           <div className="text-center p-2 sm:p-4">
-            <div className="w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-xl mx-auto mb-2 flex items-center justify-center">
-              <span className="text-white font-bold text-sm sm:text-lg">3D</span>
-            </div>
             {size === "main" && (
               <>
                 <p className="text-slate-600 font-medium text-xs sm:text-sm">3D Model Screen Capture</p>
@@ -528,9 +525,6 @@ export default function HomePage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
             <div className="group text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl mb-6 sm:mb-8 flex items-center justify-center mx-auto">
-                <span className="text-white font-semibold text-xl">R</span>
-              </div>
               <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-3 sm:mb-4">Research</h3>
               <p className="text-slate-600 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
                 Advancing neurotechnology, anatomical engineering, and cognitive science through research.
@@ -545,9 +539,6 @@ export default function HomePage() {
             </div>
 
             <div className="group text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl mb-6 sm:mb-8 flex items-center justify-center mx-auto">
-                <span className="text-white font-semibold text-xl">E</span>
-              </div>
               <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-3 sm:mb-4">Work Experience</h3>
               <p className="text-slate-600 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
                 Professional journey through innovative companies including Psyonic, Auli Tech, SynterMed, and UCLA's
@@ -563,9 +554,6 @@ export default function HomePage() {
             </div>
 
             <div className="group text-center sm:col-span-2 lg:col-span-1">
-              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl mb-6 sm:mb-8 flex items-center justify-center mx-auto">
-                <span className="text-white font-semibold text-xl">P</span>
-              </div>
               <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-3 sm:mb-4">Projects</h3>
               <p className="text-slate-600 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
                 Diverse portfolio spanning computer science, data science engineering, experimental design, and personal
