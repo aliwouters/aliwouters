@@ -346,11 +346,11 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-emerald-400/20 rounded-3xl blur-3xl"></div>
                 <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl overflow-hidden border border-slate-200/50 bg-white p-2">
                   <Image
-                    src="/images/alizee-photo.jpg"
+                    src="/images/alizee-headshot.png"
                     alt="Alizee Wouters"
                     width={400}
                     height={400}
-                    className="w-full h-full rounded-2xl object-cover"
+                    className="w-full h-full rounded-2xl object-cover object-[center_25%]"
                   />
                 </div>
               </div>
