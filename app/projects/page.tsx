@@ -8,7 +8,6 @@ import { ArrowLeft } from "lucide-react"
 type ProjectCategory = {
   href: string
   category: string
-  title: string
   description: string
   tags: string[]
   layout: string
@@ -22,7 +21,6 @@ const categories: ProjectCategory[] = [
   {
     href: "/projects/data-science-engineering",
     category: "Data Science & Engineering",
-    title: "Finding signal in the noise",
     description:
       "Statistical modeling, machine learning, and visualization work that turns messy, complex datasets into clear answers.",
     tags: ["Machine Learning", "Statistical Analysis", "Data Visualization"],
@@ -35,7 +33,6 @@ const categories: ProjectCategory[] = [
   {
     href: "/projects/anatomical-engineering",
     category: "Anatomical Engineering",
-    title: "Machines that move like muscle",
     description:
       "Bio-inspired robotics, EMG-controlled devices, and soft actuators built where biology meets mechanical design.",
     tags: ["Soft Robotics", "EMG Control", "Bio-inspired Design"],
@@ -48,7 +45,6 @@ const categories: ProjectCategory[] = [
   {
     href: "/projects/neurotechnology",
     category: "Neurotechnology",
-    title: "Listening to the brain's electrical language",
     description:
       "Brain-computer interfaces and EEG signal processing for detecting emotion, stress, and cognitive state.",
     tags: ["EEG", "Brain-Computer Interface", "Signal Processing"],
@@ -61,7 +57,6 @@ const categories: ProjectCategory[] = [
   {
     href: "/projects/matlab",
     category: "Computer Science",
-    title: "From game loops to lab experiments",
     description:
       "C++ game programming and MATLAB-built psychology experiments for data collection and behavioral research.",
     tags: ["C++", "MATLAB", "Game Development"],
@@ -74,7 +69,6 @@ const categories: ProjectCategory[] = [
   {
     href: "/projects/personal",
     category: "Personal Projects",
-    title: "Built just for the joy of it",
     description:
       "Creative side projects, 3D models, and hobby builds driven by curiosity rather than a syllabus.",
     tags: ["Creative Design", "3D Modeling", "Innovation"],
@@ -96,11 +90,10 @@ function CategoryTile({ item }: { item: ProjectCategory }) {
         aria-hidden="true"
         className={`absolute inset-x-0 top-0 h-1 origin-left scale-x-[0.25] transition-transform duration-500 group-hover:scale-x-100 ${item.bar}`}
       />
-      <p className={`text-xs font-semibold uppercase tracking-[0.18em] ${item.kicker}`}>{item.category}</p>
       <h2
-        className={`mt-4 text-2xl font-light leading-snug text-slate-900 text-balance transition-colors duration-300 ${item.hoverTitle}`}
+        className={`text-xl font-medium text-slate-900 text-balance transition-colors duration-300 ${item.hoverTitle}`}
       >
-        {item.title}
+        {item.category}
       </h2>
       <p className="mt-4 leading-relaxed text-slate-600 text-pretty">{item.description}</p>
       <p className="mt-6 text-sm text-slate-500">{item.tags.join("  ·  ")}</p>
