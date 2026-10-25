@@ -36,9 +36,6 @@ export default function SchoolOutreachPage() {
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-20">
-            <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl mb-8 flex items-center justify-center mx-auto">
-              <GraduationCap className="w-12 h-12 text-white" />
-            </div>
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">School Outreach</h1>
             <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
@@ -51,11 +48,6 @@ export default function SchoolOutreachPage() {
           <div className="space-y-16">
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center">
-                    <Gamepad2 className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <div className="flex items-center gap-3 mb-4">
                     <h3 className="text-2xl font-medium text-slate-900">Summer Discovery Program</h3>
@@ -165,11 +157,6 @@ export default function SchoolOutreachPage() {
 
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center">
-                    <Heart className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">Bruin Guardian Scholars Academy</h3>
                   <p className="text-slate-600 mb-6 leading-relaxed">
@@ -221,11 +208,6 @@ export default function SchoolOutreachPage() {
 
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center">
-                    <Zap className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">CruX School Visits</h3>
                   <p className="text-slate-600 mb-6 leading-relaxed">
@@ -276,23 +258,14 @@ export default function SchoolOutreachPage() {
                     <h4 className="font-semibold text-slate-900 mb-3">Student Engagement Activities</h4>
                     <div className="grid md:grid-cols-3 gap-4">
                       <div className="text-center">
-                        <div className="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                          <Zap className="w-6 h-6 text-purple-700" />
-                        </div>
                         <p className="text-sm text-slate-700 font-medium">Live Demos</p>
                         <p className="text-xs text-slate-600">Hands-on technology experiences</p>
                       </div>
                       <div className="text-center">
-                        <div className="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                          <Users className="w-6 h-6 text-purple-700" />
-                        </div>
                         <p className="text-sm text-slate-700 font-medium">Student Mingling</p>
                         <p className="text-xs text-slate-600">Informal mentorship conversations</p>
                       </div>
                       <div className="text-center">
-                        <div className="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                          <GraduationCap className="w-6 h-6 text-purple-700" />
-                        </div>
                         <p className="text-sm text-slate-700 font-medium">College Guidance</p>
                         <p className="text-xs text-slate-600">Practical application advice</p>
                       </div>

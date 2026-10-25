@@ -214,13 +214,6 @@ export default function MatlabProjectsPage() {
                     {/* Left side - Content */}
                     <div className="flex-1 md:w-1/2 p-6 md:p-8 flex flex-col justify-between">
                       <div className="flex-1">
-                        <div className="flex items-start justify-between mb-4 md:mb-6">
-                          <div
-                            className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center transition-colors ${getColorClasses(project.color)}`}
-                          >
-                            {project.icon}
-                          </div>
-                        </div>
                         <CardTitle className="text-xl md:text-2xl font-medium text-slate-900 leading-tight mb-3 md:mb-4">
                           {project.title}
                         </CardTitle>
@@ -310,13 +303,6 @@ export default function MatlabProjectsPage() {
                 ) : (
                   // Projects without images/video - standard layout
                   <div className="p-8">
-                    <div className="flex items-start justify-between mb-6">
-                      <div
-                        className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${getColorClasses(project.color)}`}
-                      >
-                        {project.icon}
-                      </div>
-                    </div>
                     <CardTitle className="text-2xl font-medium text-slate-900 leading-tight mb-4">
                       {project.title}
                     </CardTitle>

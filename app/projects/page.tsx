@@ -3,9 +3,61 @@
 import { useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Database, Microscope, Heart, Code, Brain } from "lucide-react"
+import { ArrowLeft } from "lucide-react"
+import { CategoryTile, type CategoryTileItem } from "@/components/category-tile"
+
+const categories: CategoryTileItem[] = [
+  {
+    href: "/projects/data-science-engineering",
+    title: "Data Science & Engineering",
+    description:
+      "Statistical modeling, machine learning, and visualization work that turns messy, complex datasets into clear answers.",
+    tags: ["Machine Learning", "Statistical Analysis", "Data Visualization"],
+    color: "blue",
+    cta: "Explore projects",
+    layout: "md:col-span-2",
+  },
+  {
+    href: "/projects/anatomical-engineering",
+    title: "Anatomical Engineering",
+    description:
+      "Bio-inspired robotics, EMG-controlled devices, and soft actuators built where biology meets mechanical design.",
+    tags: ["Soft Robotics", "EMG Control", "Bio-inspired Design"],
+    color: "green",
+    cta: "Explore projects",
+    layout: "md:col-span-2",
+  },
+  {
+    href: "/projects/neurotechnology",
+    title: "Neurotechnology",
+    description:
+      "Brain-computer interfaces and EEG signal processing for detecting emotion, stress, and cognitive state.",
+    tags: ["EEG", "Brain-Computer Interface", "Signal Processing"],
+    color: "purple",
+    cta: "Explore projects",
+    layout: "md:col-span-2",
+  },
+  {
+    href: "/projects/matlab",
+    title: "Computer Science",
+    description:
+      "C++ game programming and MATLAB-built psychology experiments for data collection and behavioral research.",
+    tags: ["C++", "MATLAB", "Game Development"],
+    color: "orange",
+    cta: "Explore projects",
+    layout: "md:col-span-2 md:col-start-2",
+  },
+  {
+    href: "/projects/personal",
+    title: "Personal Projects",
+    description:
+      "Creative side projects, 3D models, and hobby builds driven by curiosity rather than a syllabus.",
+    tags: ["Creative Design", "3D Modeling", "Innovation"],
+    color: "rose",
+    cta: "Explore projects",
+    layout: "md:col-span-2",
+  },
+]
 
 export default function ProjectsPage() {
   useEffect(() => {
@@ -45,167 +97,9 @@ export default function ProjectsPage() {
 
           {/* Project Categories Grid */}
           <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
-            {/* Data Science & Engineering */}
-            <Card className="md:col-span-2 h-full flex flex-col border-slate-200/50 hover:border-blue-300 transition-all duration-300 hover:shadow-lg group">
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-200 transition-colors">
-                  <Database className="w-6 h-6 text-blue-600" />
-                </div>
-                <CardTitle className="text-xl font-medium text-slate-900">Data Science & Engineering</CardTitle>
-                <CardDescription className="text-slate-600 leading-relaxed">
-                  Advanced statistical modeling, machine learning implementations, and data visualization projects
-                  exploring complex datasets and algorithmic approaches.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="pt-0 mt-auto">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <Badge variant="secondary" className="bg-blue-50 text-blue-700 border-blue-200">
-                    Machine Learning
-                  </Badge>
-                  <Badge variant="secondary" className="bg-blue-50 text-blue-700 border-blue-200">
-                    Statistical Analysis
-                  </Badge>
-                  <Badge variant="secondary" className="bg-blue-50 text-blue-700 border-blue-200">
-                    Data Visualization
-                  </Badge>
-                </div>
-                <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
-                  <Link href="/projects/data-science-engineering">View Projects</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Anatomical Engineering */}
-            <Card className="md:col-span-2 h-full flex flex-col border-slate-200/50 hover:border-green-300 transition-all duration-300 hover:shadow-lg group">
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
-                  <Microscope className="w-6 h-6 text-green-600" />
-                </div>
-                <CardTitle className="text-xl font-medium text-slate-900">Anatomical Engineering</CardTitle>
-                <CardDescription className="text-slate-600 leading-relaxed">
-                  Bio-inspired robotic systems, EMG-controlled devices, and soft robotics projects exploring the
-                  intersection of biology and engineering for medical applications.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="pt-0 mt-auto">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
-                    Soft Robotics
-                  </Badge>
-                  <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
-                    EMG Control
-                  </Badge>
-                  <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
-                    Bio-inspired Design
-                  </Badge>
-                </div>
-                <Button asChild className="w-full bg-green-600 hover:bg-green-700">
-                  <Link href="/projects/anatomical-engineering">View Projects</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Neurotechnology */}
-            <Card className="md:col-span-2 h-full flex flex-col border-slate-200/50 hover:border-purple-300 transition-all duration-300 hover:shadow-lg group">
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-200 transition-colors">
-                  <Brain className="w-6 h-6 text-purple-600" />
-                </div>
-                <CardTitle className="text-xl font-medium text-slate-900">Neurotechnology</CardTitle>
-                <CardDescription className="text-slate-600 leading-relaxed">
-                  Brain-computer interfaces, EEG signal processing, and neural technology projects exploring emotion
-                  detection, stress monitoring, and cognitive state classification systems.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="pt-0 mt-auto">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <Badge variant="secondary" className="bg-purple-50 text-purple-700 border-purple-200">
-                    EEG
-                  </Badge>
-                  <Badge variant="secondary" className="bg-purple-50 text-purple-700 border-purple-200">
-                    Brain-Computer Interface
-                  </Badge>
-                  <Badge variant="secondary" className="bg-purple-50 text-purple-700 border-purple-200">
-                    Signal Processing
-                  </Badge>
-                </div>
-                <Button asChild className="w-full bg-purple-600 hover:bg-purple-700">
-                  <Link href="/projects/neurotechnology">View Projects</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Computer Science */}
-            <Card className="md:col-span-2 md:col-start-2 h-full flex flex-col border-slate-200/50 hover:border-orange-300 transition-all duration-300 hover:shadow-lg group">
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
-                  <Code className="w-6 h-6 text-orange-600" />
-                </div>
-                <CardTitle className="text-xl font-medium text-slate-900">Computer Science</CardTitle>
-                <CardDescription className="text-slate-600 leading-relaxed">
-                  Software development projects including C++ game programming and MATLAB-based computational psychology
-                  experiments for experimental design, data collection, and behavioral research analysis.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="pt-0 mt-auto">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <Badge variant="secondary" className="bg-orange-50 text-orange-700 border-orange-200">
-                    C++
-                  </Badge>
-                  <Badge variant="secondary" className="bg-orange-50 text-orange-700 border-orange-200">
-                    MATLAB
-                  </Badge>
-                  <Badge variant="secondary" className="bg-orange-50 text-orange-700 border-orange-200">
-                    Game Development
-                  </Badge>
-                </div>
-                <Button asChild className="w-full bg-orange-600 hover:bg-orange-700">
-                  <Link href="/projects/matlab">View Projects</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Personal Projects */}
-            <Card className="md:col-span-2 h-full flex flex-col border-slate-200/50 hover:border-rose-300 transition-all duration-300 hover:shadow-lg group">
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-rose-200 transition-colors">
-                  <Heart className="w-6 h-6 text-rose-600" />
-                </div>
-                <CardTitle className="text-xl font-medium text-slate-900">Personal Projects</CardTitle>
-                <CardDescription className="text-slate-600 leading-relaxed">
-                  Creative explorations, hobby projects, and personal interests that showcase diverse skills and passion
-                  for continuous learning and innovation.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="pt-0 mt-auto">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <Badge variant="secondary" className="bg-rose-50 text-rose-700 border-rose-200">
-                    Creative Design
-                  </Badge>
-                  <Badge variant="secondary" className="bg-rose-50 text-rose-700 border-rose-200">
-                    3D Modeling
-                  </Badge>
-                  <Badge variant="secondary" className="bg-rose-50 text-rose-700 border-rose-200">
-                    Innovation
-                  </Badge>
-                </div>
-                <Button asChild className="w-full bg-rose-600 hover:bg-rose-700">
-                  <Link href="/projects/personal">View Projects</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Additional Information */}
-          <div className="mt-16 bg-gradient-to-br from-slate-100 to-slate-200 rounded-3xl p-8">
-            <div className="text-center">
-              <h2 className="text-2xl font-medium text-slate-900 mb-4">Project Philosophy</h2>
-              <p className="text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                Each project represents a commitment to rigorous methodology, innovative problem-solving, and continuous
-                learning. From theoretical foundations to practical implementations, these works demonstrate the
-                intersection of academic knowledge and real-world application.
-              </p>
-            </div>
+            {categories.map((item) => (
+              <CategoryTile key={item.href} item={item} />
+            ))}
           </div>
 
           {/* Back to Top Button */}

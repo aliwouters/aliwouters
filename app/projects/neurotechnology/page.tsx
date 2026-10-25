@@ -37,9 +37,6 @@ export default function NeurotechnologyPage() {
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-20">
-            <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl mb-8 flex items-center justify-center mx-auto">
-              <Brain className="w-12 h-12 text-white" />
-            </div>
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Neurotechnology Research</h1>
             <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-blue-700 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-6">
@@ -226,11 +223,6 @@ export default function NeurotechnologyPage() {
             {/* Stress Detection EEG Applied to Poker */}
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center">
-                    <Users className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">Stress Detection EEG Applied to Poker</h3>
                   <p className="text-slate-600 mb-6 leading-relaxed">
@@ -401,11 +393,6 @@ export default function NeurotechnologyPage() {
             {/* Emotion Detection with EEG */}
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center">
-                    <Activity className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">Emotion Detection with EEG</h3>
                   <p className="text-slate-600 mb-6 leading-relaxed">
@@ -559,11 +546,6 @@ export default function NeurotechnologyPage() {
             {/* CruX - Brain-Controlled Pincher */}
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center">
-                    <Zap className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">CruX - Brain-Controlled Pincher</h3>
                   <p className="text-slate-600 mb-6 leading-relaxed">

@@ -37,9 +37,6 @@ export default function PersonalProjectsPage() {
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-20">
-            <div className="w-24 h-24 bg-gradient-to-br from-teal-500 to-teal-600 rounded-3xl mb-8 flex items-center justify-center mx-auto">
-              <Heart className="w-12 h-12 text-white" />
-            </div>
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Personal Projects</h1>
             <div className="w-16 h-0.5 bg-gradient-to-r from-teal-600 to-teal-700 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">

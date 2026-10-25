@@ -89,9 +89,6 @@ export default function PlatoSocietyPage() {
                   </div>
                 </div>
                 <div className="lg:col-span-7">
-                  <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6">
-                    <MessageCircle className="w-8 h-8 text-white" />
-                  </div>
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">Weekly AI Discussion Group</h3>
                   <p className="text-slate-600 mb-6 leading-relaxed">
                     Participated in a structured weekly discussion group focused on Ray Kurzweil's "The Singularity is
@@ -134,11 +131,6 @@ export default function PlatoSocietyPage() {
 
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center">
-                    <BookOpen className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">Book Study: "The Singularity is Nearer"</h3>
                   <p className="text-slate-600 mb-6 leading-relaxed">
@@ -184,11 +176,6 @@ export default function PlatoSocietyPage() {
 
             <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
               <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center">
-                    <Users className="w-8 h-8 text-white" />
-                  </div>
-                </div>
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">Intergenerational Dialogue</h3>
                   <p className="text-slate-600 mb-6 leading-relaxed">
@@ -201,21 +188,12 @@ export default function PlatoSocietyPage() {
                     <h4 className="font-semibold text-slate-900 mb-3">Unique Contributions</h4>
                     <div className="grid md:grid-cols-3 gap-4 mt-4">
                       <div className="text-center">
-                        <div className="w-12 h-12 bg-emerald-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                          <span className="text-emerald-700 font-bold">T</span>
-                        </div>
                         <p className="text-sm text-slate-700">Tech-native perspective</p>
                       </div>
                       <div className="text-center">
-                        <div className="w-12 h-12 bg-emerald-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                          <span className="text-emerald-700 font-bold">B</span>
-                        </div>
                         <p className="text-sm text-slate-700">Bridge generational views</p>
                       </div>
                       <div className="text-center">
-                        <div className="w-12 h-12 bg-emerald-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                          <span className="text-emerald-700 font-bold">L</span>
-                        </div>
                         <p className="text-sm text-slate-700">Learn from experience</p>
                       </div>
                     </div>
