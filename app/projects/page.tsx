@@ -4,111 +4,60 @@ import { useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
+import { CategoryTile, type CategoryTileItem } from "@/components/category-tile"
 
-type ProjectCategory = {
-  href: string
-  category: string
-  description: string
-  tags: string[]
-  layout: string
-  bar: string
-  kicker: string
-  hoverTitle: string
-  hoverBorder: string
-}
-
-const categories: ProjectCategory[] = [
+const categories: CategoryTileItem[] = [
   {
     href: "/projects/data-science-engineering",
-    category: "Data Science & Engineering",
+    title: "Data Science & Engineering",
     description:
       "Statistical modeling, machine learning, and visualization work that turns messy, complex datasets into clear answers.",
     tags: ["Machine Learning", "Statistical Analysis", "Data Visualization"],
+    color: "blue",
+    cta: "Explore projects",
     layout: "md:col-span-2",
-    bar: "bg-blue-600",
-    kicker: "text-blue-700",
-    hoverTitle: "group-hover:text-blue-700",
-    hoverBorder: "hover:border-blue-300",
   },
   {
     href: "/projects/anatomical-engineering",
-    category: "Anatomical Engineering",
+    title: "Anatomical Engineering",
     description:
       "Bio-inspired robotics, EMG-controlled devices, and soft actuators built where biology meets mechanical design.",
     tags: ["Soft Robotics", "EMG Control", "Bio-inspired Design"],
+    color: "green",
+    cta: "Explore projects",
     layout: "md:col-span-2",
-    bar: "bg-green-600",
-    kicker: "text-green-700",
-    hoverTitle: "group-hover:text-green-700",
-    hoverBorder: "hover:border-green-300",
   },
   {
     href: "/projects/neurotechnology",
-    category: "Neurotechnology",
+    title: "Neurotechnology",
     description:
       "Brain-computer interfaces and EEG signal processing for detecting emotion, stress, and cognitive state.",
     tags: ["EEG", "Brain-Computer Interface", "Signal Processing"],
+    color: "purple",
+    cta: "Explore projects",
     layout: "md:col-span-2",
-    bar: "bg-purple-600",
-    kicker: "text-purple-700",
-    hoverTitle: "group-hover:text-purple-700",
-    hoverBorder: "hover:border-purple-300",
   },
   {
     href: "/projects/matlab",
-    category: "Computer Science",
+    title: "Computer Science",
     description:
       "C++ game programming and MATLAB-built psychology experiments for data collection and behavioral research.",
     tags: ["C++", "MATLAB", "Game Development"],
+    color: "orange",
+    cta: "Explore projects",
     layout: "md:col-span-2 md:col-start-2",
-    bar: "bg-orange-600",
-    kicker: "text-orange-700",
-    hoverTitle: "group-hover:text-orange-700",
-    hoverBorder: "hover:border-orange-300",
   },
   {
     href: "/projects/personal",
-    category: "Personal Projects",
+    title: "Personal Projects",
     description:
       "Creative side projects, 3D models, and hobby builds driven by curiosity rather than a syllabus.",
     tags: ["Creative Design", "3D Modeling", "Innovation"],
+    color: "rose",
+    cta: "Explore projects",
     layout: "md:col-span-2",
-    bar: "bg-rose-600",
-    kicker: "text-rose-700",
-    hoverTitle: "group-hover:text-rose-700",
-    hoverBorder: "hover:border-rose-300",
   },
 ]
-
-function CategoryTile({ item }: { item: ProjectCategory }) {
-  return (
-    <Link
-      href={item.href}
-      className={`group relative flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 ${item.hoverBorder} ${item.layout}`}
-    >
-      <span
-        aria-hidden="true"
-        className={`absolute inset-x-0 top-0 h-1 origin-left scale-x-[0.25] transition-transform duration-500 group-hover:scale-x-100 ${item.bar}`}
-      />
-      <h2
-        className={`text-xl font-medium text-slate-900 text-balance transition-colors duration-300 ${item.hoverTitle}`}
-      >
-        {item.category}
-      </h2>
-      <p className="mt-4 leading-relaxed text-slate-600 text-pretty">{item.description}</p>
-      <p className="mt-6 text-sm text-slate-500">{item.tags.join("  ·  ")}</p>
-      <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-5">
-        <span className="text-sm font-medium text-slate-900">Explore projects</span>
-        <span
-          aria-hidden="true"
-          className={`text-lg transition-transform duration-300 group-hover:translate-x-1 ${item.kicker}`}
-        >
-          {"→"}
-        </span>
-      </div>
-    </Link>
-  )
-}
 
 export default function ProjectsPage() {
   useEffect(() => {
