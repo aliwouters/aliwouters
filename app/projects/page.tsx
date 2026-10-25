@@ -102,18 +102,6 @@ export default function ProjectsPage() {
             ))}
           </div>
 
-          {/* Additional Information */}
-          <div className="mt-16 bg-gradient-to-br from-slate-100 to-slate-200 rounded-3xl p-8">
-            <div className="text-center">
-              <h2 className="text-2xl font-medium text-slate-900 mb-4">Project Philosophy</h2>
-              <p className="text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                Each project represents a commitment to rigorous methodology, innovative problem-solving, and continuous
-                learning. From theoretical foundations to practical implementations, these works demonstrate the
-                intersection of academic knowledge and real-world application.
-              </p>
-            </div>
-          </div>
-
           {/* Back to Top Button */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
