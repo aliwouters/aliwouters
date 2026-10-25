@@ -79,19 +79,6 @@ export default function CommunityPage() {
             ))}
           </div>
 
-          {/* Community Impact Statement */}
-          <div className="mt-16 bg-gradient-to-br from-slate-100 to-slate-200 rounded-3xl p-8">
-            <div className="text-center">
-              <h2 className="text-2xl font-medium text-slate-900 mb-4">Community Philosophy</h2>
-              <p className="text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                True community engagement transcends individual achievement, creating spaces where diverse perspectives
-                converge to foster learning, growth, and meaningful connections. Through education, dialogue, and shared
-                experiences, we build bridges that strengthen our collective understanding and create lasting positive
-                impact.
-              </p>
-            </div>
-          </div>
-
           {/* Back to Top Button */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
