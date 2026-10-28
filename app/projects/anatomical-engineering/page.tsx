@@ -308,6 +308,34 @@ export default function AnatomicalEngineeringPage() {
                   </div>
                 </div>
               </div>
+
+              {/* Presentation Slides */}
+              <div className="bg-white rounded-lg p-6 border border-indigo-200 shadow-md">
+                <div className="flex items-center justify-between gap-4 mb-4">
+                  <h5 className="font-semibold text-gray-800 flex items-center gap-2">
+                    <Presentation className="w-5 h-5 text-indigo-600" />
+                    EMG Driven Soft Robotic Actuation: Design, Fabrication, Control
+                  </h5>
+                  <a
+                    href="https://docs.google.com/presentation/d/1peAUe3WtaXzVnEfXqUyyhJLhuzENv165wWCmtsCkJkI/edit?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shrink-0"
+                  >
+                    Open in Google Slides
+                  </a>
+                </div>
+                <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-indigo-100 bg-indigo-50">
+                  <iframe
+                    src="https://docs.google.com/presentation/d/1peAUe3WtaXzVnEfXqUyyhJLhuzENv165wWCmtsCkJkI/embed?start=false&loop=false&delayms=3000"
+                    title="EMG Driven Soft Robotic Actuation presentation slides"
+                    className="absolute inset-0 w-full h-full"
+                    allow="autoplay; fullscreen"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                </div>
+              </div>
             </CardContent>
           </Card>
 
