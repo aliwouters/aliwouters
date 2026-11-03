@@ -1,37 +1,22 @@
 "use client"
 
+import SiteNav from "@/components/SiteNav"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Code, Globe, Database, Cpu } from "lucide-react"
 
 export default function ComputerSciencePage() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="portfolio-inner case-study min-h-screen bg-white text-[#1b334b]">
       {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200/50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <Link href="/" className="text-2xl font-light text-slate-900 tracking-wide">
-              Alizee Wouters
-            </Link>
-            <div className="flex gap-3">
-              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
-                <Link href="/projects" className="flex items-center gap-2">
-                  <ArrowLeft className="w-4 h-4" />
-                  Projects
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
-      <div className="pt-16 pb-24">
+      <div id="main-content" className="pt-16 pb-24">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-20">
+          <div className="page-introduction mb-16">
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Computer Science Projects</h1>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-blue-700 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Software development projects showcasing programming expertise, algorithm implementation, and system
               design capabilities across various domains and technologies.
@@ -40,7 +25,7 @@ export default function ComputerSciencePage() {
 
           {/* Projects */}
           <div className="space-y-16">
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+            <div className="case-study-block">
               <div className="grid lg:grid-cols-12 gap-8">
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">Web Applications & APIs</h3>
@@ -51,29 +36,29 @@ export default function ComputerSciencePage() {
                   </p>
 
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-blue-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Technologies Used</h4>
                       <ul className="text-slate-700 space-y-2">
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           React, Next.js, TypeScript
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Node.js, Express, RESTful APIs
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           PostgreSQL, MongoDB
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           AWS, Docker, CI/CD
                         </li>
                       </ul>
                     </div>
 
-                    <div className="bg-slate-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Key Features</h4>
                       <p className="text-slate-600 text-sm leading-relaxed">
                         Responsive user interfaces, real-time data processing, secure authentication systems, and
@@ -85,7 +70,7 @@ export default function ComputerSciencePage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+            <div className="case-study-block">
               <div className="grid lg:grid-cols-12 gap-8">
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">Machine Learning Implementations</h3>
@@ -95,29 +80,29 @@ export default function ComputerSciencePage() {
                   </p>
 
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-emerald-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Algorithms & Models</h4>
                       <ul className="text-slate-700 space-y-2">
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Neural networks from scratch
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Computer vision applications
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Natural language processing
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Reinforcement learning
                         </li>
                       </ul>
                     </div>
 
-                    <div className="bg-slate-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Tools & Frameworks</h4>
                       <p className="text-slate-600 text-sm leading-relaxed">
                         Python, TensorFlow, PyTorch, scikit-learn, NumPy, pandas, and Jupyter notebooks for data
@@ -129,7 +114,7 @@ export default function ComputerSciencePage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+            <div className="case-study-block">
               <div className="grid lg:grid-cols-12 gap-8">
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">System Architecture & Design</h3>
@@ -138,7 +123,7 @@ export default function ComputerSciencePage() {
                     projects demonstrate understanding of distributed systems, microservices, and cloud architecture.
                   </p>
 
-                  <div className="bg-cyan-50 rounded-2xl p-6">
+                  <div className="case-note  ">
                     <h4 className="font-semibold text-slate-900 mb-3">Design Principles</h4>
                     <div className="grid md:grid-cols-3 gap-4 mt-4">
                       <div className="text-center">
@@ -162,7 +147,7 @@ export default function ComputerSciencePage() {
       {/* Back to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+        className="fixed bottom-6 right-6 w-12 h-12 bg-[#285c8a] text-white rounded-full transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
         aria-label="Back to top"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

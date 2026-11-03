@@ -1,9 +1,10 @@
 "use client"
 
+import SiteNav from "@/components/SiteNav"
+
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
   Download,
   GraduationCap,
@@ -18,34 +19,13 @@ import {
 } from "lucide-react"
 
 export default function ResumePage() {
-  const [isGeneratingResume, setIsGeneratingResume] = useState(false)
   const [isGeneratingTranscript, setIsGeneratingTranscript] = useState(false)
-
-  const handleDownloadResume = async () => {
-    setIsGeneratingResume(true)
-    try {
-      const response = await fetch("/documents/resume-2026.pdf")
-      const blob = await response.blob()
-      const url = window.URL.createObjectURL(blob)
-      const link = document.createElement("a")
-      link.href = url
-      link.download = "Alizee-Wouters-Resume.pdf"
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-      window.URL.revokeObjectURL(url)
-    } catch (error) {
-      console.error("Error downloading resume:", error)
-      alert("Failed to download resume PDF. Please try again.")
-    } finally {
-      setIsGeneratingResume(false)
-    }
-  }
 
   const handleDownloadTranscript = async () => {
     setIsGeneratingTranscript(true)
     try {
       const response = await fetch("/documents/transcript-2026.pdf")
+      if (!response.ok) throw new Error("PDF request failed")
       const blob = await response.blob()
       const url = window.URL.createObjectURL(blob)
       const link = document.createElement("a")
@@ -63,20 +43,6 @@ export default function ResumePage() {
     }
   }
 
-  const handleViewLabSafety = () => {
-    window.open(
-      "https://worksafe.ucla.edu/UCLA/Programs/Standard/Control/Certificate.wml?HID=1801836&EMail=0",
-      "_blank",
-    )
-  }
-
-  const handleViewFireSafety = () => {
-    window.open(
-      "https://worksafe.ucla.edu/UCLA/Programs/Standard/Control/Certificate.wml?HID=1839397&EMail=0",
-      "_blank",
-    )
-  }
-
   const handleViewNarcanCertificate = () => {
     alert(
       "End Overdose Narcan Training Certificate\n\nCompleted: September 11, 2025\n\nCertificate download will be available soon.\nFor immediate verification, please contact:\nali.wout.3003@gmail.com",
@@ -84,42 +50,24 @@ export default function ResumePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
+    <div className="restored-resume min-h-screen bg-white text-[#1b334b]">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-sm border-b border-blue-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <Link href="/" className="text-xl sm:text-2xl font-bold text-gray-900">
-              Alizee Wouters
-            </Link>
-            <div className="flex gap-2">
-              <Button asChild variant="outline" size="sm">
-                <Link href="/" className="flex items-center gap-2">
-                  <Home className="w-4 h-4" />
-                  <span className="hidden sm:inline">Home</span>
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Resume</h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto mb-6"></div>
+      <div id="main-content" className="max-w-6xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
+        <div className="mb-12 sm:mb-16">
+          <h1 className="text-4xl sm:text-5xl font-normal tracking-tight text-[#1b334b]">Resume</h1>
         </div>
 
         {/* Contact Information */}
-        <Card className="border-blue-100 shadow-lg mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
-              <User className="w-6 h-6 text-blue-500" />
+        <section className="restore-section">
+          <header>
+            <h2>
               Contact Information
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            </h2>
+          </header>
+          <div className="restore-content">
+            <div className="flex flex-wrap gap-x-8 gap-y-4">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-blue-500" />
                 <span className="text-gray-700 text-sm sm:text-base">ali.wout.3003@gmail.com</span>
@@ -140,57 +88,52 @@ export default function ResumePage() {
                 <span className="text-gray-700 text-sm sm:text-base">Los Angeles, CA</span>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </section>
 
         {/* Resume Download - FIXED WIDTH BUTTONS */}
-        <Card className="border-blue-100 shadow-lg mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
+        <section className="restore-section">
+          <header>
+            <h2>
               <Download className="w-6 h-6 text-blue-500" />
               Resume Download
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
+            </h2>
+          </header>
+          <div className="restore-content">
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                onClick={handleDownloadResume}
-                disabled={isGeneratingResume}
-                className="bg-blue-600 hover:bg-blue-700 flex items-center justify-center gap-2 w-full sm:w-[220px]"
-              >
-                <Download className="w-4 h-4" />
-                <span>{isGeneratingResume ? "Loading..." : "Download Resume (PDF)"}</span>
+              <Button asChild className="bg-[#285c8a] hover:bg-[#1d456b] text-white px-6 py-3 w-full sm:w-auto">
+                <a href="/documents/resume-2026.pdf" download="Alizee-Wouters-Resume.pdf"><Download className="w-4 h-4" /><span>Download Resume (PDF)</span></a>
               </Button>
               <Button
                 onClick={handleDownloadTranscript}
                 disabled={isGeneratingTranscript}
                 variant="outline"
-                className="border-blue-300 bg-transparent flex items-center justify-center gap-2 w-full sm:w-[200px]"
+                className="rounded-none border-[#b9ccdb] bg-white flex items-center justify-center gap-2 w-full sm:w-[200px]"
               >
                 <Download className="w-4 h-4" />
                 <span>{isGeneratingTranscript ? "Loading..." : "Academic Transcript"}</span>
               </Button>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </section>
 
         {/* Formal Education */}
-        <Card className="border-blue-100 shadow-lg mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
-              <GraduationCap className="w-6 h-6 text-blue-500" />
+        <section id="formal-education" className="restore-section">
+          <header>
+            <h2>
               Formal Education
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
+            </h2>
+          </header>
+          <div className="restore-content">
             <div className="space-y-6">
               {/* Georgia Tech & Emory */}
-              <div className="border-l-4 border-yellow-500 pl-6">
+              <div className="restore-entry education-entry">
+                <div className="education-marks"><img src="/images/sourced/georgia-tech.png" alt="Georgia Tech" /><img src="/images/sourced/emory.png" alt="Emory University" /></div>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
                   <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
                     Georgia Institute of Technology and Emory University 2025-2027
                   </h3>
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 w-fit">
+                  <span className="text-xs font-medium text-[#416c94]">
                     In Progress
                   </span>
                 </div>
@@ -209,7 +152,8 @@ export default function ResumePage() {
               </div>
 
               {/* UCLA */}
-              <div className="border-l-4 border-blue-500 pl-6">
+              <div className="restore-entry education-entry">
+                <div className="education-marks"><img src="/images/sourced/ucla.svg" alt="UCLA" /></div>
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                   University of California, Los Angeles (UCLA) 2022-2026
                 </h3>
@@ -236,7 +180,7 @@ export default function ResumePage() {
                     Placement)
                   </p>
                 </div>
-                <div className="mt-4 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                <div className="mt-6">
                   <h4 className="font-semibold text-blue-800 mb-2">Academic Honors</h4>
                   <div className="text-sm text-blue-700">
                     <p className="mb-2">
@@ -248,7 +192,8 @@ export default function ResumePage() {
               </div>
 
               {/* Queen's University */}
-              <div className="border-l-4 border-purple-500 pl-6">
+              <div className="restore-entry education-entry">
+                <div className="education-marks"><img src="/images/sourced/queens.svg" alt="Queen’s University" /></div>
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Queen's University 2024</h3>
                 <p className="text-base sm:text-lg text-gray-700 mb-2">Neuroscience and Neurotechnology Primer</p>
                 <p className="text-gray-600 mb-3 text-sm sm:text-base">Neurotech Microcredential Program (NTMC)</p>
@@ -263,7 +208,8 @@ export default function ResumePage() {
               </div>
 
               {/* High School */}
-              <div className="border-l-4 border-green-500 pl-6">
+              <div className="restore-entry education-entry">
+                <div className="education-marks"><img src="/images/sourced/san-pasqual.png" alt="San Pasqual High School" /></div>
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">San Pasqual High School 2022</h3>
                 <p className="text-base sm:text-lg text-gray-700 mb-2">High School Diploma</p>
                 <p className="text-gray-600 mb-3 text-sm sm:text-base">
@@ -277,25 +223,24 @@ export default function ResumePage() {
                 </p>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </section>
 
         {/* Professional Experience */}
-        <Card className="border-blue-100 shadow-lg mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
-              <Briefcase className="w-6 h-6 text-blue-500" />
+        <section className="restore-section">
+          <header>
+            <h2>
               Professional Experience
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
+            </h2>
+          </header>
+          <div className="restore-content">
             <div className="space-y-6">
-              <div className="border-l-4 border-violet-500 pl-6">
+              <div className="restore-entry">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
                   <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
                     SynterMed, UCLA Health - Neuronuclear Medicine and Imaging Consultant 2026-Present
                   </h3>
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-violet-100 text-violet-800 w-fit">
+                  <span className="text-xs font-medium text-[#416c94]">
                     Current
                   </span>
                 </div>
@@ -308,7 +253,7 @@ export default function ResumePage() {
                 </ul>
               </div>
 
-              <div className="border-l-4 border-blue-900 pl-6">
+              <div className="restore-entry">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                   Braave - R&D Consultant Nov 2025 - Dec 2025
                 </h3>
@@ -320,7 +265,7 @@ export default function ResumePage() {
                 </ul>
               </div>
 
-              <div className="border-l-4 border-orange-500 pl-6">
+              <div className="restore-entry">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                   UCLA Makerspace Technician 2023-2026
                 </h3>
@@ -333,7 +278,7 @@ export default function ResumePage() {
                 </ul>
               </div>
 
-              <div className="border-l-4 border-red-500 pl-6">
+              <div className="restore-entry">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                   Psyonic - Mechatronics Intern 2024
                 </h3>
@@ -346,7 +291,7 @@ export default function ResumePage() {
                 </ul>
               </div>
 
-              <div className="border-l-4 border-teal-500 pl-6">
+              <div className="restore-entry">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                   Auli Tech - Assistive Technology Intern 2024
                 </h3>
@@ -361,20 +306,34 @@ export default function ResumePage() {
                 </ul>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </section>
 
         {/* Research Experience */}
-        <Card className="border-blue-100 shadow-lg mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
-              <Award className="w-6 h-6 text-blue-500" />
+        <section className="restore-section">
+          <header>
+            <h2>
               Research Experience
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
+            </h2>
+          </header>
+          <div className="restore-content">
             <div className="space-y-6">
-              <div className="border-l-4 border-blue-500 pl-6">
+              <div className="restore-entry">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Anatomics Research 2025</h3>
+                <p className="text-gray-600 mb-3 text-sm sm:text-base">
+                  The Anatomical Engineering Group of Dr. Clites
+                </p>
+                <ul className="text-gray-700 space-y-1 text-sm">
+                  <li>• Designed and fabricated multi-degree-of-freedom tentacle robots</li>
+                  <li>• Developed cable-driven actuation systems for soft robotics</li>
+                  <li>• Created 3D models and prototypes for biomimetic manipulation</li>
+                  <li>• Integrated control systems for precise robotic movement</li>
+                  <li>• Data processing and analysis using Vicon and Nexus software</li>
+                  <li>• Motion capture data collection and biomechanical analysis</li>
+                </ul>
+              </div>
+
+              <div className="restore-entry">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                   Neurotechnology Research 2022 - 2025
                 </h3>
@@ -389,7 +348,7 @@ export default function ResumePage() {
                 </ul>
               </div>
 
-              <div className="border-l-4 border-purple-500 pl-6">
+              <div className="restore-entry">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Cognitive Science Research 2024</h3>
                 <p className="text-gray-600 mb-3 text-sm sm:text-base">Zili Lab - UCLA Psychology Department</p>
                 <ul className="text-gray-700 space-y-1 text-sm">
@@ -399,36 +358,20 @@ export default function ResumePage() {
                   <li>• Managed research teams and coordinated experimental protocols</li>
                 </ul>
               </div>
-
-              <div className="border-l-4 border-green-500 pl-6">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Anatomics Research 2025</h3>
-                <p className="text-gray-600 mb-3 text-sm sm:text-base">
-                  The Anatomical Engineering Group of Dr. Clites
-                </p>
-                <ul className="text-gray-700 space-y-1 text-sm">
-                  <li>• Designed and fabricated multi-degree-of-freedom tentacle robots</li>
-                  <li>• Developed cable-driven actuation systems for soft robotics</li>
-                  <li>• Created 3D models and prototypes for biomimetic manipulation</li>
-                  <li>• Integrated control systems for precise robotic movement</li>
-                  <li>• Data processing and analysis using Vicon and Nexus software</li>
-                  <li>• Motion capture data collection and biomechanical analysis</li>
-                </ul>
-              </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </section>
 
         {/* Skills & Competencies */}
-        <Card className="border-blue-100 shadow-lg mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
-              <Award className="w-6 h-6 text-blue-500" />
+        <section className="restore-section">
+          <header>
+            <h2>
               Skills & Competencies
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-blue-50 p-4 rounded-lg">
+            </h2>
+          </header>
+          <div className="restore-content">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="restore-skill-group">
                 <h4 className="font-semibold text-gray-800 mb-2">Technical Skills:</h4>
                 <ul className="text-gray-700 space-y-1 text-sm">
                   <li>
@@ -459,7 +402,7 @@ export default function ResumePage() {
                 </ul>
               </div>
               <div className="space-y-6">
-                <div className="bg-blue-50 p-4 rounded-lg">
+                <div className="restore-skill-group">
                   <h4 className="font-semibold text-gray-800 mb-2">Work in Progress:</h4>
                   <ul className="text-gray-700 space-y-1 text-sm">
                     <li>• Artificial Intelligence</li>
@@ -467,7 +410,7 @@ export default function ResumePage() {
                     <li>• Biological and Artificial Neural Networks</li>
                   </ul>
                 </div>
-                <div className="bg-blue-50 p-4 rounded-lg">
+                <div className="restore-skill-group">
                   <h4 className="font-semibold text-gray-800 mb-2">Research & Leadership:</h4>
                   <ul className="text-gray-700 space-y-1 text-sm">
                     <li>• Lab management and team coordination</li>
@@ -482,39 +425,30 @@ export default function ResumePage() {
                 </div>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </section>
 
         {/* Professional Certifications */}
-        <Card className="border-blue-100 shadow-lg mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
-              <Certificate className="w-6 h-6 text-blue-500" />
+        <section className="restore-section">
+          <header>
+            <h2>
               Professional Certifications
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
+            </h2>
+          </header>
+          <div className="restore-content">
             <div className="space-y-6">
-              <div className="border-l-4 border-indigo-500 pl-6">
+              <div className="restore-entry">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
                   <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
                     Neuroscience and Neurotechnology Primer
                   </h3>
-                  <a
-                    href="https://credentials.neurotechmicrocreds.com/bd68d39f-eba9-421a-9fac-35e5262cf644#acc.01mbgjGV"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-2 py-1 text-xs font-medium bg-indigo-100 text-indigo-800 rounded-full hover:bg-indigo-200 transition-colors w-fit"
-                  >
-                    <ExternalLink className="w-3 h-3 mr-1" />
-                    View Credential
-                  </a>
+                  
                 </div>
                 <p className="text-base sm:text-lg text-gray-700 mb-2">Queen's University 2024</p>
                 <p className="text-gray-600 mb-3 text-sm sm:text-base">Neurotech Microcredential Program (NTMC)</p>
               </div>
 
-              <div className="border-l-4 border-purple-500 pl-6">
+              <div className="restore-entry">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                   BCI & Neurotechnology Masterclass EEG & Eyetracking
                 </h3>
@@ -522,39 +456,25 @@ export default function ResumePage() {
                 <p className="text-gray-600 mb-3 text-sm sm:text-base">Completed June 17, 2025</p>
               </div>
 
-              <div className="border-l-4 border-orange-500 pl-6">
+              <div className="restore-entry">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
                   <h3 className="text-lg sm:text-xl font-semibold text-gray-900">Laboratory Safety Fundamentals</h3>
-                  <button
-                    onClick={handleViewLabSafety}
-                    className="inline-flex items-center px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800 rounded-full hover:bg-orange-200 transition-colors w-fit"
-                  >
-                    <ExternalLink className="w-3 h-3 mr-1" />
-                    View Certificate
-                  </button>
                 </div>
                 <p className="text-base sm:text-lg text-gray-700 mb-2">UCLA WorkSafe</p>
                 <p className="text-gray-600 mb-3 text-sm sm:text-base">Laboratory Safety Training Program</p>
               </div>
 
-              <div className="border-l-4 border-red-500 pl-6">
+              <div className="restore-entry">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
                   <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
                     Fire and Life Safety Online Training
                   </h3>
-                  <button
-                    onClick={handleViewFireSafety}
-                    className="inline-flex items-center px-2 py-1 text-xs font-medium bg-red-100 text-red-800 rounded-full hover:bg-red-200 transition-colors w-fit"
-                  >
-                    <ExternalLink className="w-3 h-3 mr-1" />
-                    View Certificate
-                  </button>
                 </div>
                 <p className="text-base sm:text-lg text-gray-700 mb-2">UCLA WorkSafe</p>
                 <p className="text-gray-600 mb-3 text-sm sm:text-base">Fire Safety and Emergency Response Training</p>
               </div>
 
-              <div className="border-l-4 border-green-500 pl-6">
+              <div className="restore-entry">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">FERPA Training</h3>
                 <p className="text-base sm:text-lg text-gray-700 mb-2">UCLA</p>
                 <p className="text-gray-600 mb-3 text-sm sm:text-base">
@@ -562,12 +482,12 @@ export default function ResumePage() {
                 </p>
               </div>
 
-              <div className="border-l-4 border-pink-500 pl-6">
+              <div className="restore-entry">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
                   <h3 className="text-lg sm:text-xl font-semibold text-gray-900">End Overdose Narcan Training</h3>
                   <button
                     onClick={handleViewNarcanCertificate}
-                    className="inline-flex items-center px-2 py-1 text-xs font-medium bg-pink-100 text-pink-800 rounded-full hover:bg-pink-200 transition-colors w-fit"
+                    className="restore-certificate-link"
                   >
                     <ExternalLink className="w-3 h-3 mr-1" />
                     View Certificate
@@ -577,13 +497,13 @@ export default function ResumePage() {
                 <p className="text-gray-600 mb-3 text-sm sm:text-base">Completed September 11, 2025</p>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </section>
 
         {/* Back to Top Button */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-[#285c8a] hover:bg-[#1c456b] text-white rounded-none transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
           aria-label="Back to top"
         >
           <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

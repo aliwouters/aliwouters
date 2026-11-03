@@ -1,5 +1,7 @@
 "use client"
 
+import SiteNav from "@/components/SiteNav"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
@@ -30,38 +32,15 @@ export default function DataScienceEngineeringPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="portfolio-inner case-study min-h-screen bg-white text-[#1b334b]">
       {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200/50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <Link href="/" className="text-2xl font-light text-slate-900 tracking-wide">
-              Alizee Wouters
-            </Link>
-            <div className="flex items-center gap-3">
-              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
-                <Link href="/projects" className="flex items-center gap-2">
-                  <ArrowLeft className="w-4 h-4" />
-                  Projects
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
-                <Link href="/" className="flex items-center gap-2">
-                  <Home className="w-4 h-4" />
-                  Home
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
-      <div className="pt-16 pb-24">
+      <div id="main-content" className="pt-16 pb-24">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-20">
+          <div className="page-introduction mb-16">
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Data Science Engineering</h1>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-emerald-600 to-emerald-700 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Bioinformatics and data analysis projects that combine computational methods with biological insights to
               solve complex research questions and extract meaningful patterns.
@@ -73,7 +52,7 @@ export default function DataScienceEngineeringPage() {
             {/* U-Net Colorization Project */}
             <div
               id="unet-colorization"
-              className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg scroll-mt-20"
+              className="bg-white p-10 border border-slate-200/50 scroll-mt-20"
             >
               <div className="grid lg:grid-cols-12 gap-8">
                 <div className="lg:col-span-10">
@@ -88,7 +67,7 @@ export default function DataScienceEngineeringPage() {
                       alt="U-Net Image Colorization Research Poster - Alizee Wouters, Mia Waksman, Michelle Ly, and Lucia Kajganic"
                       width={1920}
                       height={1080}
-                      className="w-full h-auto rounded-xl shadow-lg"
+                      className="w-full h-auto"
                       priority
                     />
                   </div>
@@ -102,7 +81,7 @@ export default function DataScienceEngineeringPage() {
                   </p>
 
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-purple-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Project Repository</h4>
                       <p className="text-slate-600 text-sm mb-4 leading-relaxed">
                         Complete U-Net implementation with training pipeline, loss functions, and evaluation metrics
@@ -110,7 +89,7 @@ export default function DataScienceEngineeringPage() {
                       </p>
                       <Button
                         asChild
-                        className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-sm"
+                        className="bg-[#285c8a] text-white text-sm"
                       >
                         <a
                           href="https://github.com/aliwouters/-Converting-Grayscale-to-Color-Using-U-Net-Image-to-Image-Translation.-"
@@ -124,23 +103,23 @@ export default function DataScienceEngineeringPage() {
                       </Button>
                     </div>
 
-                    <div className="bg-slate-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Model Architecture</h4>
                       <ul className="text-slate-700 space-y-2 text-sm">
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           U-Net with 4 encoding/decoding layers
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           L1 + Perceptual Loss (VGG16)
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Adam optimizer with data augmentation
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Trained on Google Colab T4 GPU
                         </li>
                       </ul>
@@ -151,7 +130,7 @@ export default function DataScienceEngineeringPage() {
             </div>
 
             {/* Existing projects */}
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+            <div className="case-study-block">
               <div className="grid lg:grid-cols-12 gap-8">
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">
@@ -168,14 +147,14 @@ export default function DataScienceEngineeringPage() {
                   </p>
 
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-emerald-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Project Repository</h4>
                       <p className="text-slate-600 text-sm mb-4 leading-relaxed">
                         Complete implementation available on GitHub with detailed documentation, code, and methodology.
                       </p>
                       <Button
                         asChild
-                        className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-sm"
+                        className="bg-[#285c8a] text-white text-sm"
                       >
                         <a
                           href="https://github.com/aliwouters/Protein-Secondary-Structure-Prediction-Using-ESM-and-Random-Forests"
@@ -189,7 +168,7 @@ export default function DataScienceEngineeringPage() {
                       </Button>
                     </div>
 
-                    <div className="bg-slate-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Model Performance</h4>
                       <div className="space-y-2 text-sm">
                         <div className="flex justify-between">
@@ -215,7 +194,7 @@ export default function DataScienceEngineeringPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+            <div className="case-study-block">
               <div className="grid lg:grid-cols-12 gap-8">
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">
@@ -233,7 +212,7 @@ export default function DataScienceEngineeringPage() {
                   </p>
 
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-blue-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Project Repository</h4>
                       <p className="text-slate-600 text-sm mb-4 leading-relaxed">
                         Complete implementation with DNA language models, preprocessing pipelines, and evaluation
@@ -241,7 +220,7 @@ export default function DataScienceEngineeringPage() {
                       </p>
                       <Button
                         asChild
-                        className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white text-sm"
+                        className="bg-[#285c8a] text-white text-sm"
                       >
                         <a
                           href="https://github.com/aliwouters/Intron-Exon-Classification-Using-DNA-Language-Models/tree/main"
@@ -255,23 +234,23 @@ export default function DataScienceEngineeringPage() {
                       </Button>
                     </div>
 
-                    <div className="bg-slate-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Genomic Applications</h4>
                       <ul className="text-slate-700 space-y-2 text-sm">
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Gene annotation and genome assembly
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Alternative splicing detection
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Variant impact prediction
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Personalized medicine and drug discovery
                         </li>
                       </ul>
@@ -281,7 +260,7 @@ export default function DataScienceEngineeringPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+            <div className="case-study-block">
               <div className="grid lg:grid-cols-12 gap-8">
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">
@@ -300,7 +279,7 @@ export default function DataScienceEngineeringPage() {
                   </p>
 
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-teal-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Project Repository</h4>
                       <p className="text-slate-600 text-sm mb-4 leading-relaxed">
                         Complete SNP calling pipeline with BAM file processing, quality score analysis, and genotype
@@ -308,7 +287,7 @@ export default function DataScienceEngineeringPage() {
                       </p>
                       <Button
                         asChild
-                        className="bg-gradient-to-r from-teal-600 to-green-600 hover:from-teal-700 hover:to-green-700 text-white text-sm"
+                        className="bg-[#285c8a] text-white text-sm"
                       >
                         <a
                           href="https://github.com/aliwouters/SNP-Caller-Identifying-Genetic-Variants-from-Sequencing-Data/tree/main"
@@ -322,23 +301,23 @@ export default function DataScienceEngineeringPage() {
                       </Button>
                     </div>
 
-                    <div className="bg-slate-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Technical Implementation</h4>
                       <ul className="text-slate-700 space-y-2 text-sm">
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-teal-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           BAM file parsing and read extraction
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-teal-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Phred quality score analysis
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-teal-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Probabilistic genotype inference
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-teal-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Log-sum-exp numerical stability
                         </li>
                       </ul>
@@ -348,7 +327,7 @@ export default function DataScienceEngineeringPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+            <div className="case-study-block">
               <div className="grid lg:grid-cols-12 gap-8">
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">
@@ -368,7 +347,7 @@ export default function DataScienceEngineeringPage() {
                     {/* First row - Manual Length Bias Analysis and Equal Length Analysis */}
                     <div className="grid md:grid-cols-2 gap-6">
                       {/* Manual Length Bias Analysis */}
-                      <div className="bg-slate-50 rounded-2xl p-6">
+                      <div className="case-note  ">
                         <h4 className="font-semibold text-slate-900 mb-3">Manual Length Bias Analysis</h4>
                         <div className="bg-white p-4 rounded-lg border border-slate-200">
                           <img
@@ -380,7 +359,7 @@ export default function DataScienceEngineeringPage() {
                       </div>
 
                       {/* Equal Length Analysis */}
-                      <div className="bg-slate-50 rounded-2xl p-6">
+                      <div className="case-note  ">
                         <h4 className="font-semibold text-slate-900 mb-3">Equal Length Analysis</h4>
                         <div className="text-slate-700 space-y-3 text-sm">
                           <div className="bg-white p-4 rounded-lg border border-slate-200">
@@ -401,7 +380,7 @@ export default function DataScienceEngineeringPage() {
                     </div>
 
                     {/* Second row - Project Repository (full width) */}
-                    <div className="bg-purple-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Project Repository</h4>
                       <p className="text-slate-600 text-sm mb-4 leading-relaxed">
                         Complete EM algorithm implementation with RSEM framework adaptation and RNA-seq abundance
@@ -409,7 +388,7 @@ export default function DataScienceEngineeringPage() {
                       </p>
                       <Button
                         asChild
-                        className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-sm"
+                        className="bg-[#285c8a] text-white text-sm"
                       >
                         <a
                           href="https://github.com/aliwouters/Transcript-Abundance-Estimation-with-the-Expectation-Maximization-Algorithm/tree/main"
@@ -430,7 +409,7 @@ export default function DataScienceEngineeringPage() {
             {/* t-SNE Visualization Project */}
             <div
               id="tsne-visualization"
-              className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg scroll-mt-20"
+              className="bg-white p-10 border border-slate-200/50 scroll-mt-20"
             >
               <div className="grid lg:grid-cols-12 gap-8">
                 <div className="lg:col-span-10">
@@ -449,7 +428,7 @@ export default function DataScienceEngineeringPage() {
 
                   <div className="space-y-6">
                     {/* Project Repository (full width) */}
-                    <div className="bg-orange-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Project Repository</h4>
                       <p className="text-slate-600 text-sm mb-4 leading-relaxed">
                         Complete t-SNE implementation from scratch with mathematical derivations, parameter exploration,
@@ -458,7 +437,7 @@ export default function DataScienceEngineeringPage() {
                       </p>
                       <Button
                         asChild
-                        className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white text-sm"
+                        className="bg-[#285c8a] text-white text-sm"
                       >
                         <a
                           href="https://github.com/aliwouters/Visualizing-High-Dimensional-Data-with-t-SNE"
@@ -472,7 +451,7 @@ export default function DataScienceEngineeringPage() {
                       </Button>
                     </div>
                     {/* Graphs and Figures Section */}
-                    <div className="bg-orange-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-4">Graphs and Figures</h4>
                       <p className="text-slate-600 text-sm mb-4 leading-relaxed">
                         The plots show how the similarity probabilities (p₁ⱼ) from the first point to all others change
@@ -584,10 +563,10 @@ export default function DataScienceEngineeringPage() {
             </div>
 
             {/* Impact Section */}
-            <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-10 text-white">
+            <div className="case-note   text-[#1b334b]">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-medium mb-4">Bioinformatics Impact & Applications</h3>
-                <p className="text-slate-300 leading-relaxed max-w-3xl mx-auto">
+                <p className="text-[#4b6174] leading-relaxed max-w-3xl mx-auto">
                   These computational biology projects demonstrate the power of combining machine learning with genomic
                   data analysis. From protein structure prediction to genetic variant calling, each project contributes
                   to advancing precision medicine and our understanding of biological systems.
@@ -595,55 +574,55 @@ export default function DataScienceEngineeringPage() {
               </div>
 
               <div className="grid md:grid-cols-3 gap-8">
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                <div className="case-note  ">
                   <h4 className="font-semibold mb-4">Protein Analysis</h4>
-                  <ul className="text-slate-300 space-y-2 text-sm">
+                  <ul className="text-[#4b6174] space-y-2 text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Drug target identification
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Structural biology insights
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Therapeutic design
                     </li>
                   </ul>
                 </div>
 
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                <div className="case-note  ">
                   <h4 className="font-semibold mb-4">Genomic Medicine</h4>
-                  <ul className="text-slate-300 space-y-2 text-sm">
+                  <ul className="text-[#4b6174] space-y-2 text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Personalized treatment plans
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Disease risk assessment
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Population genetics studies
                     </li>
                   </ul>
                 </div>
 
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                <div className="case-note  ">
                   <h4 className="font-semibold mb-4">Computational Methods</h4>
-                  <ul className="text-slate-300 space-y-2 text-sm">
+                  <ul className="text-[#4b6174] space-y-2 text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-teal-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Language model applications
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-teal-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Probabilistic inference
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-teal-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       High-throughput analysis
                     </li>
                   </ul>
@@ -657,7 +636,7 @@ export default function DataScienceEngineeringPage() {
       {/* Back to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+        className="fixed bottom-6 right-6 w-12 h-12 bg-[#285c8a] text-white rounded-full transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
         aria-label="Back to top"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -1,5 +1,7 @@
 "use client"
 
+import SiteNav from "@/components/SiteNav"
+
 import type React from "react"
 
 import { useState, useEffect } from "react"
@@ -9,7 +11,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Linkedin, ExternalLink, ArrowRight, Check, ChevronLeft, ChevronRight, Menu, X } from "lucide-react"
 import AnimatedBackground from "@/components/AnimatedBackground"
-import LanguageToggle from "@/components/LanguageToggle"
 
 const featuredProjects = [
   {
@@ -86,13 +87,23 @@ export default function HomePage() {
   }, [])
 
   useEffect(() => {
-    // Auto-advance the featured projects carousel. The timer resets whenever
-    // currentProject changes, so manual navigation restarts the countdown.
-    const interval = setInterval(() => {
-      setCurrentProject((prev) => (prev + 1) % featuredProjects.length)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [currentProject])
+    const sections = document.querySelectorAll<HTMLElement>("[data-scroll-reveal]")
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible")
+            observer.unobserve(entry.target)
+          }
+        })
+      }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" })
+      sections.forEach((section) => {
+        section.classList.add("scroll-reveal-ready")
+        observer.observe(section)
+      })
+      return () => observer.disconnect()
+    }
+  }, [])
 
   const handleEmailClick = async () => {
     const email = "ali.wout.3003@gmail.com"
@@ -136,7 +147,7 @@ export default function HomePage() {
             muted
             playsInline
             className={`${sizeClasses} object-contain transition-all duration-500 bg-[#eaf1f8]`}
-            
+
           />
 
         </div>
@@ -173,118 +184,27 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200/50 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4 sm:py-6">
-            <Link href="/" className="text-xl sm:text-2xl font-light text-slate-900 tracking-wide">
-              Alizee Wouters
-            </Link>
-
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex space-x-8 xl:space-x-10 items-center">
-              <Link href="/resume" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
-                Resume
-              </Link>
-              <Link href="/research" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
-                Research
-              </Link>
-              <Link
-                href="/work-experience"
-                className="text-slate-600 hover:text-emerald-600 transition-colors font-medium"
-              >
-                Work Experience
-              </Link>
-              <Link href="/projects" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
-                Projects
-              </Link>
-              <Link href="/community" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
-                Community
-              </Link>
-              <LanguageToggle />
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-
-          {/* Mobile Navigation */}
-          {mobileMenuOpen && (
-            <div className="lg:hidden border-t border-slate-200 py-4">
-              <div className="flex flex-col space-y-4">
-                <Link
-                  href="/resume"
-                  className="text-slate-600 hover:text-emerald-600 transition-colors font-medium px-2 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Resume
-                </Link>
-                <Link
-                  href="/research"
-                  className="text-slate-600 hover:text-emerald-600 transition-colors font-medium px-2 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Research
-                </Link>
-                <Link
-                  href="/work-experience"
-                  className="text-slate-600 hover:text-emerald-600 transition-colors font-medium px-2 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Work Experience
-                </Link>
-                <Link
-                  href="/projects"
-                  className="text-slate-600 hover:text-emerald-600 transition-colors font-medium px-2 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Projects
-                </Link>
-                <Link
-                  href="/community"
-                  className="text-slate-600 hover:text-emerald-600 transition-colors font-medium px-2 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Community
-                </Link>
-                <div className="px-2 py-1 border-t border-slate-200 pt-4">
-                  <LanguageToggle />
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </nav>
+      <SiteNav />
 
       {/* Hero Section with Neural Network Animation */}
-      <section className="pt-16 sm:pt-24 lg:pt-32 pb-16 sm:pb-24 lg:pb-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section id="main-content" className="portfolio-hero relative overflow-hidden" aria-labelledby="hero-heading">
         {/* Import LanguageToggle component */}
         <AnimatedBackground />
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-20 items-center">
-            <div className="lg:col-span-7 space-y-8 sm:space-y-12 text-center lg:text-left">
+        <div className="hero-composition relative z-10">
+          <div className="hero-columns">
+            <div className="hero-copy space-y-10 text-left">
               <div className="space-y-6 sm:space-y-8">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 leading-tight">
-                  Hello, I'm{" "}
-                  <span className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-600">
-                    Alizee Wouters
-                  </span>
-                </h1>
-                <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                  A researcher and scientist at the intersection of neurotechnology, cognitive science, and biomedical
-                  engineering. I aim to develop innovative solutions that bridge human cognition and technology.
-                </p>
+                <div className="hero-identity">
+                  <h1 id="hero-heading" className="hero-title">Hello, I'm<br />Alizee Wouters</h1>
+                </div>
+                <p className="hero-description">I'm a biomedical engineering master's student at Georgia Tech and Emory, specializing in neuroengineering. My work spans quantitative brain imaging, muscle-controlled robotics, and assistive technology, combining research with hands-on engineering.</p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="hero-actions flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button
                   onClick={handleEmailClick}
                   size="lg"
-                  className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white border-0 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-medium w-full sm:w-auto"
+                  className="rounded-none bg-[#285c8a] hover:bg-[#1a466f] text-white border-0 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-medium w-full sm:w-auto"
                 >
                   <div className="flex items-center gap-3">
                     {emailCopied ? (
@@ -299,7 +219,7 @@ export default function HomePage() {
                   variant="default"
                   size="lg"
                   asChild
-                  className="bg-white hover:bg-gray-50 text-slate-700 border border-slate-300 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-medium w-full sm:w-auto"
+                  className="rounded-none bg-white hover:bg-[#edf3f8] text-[#285c8a] border border-[#b8cbd9] px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-medium w-full sm:w-auto"
                 >
                   <a
                     href="https://linkedin.com/in/alizee-wouters"
@@ -315,26 +235,16 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="lg:col-span-5 flex justify-center order-first lg:order-last">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-emerald-400/20 rounded-3xl blur-3xl"></div>
-                <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl overflow-hidden border border-slate-200/50 bg-white p-2">
-                  <Image
-                    src="/images/alizee-headshot.png"
-                    alt="Alizee Wouters"
-                    width={400}
-                    height={400}
-                    className="w-full h-full rounded-2xl object-cover object-[center_25%]"
-                  />
-                </div>
-              </div>
-            </div>
+
+            <div className="hero-photo-right"><Image src="/images/alizee-headshot.png" alt="Alizee Wouters" width={448} height={448} className="identity-portrait" /></div>
+
           </div>
         </div>
       </section>
 
+
       {/* Selected work: image-led carousel. Existing project data and navigation preserved. */}
-      <section className="bg-[#f3f6f8] py-16 sm:py-24 px-5 sm:px-8" aria-labelledby="featured-projects-heading">
+      <section className="featured-section bg-white py-16 sm:py-24 px-5 sm:px-8" data-scroll-reveal aria-labelledby="featured-projects-heading">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-wrap items-baseline justify-between gap-4 mb-10 sm:mb-14">
             <h2 id="featured-projects-heading" className="text-3xl sm:text-5xl font-normal tracking-tight text-[#172c43]">Featured Projects</h2>
@@ -343,10 +253,10 @@ export default function HomePage() {
             </span>
           </div>
           <div className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] gap-8 lg:gap-14 items-center">
-            <div className={`relative overflow-hidden bg-[#e6edf3] ${featuredProjects[currentProject].id === 2 || featuredProjects[currentProject].id === 4 ? "aspect-[4/4] sm:aspect-[5/4]" : "aspect-[5/4]"}`}>
+            <div key={featuredProjects[currentProject].id} className={`feature-media-enter relative overflow-hidden bg-[#e6edf3] ${featuredProjects[currentProject].id === 2 || featuredProjects[currentProject].id === 4 ? "aspect-[4/4] sm:aspect-[5/4]" : "aspect-[5/4]"}`}>
               {renderMedia(featuredProjects[currentProject])}
             </div>
-            <div className="lg:py-5" aria-live="polite">
+            <div key={`text-${featuredProjects[currentProject].id}`} className="feature-copy-enter lg:py-5" aria-live="polite">
               <p className="mb-4 text-sm font-medium text-[#416b97]">{featuredProjects[currentProject].category}</p>
               <h3 className="text-2xl sm:text-3xl lg:text-[2.35rem] leading-[1.17] tracking-tight font-normal text-[#172c43] mb-5">{featuredProjects[currentProject].title}</h3>
               <p className="text-base sm:text-lg leading-[1.7] text-[#4d6073] mb-7">{featuredProjects[currentProject].description}</p>
@@ -372,7 +282,7 @@ export default function HomePage() {
       </section>
 
       {/* About: prose with an editorial column, not a bordered card. */}
-      <section className="bg-[#f3f6f8] px-5 sm:px-8 py-16 sm:py-24" aria-labelledby="about-heading">
+      <section className="bg-[#f5f9fc] px-5 sm:px-8 py-16 sm:py-24" data-scroll-reveal aria-labelledby="about-heading">
         <div className="mx-auto max-w-6xl grid md:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)] gap-6 md:gap-12">
           <h2 id="about-heading" className="text-3xl sm:text-4xl font-normal tracking-tight text-[#172c43]">About Me</h2>
           <div className="max-w-3xl text-[#42586f] space-y-6">
@@ -383,7 +293,7 @@ export default function HomePage() {
       </section>
 
       {/* Work areas: navigable list, not three matching feature cards. */}
-      <section className="bg-[#edf3f7] px-5 sm:px-8 py-16 sm:py-24" aria-labelledby="work-heading">
+      <section className="bg-[#edf3f7] px-5 sm:px-8 py-16 sm:py-24" data-scroll-reveal aria-labelledby="work-heading">
         <div className="mx-auto max-w-6xl">
           <h2 id="work-heading" className="text-3xl sm:text-4xl font-normal tracking-tight text-[#172c43] mb-8 sm:mb-12">My Work</h2>
           {[
@@ -391,7 +301,7 @@ export default function HomePage() {
             { title: "Work Experience", href: "/work-experience", description: "Professional journey through innovative companies including Psyonic, Auli Tech, SynterMed, and UCLA's Makerspace." },
             { title: "Projects", href: "/projects", description: "Diverse portfolio spanning computer science, data science engineering, experimental design, and personal innovations." },
           ].map((item) => (
-            <Link key={item.href} href={item.href} className="group grid md:grid-cols-[minmax(0,0.35fr)_minmax(0,0.57fr)_auto] items-center gap-3 md:gap-10 border-t border-[#c6d5e2] py-6 sm:py-9 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#235c91]">
+            <Link key={item.href} href={item.href} className="group grid md:grid-cols-[minmax(0,0.35fr)_minmax(0,0.57fr)_auto] items-center gap-3 md:gap-10 border-t border-[#c6d5e2] py-6 sm:py-9 transition-[padding,background-color] duration-300 hover:bg-[#e4eef5] hover:pl-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#235c91]">
               <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-[#172c43] group-hover:text-[#235c91] transition-colors">{item.title}</h3>
               <p className="text-base leading-relaxed text-[#4d6073]">{item.description}</p>
               <ArrowRight className="hidden md:block w-5 h-5 text-[#235c91] transition-transform group-hover:translate-x-1" aria-hidden="true" />
@@ -402,7 +312,7 @@ export default function HomePage() {
       </section>
 
       {/* Closing: flat navy, no gradient or outsized CTA. */}
-      <section className="bg-[#1c3047] px-5 sm:px-8 py-16 sm:py-20" aria-labelledby="collaborate-heading">
+      <section className="bg-[#1c3047] px-5 sm:px-8 py-16 sm:py-20" data-scroll-reveal aria-labelledby="collaborate-heading">
         <div className="mx-auto max-w-6xl grid md:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)] gap-6 md:gap-12 items-start">
           <h2 id="collaborate-heading" className="text-3xl sm:text-4xl tracking-tight font-normal text-white">Let's Collaborate</h2>
           <div>
