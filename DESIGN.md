@@ -1,25 +1,20 @@
-# alizee.me — Visual Design Direction (first pass)
+# alizee.me — Visual direction, second pass
 
-## Intent
-Light, airy blue-and-white research portfolio; editorial clarity over generic template aesthetics. Keep the homepage hero, moving neural-network background, all destinations, copy, and French translation system intact.
+## Goals
+Clean, light blue-white, visually distinctive through actual engineering work. Do not replace the existing home hero or the animated neural network. Keep the English/French translation system, routes, and content.
 
-## Palette
-- Background: white `#ffffff`, airy blue-white `#f8fbff`, paper `#fbfdff`
-- Primary text: navy `#172b46` / `#182d48`
-- Secondary text: `#53677d`
-- Accent: restrained blue `#295b98` and `#3566a3`
-- Rules/borders: `#d9e4ef`, `#cedcea`
+## Design decisions
+- No gradients below the homepage hero; no decorative color stripes or mismatched colored links.
+- Page sections are composed using text hierarchy, breathing room, image scale and fine dividing rules, not cards and shadows.
+- Featured work is image-led with original images and existing carousel controls. Avoid adding ornamental scroll effects before a concrete use case exists.
+- Professional Experience is a scan-friendly five-entry editorial index: original logos and descriptions; one consistent link treatment.
+- About uses a compact two-column composition rather than a colored left bar.
+- My Work uses horizontal navigable rows instead of three feature cards.
+- Collaboration area uses a flat navy canvas and understated text action.
+- Backgrounds: #f3f6f8, #edf3f7 and #1c3047. Text: #172c43, #4d6073. Accent: #235c91.
 
-## Components
-- Prioritize open layouts, alignment and thin separators over card shadows.
-- Use text links and arrows instead of large gradient CTA buttons.
-- Logos are informative; keep intact, no tinted logo panels.
-- Real project images/videos take priority over decorative graphics.
-- Avoid decorative gradient lines, pill badges, multicolor categories and unnecessary glow.
-- Modest border radius on media; none on editorial rows.
+## Implementation scope
+Only `app/page.tsx` and `app/work-experience/page.tsx` changed. Existing hero, neural network components and translation components are not modified. Other detail pages remain unchanged; those can be addressed after this pass is reviewed.
 
-## Motion
-Keep current neural-network animation; preserve carousel controls. Prefer subtle motion and reduced-motion-friendly behavior. Add scroll narratives only when an actual technical story warrants them.
-
-## Scope
-First pass edits: homepage featured projects + about card treatment and professional experience index. No changes to neural network or translation modules. Other offshoot pages remain for later iterative refinement.
+## Verification checklist
+Check existing project carousel image/video handling and links; five work-experience routes; mobile layout; FR translation; keyboard focus; reduced motion; project images; Next.js build before deployment.

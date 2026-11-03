@@ -136,13 +136,9 @@ export default function HomePage() {
             muted
             playsInline
             className={`${sizeClasses} object-contain transition-all duration-500 bg-[#eaf1f8]`}
-            style={{ transform: "scale(1.4)" }}
+            
           />
-          {project.caption && size === "main" && (
-            <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 bg-[#172b46]/85 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-sm text-xs sm:text-sm font-medium">
-              {project.caption}
-            </div>
-          )}
+
         </div>
       )
     } else if (project.isImage) {
@@ -154,11 +150,7 @@ export default function HomePage() {
             fill
             className={`object-contain transition-all duration-500 bg-[#eaf1f8]`}
           />
-          {project.caption && size === "main" && (
-            <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 bg-[#172b46]/85 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-sm text-xs sm:text-sm font-medium">
-              {project.caption}
-            </div>
-          )}
+
         </div>
       )
     } else {
@@ -341,152 +333,91 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Projects — editorial presentation; existing carousel logic preserved */}
-      <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#f8fbff]" aria-labelledby="featured-projects-heading">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-end justify-between gap-6 border-b border-[#d9e4ef] pb-6 mb-9">
-            <div>
-              <p className="text-xs tracking-[0.16em] uppercase text-[#52749c] mb-3">Selected work</p>
-              <h2 id="featured-projects-heading" className="text-3xl sm:text-4xl font-light tracking-tight text-[#172b46]">Featured Projects</h2>
-            </div>
-            <p className="hidden sm:block text-sm text-[#65778b] tabular-nums">{String(currentProject + 1).padStart(2, "0")} / {String(featuredProjects.length).padStart(2, "0")}</p>
+      {/* Selected work: image-led carousel. Existing project data and navigation preserved. */}
+      <section className="bg-[#f3f6f8] py-16 sm:py-24 px-5 sm:px-8" aria-labelledby="featured-projects-heading">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-wrap items-baseline justify-between gap-4 mb-10 sm:mb-14">
+            <h2 id="featured-projects-heading" className="text-3xl sm:text-5xl font-normal tracking-tight text-[#172c43]">Featured Projects</h2>
+            <span className="text-sm text-[#5b738b] tabular-nums" aria-label={`Project ${currentProject + 1} of ${featuredProjects.length}`}>
+              {currentProject + 1} of {featuredProjects.length}
+            </span>
           </div>
-          <div className="grid lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] gap-8 lg:gap-14 items-center">
-            <div className="relative aspect-[4/3] overflow-hidden bg-[#eaf1f8] border border-[#dce6f0] rounded-sm">
+          <div className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] gap-8 lg:gap-14 items-center">
+            <div className={`relative overflow-hidden bg-[#e6edf3] ${featuredProjects[currentProject].id === 2 || featuredProjects[currentProject].id === 4 ? "aspect-[4/4] sm:aspect-[5/4]" : "aspect-[5/4]"}`}>
               {renderMedia(featuredProjects[currentProject])}
             </div>
-            <div className="py-2 lg:py-8 flex flex-col items-start" aria-live="polite">
-              <p className="text-xs uppercase tracking-[0.13em] text-[#52749c] mb-5">{featuredProjects[currentProject].category}</p>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl leading-tight tracking-tight font-medium text-[#162943] mb-6">{featuredProjects[currentProject].title}</h3>
-              <p className="text-base sm:text-lg leading-relaxed text-[#52647a] mb-8 max-w-prose">{featuredProjects[currentProject].description}</p>
-              <Link href={featuredProjects[currentProject].link} className="inline-flex items-center gap-3 border-b border-[#3566a3] pb-2 text-[#295b98] font-medium hover:text-[#173d70] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#295b98] group">
-                Explore project <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            <div className="lg:py-5" aria-live="polite">
+              <p className="mb-4 text-sm font-medium text-[#416b97]">{featuredProjects[currentProject].category}</p>
+              <h3 className="text-2xl sm:text-3xl lg:text-[2.35rem] leading-[1.17] tracking-tight font-normal text-[#172c43] mb-5">{featuredProjects[currentProject].title}</h3>
+              <p className="text-base sm:text-lg leading-[1.7] text-[#4d6073] mb-7">{featuredProjects[currentProject].description}</p>
+              <Link href={featuredProjects[currentProject].link} className="inline-flex items-center gap-2 text-[#235c91] font-medium hover:underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#235c91]">
+                Explore project <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>
             </div>
           </div>
-          <div className="mt-8 pt-5 border-t border-[#d9e4ef] flex items-center justify-between gap-4">
-            <div className="flex items-center gap-2" aria-label="Choose featured project">
+          <div className="mt-10 flex flex-wrap items-center justify-between gap-5 border-t border-[#ccd9e4] pt-5">
+            <div className="flex flex-wrap gap-2" aria-label="Choose featured project">
               {featuredProjects.map((project, index) => (
                 <button key={project.id} type="button" onClick={() => setCurrentProject(index)}
-                  className={`h-1.5 rounded-full transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#295b98] ${index === currentProject ? "w-9 bg-[#3566a3]" : "w-5 bg-[#ccd9e8] hover:bg-[#8ba8c8]"}`}
+                  className={`h-2 transition-colors duration-200 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#235c91] ${index === currentProject ? "w-9 bg-[#315e8d]" : "w-6 bg-[#bbcad8] hover:bg-[#7b9ab8]"}`}
                   aria-label={`Show project ${index + 1}: ${project.title}`} aria-current={index === currentProject ? "true" : undefined} />
               ))}
             </div>
-            <div className="flex gap-3">
-              <button type="button" onClick={prevProject} className="w-11 h-11 border border-[#d2dfeb] text-[#295b98] hover:bg-[#eaf1f8] transition-colors flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#295b98]" aria-label="Previous project"><ChevronLeft className="w-5 h-5" /></button>
-              <button type="button" onClick={nextProject} className="w-11 h-11 border border-[#d2dfeb] text-[#295b98] hover:bg-[#eaf1f8] transition-colors flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#295b98]" aria-label="Next project"><ChevronRight className="w-5 h-5" /></button>
+            <div className="flex items-center gap-5 text-[#235c91]">
+              <button type="button" onClick={prevProject} className="p-2 hover:text-[#132f50] focus-visible:outline focus-visible:outline-2" aria-label="Previous project"><ChevronLeft className="w-6 h-6" /></button>
+              <button type="button" onClick={nextProject} className="p-2 hover:text-[#132f50] focus-visible:outline focus-visible:outline-2" aria-label="Next project"><ChevronRight className="w-6 h-6" /></button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-20 sm:py-24 lg:py-32 bg-slate-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-light text-slate-900 mb-4 sm:mb-6">About Me</h2>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto"></div>
-          </div>
-
-          <div className="border-l-2 border-[#97b7d8] pl-6 sm:pl-10 py-2">
-            <div className="max-w-4xl mx-auto">
-              <p className="text-lg sm:text-xl leading-relaxed text-slate-600 mb-6 sm:mb-8">
-                I'm a master's student in Biomedical Engineering and Neuroengineering at Georgia Tech and Emory. I split
-                my time between graduate coursework and research, learning the theory in lectures and putting it to work
-                on real neuroimaging problems.
-              </p>
-              <p className="text-base sm:text-lg leading-relaxed text-slate-600">
-                My research at SynterMed and UCLA Health focuses on quantitative neuroimaging. I analyze FDG and tau PET
-                scans in Python, validate neuroimaging software across processing settings and diagnostic groups, and
-                study how tau accumulation and glucose metabolism relate in the detection of Alzheimer's disease.
-                Outside of that work, I keep building brain-controlled interfaces and assistive technology, drawn to
-                problems that do not fit neatly into a single field.
-              </p>
-            </div>
+      {/* About: prose with an editorial column, not a bordered card. */}
+      <section className="bg-[#f3f6f8] px-5 sm:px-8 py-16 sm:py-24" aria-labelledby="about-heading">
+        <div className="mx-auto max-w-6xl grid md:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)] gap-6 md:gap-12">
+          <h2 id="about-heading" className="text-3xl sm:text-4xl font-normal tracking-tight text-[#172c43]">About Me</h2>
+          <div className="max-w-3xl text-[#42586f] space-y-6">
+            <p className="text-lg sm:text-xl leading-[1.75]">I'm a master's student in Biomedical Engineering and Neuroengineering at Georgia Tech and Emory. I split my time between graduate coursework and research, learning the theory in lectures and putting it to work on real neuroimaging problems.</p>
+            <p className="text-base sm:text-lg leading-[1.75]">My research at SynterMed and UCLA Health focuses on quantitative neuroimaging. I analyze FDG and tau PET scans in Python, validate neuroimaging software across processing settings and diagnostic groups, and study how tau accumulation and glucose metabolism relate in the detection of Alzheimer's disease. Outside of that work, I keep building brain-controlled interfaces and assistive technology, drawn to problems that do not fit neatly into a single field.</p>
           </div>
         </div>
       </section>
 
-      {/* Work Areas */}
-      <section className="py-20 sm:py-24 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 sm:mb-20">
-            <h2 className="text-2xl sm:text-3xl font-light text-slate-900 mb-4 sm:mb-6">My Work</h2>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto"></div>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
-            <div className="group text-center">
-              <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-3 sm:mb-4">Research</h3>
-              <p className="text-slate-600 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
-                Advancing neurotechnology, anatomical engineering, and cognitive science through research.
-              </p>
-              <Link
-                href="/research"
-                className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium group-hover:gap-2 transition-all text-sm sm:text-base"
-              >
-                Explore Research
-                <ArrowRight className="w-4 h-4 ml-1 group-hover:ml-0 transition-all" />
-              </Link>
-            </div>
-
-            <div className="group text-center">
-              <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-3 sm:mb-4">Work Experience</h3>
-              <p className="text-slate-600 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
-                Professional journey through innovative companies including Psyonic, Auli Tech, SynterMed, and UCLA's
-                Makerspace.
-              </p>
-              <Link
-                href="/work-experience"
-                className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium group-hover:gap-2 transition-all text-sm sm:text-base"
-              >
-                View Experience
-                <ArrowRight className="w-4 h-4 ml-1 group-hover:ml-0 transition-all" />
-              </Link>
-            </div>
-
-            <div className="group text-center sm:col-span-2 lg:col-span-1">
-              <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-3 sm:mb-4">Projects</h3>
-              <p className="text-slate-600 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
-                Diverse portfolio spanning computer science, data science engineering, experimental design, and personal
-                innovations.
-              </p>
-              <Link
-                href="/projects"
-                className="inline-flex items-center text-cyan-600 hover:text-cyan-700 font-medium group-hover:gap-2 transition-all text-sm sm:text-base"
-              >
-                Browse Projects
-                <ArrowRight className="w-4 h-4 ml-1 group-hover:ml-0 transition-all" />
-              </Link>
-            </div>
-          </div>
+      {/* Work areas: navigable list, not three matching feature cards. */}
+      <section className="bg-[#edf3f7] px-5 sm:px-8 py-16 sm:py-24" aria-labelledby="work-heading">
+        <div className="mx-auto max-w-6xl">
+          <h2 id="work-heading" className="text-3xl sm:text-4xl font-normal tracking-tight text-[#172c43] mb-8 sm:mb-12">My Work</h2>
+          {[
+            { title: "Research", href: "/research", description: "Advancing neurotechnology, anatomical engineering, and cognitive science through research." },
+            { title: "Work Experience", href: "/work-experience", description: "Professional journey through innovative companies including Psyonic, Auli Tech, SynterMed, and UCLA's Makerspace." },
+            { title: "Projects", href: "/projects", description: "Diverse portfolio spanning computer science, data science engineering, experimental design, and personal innovations." },
+          ].map((item) => (
+            <Link key={item.href} href={item.href} className="group grid md:grid-cols-[minmax(0,0.35fr)_minmax(0,0.57fr)_auto] items-center gap-3 md:gap-10 border-t border-[#c6d5e2] py-6 sm:py-9 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#235c91]">
+              <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-[#172c43] group-hover:text-[#235c91] transition-colors">{item.title}</h3>
+              <p className="text-base leading-relaxed text-[#4d6073]">{item.description}</p>
+              <ArrowRight className="hidden md:block w-5 h-5 text-[#235c91] transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            </Link>
+          ))}
+          <div className="border-t border-[#c6d5e2]" />
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-900 to-slate-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-light text-white mb-4 sm:mb-6">Let's Collaborate</h2>
-          <p className="text-lg sm:text-xl text-slate-300 mb-8 sm:mb-10 leading-relaxed">
-            Interested in discussing research opportunities or potential collaborations? I'd love to connect.
-          </p>
-          <Button
-            onClick={handleEmailClick}
-            size="lg"
-            className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white border-0 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-medium w-full sm:w-auto"
-          >
-            <div className="flex items-center gap-3 justify-center">
-              {emailCopied ? <Check className="w-4 h-4 sm:w-5 sm:h-5" /> : <Mail className="w-4 h-4 sm:w-5 sm:h-5" />}
-              {emailCopied ? "Email Copied!" : "Start a Conversation"}
-            </div>
-          </Button>
+      {/* Closing: flat navy, no gradient or outsized CTA. */}
+      <section className="bg-[#1c3047] px-5 sm:px-8 py-16 sm:py-20" aria-labelledby="collaborate-heading">
+        <div className="mx-auto max-w-6xl grid md:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)] gap-6 md:gap-12 items-start">
+          <h2 id="collaborate-heading" className="text-3xl sm:text-4xl tracking-tight font-normal text-white">Let's Collaborate</h2>
+          <div>
+            <p className="text-lg sm:text-xl leading-relaxed text-[#d6e2ed] mb-6">Interested in discussing research opportunities or potential collaborations? I'd love to connect.</p>
+            <button type="button" onClick={handleEmailClick} className="inline-flex items-center gap-3 text-white font-medium border-b border-[#98b9d9] pb-2 hover:text-[#b5d5ef] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+              {emailCopied ? "Email copied" : "Start a conversation"} <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Back to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-[#315e8d] hover:bg-[#20476f] text-white rounded-sm transition-colors duration-200 flex items-center justify-center z-50 opacity-90"
         aria-label="Back to top"
       >
         <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

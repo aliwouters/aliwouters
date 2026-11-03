@@ -39,58 +39,28 @@ export default function WorkExperiencePage() {
             </p>
           </div>
 
-          {/* Editorial experience grid: keep the original entries and destinations */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-4">
-              <article className="group border-t border-[#cedcea] pt-7 pb-10 flex flex-col">
-                <div className="h-20 flex items-center justify-start mb-8">
-                  <Image src="/images/psyonic-logo.png" alt="Psyonic logo" width="260" height="96" className="max-h-16 w-auto max-w-[210px] object-contain object-left" />
+          {/* Experience index: logo, position and full description in horizontal rows. */}
+          <div className="border-t border-[#c6d5e2]">
+            {[
+              { company: "Psyonic", image: "/images/psyonic-logo.png", role: "Mechatronics Intern", description: "Contributing to cutting-edge prosthetic technology development at a leading bionic limb company, focusing on user-centered testing and control system fabrication.", href: "/work-experience/psyonic" },
+              { company: "Auli Tech", image: "/images/auli-tech-logo.png", role: "Assistive Technology Intern", description: "Mentored a quadriplegic user in marketing and content creation, producing professional demo videos with Synthesia.io and launching a YouTube channel to showcase the Cato assistive device.", href: "/work-experience/auli-tech" },
+              { company: "Syntermed", image: "/images/syntermed-logo.png", role: "Neuronuclear Medicine and Imaging Consultant", description: "Conducting quantitative neuroimaging research on brain PET analysis and Alzheimer's disease, quantifying and validating FDG-PET scans and analyzing tau accumulation and glucose metabolism with Python.", href: "/work-experience/syntermed" },
+              { company: "UCLA Makerspace", image: "/images/makerspace-logo.png", role: "Makerspace Technician", description: "Managed technical equipment and facilitated student projects in UCLA's makerspace from 2023 to 2026, providing expertise in 3D printing, laser cutting, and advanced manufacturing techniques.", href: "/work-experience/makerspace" },
+              { company: "Braave", image: "/images/braave-logo.png", role: "R&D Consultant", description: "Developed biological sensor integration methods for Braave's wearable product line, preparing the seamlessly embedded sensing technology for clinical trials.", href: "/work-experience/braave" },
+            ].map((item) => (
+              <article key={item.href} className="grid md:grid-cols-[minmax(0,0.25fr)_minmax(0,0.75fr)] lg:grid-cols-[minmax(0,0.23fr)_minmax(0,0.27fr)_minmax(0,0.5fr)] gap-4 md:gap-7 lg:gap-10 border-b border-[#c6d5e2] py-8 sm:py-11 items-start">
+                <div className="min-h-16 flex items-start">
+                  <Image src={item.image} alt={`${item.company} logo`} width={210} height={84} className="max-h-16 w-auto max-w-[175px] object-contain object-left" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-medium tracking-tight text-[#1c304c] mb-4">Mechatronics Intern</h2>
-                <p className="text-[#53677d] leading-relaxed text-base mb-7 flex-1">Contributing to cutting-edge prosthetic technology development at a leading bionic limb company, focusing on user-centered testing and control system fabrication.</p>
-                <Link href="/work-experience/psyonic" className="group/link inline-flex items-center gap-2 self-start text-[#295b98] font-medium border-b border-[#8caccd] pb-1 hover:text-[#143b70] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#295b98]">
-                  View experience <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" aria-hidden="true" />
-                </Link>
-              </article>
-              <article className="group border-t border-[#cedcea] pt-7 pb-10 flex flex-col">
-                <div className="h-20 flex items-center justify-start mb-8">
-                  <Image src="/images/auli-tech-logo.png" alt="Auli Tech logo" width="260" height="96" className="max-h-16 w-auto max-w-[210px] object-contain object-left" />
+                <h2 className="text-xl sm:text-2xl font-medium tracking-tight text-[#1c304c] leading-snug">{item.role}</h2>
+                <div>
+                  <p className="text-[#53677d] leading-[1.7] text-base mb-5">{item.description}</p>
+                  <Link href={item.href} className="inline-flex items-center gap-2 text-[#295b98] font-medium hover:underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#295b98]">
+                    View experience <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                  </Link>
                 </div>
-                <h2 className="text-xl sm:text-2xl font-medium tracking-tight text-[#1c304c] mb-4">Assistive Technology Intern</h2>
-                <p className="text-[#53677d] leading-relaxed text-base mb-7 flex-1">Mentored a quadriplegic user in marketing and content creation, producing professional demo videos with Synthesia.io and launching a YouTube channel to showcase the Cato assistive device.</p>
-                <Link href="/work-experience/auli-tech" className="group/link inline-flex items-center gap-2 self-start text-[#295b98] font-medium border-b border-[#8caccd] pb-1 hover:text-[#143b70] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#295b98]">
-                  View experience <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" aria-hidden="true" />
-                </Link>
               </article>
-              <article className="group border-t border-[#cedcea] pt-7 pb-10 flex flex-col">
-                <div className="h-20 flex items-center justify-start mb-8">
-                  <Image src="/images/syntermed-logo.png" alt="SynterMed logo" width="260" height="96" className="max-h-16 w-auto max-w-[210px] object-contain object-left" />
-                </div>
-                <h2 className="text-xl sm:text-2xl font-medium tracking-tight text-[#1c304c] mb-4">Neuronuclear Medicine and Imaging Consultant</h2>
-                <p className="text-[#53677d] leading-relaxed text-base mb-7 flex-1">Conducting quantitative neuroimaging research on brain PET analysis and Alzheimer&apos;s disease, quantifying and validating FDG-PET scans and analyzing tau accumulation and glucose metabolism with Python.</p>
-                <Link href="/work-experience/syntermed" className="group/link inline-flex items-center gap-2 self-start text-[#295b98] font-medium border-b border-[#8caccd] pb-1 hover:text-[#143b70] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#295b98]">
-                  View experience <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" aria-hidden="true" />
-                </Link>
-              </article>
-              <article className="group border-t border-[#cedcea] pt-7 pb-10 flex flex-col">
-                <div className="h-20 flex items-center justify-start mb-8">
-                  <Image src="/images/makerspace-logo.png" alt="UCLA Makerspace logo" width="260" height="96" className="max-h-16 w-auto max-w-[210px] object-contain object-left" />
-                </div>
-                <h2 className="text-xl sm:text-2xl font-medium tracking-tight text-[#1c304c] mb-4">Makerspace Technician</h2>
-                <p className="text-[#53677d] leading-relaxed text-base mb-7 flex-1">Managed technical equipment and facilitated student projects in UCLA's makerspace from 2023 to 2026, providing expertise in 3D printing, laser cutting, and advanced manufacturing techniques.</p>
-                <Link href="/work-experience/makerspace" className="group/link inline-flex items-center gap-2 self-start text-[#295b98] font-medium border-b border-[#8caccd] pb-1 hover:text-[#143b70] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#295b98]">
-                  View experience <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" aria-hidden="true" />
-                </Link>
-              </article>
-              <article className="group border-t border-[#cedcea] pt-7 pb-10 flex flex-col">
-                <div className="h-20 flex items-center justify-start mb-8">
-                  <Image src="/images/braave-logo.png" alt="Braave logo" width="260" height="96" className="max-h-16 w-auto max-w-[210px] object-contain object-left" />
-                </div>
-                <h2 className="text-xl sm:text-2xl font-medium tracking-tight text-[#1c304c] mb-4">R&amp;D Consultant</h2>
-                <p className="text-[#53677d] leading-relaxed text-base mb-7 flex-1">Developed biological sensor integration methods for Braave&apos;s wearable product line, preparing the seamlessly embedded sensing technology for clinical trials.</p>
-                <Link href="/work-experience/braave" className="group/link inline-flex items-center gap-2 self-start text-[#295b98] font-medium border-b border-[#8caccd] pb-1 hover:text-[#143b70] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#295b98]">
-                  View experience <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" aria-hidden="true" />
-                </Link>
-              </article>
+            ))}
           </div>
         </div>
       </div>
@@ -98,7 +68,7 @@ export default function WorkExperiencePage() {
       {/* Back to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-[#2e609f] hover:bg-[#204e84] text-white rounded-full shadow-sm transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-[#315e8d] hover:bg-[#20476f] text-white rounded-sm transition-colors duration-200 flex items-center justify-center z-50 opacity-90"
         aria-label="Back to top"
       >
         <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
