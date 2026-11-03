@@ -135,11 +135,11 @@ export default function HomePage() {
             loop
             muted
             playsInline
-            className={`${sizeClasses} object-contain transition-all duration-500 bg-gradient-to-br from-slate-50 to-blue-50/30`}
+            className={`${sizeClasses} object-contain transition-all duration-500 bg-[#eaf1f8]`}
             style={{ transform: "scale(1.4)" }}
           />
           {project.caption && size === "main" && (
-            <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 bg-black/70 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-lg text-xs sm:text-sm font-medium">
+            <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 bg-[#172b46]/85 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-sm text-xs sm:text-sm font-medium">
               {project.caption}
             </div>
           )}
@@ -152,28 +152,13 @@ export default function HomePage() {
             src={project.image || "/placeholder.svg"}
             alt={project.title}
             fill
-            className={`object-contain transition-all duration-500 bg-gradient-to-br from-slate-50 to-blue-50`}
+            className={`object-contain transition-all duration-500 bg-[#eaf1f8]`}
           />
           {project.caption && size === "main" && (
-            <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 bg-black/70 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-lg text-xs sm:text-sm font-medium">
+            <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 bg-[#172b46]/85 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-sm text-xs sm:text-sm font-medium">
               {project.caption}
             </div>
           )}
-        </div>
-      )
-    } else if (project.is3D) {
-      return (
-        <div
-          className={`${sizeClasses} bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center transition-all duration-500`}
-        >
-          <div className="text-center p-2 sm:p-4">
-            {size === "main" && (
-              <>
-                <p className="text-slate-600 font-medium text-xs sm:text-sm">3D Model Screen Capture</p>
-                <p className="text-slate-500 text-xs mt-1 hidden sm:block">Click "Learn More" to explore</p>
-              </>
-            )}
-          </div>
         </div>
       )
     } else {
@@ -356,133 +341,40 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Projects Carousel */}
-      <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-light text-slate-900 mb-4 sm:mb-6">Featured Projects</h2>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto mb-4"></div>
-          </div>
-
-          <div className="relative">
-            {/* Carousel Container */}
-            <div className="flex items-center justify-center gap-3 sm:gap-6">
-              {/* Previous Project Preview - Hidden on mobile */}
-              <div
-                className="hidden lg:block w-40 xl:w-48 shrink-0 opacity-60 hover:opacity-80 transition-opacity cursor-pointer"
-                onClick={prevProject}
-              >
-                <Card className="border-slate-200/50 shadow-md bg-white/60">
-                  <CardContent className="p-0">
-                    <div className="relative h-32 overflow-hidden rounded-t-lg">
-                      {renderMedia(featuredProjects[getPrevProject()], "preview")}
-                    </div>
-                    <div className="p-4">
-                      <h4 className="text-sm font-medium text-slate-700 truncate">
-                        {featuredProjects[getPrevProject()].title}
-                      </h4>
-                      <span className="text-xs text-slate-500">{featuredProjects[getPrevProject()].category}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Main Project */}
-              <div className="flex-1 max-w-4xl mx-auto">
-                <Card className="border-slate-200/50 shadow-lg bg-white/80 backdrop-blur-sm">
-                  <CardContent className="p-0">
-                    <div className="grid lg:grid-cols-2 gap-0">
-                      {/* Media Section */}
-                      <div className="relative h-64 sm:h-80 lg:h-96 overflow-hidden lg:rounded-l-lg rounded-t-lg lg:rounded-t-none">
-                        {renderMedia(featuredProjects[currentProject])}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
-                      </div>
-
-                      {/* Content Section */}
-                      <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center">
-                        <div className="mb-4 flex flex-col sm:flex-row sm:items-center gap-2">
-                          <span className="inline-block px-3 py-1 bg-gradient-to-r from-blue-100 to-emerald-100 text-blue-800 text-xs sm:text-sm font-medium rounded-full transition-all duration-500 w-fit">
-                            {featuredProjects[currentProject].category}
-                          </span>
-                          <span className="text-xs text-slate-500 font-medium">
-                            {currentProject + 1} of {featuredProjects.length}
-                          </span>
-                        </div>
-                        <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 mb-3 sm:mb-4 transition-all duration-500 leading-tight">
-                          {featuredProjects[currentProject].title}
-                        </h3>
-                        <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 transition-all duration-500">
-                          {featuredProjects[currentProject].description}
-                        </p>
-                        <a
-                          href={featuredProjects[currentProject].link}
-                          onClick={(e) => handleLearnMoreClick(e, featuredProjects[currentProject].link)}
-                        >
-                          <Button className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                            <span className="relative z-10 flex items-center justify-center gap-2 text-sm sm:text-base">
-                              Learn More
-                              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-                            </span>
-                            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                          </Button>
-                        </a>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Next Project Preview - Hidden on mobile */}
-              <div
-                className="hidden lg:block w-40 xl:w-48 shrink-0 opacity-60 hover:opacity-80 transition-opacity cursor-pointer"
-                onClick={nextProject}
-              >
-                <Card className="border-slate-200/50 shadow-md bg-white/60">
-                  <CardContent className="p-0">
-                    <div className="relative h-32 overflow-hidden rounded-t-lg">
-                      {renderMedia(featuredProjects[getNextProject()], "preview")}
-                    </div>
-                    <div className="p-4">
-                      <h4 className="text-sm font-medium text-slate-700 truncate">
-                        {featuredProjects[getNextProject()].title}
-                      </h4>
-                      <span className="text-xs text-slate-500">{featuredProjects[getNextProject()].category}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
+      {/* Featured Projects — editorial presentation; existing carousel logic preserved */}
+      <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#f8fbff]" aria-labelledby="featured-projects-heading">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-end justify-between gap-6 border-b border-[#d9e4ef] pb-6 mb-9">
+            <div>
+              <p className="text-xs tracking-[0.16em] uppercase text-[#52749c] mb-3">Selected work</p>
+              <h2 id="featured-projects-heading" className="text-3xl sm:text-4xl font-light tracking-tight text-[#172b46]">Featured Projects</h2>
             </div>
-
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevProject}
-              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white border border-slate-200 rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-105 z-10"
-              aria-label="Previous project"
-            >
-              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-slate-600" />
-            </button>
-            <button
-              onClick={nextProject}
-              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white border border-slate-200 rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-105 z-10"
-              aria-label="Next project"
-            >
-              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-slate-600" />
-            </button>
-
-            {/* Dots Indicator */}
-            <div className="flex justify-center mt-6 sm:mt-8 gap-2">
-              {featuredProjects.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentProject(index)}
-                  className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                    index === currentProject
-                      ? "bg-gradient-to-r from-blue-600 to-emerald-600 scale-110"
-                      : "bg-slate-300 hover:bg-slate-400"
-                  }`}
-                  aria-label={`Go to project ${index + 1}`}
-                />
+            <p className="hidden sm:block text-sm text-[#65778b] tabular-nums">{String(currentProject + 1).padStart(2, "0")} / {String(featuredProjects.length).padStart(2, "0")}</p>
+          </div>
+          <div className="grid lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] gap-8 lg:gap-14 items-center">
+            <div className="relative aspect-[4/3] overflow-hidden bg-[#eaf1f8] border border-[#dce6f0] rounded-sm">
+              {renderMedia(featuredProjects[currentProject])}
+            </div>
+            <div className="py-2 lg:py-8 flex flex-col items-start" aria-live="polite">
+              <p className="text-xs uppercase tracking-[0.13em] text-[#52749c] mb-5">{featuredProjects[currentProject].category}</p>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl leading-tight tracking-tight font-medium text-[#162943] mb-6">{featuredProjects[currentProject].title}</h3>
+              <p className="text-base sm:text-lg leading-relaxed text-[#52647a] mb-8 max-w-prose">{featuredProjects[currentProject].description}</p>
+              <Link href={featuredProjects[currentProject].link} className="inline-flex items-center gap-3 border-b border-[#3566a3] pb-2 text-[#295b98] font-medium hover:text-[#173d70] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#295b98] group">
+                Explore project <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+          <div className="mt-8 pt-5 border-t border-[#d9e4ef] flex items-center justify-between gap-4">
+            <div className="flex items-center gap-2" aria-label="Choose featured project">
+              {featuredProjects.map((project, index) => (
+                <button key={project.id} type="button" onClick={() => setCurrentProject(index)}
+                  className={`h-1.5 rounded-full transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#295b98] ${index === currentProject ? "w-9 bg-[#3566a3]" : "w-5 bg-[#ccd9e8] hover:bg-[#8ba8c8]"}`}
+                  aria-label={`Show project ${index + 1}: ${project.title}`} aria-current={index === currentProject ? "true" : undefined} />
               ))}
+            </div>
+            <div className="flex gap-3">
+              <button type="button" onClick={prevProject} className="w-11 h-11 border border-[#d2dfeb] text-[#295b98] hover:bg-[#eaf1f8] transition-colors flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#295b98]" aria-label="Previous project"><ChevronLeft className="w-5 h-5" /></button>
+              <button type="button" onClick={nextProject} className="w-11 h-11 border border-[#d2dfeb] text-[#295b98] hover:bg-[#eaf1f8] transition-colors flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#295b98]" aria-label="Next project"><ChevronRight className="w-5 h-5" /></button>
             </div>
           </div>
         </div>
@@ -496,7 +388,7 @@ export default function HomePage() {
             <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto"></div>
           </div>
 
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/50 shadow-sm">
+          <div className="border-l-2 border-[#97b7d8] pl-6 sm:pl-10 py-2">
             <div className="max-w-4xl mx-auto">
               <p className="text-lg sm:text-xl leading-relaxed text-slate-600 mb-6 sm:mb-8">
                 I'm a master's student in Biomedical Engineering and Neuroengineering at Georgia Tech and Emory. I split
