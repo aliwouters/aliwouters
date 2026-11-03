@@ -338,3 +338,21 @@ a, button { -webkit-tap-highlight-color: transparent; }
 @media(max-width:640px) { .education-entry { padding-right:0; }.education-marks { position:static; width:auto; display:flex; justify-content:flex-start; gap:1.5rem; margin-bottom:1.25rem; }.education-marks img { width:5.5rem; max-height:4.5rem; } }
 .education-marks img[src$="ucla.svg"] { background:#2774ae; padding:.7rem; }
 .education-marks img[src$="queens.svg"] { background:#002452; padding:.6rem; }
+
+/* Hero composition: container matches Featured Projects (max-w-6xl + px-5/sm:px-8) so left edges align */
+.portfolio-hero .hero-columns { max-width: calc(72rem + 4rem); padding-inline: 2rem; grid-template-columns: minmax(0,1fr) auto; gap: 3rem; position: static; }
+.portfolio-hero .hero-copy { padding: 3rem 0; max-width: 40rem; }
+.portfolio-hero .hero-copy .hero-title { padding-right: 0; }
+.portfolio-hero .hero-photo-right { position: static; padding: 0; justify-content: flex-end; }
+.portfolio-hero .identity-portrait { flex: 0 0 auto; width: 260px; height: 260px; min-width: 260px; }
+@media(min-width:1024px) {
+  .portfolio-hero { min-height: min(78vh, 37.5rem); }
+  .portfolio-hero .hero-columns { gap: 4rem; }
+  .portfolio-hero .identity-portrait { width: 360px; height: 360px; min-width: 360px; }
+}
+@media(max-width:640px) {
+  .portfolio-hero .hero-columns { padding-inline: 1.25rem; padding-block: 2.5rem; grid-template-columns: 1fr; gap: 1.75rem; }
+  .portfolio-hero .hero-photo-right { order: -1; justify-content: flex-start; }
+  .portfolio-hero .hero-copy { padding: 0; }
+  .portfolio-hero .identity-portrait { width: 168px; height: 168px; min-width: 168px; }
+}
