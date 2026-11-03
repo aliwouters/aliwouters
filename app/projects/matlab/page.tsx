@@ -1,6 +1,8 @@
 "use client"
 
-import { useEffect } from "react"
+import SiteNav from "@/components/SiteNav"
+
+import { useEffect, type ReactNode } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -13,7 +15,7 @@ export default function MatlabProjectsPage() {
     window.scrollTo(0, 0)
   }, [])
 
-  const projects = [
+  const projects: { id:number; title:string; description:string; tags:string[]; icon:ReactNode; githubUrl:string; color:string; language:string; image?:string; images?:string[]; video?:string }[] = [
     {
       id: 9,
       title: "Monster Maze Game",
@@ -124,67 +126,17 @@ export default function MatlabProjectsPage() {
     },
   ]
 
-  const getColorClasses = (color: string) => {
-    const colorMap = {
-      blue: "bg-blue-100 text-blue-600 group-hover:bg-blue-200 border-blue-200 hover:border-blue-300",
-      green: "bg-green-100 text-green-600 group-hover:bg-green-200 border-green-200 hover:border-green-300",
-      purple: "bg-purple-100 text-purple-600 group-hover:bg-purple-200 border-purple-200 hover:border-purple-300",
-      orange: "bg-orange-100 text-orange-600 group-hover:bg-orange-200 border-orange-200 hover:border-orange-300",
-      rose: "bg-rose-100 text-rose-600 group-hover:bg-rose-200 border-rose-200 hover:border-rose-300",
-      teal: "bg-teal-100 text-teal-600 group-hover:bg-teal-200 border-teal-200 hover:border-teal-300",
-      indigo: "bg-indigo-100 text-indigo-600 group-hover:bg-indigo-200 border-indigo-200 hover:border-indigo-300",
-      cyan: "bg-cyan-100 text-cyan-600 group-hover:bg-cyan-200 border-cyan-200 hover:border-cyan-300",
-      red: "bg-red-100 text-red-600 group-hover:bg-red-200 border-red-200 hover:border-red-300",
-    }
-    return colorMap[color as keyof typeof colorMap] || colorMap.blue
-  }
-
-  const getButtonClasses = (color: string) => {
-    const buttonMap = {
-      blue: "bg-blue-600 hover:bg-blue-700",
-      green: "bg-green-600 hover:bg-green-700",
-      purple: "bg-purple-600 hover:bg-purple-700",
-      orange: "bg-orange-600 hover:bg-orange-700",
-      rose: "bg-rose-600 hover:bg-rose-700",
-      teal: "bg-teal-600 hover:bg-teal-700",
-      indigo: "bg-indigo-600 hover:bg-indigo-700",
-      cyan: "bg-cyan-600 hover:bg-cyan-700",
-      red: "bg-red-600 hover:bg-red-700",
-    }
-    return buttonMap[color as keyof typeof buttonMap] || buttonMap.blue
-  }
+  const getButtonClasses = (_color: string) => "bg-[#285c8a] hover:bg-[#1c456b]"
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="portfolio-inner case-study min-h-screen bg-white text-[#1b334b]">
       {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200/50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <Link href="/" className="text-2xl font-light text-slate-900 tracking-wide">
-              Alizee Wouters
-            </Link>
-            <div className="flex items-center gap-3">
-              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
-                <Link href="/projects" className="flex items-center gap-2">
-                  <ArrowLeft className="w-4 h-4" />
-                  Projects
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
-                <Link href="/" className="flex items-center gap-2">
-                  <Home className="w-4 h-4" />
-                  Home
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
-      <div className="pt-16 pb-24">
+      <div id="main-content" className="pt-16 pb-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="page-introduction mb-16">
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Computer Science</h1>
             <div className="mt-8">
               <Button asChild variant="outline" className="border-slate-300 bg-transparent hover:bg-slate-100">
@@ -206,7 +158,7 @@ export default function MatlabProjectsPage() {
             {projects.map((project) => (
               <Card
                 key={project.id}
-                className="border-slate-200/50 hover:shadow-lg transition-all duration-300 group overflow-hidden"
+                className="portfolio-article case-section border-slate-200/50 transition-all duration-300 group overflow-hidden"
               >
                 {project.image || project.images || project.video ? (
                   // Projects with images/video - horizontal layout with equal heights (starts at md breakpoint)
@@ -224,7 +176,7 @@ export default function MatlabProjectsPage() {
                           {project.language && (
                             <Badge
                               variant="secondary"
-                              className={`bg-${project.language === "C++" ? "blue" : "orange"}-500/10 text-${project.language === "C++" ? "blue" : "orange"}-500 border-${project.language === "C++" ? "blue" : "orange"}-500/20 text-xs font-medium`}
+                              className="bg-[#eef4f8] text-[#285c8a] border-[#cbd9e4] text-xs font-medium"
                             >
                               {project.language}
                             </Badge>
@@ -267,7 +219,7 @@ export default function MatlabProjectsPage() {
                             loop
                             muted
                             controls
-                            className="w-full h-auto max-h-[350px] object-contain rounded-md md:rounded-lg shadow-sm md:shadow-lg"
+                            className="w-full h-auto max-h-[350px] object-contain rounded-md md:rounded-lg"
                           >
                             <source src={project.video} type="video/mp4" />
                             Your browser does not support the video tag.
@@ -282,7 +234,7 @@ export default function MatlabProjectsPage() {
                                   alt={`Screenshot ${index + 1} of ${project.title}`}
                                   width={250}
                                   height={150}
-                                  className="w-full h-auto object-contain rounded-md shadow-sm"
+                                  className="w-full h-auto object-contain rounded-md"
                                 />
                               </div>
                             ))}
@@ -294,7 +246,7 @@ export default function MatlabProjectsPage() {
                             alt={`Screenshot of ${project.title}`}
                             width={350}
                             height={280}
-                            className="w-full h-auto max-h-[280px] md:max-h-[350px] object-contain rounded-md md:rounded-lg shadow-sm md:shadow-lg"
+                            className="w-full h-auto max-h-[280px] md:max-h-[350px] object-contain rounded-md md:rounded-lg"
                           />
                         )}
                       </div>
@@ -313,7 +265,7 @@ export default function MatlabProjectsPage() {
                       {project.language && (
                         <Badge
                           variant="secondary"
-                          className={`bg-${project.language === "C++" ? "blue" : "orange"}-500/10 text-${project.language === "C++" ? "blue" : "orange"}-500 border-${project.language === "C++" ? "blue" : "orange"}-500/20 text-xs font-medium`}
+                          className="bg-[#eef4f8] text-[#285c8a] border-[#cbd9e4] text-xs font-medium"
                         >
                           {project.language}
                         </Badge>
@@ -346,7 +298,7 @@ export default function MatlabProjectsPage() {
           {/* Back to Top Button */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+            className="fixed bottom-6 right-6 w-12 h-12 bg-[#285c8a] text-white rounded-full transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
             aria-label="Back to top"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

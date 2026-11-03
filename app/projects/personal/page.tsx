@@ -1,5 +1,7 @@
 "use client"
 
+import SiteNav from "@/components/SiteNav"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Heart, Home } from "lucide-react"
@@ -7,38 +9,15 @@ import Image from "next/image"
 
 export default function PersonalProjectsPage() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="portfolio-inner case-study min-h-screen bg-white text-[#1b334b]">
       {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200/50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <Link href="/" className="text-2xl font-light text-slate-900 tracking-wide">
-              Alizee Wouters
-            </Link>
-            <div className="flex items-center gap-3">
-              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
-                <Link href="/projects" className="flex items-center gap-2">
-                  <ArrowLeft className="w-4 h-4" />
-                  Projects
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
-                <Link href="/" className="flex items-center gap-2">
-                  <Home className="w-4 h-4" />
-                  Home
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
-      <div className="pt-16 pb-24">
+      <div id="main-content" className="pt-16 pb-24">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-20">
+          <div className="page-introduction mb-16">
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Personal Projects</h1>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-teal-600 to-teal-700 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Creative and personal projects that reflect my interests, hobbies, and passion for innovation outside of
               academic and professional work, showcasing diverse skills and creativity.
@@ -48,7 +27,7 @@ export default function PersonalProjectsPage() {
           {/* Projects Gallery */}
           <div className="space-y-16">
             {/* Personal Makerspace Projects */}
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+            <div className="case-study-block">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-medium text-slate-900 mb-4">Personal Projects</h3>
                 <p className="text-slate-600 leading-relaxed">
@@ -59,7 +38,7 @@ export default function PersonalProjectsPage() {
 
               {/* Personal project images - pulled from makerspace page */}
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200/50">
+                <div className="case-note    ">
                   <div className="relative w-48 h-48 mx-auto mb-4 rounded-lg overflow-hidden">
                     <Image
                       src="/images/personal-knife-box.jpeg"
@@ -77,7 +56,7 @@ export default function PersonalProjectsPage() {
                   </p>
                 </div>
 
-                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200/50">
+                <div className="case-note    ">
                   <div className="relative w-48 h-48 mx-auto mb-4 rounded-lg overflow-hidden">
                     <Image
                       src="/images/personal-wooden-frame.jpeg"
@@ -92,7 +71,7 @@ export default function PersonalProjectsPage() {
                   </p>
                 </div>
 
-                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200/50">
+                <div className="case-note    ">
                   <div className="relative w-48 h-48 mx-auto mb-4 rounded-lg overflow-hidden">
                     <Image
                       src="/images/personal-charcuterie-board.jpeg"
@@ -108,7 +87,7 @@ export default function PersonalProjectsPage() {
                   </p>
                 </div>
 
-                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200/50">
+                <div className="case-note    ">
                   <div className="relative w-48 h-48 mx-auto mb-4 rounded-lg overflow-hidden">
                     <Image
                       src="/images/personal-batman-puzzle.jpeg"
@@ -131,7 +110,7 @@ export default function PersonalProjectsPage() {
       {/* Back to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+        className="fixed bottom-6 right-6 w-12 h-12 bg-[#285c8a] text-white rounded-full transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
         aria-label="Back to top"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

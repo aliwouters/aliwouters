@@ -1,5 +1,7 @@
 "use client"
 
+import SiteNav from "@/components/SiteNav"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -33,7 +35,7 @@ function ModelLoader() {
   return (
     <Html center>
       <div className="flex items-center gap-2 text-slate-600">
-        <div className="w-4 h-4 border-2 border-green-600 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-4 h-4 border-2 border-[#cbd9e4] border-t-transparent rounded-full animate-spin"></div>
         Loading 3D Model...
       </div>
     </Html>
@@ -42,47 +44,27 @@ function ModelLoader() {
 
 export default function MakerspacePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-50">
+    <div className="portfolio-inner case-study min-h-screen bg-white text-[#1b334b]">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-sm border-b border-green-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <Link href="/" className="text-2xl font-bold text-gray-900">
-              Alizee Wouters
-            </Link>
-            <div className="flex gap-2">
-              <Button asChild variant="outline" size="sm">
-                <Link href="/" className="flex items-center gap-2">
-                  <Home className="w-4 h-4" />
-                  Home
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="sm">
-                <Link href="/work-experience" className="flex items-center gap-2">
-                  <ArrowLeft className="w-4 h-4" />
-                  Work Experience
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
+      <div id="main-content" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="page-introduction mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Makerspace Technician</h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-teal-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600">
-            Makerspace Technician - Empowering student innovation through hands-on technical support
+            UCLA Olympic Hall — Makerspace on the Hill
           </p>
         </div>
 
+        <figure className="sourced-feature">
+          <img src="/images/sourced/olympic-makerspace-team.png" alt="Makerspace on the Hill team outside UCLA Olympic Hall" className="makerspace-team-image" />
+          <figcaption>UCLA Olympic Hall — Makerspace on the Hill. Team photo: <a href="https://reslife.ucla.edu/learning-centers" target="_blank" rel="noopener noreferrer">UCLA Residential Life ↗</a></figcaption>
+        </figure>
         <div className="space-y-8">
           {/* Role Overview */}
-          <Card className="border-green-100 shadow-lg">
+          <Card className="portfolio-article case-section border-[#cbd9e4]">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
-                <Users className="w-6 h-6 text-green-500" />
                 Makerspace Technician Role
               </CardTitle>
             </CardHeader>
@@ -94,41 +76,41 @@ export default function MakerspacePage() {
               </p>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-green-50 p-6 rounded-lg">
+                <div className="case-note   ">
                   <h4 className="font-semibold text-gray-800 mb-3">Primary Responsibilities:</h4>
                   <ul className="text-gray-700 space-y-2">
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Guide students through project planning and execution
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Provide hands-on training with fabrication equipment
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Maintain and repair makerspace machinery
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Troubleshoot technical issues and equipment problems
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Support diverse makerspace projects and initiatives
                     </li>
                   </ul>
                 </div>
 
-                <div className="bg-green-50 p-6 rounded-lg">
+                <div className="case-note   ">
                   <h4 className="font-semibold text-gray-800 mb-3">Student Support Approach:</h4>
                   <p className="text-gray-700 text-sm leading-relaxed mb-4">
                     I work collaboratively with students to understand their project goals, discuss the necessary steps
                     for implementation, and provide guidance on tool selection and fabrication techniques. My approach
                     emphasizes learning through doing, safety protocols, and creative problem-solving.
                   </p>
-                  <div className="bg-green-100 p-3 rounded-lg">
-                    <p className="text-green-800 text-xs font-medium">
+                  <div className="case-note   ">
+                    <p className="text-[#285c8a] text-xs font-medium">
                       "Helping students transform ideas into reality through hands-on technical mentorship"
                     </p>
                   </div>
@@ -138,10 +120,9 @@ export default function MakerspacePage() {
           </Card>
 
           {/* Equipment & Technical Expertise */}
-          <Card className="border-green-100 shadow-lg">
+          <Card className="portfolio-article case-section border-[#cbd9e4]">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
-                <Settings className="w-6 h-6 text-green-500" />
                 Equipment & Technical Expertise
               </CardTitle>
             </CardHeader>
@@ -153,7 +134,7 @@ export default function MakerspacePage() {
               </p>
 
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-blue-50 p-6 rounded-lg">
+                <div className="case-note   ">
                   <h4 className="font-semibold text-gray-800 mb-3">Digital Fabrication</h4>
                   <ul className="text-gray-700 text-sm space-y-1">
                     <li>• Laser cutter/engraver operation</li>
@@ -166,7 +147,7 @@ export default function MakerspacePage() {
                   </ul>
                 </div>
 
-                <div className="bg-orange-50 p-6 rounded-lg">
+                <div className="case-note   ">
                   <h4 className="font-semibold text-gray-800 mb-3">Workshop Tools</h4>
                   <ul className="text-gray-700 text-sm space-y-1">
                     <li>• Miter saw</li>
@@ -179,7 +160,7 @@ export default function MakerspacePage() {
                   </ul>
                 </div>
 
-                <div className="bg-purple-50 p-6 rounded-lg">
+                <div className="case-note   ">
                   <h4 className="font-semibold text-gray-800 mb-3">Specialized Equipment</h4>
                   <ul className="text-gray-700 text-sm space-y-1">
                     <li>• Sewing machine</li>
@@ -196,10 +177,9 @@ export default function MakerspacePage() {
           </Card>
 
           {/* Professional Makerspace Projects */}
-          <Card className="border-green-100 shadow-lg">
+          <Card className="portfolio-article case-section border-[#cbd9e4]">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
-                <FolderOpen className="w-6 h-6 text-green-500" />
                 Professional Makerspace Projects
               </CardTitle>
             </CardHeader>
@@ -217,7 +197,7 @@ export default function MakerspacePage() {
                   <h4 className="font-semibold text-gray-800 text-lg mb-4">Adjustable Spindle Sander Guard</h4>
 
                   {/* 3D Model */}
-                  <div className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl p-4 mb-4">
+                  <div className="case-note   mb-4">
                     <div className="w-full h-64 rounded-lg overflow-hidden">
                       <Canvas
                         camera={{ position: [60, 60, 60], fov: 60, near: 0.1, far: 1000 }}
@@ -254,7 +234,7 @@ export default function MakerspacePage() {
                       tolerances, and functional mechanical design.
                     </p>
 
-                    <div className="bg-blue-50 p-3 rounded-lg">
+                    <div className="case-note   ">
                       <h5 className="font-medium text-gray-800 text-xs mb-2">Technical Skills:</h5>
                       <ul className="text-gray-700 text-xs space-y-1">
                         <li>• Advanced CAD modeling and assembly design</li>
@@ -271,7 +251,7 @@ export default function MakerspacePage() {
                   <h4 className="font-semibold text-gray-800 text-lg mb-4">Miter Saw Hose Adapter</h4>
 
                   {/* 3D Model */}
-                  <div className="bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl p-4 mb-4">
+                  <div className="case-note   mb-4">
                     <div className="w-full h-64 rounded-lg overflow-hidden">
                       <Canvas
                         camera={{ position: [75, 75, 75], fov: 50, near: 0.1, far: 1000 }}
@@ -308,7 +288,7 @@ export default function MakerspacePage() {
                       functionality and improved upon the original design.
                     </p>
 
-                    <div className="bg-green-50 p-3 rounded-lg">
+                    <div className="case-note   ">
                       <h5 className="font-medium text-gray-800 text-xs mb-2">Skills Demonstrated:</h5>
                       <ul className="text-gray-700 text-xs space-y-1">
                         <li>• CAD modeling and design optimization</li>
@@ -342,7 +322,7 @@ export default function MakerspacePage() {
                   </div>
 
                   <div className="bg-white rounded-lg p-4 border border-gray-200">
-                    <div className="relative w-48 h-48 mx-auto mb-3 rounded-lg overflow-hidden shadow-lg">
+                    <div className="relative w-48 h-48 mx-auto mb-3 rounded-lg overflow-hidden">
                       <Image
                         src="/images/professional-ironing-setup.jpeg"
                         alt="Green ironing board setup in makerspace workshop"
@@ -362,10 +342,9 @@ export default function MakerspacePage() {
           </Card>
 
           {/* Workshops */}
-          <Card className="border-green-100 shadow-lg">
+          <Card className="portfolio-article case-section border-[#cbd9e4]">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
-                <GraduationCap className="w-6 h-6 text-green-500" />
                 Workshops
               </CardTitle>
             </CardHeader>
@@ -376,7 +355,7 @@ export default function MakerspacePage() {
                 students can develop confidence with new tools and processes.
               </p>
 
-              <div className="mb-6 bg-green-50 p-4 rounded-lg">
+              <div className="case-note mb-6   ">
                 <h4 className="font-semibold text-gray-800 mb-3">Workshop Topics I Teach:</h4>
                 <div className="grid md:grid-cols-3 gap-4">
                   <ul className="text-gray-700 text-sm space-y-1">
@@ -462,8 +441,8 @@ export default function MakerspacePage() {
                 </div>
               </div>
 
-              <div className="mt-6 bg-blue-50 p-4 rounded-lg">
-                <p className="text-blue-800 text-sm">
+              <div className="case-note mt-6   ">
+                <p className="text-[#285c8a] text-sm">
                   <strong>Teaching Philosophy:</strong> I believe in hands-on learning where students gain confidence
                   through guided practice. Each workshop combines technical instruction with creative exploration,
                   ensuring students leave with both skills and inspiration for future projects.
@@ -473,10 +452,9 @@ export default function MakerspacePage() {
           </Card>
 
           {/* Personal Makerspace Projects */}
-          <Card className="border-green-100 shadow-lg">
+          <Card className="portfolio-article case-section border-[#cbd9e4]">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
-                <Lightbulb className="w-6 h-6 text-green-500" />
                 Personal Makerspace Projects
               </CardTitle>
             </CardHeader>
@@ -560,7 +538,7 @@ export default function MakerspacePage() {
         {/* Back to Top Button */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+          className="fixed bottom-6 right-6 w-12 h-12 bg-[#285c8a] text-white rounded-full transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
           aria-label="Back to top"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

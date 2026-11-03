@@ -1,5 +1,7 @@
 "use client"
 
+import SiteNav from "@/components/SiteNav"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Users, Video, Target, ExternalLink, Play, Home } from "lucide-react"
@@ -7,35 +9,13 @@ import Image from "next/image"
 
 export default function AuliTechPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-amber-50">
+    <div className="portfolio-inner case-study min-h-screen bg-white text-[#1b334b]">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-sm border-b border-yellow-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <Link href="/" className="text-2xl font-bold text-gray-900">
-              Alizee Wouters
-            </Link>
-            <div className="flex gap-2">
-              <Button asChild variant="outline" size="sm">
-                <Link href="/" className="flex items-center gap-2">
-                  <Home className="w-4 h-4" />
-                  Home
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="sm">
-                <Link href="/work-experience" className="flex items-center gap-2">
-                  <ArrowLeft className="w-4 h-4" />
-                  Work Experience
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div id="main-content" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header Section */}
-        <div className="text-center mb-16">
+        <div className="page-introduction mb-16">
           <div className="mb-6">
             <Image
               src="/images/auli-tech-logo.png"
@@ -46,14 +26,13 @@ export default function AuliTechPage() {
             />
           </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Assistive Technology Intern</h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-yellow-500 to-amber-600 mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Empowering independence through assistive technology and vocational skill development
           </p>
         </div>
 
         {/* About Auli Tech Section */}
-        <div className="bg-white rounded-3xl p-10 border border-yellow-100 shadow-lg mb-12">
+        <div className="case-section mb-12">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">About Auli Tech</h2>
@@ -68,7 +47,7 @@ export default function AuliTechPage() {
                   href="https://www.auli.tech/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                  className="inline-flex items-center gap-2 bg-[#285c8a] text-white px-6 py-3 rounded-lg font-medium transition-colors"
                 >
                   <ExternalLink className="w-5 h-5" />
                   Visit Auli Tech Website
@@ -77,7 +56,7 @@ export default function AuliTechPage() {
                   href="https://films.radiowest.org/film/autonomous"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                  className="inline-flex items-center gap-2 bg-[#285c8a] text-white px-6 py-3 rounded-lg font-medium transition-colors"
                 >
                   <Play className="w-5 h-5" />
                   Watch Spero's Story
@@ -85,7 +64,7 @@ export default function AuliTechPage() {
               </div>
             </div>
             <div className="lg:col-span-5">
-              <div className="rounded-2xl overflow-hidden border border-yellow-200 shadow-lg">
+              <div className="overflow-hidden border border-[#cbd9e4]">
                 <Image
                   src="/images/auli-tech-website.jpeg"
                   alt="Auli Tech website showing team photo and mission statement"
@@ -99,7 +78,7 @@ export default function AuliTechPage() {
         </div>
 
         {/* The Cato Device */}
-        <div className="bg-white rounded-3xl p-10 border border-yellow-100 shadow-lg mb-12">
+        <div className="case-section mb-12">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Meet Cato</h2>
             <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto">
@@ -110,7 +89,7 @@ export default function AuliTechPage() {
 
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-5">
-              <div className="bg-gradient-to-br from-yellow-100 to-amber-100 rounded-2xl p-8 flex items-center justify-center">
+              <div className="case-note   flex items-center justify-center">
                 <Image
                   src="/images/cato-device.png"
                   alt="Cato assistive technology device - yellow rounded device with colored buttons"
@@ -122,23 +101,23 @@ export default function AuliTechPage() {
             </div>
             <div className="lg:col-span-7">
               <div className="space-y-6">
-                <div className="bg-yellow-50 p-6 rounded-lg">
+                <div className="case-note   ">
                   <h4 className="font-semibold text-gray-800 mb-3">Key Features</h4>
                   <ul className="text-gray-700 space-y-2">
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Affordable alternative to expensive eye-tracking systems
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Intuitive button-based interface for easy navigation
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Designed for users with limited mobility
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Enables computer control and communication
                     </li>
                   </ul>
@@ -149,11 +128,11 @@ export default function AuliTechPage() {
         </div>
 
         {/* My Role & Project */}
-        <div className="bg-white rounded-3xl p-10 border border-yellow-100 shadow-lg mb-12">
+        <div className="case-section mb-12">
           <div className="grid lg:grid-cols-12 gap-8">
             <div className="lg:col-span-7">
               <h2 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center gap-3">
-                <Users className="w-6 h-6 text-yellow-500" />
+                <Users className="w-6 h-6 text-[#285c8a]" />
                 Vocational Skills Development Project
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
@@ -164,26 +143,26 @@ export default function AuliTechPage() {
               </p>
 
               <div className="space-y-6">
-                <div className="bg-yellow-50 p-6 rounded-lg">
+                <div className="case-note   ">
                   <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
-                    <Target className="w-5 h-5 text-yellow-600" />
+                    <Target className="w-5 h-5 text-[#285c8a]" />
                     Project Objectives
                   </h4>
                   <ul className="text-gray-700 space-y-2">
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Teach Synthesia.io video creation platform
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Develop marketing and communication skills
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Create educational content about Cato usage
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Build vocational skills for career development
                     </li>
                   </ul>
@@ -192,13 +171,13 @@ export default function AuliTechPage() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="bg-gradient-to-br from-yellow-100 to-amber-100 rounded-2xl p-6">
+              <div className="case-note  ">
                 <h4 className="font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                  <Video className="w-5 h-5 text-yellow-600" />
+                  <Video className="w-5 h-5 text-[#285c8a]" />
                   Student's First Video
                 </h4>
                 <div className="relative">
-                  <div className="rounded-lg overflow-hidden border border-yellow-200 shadow-lg mb-4">
+                  <div className="rounded-lg overflow-hidden border border-[#cbd9e4] mb-4">
                     <Image
                       src="/images/brooklynn-watson-video.png"
                       alt="YouTube video thumbnail showing Brooklynn Watson - Thriving on Assistive Tech, Interviewed by Alizee Wouters"
@@ -216,7 +195,7 @@ export default function AuliTechPage() {
                       href="https://www.youtube.com/watch?v=QH_3apVr4Ng"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+                      className="inline-flex items-center gap-2 bg-[#285c8a] hover:bg-[#285c8a] text-white px-4 py-2 rounded-lg font-medium transition-colors"
                     >
                       <Play className="w-4 h-4" />
                       Watch on YouTube
@@ -224,7 +203,7 @@ export default function AuliTechPage() {
                   </div>
 
                   {/* Project Philosophy - moved from Impact section */}
-                  <div className="bg-white/80 rounded-lg p-4 border border-yellow-200">
+                  <div className="bg-white/80 rounded-lg p-4 border border-[#cbd9e4]">
                     <h4 className="font-semibold text-gray-800 mb-3">Project Philosophy</h4>
                     <p className="text-gray-600 text-sm leading-relaxed">
                       This collaboration demonstrated that technology is most powerful when it serves to amplify human
@@ -242,7 +221,7 @@ export default function AuliTechPage() {
         {/* Back to Top Button */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-yellow-600 to-amber-600 hover:from-yellow-700 hover:to-amber-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+          className="fixed bottom-6 right-6 w-12 h-12 bg-[#285c8a] text-white rounded-full transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
           aria-label="Back to top"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

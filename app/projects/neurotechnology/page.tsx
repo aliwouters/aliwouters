@@ -1,5 +1,7 @@
 "use client"
 
+import SiteNav from "@/components/SiteNav"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Brain, Zap, Activity, Target, ExternalLink, Trophy, Users, Home, Globe } from "lucide-react"
@@ -7,38 +9,15 @@ import Image from "next/image"
 
 export default function NeurotechnologyPage() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="portfolio-inner case-study min-h-screen bg-white text-[#1b334b]">
       {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200/50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <Link href="/" className="text-2xl font-light text-slate-900 tracking-wide">
-              Alizee Wouters
-            </Link>
-            <div className="flex gap-3">
-              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
-                <Link href="/" className="flex items-center gap-2">
-                  <Home className="w-4 h-4" />
-                  Home
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
-                <Link href="/projects" className="flex items-center gap-2">
-                  <ArrowLeft className="w-4 h-4" />
-                  Projects
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
-      <div className="pt-16 pb-24">
+      <div id="main-content" className="pt-16 pb-24">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-20">
+          <div className="page-introduction mb-16">
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Neurotechnology Research</h1>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-blue-700 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-6">
               Pioneering brain-computer interfaces and neural signal processing technologies that transform how we
               interact with machines.
@@ -50,7 +29,7 @@ export default function NeurotechnologyPage() {
                 href="https://www.cruxucla.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
+                className="inline-flex items-center gap-2 text-[#285c8a] hover:text-[#285c8a] transition-colors text-sm font-medium"
               >
                 <Globe className="w-4 h-4" />
                 Most projects developed through CruX UCLA
@@ -69,10 +48,10 @@ export default function NeurotechnologyPage() {
             <div className="grid md:grid-cols-1 gap-6">
               <Link
                 href="/projects/neurotechnology/phosphene-simulator"
-                className="group block bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-6 border border-teal-200/50 transition-all hover:shadow-lg hover:border-teal-300/70"
+                className="group block bg-[#eef4f8] p-6 border border-[#cbd9e4] transition-all hover:border-[#cbd9e4]"
               >
                 {/* Project screenshot */}
-                <div className="mb-5 rounded-xl overflow-hidden border border-teal-200/50">
+                <div className="mb-5 overflow-hidden border border-[#cbd9e4]">
                   <Image
                     src="/images/phosphene-simulator.png"
                     alt="Phosphene Vision Simulator interface showing camera feed, brightness matrix, phosphene map, and occipital cortex map panels"
@@ -83,10 +62,10 @@ export default function NeurotechnologyPage() {
                 </div>
                 <div className="flex items-start gap-4 mb-4">
                   <div className="flex-1">
-                    <div className="inline-block px-3 py-1 bg-teal-500/10 text-teal-700 text-xs font-medium rounded-full mb-2">
+                    <div className="inline-block px-3 py-1 bg-[#eef4f8]0/10 text-[#285c8a] text-xs font-medium rounded-full mb-2">
                       Personal Project
                     </div>
-                    <h3 className="text-lg font-medium text-slate-900 mb-2 group-hover:text-teal-700 transition-colors">
+                    <h3 className="text-lg font-medium text-slate-900 mb-2 group-hover:text-[#285c8a] transition-colors">
                       Phosphene Vision Simulator
                     </h3>
                     <p className="text-sm text-slate-600 leading-relaxed">
@@ -98,12 +77,12 @@ export default function NeurotechnologyPage() {
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <span className="inline-flex items-center justify-center gap-2 text-sm font-medium rounded-md px-4 py-2 bg-teal-600 text-white group-hover:bg-teal-700 transition-colors flex-1 text-center">
+                  <span className="inline-flex items-center justify-center gap-2 text-sm font-medium rounded-md px-4 py-2 bg-[#285c8a] text-white group-hover:bg-[#285c8a] transition-colors flex-1 text-center">
                     <ExternalLink className="w-4 h-4" />
                     Open Simulator
                   </span>
                   <span
-                    className="inline-flex items-center justify-center gap-2 text-sm font-medium rounded-md px-4 py-2 border border-teal-300 text-teal-700 bg-transparent flex-1 text-center"
+                    className="inline-flex items-center justify-center gap-2 text-sm font-medium rounded-md px-4 py-2 border border-[#cbd9e4] text-[#285c8a] bg-transparent flex-1 text-center"
                     onClick={(e) => {
                       e.preventDefault()
                       window.open("https://github.com/aliwouters/Phosphene-Vision-Simulator-", "_blank")
@@ -116,10 +95,10 @@ export default function NeurotechnologyPage() {
               </Link>
 
               {/* Pre-ictal Seizure Detection */}
-              <div className="bg-gradient-to-br from-rose-50 to-orange-50 rounded-2xl p-6 border border-rose-200/50">
+              <div className="case-note    ]">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="flex-1">
-                    <div className="inline-block px-3 py-1 bg-rose-500/10 text-rose-700 text-xs font-medium rounded-full mb-2">
+                    <div className="inline-block px-3 py-1 bg-[#eef4f8]0/10 text-[#285c8a] text-xs font-medium rounded-full mb-2">
                       Personal Project
                     </div>
                     <h3 className="text-lg font-medium text-slate-900 mb-2">Pre-ictal Seizure Detection</h3>
@@ -134,7 +113,7 @@ export default function NeurotechnologyPage() {
                 {/* EEG figures side by side */}
                 <div className="mb-4 flex flex-wrap items-center justify-center gap-4">
                   {/* EEG seizure timeline diagram */}
-                  <div className="flex-1 min-w-[240px] max-w-md rounded-xl overflow-hidden border border-rose-200/50 bg-white">
+                  <div className="flex-1 min-w-[240px] max-w-md overflow-hidden border border-[#cbd9e4] bg-white">
                     <Image
                       src="/images/seizure-eeg-timeline.png"
                       alt="EEG timeline showing seizure phases: normal EEG, 30-minute preictal state with subtle pre-seizure patterns, 5-minute buffer, 10-minute ictal seizure event with high-amplitude chaotic spikes, 30-minute post-seizure recovery buffer, and interictal baseline"
@@ -144,7 +123,7 @@ export default function NeurotechnologyPage() {
                     />
                   </div>
                   {/* EEG preprocessing pipeline: raw signal to CNN input */}
-                  <div className="w-[180px] rounded-xl overflow-hidden border border-rose-200/50 bg-white">
+                  <div className="w-[180px] overflow-hidden border border-[#cbd9e4] bg-white">
                     <Image
                       src="/images/eeg-preprocessing-pipeline.png"
                       alt="Six-panel EEG preprocessing pipeline: raw EEG recording segment, resampled to 256 Hz, bandpass filtered 0.5 to 40 Hz, power spectrogram on a linear scale, log-transformed spectrogram for feature enhancement, and z-score normalized final CNN input"
@@ -155,7 +134,7 @@ export default function NeurotechnologyPage() {
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <Button asChild size="sm" className="flex-1 bg-rose-600 hover:bg-rose-700">
+                  <Button asChild size="sm" className="flex-1 bg-[#285c8a] hover:bg-[#285c8a]">
                     <a
                       href="https://blobs.vusercontent.net/blob/Alizee%27s%20186B%20Final%20-%20Pre-ictal%20Seizure%20Detection-gR0nuPW7gU154BZHMaFAur9tt3po5t.pdf"
                       target="_blank"
@@ -166,7 +145,7 @@ export default function NeurotechnologyPage() {
                       View Slides
                     </a>
                   </Button>
-                  <Button asChild size="sm" variant="outline" className="flex-1 border-rose-300 bg-transparent">
+                  <Button asChild size="sm" variant="outline" className="flex-1 border-[#cbd9e4] bg-transparent">
                     <a
                       href="https://github.com/aliwouters/Pre-Ictal-Seizure-Detection"
                       target="_blank"
@@ -181,9 +160,9 @@ export default function NeurotechnologyPage() {
               </div>
 
               {/* Play With Your Mind: Real-Time Multiplayer BCI Gaming Platform */}
-              <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-6 border border-indigo-200/50">
+              <div className="case-note    ]">
                 {/* Research poster */}
-                <div className="mb-5 rounded-xl overflow-hidden border border-indigo-200/50 bg-white">
+                <div className="mb-5 overflow-hidden border border-[#cbd9e4] bg-white">
                   <Image
                     src="/images/bci-gaming-poster.png"
                     alt="Research poster titled Play With Your Mind: A Real-Time Multiplayer BCI Gaming Platform, developed with the CruX Consulting Team and g.tec, detailing EEG signal processing, system architecture, the Grand PrEE-G attention-controlled racing game, and the NeuroJack SSVEP card game"
@@ -194,7 +173,7 @@ export default function NeurotechnologyPage() {
                 </div>
                 <div className="flex items-start gap-4 mb-4">
                   <div className="flex-1">
-                    <div className="inline-block px-3 py-1 bg-indigo-500/10 text-indigo-700 text-xs font-medium rounded-full mb-2">
+                    <div className="inline-block px-3 py-1 bg-[#eef4f8]0/10 text-[#285c8a] text-xs font-medium rounded-full mb-2">
                       CruX × g.tec
                     </div>
                     <h3 className="text-lg font-medium text-slate-900 mb-2">
@@ -213,15 +192,14 @@ export default function NeurotechnologyPage() {
           </div>
 
           {/* Past Projects section heading */}
-          <div className="text-center mb-12">
+          <div className="page-introduction mb-12">
             <h2 className="text-3xl font-light text-slate-900 mb-2">Past Projects</h2>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-slate-400 to-slate-500 mx-auto"></div>
           </div>
 
           {/* Research Projects */}
           <div className="space-y-16">
             {/* Stress Detection EEG Applied to Poker */}
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+            <div className="case-study-block">
               <div className="grid lg:grid-cols-12 gap-8">
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">Stress Detection EEG Applied to Poker</h3>
@@ -236,8 +214,8 @@ export default function NeurotechnologyPage() {
                     <h4 className="font-semibold text-slate-900 mb-4">Discrete EEG System Development</h4>
                     <div className="grid grid-cols-6 gap-3">
                       {/* Hardware Components - FIRST */}
-                      <div className="bg-purple-50 rounded-lg p-2">
-                        <div className="aspect-square rounded-lg overflow-hidden border border-purple-200 mb-2">
+                      <div className="bg-[#eef4f8] rounded-lg p-2">
+                        <div className="aspect-square rounded-lg overflow-hidden border border-[#cbd9e4] mb-2">
                           <Image
                             src="/images/img-2890.jpeg"
                             alt="EEG processing hardware and circuit boards used in the discrete headset system"
@@ -252,8 +230,8 @@ export default function NeurotechnologyPage() {
                       </div>
 
                       {/* Discrete Cap in Use - SECOND */}
-                      <div className="bg-purple-50 rounded-lg p-2">
-                        <div className="aspect-square rounded-lg overflow-hidden border border-purple-200 mb-2">
+                      <div className="bg-[#eef4f8] rounded-lg p-2">
+                        <div className="aspect-square rounded-lg overflow-hidden border border-[#cbd9e4] mb-2">
                           <Image
                             src="/images/img-1846.jpeg"
                             alt="Person wearing discrete EEG cap while working at laptop in classroom setting"
@@ -268,8 +246,8 @@ export default function NeurotechnologyPage() {
                       </div>
 
                       {/* Poker Game Testing - THIRD */}
-                      <div className="bg-purple-50 rounded-lg p-2">
-                        <div className="aspect-square rounded-lg overflow-hidden border border-purple-200 mb-2">
+                      <div className="bg-[#eef4f8] rounded-lg p-2">
+                        <div className="aspect-square rounded-lg overflow-hidden border border-[#cbd9e4] mb-2">
                           <Image
                             src="/images/img-1916.jpeg"
                             alt="Group of people playing poker with EEG headset for stress detection research"
@@ -284,8 +262,8 @@ export default function NeurotechnologyPage() {
                       </div>
 
                       {/* Multiple Headsets - FOURTH */}
-                      <div className="bg-purple-50 rounded-lg p-2">
-                        <div className="aspect-square rounded-lg overflow-hidden border border-purple-200 mb-2">
+                      <div className="bg-[#eef4f8] rounded-lg p-2">
+                        <div className="aspect-square rounded-lg overflow-hidden border border-[#cbd9e4] mb-2">
                           <Image
                             src="/images/img-5928.jpeg"
                             alt="Multiple discrete EEG baseball caps showing manufacturing and assembly process"
@@ -301,8 +279,8 @@ export default function NeurotechnologyPage() {
                       </div>
 
                       {/* Interior Electronics - FIFTH */}
-                      <div className="bg-purple-50 rounded-lg p-2">
-                        <div className="aspect-square rounded-lg overflow-hidden border border-purple-200 mb-2">
+                      <div className="bg-[#eef4f8] rounded-lg p-2">
+                        <div className="aspect-square rounded-lg overflow-hidden border border-[#cbd9e4] mb-2">
                           <Image
                             src="/images/img-3967.jpeg"
                             alt="Interior view of baseball cap showing integrated EEG electrodes and wiring system"
@@ -317,8 +295,8 @@ export default function NeurotechnologyPage() {
                       </div>
 
                       {/* Conference Presentation - SIXTH */}
-                      <div className="bg-purple-50 rounded-lg p-2">
-                        <div className="aspect-square rounded-lg overflow-hidden border border-purple-200 mb-2">
+                      <div className="bg-[#eef4f8] rounded-lg p-2">
+                        <div className="aspect-square rounded-lg overflow-hidden border border-[#cbd9e4] mb-2">
                           <Image
                             src="/images/img-2894.jpeg"
                             alt="Conference presentation showing biofeedback dashboard with cognitive state data during poker gameplay"
@@ -336,29 +314,29 @@ export default function NeurotechnologyPage() {
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-purple-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Technical Improvements</h4>
                       <ul className="text-slate-700 space-y-2">
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Complete concealment within baseball cap
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Miniaturized signal processing electronics
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Real-time stress level monitoring
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Wireless data transmission capabilities
                         </li>
                       </ul>
                     </div>
 
-                    <div className="bg-slate-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Research Applications</h4>
                       <p className="text-slate-600 text-sm leading-relaxed">
                         This discrete system enables unobtrusive monitoring of cognitive load and stress responses
@@ -369,15 +347,15 @@ export default function NeurotechnologyPage() {
                   </div>
 
                   {/* Project Documentation Link */}
-                  <div className="bg-purple-50 rounded-2xl p-6 mt-6">
+                  <div className="case-note   mt-6">
                     <h4 className="font-semibold text-slate-900 mb-4">Project Documentation</h4>
                     <a
                       href="https://docs.google.com/presentation/d/1MRi5empiZggo5zpohyQqALtpNQv3m6fwrzsRnKQy6vY/edit?usp=sharing"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-white hover:bg-purple-50 border border-purple-200 rounded-lg p-4 transition-colors"
+                      className="flex items-center gap-2 bg-white hover:bg-[#eef4f8] border border-[#cbd9e4] rounded-lg p-4 transition-colors"
                     >
-                      <ExternalLink className="w-5 h-5 text-purple-600" />
+                      <ExternalLink className="w-5 h-5 text-[#285c8a]" />
                       <div>
                         <p className="font-medium text-slate-900">Project Presentation</p>
                         <p className="text-sm text-slate-600">
@@ -391,7 +369,7 @@ export default function NeurotechnologyPage() {
             </div>
 
             {/* Emotion Detection with EEG */}
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+            <div className="case-study-block">
               <div className="grid lg:grid-cols-12 gap-8">
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">Emotion Detection with EEG</h3>
@@ -406,8 +384,8 @@ export default function NeurotechnologyPage() {
                     <h4 className="font-semibold text-slate-900 mb-4">Development Process & Hardware</h4>
                     <div className="grid grid-cols-4 gap-4">
                       {/* EEG Cap with Logo */}
-                      <div className="bg-emerald-50 rounded-lg p-3">
-                        <div className="aspect-square rounded-lg overflow-hidden border border-emerald-200 mb-3">
+                      <div className="case-note   ">
+                        <div className="aspect-square rounded-lg overflow-hidden border border-[#cbd9e4] mb-3">
                           <Image
                             src="/images/eeg-cap-logo.jpeg"
                             alt="EEG cap with brain-circuit logo design"
@@ -420,8 +398,8 @@ export default function NeurotechnologyPage() {
                       </div>
 
                       {/* CAD Design */}
-                      <div className="bg-emerald-50 rounded-lg p-3">
-                        <div className="aspect-square rounded-lg overflow-hidden border border-emerald-200 mb-3">
+                      <div className="case-note   ">
+                        <div className="aspect-square rounded-lg overflow-hidden border border-[#cbd9e4] mb-3">
                           <Image
                             src="/images/eeg-cad-design.jpeg"
                             alt="CAD design of EEG headset showing 3D modeling process"
@@ -437,8 +415,8 @@ export default function NeurotechnologyPage() {
                       </div>
 
                       {/* Electrode Array Interior */}
-                      <div className="bg-emerald-50 rounded-lg p-3">
-                        <div className="aspect-square rounded-lg overflow-hidden border border-emerald-200 mb-3">
+                      <div className="case-note   ">
+                        <div className="aspect-square rounded-lg overflow-hidden border border-[#cbd9e4] mb-3">
                           <Image
                             src="/images/eeg-electrodes-inside.jpeg"
                             alt="Interior view of EEG cap showing electrode placement and wiring"
@@ -453,8 +431,8 @@ export default function NeurotechnologyPage() {
                       </div>
 
                       {/* Video Demo */}
-                      <div className="bg-emerald-50 rounded-lg p-3">
-                        <div className="aspect-square rounded-lg overflow-hidden border border-emerald-200 mb-3">
+                      <div className="case-note   ">
+                        <div className="aspect-square rounded-lg overflow-hidden border border-[#cbd9e4] mb-3">
                           <video
                             controls
                             className="w-full h-full object-cover"
@@ -473,29 +451,29 @@ export default function NeurotechnologyPage() {
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6 mb-6">
-                    <div className="bg-emerald-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Research Areas</h4>
                       <ul className="text-slate-700 space-y-2">
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Signal acquisition and preprocessing
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Feature extraction from neural oscillations
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Deep learning classification models
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Wearable device integration
                         </li>
                       </ul>
                     </div>
 
-                    <div className="bg-slate-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Applications</h4>
                       <p className="text-slate-600 text-sm leading-relaxed">
                         Creating systems that can monitor emotional states in real-time, enabling personalized
@@ -505,15 +483,15 @@ export default function NeurotechnologyPage() {
                   </div>
 
                   {/* Project Documentation Link */}
-                  <div className="bg-emerald-50 rounded-2xl p-6 mb-6">
+                  <div className="case-note   mb-6">
                     <h4 className="font-semibold text-slate-900 mb-4">Project Documentation</h4>
                     <a
                       href="https://docs.google.com/presentation/d/1fPS0Ay2W_059HFDyExSL4MkaLow2HHIPaFNvYy6kt4Y/edit?slide=id.p#slide=id.p"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-white hover:bg-emerald-50 border border-emerald-200 rounded-lg p-4 transition-colors"
+                      className="flex items-center gap-2 bg-white hover:bg-[#eef4f8] border border-[#cbd9e4] rounded-lg p-4 transition-colors"
                     >
-                      <ExternalLink className="w-5 h-5 text-emerald-600" />
+                      <ExternalLink className="w-5 h-5 text-[#285c8a]" />
                       <div>
                         <p className="font-medium text-slate-900">Project Presentation</p>
                         <p className="text-sm text-slate-600">Complete project slideshow and results</p>
@@ -522,9 +500,9 @@ export default function NeurotechnologyPage() {
                   </div>
 
                   {/* California Neurotechnology Conference */}
-                  <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border border-amber-200">
+                  <div className="case-note    ]">
                     <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
-                      <Trophy className="w-5 h-5 text-amber-600" />
+                      <Trophy className="w-5 h-5 text-[#285c8a]" />
                       California Neurotechnology Conference
                     </h4>
                     <p className="text-slate-700 text-sm leading-relaxed mb-3">
@@ -544,7 +522,7 @@ export default function NeurotechnologyPage() {
             </div>
 
             {/* CruX - Brain-Controlled Pincher */}
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+            <div className="case-study-block">
               <div className="grid lg:grid-cols-12 gap-8">
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">CruX - Brain-Controlled Pincher</h3>
@@ -556,34 +534,34 @@ export default function NeurotechnologyPage() {
 
                   <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="space-y-6">
-                      <div className="bg-blue-50 rounded-2xl p-6">
+                      <div className="case-note  ">
                         <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
-                          <Target className="w-5 h-5 text-blue-600" />
+                          <Target className="w-5 h-5 text-[#285c8a]" />
                           Key Features
                         </h4>
                         <ul className="text-slate-700 space-y-2">
                           <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                            <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                             Real-time EEG signal processing
                           </li>
                           <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                            <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                             Machine learning-based intent recognition
                           </li>
                           <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                            <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                             Precise motor control algorithms
                           </li>
                           <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                            <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                             User-adaptive calibration system
                           </li>
                         </ul>
                       </div>
 
-                      <div className="bg-blue-50 rounded-2xl p-6">
+                      <div className="case-note  ">
                         <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
-                          <Target className="w-5 h-5 text-blue-600" />
+                          <Target className="w-5 h-5 text-[#285c8a]" />
                           Technical Approach
                         </h4>
                         <p className="text-slate-700 text-sm leading-relaxed">
@@ -593,9 +571,9 @@ export default function NeurotechnologyPage() {
                         </p>
                       </div>
 
-                      <div className="bg-amber-50 rounded-2xl p-6 border border-amber-200">
+                      <div className="case-note    ]">
                         <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
-                          <Target className="w-5 h-5 text-amber-600" />
+                          <Target className="w-5 h-5 text-[#285c8a]" />
                           Outcome
                         </h4>
                         <p className="text-slate-700 text-sm leading-relaxed">
@@ -608,10 +586,10 @@ export default function NeurotechnologyPage() {
                       </div>
                     </div>
 
-                    <div className="bg-slate-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Hardware Implementation</h4>
                       <div className="relative">
-                        <div className="rounded-2xl overflow-hidden border border-blue-200 shadow-lg">
+                        <div className="overflow-hidden border border-[#cbd9e4]">
                           <Image
                             src="/images/crux-brain-pincher.jpeg"
                             alt="CruX brain-controlled pincher robotic arm with control electronics, showing the physical implementation of the brain-computer interface system"
@@ -630,16 +608,16 @@ export default function NeurotechnologyPage() {
                   </div>
 
                   {/* Project Documentation Links */}
-                  <div className="bg-blue-50 rounded-2xl p-6">
+                  <div className="case-note  ">
                     <h4 className="font-semibold text-slate-900 mb-4">Project Documentation</h4>
                     <div className="grid md:grid-cols-2 gap-4">
                       <a
                         href="https://docs.google.com/presentation/d/1cWC6TjJJL-B-fmr4Tyk7YvJxk5iAy02wZV_ZKVp1GWs/edit?slide=id.p#slide=id.p"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 bg-white hover:bg-blue-50 border border-blue-200 rounded-lg p-4 transition-colors"
+                        className="flex items-center gap-2 bg-white hover:bg-[#eef4f8] border border-[#cbd9e4] rounded-lg p-4 transition-colors"
                       >
-                        <ExternalLink className="w-5 h-5 text-blue-600" />
+                        <ExternalLink className="w-5 h-5 text-[#285c8a]" />
                         <div>
                           <p className="font-medium text-slate-900">Project Proposal</p>
                           <p className="text-sm text-slate-600">Initial project concept and methodology</p>
@@ -649,9 +627,9 @@ export default function NeurotechnologyPage() {
                         href="https://docs.google.com/presentation/d/1OCY-NMioLosHl-sckusI5GpqvFdAB2_lpDTKidcp0-8/edit?slide=id.p#slide=id.p"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 bg-white hover:bg-blue-50 border border-blue-200 rounded-lg p-4 transition-colors"
+                        className="flex items-center gap-2 bg-white hover:bg-[#eef4f8] border border-[#cbd9e4] rounded-lg p-4 transition-colors"
                       >
-                        <ExternalLink className="w-5 h-5 text-blue-600" />
+                        <ExternalLink className="w-5 h-5 text-[#285c8a]" />
                         <div>
                           <p className="font-medium text-slate-900">Project Presentation</p>
                           <p className="text-sm text-slate-600">Final results and demonstration</p>
@@ -669,7 +647,7 @@ export default function NeurotechnologyPage() {
       {/* Back to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+        className="fixed bottom-6 right-6 w-12 h-12 bg-[#285c8a] text-white rounded-full transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
         aria-label="Back to top"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
