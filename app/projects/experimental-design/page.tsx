@@ -1,225 +1,54 @@
-"use client"
+import SiteNav from "@/components/SiteNav"
 
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ArrowLeft, FlaskConical, Users, BarChart, Brain } from "lucide-react"
+const experiments = [
+  {
+    "title": "Audiovisual Perception Study",
+    "description": "Examines how sound affects perception of an animation. Two circles meet behind a square while a bonk or whoosh plays, and participants judge whether they bounced or passed through. The program randomizes sound conditions, records responses, and saves results.",
+    "githubUrl": "https://github.com/aliwouters/MatLab-Projects/blob/main/Psych20BHomework7.m",
+    "video": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screen%20Recording%202025-09-06%20195651-Mcm7rvXFNPhCnYvtfipVh4jI3xOCuq.mp4"
+  },
+  {
+    "title": "Auditory Reaction Time Experiment",
+    "description": "Runs an auditory reaction-time experiment. Participants hear a tone in the left ear, right ear, or both, and press the spacebar when it plays. The program records response times, manages subject IDs, and saves results using PsychPortAudio.",
+    "githubUrl": "https://github.com/aliwouters/MatLab-Projects/blob/main/Psych20BHomework6.m",
+    "video": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screen%20Recording%202025-09-06%20200436-U8J4XyGUd0L86sRTm7WDLo0RCMCh3U.mp4"
+  },
+  {
+    "title": "Self-Assessment Manikin (SAM) Tool",
+    "description": "Creates an interactive mood-rating tool with the Self-Assessment Manikin (SAM). The program slices icons from an image, highlights them on hover, and lets users select one to match their mood. It handles real-time mouse tracking, screen drawing, and saves the data.",
+    "githubUrl": "https://github.com/aliwouters/MatLab-Projects/blob/main/Psych20BHomework5.m",
+    "video": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/20250907-0310-12.8199673-Xta2MQBZZJMb0IueJt2NEGvVqJ7anV.mp4"
+  },
+  {
+    "title": "Visual Change Detection with Mouse Response",
+    "description": "This MATLAB/Psychtoolbox project measures visual change detection with mouse responses. In each trial, two blue circles appear; after a random delay, one circle briefly changes luminance (lighter or darker). Participants click the circle that changed as fast as possible. The program randomizes trial types and delays, records response times and accuracy, and saves results to a subject-specific .mat file.",
+    "githubUrl": "https://github.com/aliwouters/MatLab-Projects/blob/main/Psych20BHomework8.m",
+    "video": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screen%20Recording%202025-09-06%20203545-bofEP6MwBQs3pT2rR2rXhjn5tzhCh4.mp4"
+  },
+  {
+    "title": "Visual Reaction Time Experiment",
+    "description": "Implements a reaction-time experiment in Psychtoolbox. A yellow circle changes color, shape, or position after a random delay, and participants press the spacebar as quickly as possible. The program measures response times, randomizes trials, and saves results.",
+    "githubUrl": "https://github.com/aliwouters/MatLab-Projects/blob/main/Psych20BHomework4.m",
+    "video": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screen%20Recording%202025-09-06%20201736-YHHSupNymvOEdUYmPF0ubGVpGTkfYu.mp4"
+  }
+]
 
 export default function ExperimentalDesignPage() {
-  return (
-    <div className="min-h-screen bg-slate-50">
-      {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200/50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <Link href="/" className="text-2xl font-light text-slate-900 tracking-wide">
-              Alizee Wouters
-            </Link>
-            <div className="flex gap-3">
-              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
-                <Link href="/projects" className="flex items-center gap-2">
-                  <ArrowLeft className="w-4 h-4" />
-                  Projects
-                </Link>
-              </Button>
-            </div>
-          </div>
+  return <div className="portfolio-inner case-study min-h-screen bg-white text-[#1b334b]">
+    <SiteNav />
+    <main id="main-content" className="max-w-6xl mx-auto px-6 lg:px-8 py-12 sm:py-16">
+      <header className="page-introduction">
+        <h1 className="mb-5">Experimental Design</h1>
+        <p>MATLAB and Psychtoolbox experiments in perception, reaction time, and mood assessment.</p>
+      </header>
+      {experiments.map((experiment, index) => <section key={experiment.githubUrl} className="experiment-article case-section">
+        <div><span className="article-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+          <h2>{experiment.title}</h2><p>{experiment.description}</p>
+          <a href={experiment.githubUrl} target="_blank" rel="noopener noreferrer" className="article-source">View MATLAB code <span aria-hidden="true">↗</span></a>
         </div>
-      </nav>
-
-      <div className="pt-16 pb-24">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center mb-20">
-            <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">Experimental Design</h1>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-cyan-600 to-cyan-700 mx-auto mb-8"></div>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Psychology and behavioral research projects demonstrating expertise in experimental methodology,
-              statistical analysis, and rigorous scientific investigation.
-            </p>
-          </div>
-
-          {/* Projects */}
-          <div className="space-y-16">
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
-              <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-10">
-                  <h3 className="text-2xl font-medium text-slate-900 mb-4">Psych 100B Coursework</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    Comprehensive experimental psychology projects completed as part of advanced coursework. These
-                    studies demonstrate proficiency in experimental design, data collection, and statistical analysis of
-                    behavioral data.
-                  </p>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-cyan-50 rounded-2xl p-6">
-                      <h4 className="font-semibold text-slate-900 mb-3">Research Areas</h4>
-                      <ul className="text-slate-700 space-y-2">
-                        <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-cyan-600 rounded-full mt-2 flex-shrink-0"></span>
-                          Cognitive psychology experiments
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-cyan-600 rounded-full mt-2 flex-shrink-0"></span>
-                          Attention and perception studies
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-cyan-600 rounded-full mt-2 flex-shrink-0"></span>
-                          Memory and learning paradigms
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-cyan-600 rounded-full mt-2 flex-shrink-0"></span>
-                          Decision-making processes
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div className="bg-slate-50 rounded-2xl p-6">
-                      <h4 className="font-semibold text-slate-900 mb-3">Methodological Approach</h4>
-                      <p className="text-slate-600 text-sm leading-relaxed">
-                        Rigorous experimental protocols following APA guidelines, with careful attention to control
-                        variables, randomization, and ethical considerations in human subjects research.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
-              <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-10">
-                  <h3 className="text-2xl font-medium text-slate-900 mb-4">Behavioral Experiments</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    Independent research projects investigating human behavior through controlled laboratory
-                    experiments. These studies focus on understanding cognitive processes and behavioral patterns using
-                    quantitative methods.
-                  </p>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-emerald-50 rounded-2xl p-6">
-                      <h4 className="font-semibold text-slate-900 mb-3">Experimental Techniques</h4>
-                      <ul className="text-slate-700 space-y-2">
-                        <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
-                          Reaction time measurements
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
-                          Eye-tracking studies
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
-                          Behavioral coding and analysis
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></span>
-                          Psychophysiological measures
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div className="bg-slate-50 rounded-2xl p-6">
-                      <h4 className="font-semibold text-slate-900 mb-3">Data Collection</h4>
-                      <p className="text-slate-600 text-sm leading-relaxed">
-                        Systematic data collection protocols ensuring reliability and validity, with careful attention
-                        to participant recruitment, informed consent, and data quality control.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
-              <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-10">
-                  <h3 className="text-2xl font-medium text-slate-900 mb-4">Statistical Modeling & Analysis</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    Advanced statistical analysis of experimental data using appropriate methods for psychological
-                    research. These projects demonstrate proficiency in hypothesis testing, effect size calculation, and
-                    interpretation of results.
-                  </p>
-
-                  <div className="bg-blue-50 rounded-2xl p-6">
-                    <h4 className="font-semibold text-slate-900 mb-3">Statistical Methods</h4>
-                    <div className="grid md:grid-cols-3 gap-4 mt-4">
-                      <div className="text-center">
-                        <p className="text-sm text-slate-700">ANOVA</p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-sm text-slate-700">Regression</p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-sm text-slate-700">Mixed Models</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Impact Section */}
-            <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-10 text-white">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-medium mb-4">Research Impact & Applications</h3>
-                <p className="text-slate-300 leading-relaxed max-w-3xl mx-auto">
-                  These experimental design projects have contributed to understanding human cognition and behavior,
-                  with implications for educational psychology, user experience design, and cognitive rehabilitation.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <h4 className="font-semibold mb-4">Key Findings</h4>
-                  <ul className="text-slate-300 space-y-2 text-sm">
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Novel insights into attention mechanisms
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Evidence for cognitive processing models
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Behavioral pattern identification
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                  <h4 className="font-semibold mb-4">Applications</h4>
-                  <ul className="text-slate-300 space-y-2 text-sm">
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Educational intervention design
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
-                      User interface optimization
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
-                      Cognitive assessment tools
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Back to Top Button */}
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
-        aria-label="Back to top"
-      >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
-      </button>
-    </div>
-  )
+        <video controls playsInline preload="metadata" aria-label={`${experiment.title} demonstration`}><source src={experiment.video} type="video/mp4" />Your browser does not support this video.</video>
+      </section>)}
+      <a href="/projects/matlab" className="article-source">All Computer Science &amp; MATLAB projects <span aria-hidden="true">→</span></a>
+    </main>
+  </div>
 }

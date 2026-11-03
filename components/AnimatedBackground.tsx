@@ -29,6 +29,8 @@ interface Connection {
 }
 
 export default function AnimatedBackground() {
+  const fieldRef = useRef<HTMLDivElement>(null)
+  const [clearAreas, setClearAreas] = useState<{x:number;y:number;width:number;height:number}[]>([])
   const [nodes, setNodes] = useState<Node[]>([])
   const [connections, setConnections] = useState<Connection[]>([])
   const [particles, setParticles] = useState<
@@ -43,8 +45,33 @@ export default function AnimatedBackground() {
       velocityY: number
     }>
   >([])
-  const animationRef = useRef<number>()
+  const animationRef = useRef<number | null>(null)
   const frameCount = useRef(0)
+
+  useEffect(() => {
+    const field = fieldRef.current
+    const hero = field?.parentElement
+    if (!field || !hero) return
+    const measure = () => {
+      const bounds = field.getBoundingClientRect()
+      if (!bounds.width || !bounds.height) return
+      const areas = Array.from(hero.querySelectorAll(".hero-title, .hero-description, .hero-actions")).map(element => {
+        const range = document.createRange()
+        range.selectNodeContents(element)
+        const rect = element.classList.contains("hero-actions") ? element.getBoundingClientRect() : range.getBoundingClientRect()
+        const padding = 18
+        return { x:(rect.left - bounds.left - padding)/bounds.width*100, y:(rect.top - bounds.top - padding)/bounds.height*100,
+          width:(rect.width + padding*2)/bounds.width*100, height:(rect.height + padding*2)/bounds.height*100 }
+      })
+      setClearAreas(areas)
+    }
+    const observer = new ResizeObserver(measure)
+    observer.observe(hero)
+    hero.querySelectorAll(".hero-copy").forEach(element => observer.observe(element))
+    measure()
+    document.fonts.ready.then(measure)
+    return () => observer.disconnect()
+  }, [])
 
   const updateConnections = useCallback((nodeList: Node[]) => {
     const newConnections: Connection[] = []
@@ -74,7 +101,7 @@ export default function AnimatedBackground() {
   useEffect(() => {
     const generateNodes = () => {
       const newNodes: Node[] = []
-      const colors = ["#3b82f6", "#10b981", "#06b6d4", "#8b5cf6"]
+      const colors = ["#7caac5", "#90b7ce", "#aac9da", "#84aec7"]
 
       // Create layers for a more network-like structure
       const layers = [
@@ -139,7 +166,7 @@ export default function AnimatedBackground() {
 
     const generateParticles = () => {
       const newParticles = []
-      const colors = ["#3b82f6", "#10b981", "#06b6d4", "#8b5cf6"]
+      const colors = ["#7caac5", "#90b7ce", "#aac9da", "#84aec7"]
 
       for (let i = 0; i < 15; i++) {
         newParticles.push({
@@ -250,7 +277,7 @@ export default function AnimatedBackground() {
       animationRef.current = requestAnimationFrame(animate)
     }
 
-    animationRef.current = requestAnimationFrame(animate)
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) animationRef.current = requestAnimationFrame(animate)
 
     return () => {
       if (animationRef.current) {
@@ -260,106 +287,38 @@ export default function AnimatedBackground() {
   }, [updateConnections])
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/8 via-emerald-50/5 to-cyan-50/8"></div>
-
+    <div ref={fieldRef} className="absolute inset-0 overflow-hidden pointer-events-none neural-field" aria-hidden="true">
       <svg className="absolute inset-0 w-full h-full">
-        <defs>
-          <linearGradient id="subtleGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#10b981" stopOpacity="0.4" />
-            <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.4" />
-          </linearGradient>
-          <linearGradient id="subtleGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.45" />
-          </linearGradient>
-        </defs>
-
-        {connections.map((connection, index) => {
-          const startNode = nodes.find((n) => n.id === connection.startNodeId)
-          const endNode = nodes.find((n) => n.id === connection.endNodeId)
-
-          if (!startNode || !endNode) return null
-
-          return (
-            <line
-              key={connection.id}
-              x1={`${startNode.x}%`}
-              y1={`${startNode.y}%`}
-              x2={`${endNode.x}%`}
-              y2={`${endNode.y}%`}
-              stroke={index % 3 === 0 ? "url(#subtleGradient1)" : "url(#subtleGradient2)"}
-              strokeWidth="1"
-              opacity={connection.baseOpacity}
-            >
-              <animate
-                attributeName="opacity"
-                values={`0;${connection.baseOpacity * 2};${connection.baseOpacity};0;${connection.baseOpacity}`}
-                dur={`${connection.duration}s`}
-                repeatCount="indefinite"
-                begin={`${connection.animationDelay}s`}
-              />
-              <animate
-                attributeName="stroke-width"
-                values="0.5;1.5;1;0.5"
-                dur={`${connection.duration + 2}s`}
-                repeatCount="indefinite"
-                begin={`${connection.animationDelay + 2}s`}
-              />
+        <g>
+          {connections.map(connection => {
+            const start = nodes.find(n => n.id === connection.startNodeId)
+            const end = nodes.find(n => n.id === connection.endNodeId)
+            if (!start || !end) return null
+            // Omit complete edges that intersect copy; never clip a line halfway through.
+            const crossesCopy = clearAreas.some(area => {
+              let enter = 0, exit = 1
+              for (const [origin, delta, low, high] of [
+                [start.x, end.x-start.x, area.x, area.x+area.width],
+                [start.y, end.y-start.y, area.y, area.y+area.height],
+              ]) {
+                if (Math.abs(delta) < .00001) { if (origin < low || origin > high) return false }
+                else {
+                  const a = (low-origin)/delta, b = (high-origin)/delta
+                  enter = Math.max(enter, Math.min(a,b)); exit = Math.min(exit, Math.max(a,b))
+                  if (enter > exit) return false
+                }
+              }
+              return true
+            })
+            if (crossesCopy) return null
+            return <line key={connection.id} x1={`${start.x}%`} y1={`${start.y}%`} x2={`${end.x}%`} y2={`${end.y}%`} stroke="#82abc4" strokeWidth="1" opacity={connection.baseOpacity * 1.5}>
+              <animate attributeName="opacity" values={`${connection.baseOpacity};${connection.baseOpacity * 2};${connection.baseOpacity}`} dur={`${connection.duration}s`} repeatCount="indefinite" begin={`${connection.animationDelay}s`} />
             </line>
-          )
-        })}
+          })}
+          {nodes.filter(node => !clearAreas.some(area => node.x >= area.x && node.x <= area.x+area.width && node.y >= area.y && node.y <= area.y+area.height)).map(node => <circle key={node.id} cx={`${node.x}%`} cy={`${node.y}%`} r={node.size / 2} fill={node.color} opacity={node.baseOpacity + .1} />)}
+          {particles.filter(particle => !clearAreas.some(area => particle.x >= area.x && particle.x <= area.x+area.width && particle.y >= area.y && particle.y <= area.y+area.height)).map(particle => <circle key={`p-${particle.id}`} cx={`${particle.x}%`} cy={`${particle.y}%`} r={particle.size / 2} fill={particle.color} opacity=".3" />)}
+        </g>
       </svg>
-
-      {nodes.map((node) => (
-        <div
-          key={node.id}
-          className="absolute rounded-full"
-          style={{
-            left: `${node.x}%`,
-            top: `${node.y}%`,
-            width: `${node.size}px`,
-            height: `${node.size}px`,
-            backgroundColor: node.color,
-            opacity: node.baseOpacity,
-            boxShadow: `0 0 ${node.size * 2}px ${node.color}30`,
-            transform: "translate(-50%, -50%)",
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-          }}
-        />
-      ))}
-
-      {particles.map((particle) => (
-        <div
-          key={particle.id}
-          className="absolute rounded-full"
-          style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            width: `${particle.size}px`,
-            height: `${particle.size}px`,
-            backgroundColor: particle.color,
-            opacity: 0.15,
-            filter: "blur(1px)",
-            transform: "translate(-50%, -50%)",
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-          }}
-        />
-      ))}
-
-      <style jsx>{`
-        @keyframes subtlePulse {
-          0%, 100% {
-            transform: translate(-50%, -50%) scale(1);
-          }
-          50% {
-            transform: translate(-50%, -50%) scale(1.05);
-          }
-        }
-      `}</style>
     </div>
   )
 }

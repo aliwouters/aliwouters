@@ -1,222 +1,32 @@
 "use client"
 
-import React from "react"
-
-import { useEffect, useState, useRef, useCallback } from "react"
-
-declare global {
-  interface Window {
-    google: any
-    googleTranslateElementInit: () => void
-  }
-}
+import { useEffect, useState } from "react"
 
 export default function LanguageToggle() {
-  const [currentLang, setCurrentLang] = useState<"en" | "fr">("en")
-  const [isReady, setIsReady] = useState(false)
-  const [isDragging, setIsDragging] = useState(false)
-  const [dragOffset, setDragOffset] = useState(0)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const startXRef = useRef(0)
-  const startOffsetRef = useRef(0)
-
-  const SLIDER_WIDTH = 30
-  const MAX_OFFSET = 30
-
+  const [language, setLanguage] = useState<"en" | "fr">("en")
+  const [translationStatus, setTranslationStatus] = useState("loading")
   useEffect(() => {
-    const translateCookie = document.cookie.split("; ").find((row) => row.startsWith("googtrans="))
-    if (translateCookie && translateCookie.includes("/fr")) {
-      setCurrentLang("fr")
-      setDragOffset(MAX_OFFSET)
-    }
-
-    // The Google Translate script is loaded globally by GoogleTranslateLoader.
-    // Poll until the translate widget is available before enabling the toggle.
-    let attempts = 0
-    const interval = setInterval(() => {
-      attempts += 1
-      const widgetReady = !!document.querySelector("#google_translate_element .goog-te-combo") || !!window.google?.translate
-      if (widgetReady || attempts > 40) {
-        setIsReady(true)
-        clearInterval(interval)
-      }
-    }, 250)
-
-    return () => clearInterval(interval)
+    const cookie = document.cookie.split("; ").find(value => value.startsWith("googtrans="))
+    if (cookie?.includes("/fr")) setLanguage("fr")
+    const update = () => setTranslationStatus(document.documentElement.dataset.translationStatus || "loading")
+    update()
+    window.addEventListener("translation-status", update)
+    return () => window.removeEventListener("translation-status", update)
   }, [])
-
-  const changeLanguage = (targetLang: "en" | "fr") => {
-    const domain = window.location.hostname
-
-    // Clear existing cookies
-    document.cookie = "googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT"
-    document.cookie = `googtrans=; path=/; domain=${domain}; expires=Thu, 01 Jan 1970 00:00:01 GMT`
-    document.cookie = `googtrans=; path=/; domain=.${domain}; expires=Thu, 01 Jan 1970 00:00:01 GMT`
-
-    if (targetLang === "fr") {
-      document.cookie = `googtrans=/en/fr; path=/`
-      document.cookie = `googtrans=/en/fr; path=/; domain=${domain}`
-    } else {
-      document.cookie = `googtrans=/en/en; path=/`
-      document.cookie = `googtrans=/en/en; path=/; domain=${domain}`
+  function changeLanguage(next: "en" | "fr") {
+    if (next === language) return
+    const hostname = window.location.hostname
+    for (const domain of ["", `; domain=${hostname}`, `; domain=.${hostname}`]) {
+      document.cookie = `googtrans=; path=/; max-age=0${domain}`
+      document.cookie = `googtrans=/en/${next}; path=/; SameSite=Lax${domain}`
     }
-
-    setTimeout(() => {
-      window.location.reload()
-    }, 100)
+    setLanguage(next)
+    window.location.reload()
   }
-
-  const snapToPosition = useCallback((offset: number) => {
-    const midpoint = MAX_OFFSET / 2
-    const newLang = offset > midpoint ? "fr" : "en"
-    const newOffset = offset > midpoint ? MAX_OFFSET : 0
-    
-    setDragOffset(newOffset)
-    
-    if (newLang !== currentLang) {
-      setCurrentLang(newLang)
-      changeLanguage(newLang)
-    }
-  }, [currentLang])
-
-  const hasDraggedRef = useRef(false)
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!isReady) return
-    e.preventDefault()
-    e.stopPropagation()
-    setIsDragging(true)
-    hasDraggedRef.current = false
-    startXRef.current = e.clientX
-    startOffsetRef.current = dragOffset
-  }
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    if (!isReady) return
-    e.stopPropagation()
-    setIsDragging(true)
-    hasDraggedRef.current = false
-    startXRef.current = e.touches[0].clientX
-    startOffsetRef.current = dragOffset
-  }
-
-  const handleMove = useCallback((clientX: number) => {
-    if (!isDragging) return
-    const delta = clientX - startXRef.current
-    if (Math.abs(delta) > 3) {
-      hasDraggedRef.current = true
-    }
-    const newOffset = Math.max(0, Math.min(MAX_OFFSET, startOffsetRef.current + delta))
-    setDragOffset(newOffset)
-  }, [isDragging])
-
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    handleMove(e.clientX)
-  }, [handleMove])
-
-  const handleTouchMove = useCallback((e: TouchEvent) => {
-    handleMove(e.touches[0].clientX)
-  }, [handleMove])
-
-  const handleEnd = useCallback(() => {
-    if (!isDragging) return
-    setIsDragging(false)
-    
-    // If user just clicked without dragging, toggle to the other side
-    if (!hasDraggedRef.current) {
-      const newLang = currentLang === "en" ? "fr" : "en"
-      const newOffset = newLang === "fr" ? MAX_OFFSET : 0
-      setDragOffset(newOffset)
-      setCurrentLang(newLang)
-      changeLanguage(newLang)
-    } else {
-      snapToPosition(dragOffset)
-    }
-  }, [isDragging, dragOffset, snapToPosition, currentLang])
-
-  useEffect(() => {
-    if (isDragging) {
-      window.addEventListener("mousemove", handleMouseMove)
-      window.addEventListener("mouseup", handleEnd)
-      window.addEventListener("touchmove", handleTouchMove)
-      window.addEventListener("touchend", handleEnd)
-    }
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove)
-      window.removeEventListener("mouseup", handleEnd)
-      window.removeEventListener("touchmove", handleTouchMove)
-      window.removeEventListener("touchend", handleEnd)
-    }
-  }, [isDragging, handleMouseMove, handleTouchMove, handleEnd])
-
-  const handleClick = (e: React.MouseEvent) => {
-    if (!isReady) return
-    // Only toggle on click if we weren't dragging
-    const rect = containerRef.current?.getBoundingClientRect()
-    if (!rect) return
-    
-    const clickX = e.clientX - rect.left
-    const midpoint = rect.width / 2
-    const newLang = clickX > midpoint ? "fr" : "en"
-    const newOffset = clickX > midpoint ? MAX_OFFSET : 0
-    
-    setDragOffset(newOffset)
-    
-    if (newLang !== currentLang) {
-      setCurrentLang(newLang)
-      changeLanguage(newLang)
-    }
-  }
-
-  // Calculate which language appears selected based on current drag position
-  const visualLang = dragOffset > MAX_OFFSET / 2 ? "fr" : "en"
-
-  return (
-    <>
-      <div
-        ref={containerRef}
-        onClick={handleClick}
-        className={`relative flex items-center w-[62px] h-7 bg-slate-200 rounded-md select-none ${!isReady ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
-        style={{ padding: "2px" }}
-        title={currentLang === "en" ? "Traduire en français" : "Translate to English"}
-      >
-        {/* Inset sliding square */}
-        <div
-          onMouseDown={handleMouseDown}
-          onTouchStart={handleTouchStart}
-          className={`absolute w-[28px] h-[24px] bg-white rounded shadow-sm ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
-          style={{
-            transform: `translateX(${dragOffset}px)`,
-            transition: isDragging ? "none" : "transform 300ms ease-in-out",
-            left: "2px",
-          }}
-        />
-        
-        {/* EN label */}
-        <span
-          className={`relative z-10 w-[29px] text-center text-xs font-semibold pointer-events-none ${
-            visualLang === "en"
-              ? "bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent"
-              : "text-slate-400"
-          }`}
-          style={{ transition: isDragging ? "none" : "all 300ms" }}
-        >
-          EN
-        </span>
-        
-        {/* FR label */}
-        <span
-          className={`relative z-10 w-[29px] text-center text-xs font-semibold pointer-events-none ${
-            visualLang === "fr"
-              ? "bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent"
-              : "text-slate-400"
-          }`}
-          style={{ transition: isDragging ? "none" : "all 300ms" }}
-        >
-          FR
-        </span>
-      </div>
-    </>
-  )
+  return <div className="language-control"><div className="language-switch notranslate" translate="no" role="group" aria-label="Website language">
+    <button type="button" lang="en" aria-label="View site in English" aria-pressed={language === "en"} onClick={() => changeLanguage("en")}>EN</button>
+    <button type="button" lang="fr" aria-label="Voir le site en français" aria-pressed={language === "fr"} onClick={() => changeLanguage("fr")}>FR</button>
+  </div>
+    {language === "fr" && translationStatus === "unavailable" && <span className="translation-unavailable" role="status">French translation couldn't load. <button type="button" onClick={() => window.location.reload()}>Retry</button></span>}
+  </div>
 }

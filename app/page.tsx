@@ -1,5 +1,7 @@
 "use client"
 
+import SiteNav from "@/components/SiteNav"
+
 import type React from "react"
 
 import { useState, useEffect } from "react"
@@ -9,7 +11,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Linkedin, ExternalLink, ArrowRight, Check, ChevronLeft, ChevronRight, Menu, X } from "lucide-react"
 import AnimatedBackground from "@/components/AnimatedBackground"
-import LanguageToggle from "@/components/LanguageToggle"
 
 const featuredProjects = [
   {
@@ -86,13 +87,23 @@ export default function HomePage() {
   }, [])
 
   useEffect(() => {
-    // Auto-advance the featured projects carousel. The timer resets whenever
-    // currentProject changes, so manual navigation restarts the countdown.
-    const interval = setInterval(() => {
-      setCurrentProject((prev) => (prev + 1) % featuredProjects.length)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [currentProject])
+    const sections = document.querySelectorAll<HTMLElement>("[data-scroll-reveal]")
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible")
+            observer.unobserve(entry.target)
+          }
+        })
+      }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" })
+      sections.forEach((section) => {
+        section.classList.add("scroll-reveal-ready")
+        observer.observe(section)
+      })
+      return () => observer.disconnect()
+    }
+  }, [])
 
   const handleEmailClick = async () => {
     const email = "ali.wout.3003@gmail.com"
@@ -135,14 +146,10 @@ export default function HomePage() {
             loop
             muted
             playsInline
-            className={`${sizeClasses} object-contain transition-all duration-500 bg-gradient-to-br from-slate-50 to-blue-50/30`}
-            style={{ transform: "scale(1.4)" }}
+            className={`${sizeClasses} object-contain transition-all duration-500 bg-[#eaf1f8]`}
+
           />
-          {project.caption && size === "main" && (
-            <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 bg-black/70 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-lg text-xs sm:text-sm font-medium">
-              {project.caption}
-            </div>
-          )}
+
         </div>
       )
     } else if (project.isImage) {
@@ -152,28 +159,9 @@ export default function HomePage() {
             src={project.image || "/placeholder.svg"}
             alt={project.title}
             fill
-            className={`object-contain transition-all duration-500 bg-gradient-to-br from-slate-50 to-blue-50`}
+            className={`object-contain transition-all duration-500 bg-[#eaf1f8]`}
           />
-          {project.caption && size === "main" && (
-            <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 bg-black/70 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-lg text-xs sm:text-sm font-medium">
-              {project.caption}
-            </div>
-          )}
-        </div>
-      )
-    } else if (project.is3D) {
-      return (
-        <div
-          className={`${sizeClasses} bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center transition-all duration-500`}
-        >
-          <div className="text-center p-2 sm:p-4">
-            {size === "main" && (
-              <>
-                <p className="text-slate-600 font-medium text-xs sm:text-sm">3D Model Screen Capture</p>
-                <p className="text-slate-500 text-xs mt-1 hidden sm:block">Click "Learn More" to explore</p>
-              </>
-            )}
-          </div>
+
         </div>
       )
     } else {
@@ -196,118 +184,27 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200/50 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4 sm:py-6">
-            <Link href="/" className="text-xl sm:text-2xl font-light text-slate-900 tracking-wide">
-              Alizee Wouters
-            </Link>
-
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex space-x-8 xl:space-x-10 items-center">
-              <Link href="/resume" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
-                Resume
-              </Link>
-              <Link href="/research" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
-                Research
-              </Link>
-              <Link
-                href="/work-experience"
-                className="text-slate-600 hover:text-emerald-600 transition-colors font-medium"
-              >
-                Work Experience
-              </Link>
-              <Link href="/projects" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
-                Projects
-              </Link>
-              <Link href="/community" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
-                Community
-              </Link>
-              <LanguageToggle />
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-
-          {/* Mobile Navigation */}
-          {mobileMenuOpen && (
-            <div className="lg:hidden border-t border-slate-200 py-4">
-              <div className="flex flex-col space-y-4">
-                <Link
-                  href="/resume"
-                  className="text-slate-600 hover:text-emerald-600 transition-colors font-medium px-2 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Resume
-                </Link>
-                <Link
-                  href="/research"
-                  className="text-slate-600 hover:text-emerald-600 transition-colors font-medium px-2 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Research
-                </Link>
-                <Link
-                  href="/work-experience"
-                  className="text-slate-600 hover:text-emerald-600 transition-colors font-medium px-2 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Work Experience
-                </Link>
-                <Link
-                  href="/projects"
-                  className="text-slate-600 hover:text-emerald-600 transition-colors font-medium px-2 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Projects
-                </Link>
-                <Link
-                  href="/community"
-                  className="text-slate-600 hover:text-emerald-600 transition-colors font-medium px-2 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Community
-                </Link>
-                <div className="px-2 py-1 border-t border-slate-200 pt-4">
-                  <LanguageToggle />
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </nav>
+      <SiteNav />
 
       {/* Hero Section with Neural Network Animation */}
-      <section className="pt-16 sm:pt-24 lg:pt-32 pb-16 sm:pb-24 lg:pb-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section id="main-content" className="portfolio-hero relative overflow-hidden" aria-labelledby="hero-heading">
         {/* Import LanguageToggle component */}
         <AnimatedBackground />
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-20 items-center">
-            <div className="lg:col-span-7 space-y-8 sm:space-y-12 text-center lg:text-left">
+        <div className="hero-composition relative z-10">
+          <div className="hero-columns">
+            <div className="hero-copy space-y-10 text-left">
               <div className="space-y-6 sm:space-y-8">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 leading-tight">
-                  Hello, I'm{" "}
-                  <span className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-600">
-                    Alizee Wouters
-                  </span>
-                </h1>
-                <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                  A researcher and scientist at the intersection of neurotechnology, cognitive science, and biomedical
-                  engineering. I aim to develop innovative solutions that bridge human cognition and technology.
-                </p>
+                <div className="hero-identity">
+                  <h1 id="hero-heading" className="hero-title">Hello, I'm<br />Alizee Wouters</h1>
+                </div>
+                <p className="hero-description">I'm a biomedical engineering master's student at Georgia Tech and Emory, specializing in neuroengineering. My work spans quantitative brain imaging, muscle-controlled robotics, and assistive technology, combining research with hands-on engineering.</p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="hero-actions flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button
                   onClick={handleEmailClick}
                   size="lg"
-                  className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white border-0 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-medium w-full sm:w-auto"
+                  className="rounded-none bg-[#285c8a] hover:bg-[#1a466f] text-white border-0 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-medium w-full sm:w-auto"
                 >
                   <div className="flex items-center gap-3">
                     {emailCopied ? (
@@ -322,7 +219,7 @@ export default function HomePage() {
                   variant="default"
                   size="lg"
                   asChild
-                  className="bg-white hover:bg-gray-50 text-slate-700 border border-slate-300 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-medium w-full sm:w-auto"
+                  className="rounded-none bg-white hover:bg-[#edf3f8] text-[#285c8a] border border-[#b8cbd9] px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-medium w-full sm:w-auto"
                 >
                   <a
                     href="https://linkedin.com/in/alizee-wouters"
@@ -338,263 +235,99 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="lg:col-span-5 flex justify-center order-first lg:order-last">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-emerald-400/20 rounded-3xl blur-3xl"></div>
-                <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl overflow-hidden border border-slate-200/50 bg-white p-2">
-                  <Image
-                    src="/images/alizee-headshot.png"
-                    alt="Alizee Wouters"
-                    width={400}
-                    height={400}
-                    className="w-full h-full rounded-2xl object-cover object-[center_25%]"
-                  />
-                </div>
-              </div>
-            </div>
+
+            <div className="hero-photo-right"><Image src="/images/alizee-headshot.png" alt="Alizee Wouters" width={448} height={448} className="identity-portrait" /></div>
+
           </div>
         </div>
       </section>
 
-      {/* Featured Projects Carousel */}
-      <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-light text-slate-900 mb-4 sm:mb-6">Featured Projects</h2>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto mb-4"></div>
+
+      {/* Selected work: image-led carousel. Existing project data and navigation preserved. */}
+      <section className="featured-section bg-white py-16 sm:py-24 px-5 sm:px-8" data-scroll-reveal aria-labelledby="featured-projects-heading">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-wrap items-baseline justify-between gap-4 mb-10 sm:mb-14">
+            <h2 id="featured-projects-heading" className="text-3xl sm:text-5xl font-normal tracking-tight text-[#172c43]">Featured Projects</h2>
+            <span className="text-sm text-[#5b738b] tabular-nums" aria-label={`Project ${currentProject + 1} of ${featuredProjects.length}`}>
+              {currentProject + 1} of {featuredProjects.length}
+            </span>
           </div>
-
-          <div className="relative">
-            {/* Carousel Container */}
-            <div className="flex items-center justify-center gap-3 sm:gap-6">
-              {/* Previous Project Preview - Hidden on mobile */}
-              <div
-                className="hidden lg:block w-40 xl:w-48 shrink-0 opacity-60 hover:opacity-80 transition-opacity cursor-pointer"
-                onClick={prevProject}
-              >
-                <Card className="border-slate-200/50 shadow-md bg-white/60">
-                  <CardContent className="p-0">
-                    <div className="relative h-32 overflow-hidden rounded-t-lg">
-                      {renderMedia(featuredProjects[getPrevProject()], "preview")}
-                    </div>
-                    <div className="p-4">
-                      <h4 className="text-sm font-medium text-slate-700 truncate">
-                        {featuredProjects[getPrevProject()].title}
-                      </h4>
-                      <span className="text-xs text-slate-500">{featuredProjects[getPrevProject()].category}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Main Project */}
-              <div className="flex-1 max-w-4xl mx-auto">
-                <Card className="border-slate-200/50 shadow-lg bg-white/80 backdrop-blur-sm">
-                  <CardContent className="p-0">
-                    <div className="grid lg:grid-cols-2 gap-0">
-                      {/* Media Section */}
-                      <div className="relative h-64 sm:h-80 lg:h-96 overflow-hidden lg:rounded-l-lg rounded-t-lg lg:rounded-t-none">
-                        {renderMedia(featuredProjects[currentProject])}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
-                      </div>
-
-                      {/* Content Section */}
-                      <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center">
-                        <div className="mb-4 flex flex-col sm:flex-row sm:items-center gap-2">
-                          <span className="inline-block px-3 py-1 bg-gradient-to-r from-blue-100 to-emerald-100 text-blue-800 text-xs sm:text-sm font-medium rounded-full transition-all duration-500 w-fit">
-                            {featuredProjects[currentProject].category}
-                          </span>
-                          <span className="text-xs text-slate-500 font-medium">
-                            {currentProject + 1} of {featuredProjects.length}
-                          </span>
-                        </div>
-                        <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 mb-3 sm:mb-4 transition-all duration-500 leading-tight">
-                          {featuredProjects[currentProject].title}
-                        </h3>
-                        <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 transition-all duration-500">
-                          {featuredProjects[currentProject].description}
-                        </p>
-                        <a
-                          href={featuredProjects[currentProject].link}
-                          onClick={(e) => handleLearnMoreClick(e, featuredProjects[currentProject].link)}
-                        >
-                          <Button className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                            <span className="relative z-10 flex items-center justify-center gap-2 text-sm sm:text-base">
-                              Learn More
-                              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-                            </span>
-                            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                          </Button>
-                        </a>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Next Project Preview - Hidden on mobile */}
-              <div
-                className="hidden lg:block w-40 xl:w-48 shrink-0 opacity-60 hover:opacity-80 transition-opacity cursor-pointer"
-                onClick={nextProject}
-              >
-                <Card className="border-slate-200/50 shadow-md bg-white/60">
-                  <CardContent className="p-0">
-                    <div className="relative h-32 overflow-hidden rounded-t-lg">
-                      {renderMedia(featuredProjects[getNextProject()], "preview")}
-                    </div>
-                    <div className="p-4">
-                      <h4 className="text-sm font-medium text-slate-700 truncate">
-                        {featuredProjects[getNextProject()].title}
-                      </h4>
-                      <span className="text-xs text-slate-500">{featuredProjects[getNextProject()].category}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
+          <div className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] gap-8 lg:gap-14 items-center">
+            <div key={featuredProjects[currentProject].id} className={`feature-media-enter relative overflow-hidden bg-[#e6edf3] ${featuredProjects[currentProject].id === 2 || featuredProjects[currentProject].id === 4 ? "aspect-[4/4] sm:aspect-[5/4]" : "aspect-[5/4]"}`}>
+              {renderMedia(featuredProjects[currentProject])}
             </div>
-
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevProject}
-              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white border border-slate-200 rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-105 z-10"
-              aria-label="Previous project"
-            >
-              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-slate-600" />
-            </button>
-            <button
-              onClick={nextProject}
-              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white border border-slate-200 rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-105 z-10"
-              aria-label="Next project"
-            >
-              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-slate-600" />
-            </button>
-
-            {/* Dots Indicator */}
-            <div className="flex justify-center mt-6 sm:mt-8 gap-2">
-              {featuredProjects.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentProject(index)}
-                  className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                    index === currentProject
-                      ? "bg-gradient-to-r from-blue-600 to-emerald-600 scale-110"
-                      : "bg-slate-300 hover:bg-slate-400"
-                  }`}
-                  aria-label={`Go to project ${index + 1}`}
-                />
+            <div key={`text-${featuredProjects[currentProject].id}`} className="feature-copy-enter lg:py-5" aria-live="polite">
+              <p className="mb-4 text-sm font-medium text-[#416b97]">{featuredProjects[currentProject].category}</p>
+              <h3 className="text-2xl sm:text-3xl lg:text-[2.35rem] leading-[1.17] tracking-tight font-normal text-[#172c43] mb-5">{featuredProjects[currentProject].title}</h3>
+              <p className="text-base sm:text-lg leading-[1.7] text-[#4d6073] mb-7">{featuredProjects[currentProject].description}</p>
+              <Link href={featuredProjects[currentProject].link} className="inline-flex items-center gap-2 text-[#235c91] font-medium hover:underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#235c91]">
+                Explore project <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+          <div className="mt-10 flex flex-wrap items-center justify-between gap-5 border-t border-[#ccd9e4] pt-5">
+            <div className="flex flex-wrap gap-2" aria-label="Choose featured project">
+              {featuredProjects.map((project, index) => (
+                <button key={project.id} type="button" onClick={() => setCurrentProject(index)}
+                  className={`h-2 transition-colors duration-200 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#235c91] ${index === currentProject ? "w-9 bg-[#315e8d]" : "w-6 bg-[#bbcad8] hover:bg-[#7b9ab8]"}`}
+                  aria-label={`Show project ${index + 1}: ${project.title}`} aria-current={index === currentProject ? "true" : undefined} />
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="py-20 sm:py-24 lg:py-32 bg-slate-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-light text-slate-900 mb-4 sm:mb-6">About Me</h2>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto"></div>
-          </div>
-
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/50 shadow-sm">
-            <div className="max-w-4xl mx-auto">
-              <p className="text-lg sm:text-xl leading-relaxed text-slate-600 mb-6 sm:mb-8">
-                I'm a master's student in Biomedical Engineering and Neuroengineering at Georgia Tech and Emory. I split
-                my time between graduate coursework and research, learning the theory in lectures and putting it to work
-                on real neuroimaging problems.
-              </p>
-              <p className="text-base sm:text-lg leading-relaxed text-slate-600">
-                My research at SynterMed and UCLA Health focuses on quantitative neuroimaging. I analyze FDG and tau PET
-                scans in Python, validate neuroimaging software across processing settings and diagnostic groups, and
-                study how tau accumulation and glucose metabolism relate in the detection of Alzheimer's disease.
-                Outside of that work, I keep building brain-controlled interfaces and assistive technology, drawn to
-                problems that do not fit neatly into a single field.
-              </p>
+            <div className="flex items-center gap-5 text-[#235c91]">
+              <button type="button" onClick={prevProject} className="p-2 hover:text-[#132f50] focus-visible:outline focus-visible:outline-2" aria-label="Previous project"><ChevronLeft className="w-6 h-6" /></button>
+              <button type="button" onClick={nextProject} className="p-2 hover:text-[#132f50] focus-visible:outline focus-visible:outline-2" aria-label="Next project"><ChevronRight className="w-6 h-6" /></button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Work Areas */}
-      <section className="py-20 sm:py-24 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 sm:mb-20">
-            <h2 className="text-2xl sm:text-3xl font-light text-slate-900 mb-4 sm:mb-6">My Work</h2>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto"></div>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
-            <div className="group text-center">
-              <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-3 sm:mb-4">Research</h3>
-              <p className="text-slate-600 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
-                Advancing neurotechnology, anatomical engineering, and cognitive science through research.
-              </p>
-              <Link
-                href="/research"
-                className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium group-hover:gap-2 transition-all text-sm sm:text-base"
-              >
-                Explore Research
-                <ArrowRight className="w-4 h-4 ml-1 group-hover:ml-0 transition-all" />
-              </Link>
-            </div>
-
-            <div className="group text-center">
-              <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-3 sm:mb-4">Work Experience</h3>
-              <p className="text-slate-600 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
-                Professional journey through innovative companies including Psyonic, Auli Tech, SynterMed, and UCLA's
-                Makerspace.
-              </p>
-              <Link
-                href="/work-experience"
-                className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium group-hover:gap-2 transition-all text-sm sm:text-base"
-              >
-                View Experience
-                <ArrowRight className="w-4 h-4 ml-1 group-hover:ml-0 transition-all" />
-              </Link>
-            </div>
-
-            <div className="group text-center sm:col-span-2 lg:col-span-1">
-              <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-3 sm:mb-4">Projects</h3>
-              <p className="text-slate-600 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
-                Diverse portfolio spanning computer science, data science engineering, experimental design, and personal
-                innovations.
-              </p>
-              <Link
-                href="/projects"
-                className="inline-flex items-center text-cyan-600 hover:text-cyan-700 font-medium group-hover:gap-2 transition-all text-sm sm:text-base"
-              >
-                Browse Projects
-                <ArrowRight className="w-4 h-4 ml-1 group-hover:ml-0 transition-all" />
-              </Link>
-            </div>
+      {/* About: prose with an editorial column, not a bordered card. */}
+      <section className="bg-[#f5f9fc] px-5 sm:px-8 py-16 sm:py-24" data-scroll-reveal aria-labelledby="about-heading">
+        <div className="mx-auto max-w-6xl grid md:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)] gap-6 md:gap-12">
+          <h2 id="about-heading" className="text-3xl sm:text-4xl font-normal tracking-tight text-[#172c43]">About Me</h2>
+          <div className="max-w-3xl text-[#42586f] space-y-6">
+            <p className="text-lg sm:text-xl leading-[1.75]">I'm a master's student in Biomedical Engineering and Neuroengineering at Georgia Tech and Emory. I split my time between graduate coursework and research, learning the theory in lectures and putting it to work on real neuroimaging problems.</p>
+            <p className="text-base sm:text-lg leading-[1.75]">My research at SynterMed and UCLA Health focuses on quantitative neuroimaging. I analyze FDG and tau PET scans in Python, validate neuroimaging software across processing settings and diagnostic groups, and study how tau accumulation and glucose metabolism relate in the detection of Alzheimer's disease. Outside of that work, I keep building brain-controlled interfaces and assistive technology, drawn to problems that do not fit neatly into a single field.</p>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-900 to-slate-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-light text-white mb-4 sm:mb-6">Let's Collaborate</h2>
-          <p className="text-lg sm:text-xl text-slate-300 mb-8 sm:mb-10 leading-relaxed">
-            Interested in discussing research opportunities or potential collaborations? I'd love to connect.
-          </p>
-          <Button
-            onClick={handleEmailClick}
-            size="lg"
-            className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white border-0 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-medium w-full sm:w-auto"
-          >
-            <div className="flex items-center gap-3 justify-center">
-              {emailCopied ? <Check className="w-4 h-4 sm:w-5 sm:h-5" /> : <Mail className="w-4 h-4 sm:w-5 sm:h-5" />}
-              {emailCopied ? "Email Copied!" : "Start a Conversation"}
-            </div>
-          </Button>
+      {/* Work areas: navigable list, not three matching feature cards. */}
+      <section className="bg-[#edf3f7] px-5 sm:px-8 py-16 sm:py-24" data-scroll-reveal aria-labelledby="work-heading">
+        <div className="mx-auto max-w-6xl">
+          <h2 id="work-heading" className="text-3xl sm:text-4xl font-normal tracking-tight text-[#172c43] mb-8 sm:mb-12">My Work</h2>
+          {[
+            { title: "Research", href: "/research", description: "Advancing neurotechnology, anatomical engineering, and cognitive science through research." },
+            { title: "Work Experience", href: "/work-experience", description: "Professional journey through innovative companies including Psyonic, Auli Tech, SynterMed, and UCLA's Makerspace." },
+            { title: "Projects", href: "/projects", description: "Diverse portfolio spanning computer science, data science engineering, experimental design, and personal innovations." },
+          ].map((item) => (
+            <Link key={item.href} href={item.href} className="group grid md:grid-cols-[minmax(0,0.35fr)_minmax(0,0.57fr)_auto] items-center gap-3 md:gap-10 border-t border-[#c6d5e2] py-6 sm:py-9 transition-[padding,background-color] duration-300 hover:bg-[#e4eef5] hover:pl-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#235c91]">
+              <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-[#172c43] group-hover:text-[#235c91] transition-colors">{item.title}</h3>
+              <p className="text-base leading-relaxed text-[#4d6073]">{item.description}</p>
+              <ArrowRight className="hidden md:block w-5 h-5 text-[#235c91] transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            </Link>
+          ))}
+          <div className="border-t border-[#c6d5e2]" />
+        </div>
+      </section>
+
+      {/* Closing: flat navy, no gradient or outsized CTA. */}
+      <section className="bg-[#1c3047] px-5 sm:px-8 py-16 sm:py-20" data-scroll-reveal aria-labelledby="collaborate-heading">
+        <div className="mx-auto max-w-6xl grid md:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)] gap-6 md:gap-12 items-start">
+          <h2 id="collaborate-heading" className="text-3xl sm:text-4xl tracking-tight font-normal text-white">Let's Collaborate</h2>
+          <div>
+            <p className="text-lg sm:text-xl leading-relaxed text-[#d6e2ed] mb-6">Interested in discussing research opportunities or potential collaborations? I'd love to connect.</p>
+            <button type="button" onClick={handleEmailClick} className="inline-flex items-center gap-3 text-white font-medium border-b border-[#98b9d9] pb-2 hover:text-[#b5d5ef] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+              {emailCopied ? "Email copied" : "Start a conversation"} <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Back to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-[#315e8d] hover:bg-[#20476f] text-white rounded-sm transition-colors duration-200 flex items-center justify-center z-50 opacity-90"
         aria-label="Back to top"
       >
         <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

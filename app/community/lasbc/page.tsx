@@ -1,5 +1,7 @@
 "use client"
 
+import SiteNav from "@/components/SiteNav"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -7,38 +9,15 @@ import { ArrowLeft, Mountain, DollarSign, Calendar, ExternalLink, Crown, Megapho
 
 export default function LASBCPage() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="portfolio-inner case-study min-h-screen bg-white text-[#1b334b]">
       {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200/50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <Link href="/" className="text-2xl font-light text-slate-900 tracking-wide">
-              Alizee Wouters
-            </Link>
-            <div className="flex gap-3">
-              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
-                <Link href="/community" className="flex items-center gap-2">
-                  <ArrowLeft className="w-4 h-4" />
-                  Community
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="sm" className="border-slate-300 bg-transparent">
-                <Link href="/" className="flex items-center gap-2">
-                  <ArrowLeft className="w-4 h-4" />
-                  Home
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
-      <div className="pt-16 pb-24">
+      <div id="main-content" className="pt-16 pb-24">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-20">
+          <div className="page-introduction mb-16">
             <h1 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">LASBC</h1>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8">
               UCLA's largest social club with over 1,500 members, dedicated to making skiing and snowboarding affordable
               and accessible to college students through organized trips, fundraising, and corporate partnerships.
@@ -49,7 +28,7 @@ export default function LASBCPage() {
               <Button
                 asChild
                 variant="outline"
-                className="border-blue-300 text-blue-700 hover:bg-blue-50 bg-transparent"
+                className="border-[#cbd9e4] text-[#285c8a] hover:bg-[#eef4f8] bg-transparent"
               >
                 <Link
                   href="https://laboardclub.com/"
@@ -77,7 +56,7 @@ export default function LASBCPage() {
           </div>
 
           {/* Mission Statement */}
-          <div className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-3xl p-10 text-white mb-16">
+          <div className="case-note   text-[#1b334b] mb-16">
             <div className="text-center">
               <h2 className="text-3xl font-medium mb-6">Our Mission</h2>
               <p className="text-xl leading-relaxed max-w-4xl mx-auto">
@@ -94,12 +73,12 @@ export default function LASBCPage() {
 
             <div className="space-y-8">
               {/* President */}
-              <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+              <div className="case-study-block">
                 <div className="grid lg:grid-cols-12 gap-8">
                   <div className="lg:col-span-10">
                     <div className="flex items-center gap-3 mb-4">
                       <h3 className="text-2xl font-medium text-slate-900">President</h3>
-                      <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">
+                      <span className="bg-[#eef4f8] text-[#285c8a] px-3 py-1 rounded-full text-sm font-medium">
                         Leadership
                       </span>
                     </div>
@@ -109,29 +88,29 @@ export default function LASBCPage() {
                     </p>
 
                     <div className="grid md:grid-cols-2 gap-6">
-                      <div className="bg-yellow-50 rounded-2xl p-6">
+                      <div className="case-note  ">
                         <h4 className="font-semibold text-slate-900 mb-3">Key Responsibilities</h4>
                         <ul className="text-slate-700 space-y-2">
                           <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
+                            <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                             Promote inclusivity across 1,500+ members
                           </li>
                           <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
+                            <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                             Plan and organize all club events
                           </li>
                           <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
+                            <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                             Coordinate fundraising initiatives
                           </li>
                           <li className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
+                            <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                             Manage inter-university collaborations
                           </li>
                         </ul>
                       </div>
 
-                      <div className="bg-slate-50 rounded-2xl p-6">
+                      <div className="case-note  ">
                         <h4 className="font-semibold text-slate-900 mb-3">Impact</h4>
                         <p className="text-slate-600 text-sm leading-relaxed">
                           Overseeing the largest social club on UCLA's campus, ensuring that skiing and snowboarding
@@ -145,12 +124,12 @@ export default function LASBCPage() {
               </div>
 
               {/* Public Relations */}
-              <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+              <div className="case-study-block">
                 <div className="grid lg:grid-cols-12 gap-8">
                   <div className="lg:col-span-10">
                     <div className="flex items-center gap-3 mb-4">
                       <h3 className="text-2xl font-medium text-slate-900">Public Relations</h3>
-                      <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
+                      <span className="bg-[#eef4f8] text-[#285c8a] px-3 py-1 rounded-full text-sm font-medium">
                         Communications
                       </span>
                     </div>
@@ -159,7 +138,7 @@ export default function LASBCPage() {
                       sponsor coordination, and discount code distribution to maximize member benefits.
                     </p>
 
-                    <div className="bg-purple-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-4">Corporate Partnerships</h4>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
                         <div className="bg-white rounded-lg p-3 text-center font-medium text-slate-700">Ikon</div>
@@ -184,12 +163,12 @@ export default function LASBCPage() {
               </div>
 
               {/* Staff */}
-              <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+              <div className="case-study-block">
                 <div className="grid lg:grid-cols-12 gap-8">
                   <div className="lg:col-span-10">
                     <div className="flex items-center gap-3 mb-4">
                       <h3 className="text-2xl font-medium text-slate-900">Staff</h3>
-                      <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                      <span className="bg-[#eef4f8] text-[#285c8a] px-3 py-1 rounded-full text-sm font-medium">
                         Operations
                       </span>
                     </div>
@@ -198,23 +177,23 @@ export default function LASBCPage() {
                       gaining hands-on experience in event management and community building.
                     </p>
 
-                    <div className="bg-green-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Core Activities</h4>
                       <ul className="text-slate-700 space-y-2">
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Event planning and execution
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Fundraiser coordination
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Trip logistics management
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Member engagement activities
                         </li>
                       </ul>
@@ -227,7 +206,7 @@ export default function LASBCPage() {
 
           {/* Club Operations */}
           <div className="space-y-16">
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+            <div className="case-study-block">
               <div className="grid lg:grid-cols-12 gap-8">
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">Trip Organization & Logistics</h3>
@@ -238,29 +217,29 @@ export default function LASBCPage() {
                   </p>
 
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-blue-50 rounded-2xl p-6">
+                    <div className="case-note  ">
                       <h4 className="font-semibold text-slate-900 mb-3">Services Provided</h4>
                       <ul className="text-slate-700 space-y-2">
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Housing coordination and booking
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Carpool organization and transportation
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Group lift ticket purchasing
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                           Equipment rental coordination
                         </li>
                       </ul>
                     </div>
 
-                    <div className="relative h-48 rounded-2xl overflow-hidden">
+                    <div className="relative h-48 overflow-hidden">
                       <Image
                         src="/images/lasbc-mountain-landscape.jpeg"
                         alt="Snow-covered mountain landscape"
@@ -273,7 +252,7 @@ export default function LASBCPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-10 border border-slate-200/50 shadow-lg">
+            <div className="case-study-block">
               <div className="grid lg:grid-cols-12 gap-8">
                 <div className="lg:col-span-10">
                   <h3 className="text-2xl font-medium text-slate-900 mb-4">Fundraising & Accessibility</h3>
@@ -283,19 +262,19 @@ export default function LASBCPage() {
                   </p>
 
                   <div className="grid md:grid-cols-3 gap-6">
-                    <div className="bg-emerald-50 rounded-2xl p-6 text-center">
+                    <div className="case-note   text-center">
                       <h4 className="font-semibold text-slate-900 mb-2">Gear Donations</h4>
                       <p className="text-slate-600 text-sm">Equipment giveaways and donations from sponsor partners</p>
                     </div>
 
-                    <div className="bg-emerald-50 rounded-2xl p-6 text-center">
+                    <div className="case-note   text-center">
                       <h4 className="font-semibold text-slate-900 mb-2">Pass Giveaways</h4>
                       <p className="text-slate-600 text-sm">
                         Free ski pass distributions through corporate partnerships
                       </p>
                     </div>
 
-                    <div className="bg-emerald-50 rounded-2xl p-6 text-center">
+                    <div className="case-note   text-center">
                       <h4 className="font-semibold text-slate-900 mb-2">Subsidized Trips</h4>
                       <p className="text-slate-600 text-sm">Reduced-cost trips through fundraising and sponsorships</p>
                     </div>
@@ -305,10 +284,10 @@ export default function LASBCPage() {
             </div>
 
             {/* Impact Section */}
-            <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-10 text-white">
+            <div className="case-note   text-[#1b334b]">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-medium mb-4">Community Impact & Personal Growth</h3>
-                <p className="text-slate-300 leading-relaxed max-w-3xl mx-auto">
+                <p className="text-[#4b6174] leading-relaxed max-w-3xl mx-auto">
                   Through my progression from Staff to Public Relations to President, I've helped build LASBC into
                   UCLA's largest social club, creating lasting memories and accessible mountain experiences for over
                   1,500 students.
@@ -316,45 +295,45 @@ export default function LASBCPage() {
               </div>
 
               <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                <div className="case-note  ">
                   <h4 className="font-semibold mb-4">Club Achievements</h4>
-                  <ul className="text-slate-300 space-y-2 text-sm">
+                  <ul className="text-[#4b6174] space-y-2 text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Largest social club on UCLA campus (1,500+ members)
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       11+ corporate partnerships and sponsorships
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Successful inter-university collaborations
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Increased accessibility through subsidized trips
                     </li>
                   </ul>
                 </div>
 
-                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                <div className="case-note  ">
                   <h4 className="font-semibold mb-4">Leadership Skills Developed</h4>
-                  <ul className="text-slate-300 space-y-2 text-sm">
+                  <ul className="text-[#4b6174] space-y-2 text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Large-scale event planning and execution
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Corporate partnership development
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Social media and digital marketing
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 bg-[#285c8a] rounded-full mt-2 flex-shrink-0"></span>
                       Community building and inclusivity promotion
                     </li>
                   </ul>
@@ -366,7 +345,7 @@ export default function LASBCPage() {
           {/* Back to Top Button */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+            className="fixed bottom-6 right-6 w-12 h-12 bg-[#285c8a] text-white rounded-full transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
             aria-label="Back to top"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

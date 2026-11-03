@@ -1,5 +1,7 @@
 "use client"
 
+import SiteNav from "@/components/SiteNav"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -7,52 +9,32 @@ import { ArrowLeft, Eye, Brain, BarChart, Home } from "lucide-react"
 
 export default function CognitiveSciencePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-50">
+    <div className="portfolio-inner case-study min-h-screen bg-white text-[#1b334b]">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-sm border-b border-purple-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <Link href="/" className="text-2xl font-bold text-gray-900">
-              Alizee Wouters
-            </Link>
-            <div className="flex gap-2">
-              <Button asChild variant="outline" size="sm">
-                <Link href="/" className="flex items-center gap-2">
-                  <Home className="w-4 h-4" />
-                  Home
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="sm">
-                <Link href="/research" className="flex items-center gap-2">
-                  <ArrowLeft className="w-4 h-4" />
-                  Research
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
+      <div id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="page-introduction mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Cognitive Science Research</h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-indigo-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600">
-            Investigating the fundamental mechanisms of human cognition and behavior
+            Research with Dr. Zili Liu and Lucy Cui at UCLA’s Perceptual Processing and Computational Lab.
           </p>
         </div>
 
+        <figure className="sourced-feature lab-feature">
+          <img src="/images/sourced/zili-lab-banner.jpg" alt="Perceptual Processing and Computational Lab — Principal Investigator Zili Liu" />
+          <figcaption>Lab banner from <a href="https://zililab.psych.ucla.edu/" target="_blank" rel="noopener noreferrer">Zili Lab, UCLA ↗</a></figcaption>
+        </figure>
         <div className="space-y-8">
           {/* Cognitive and Perceptual Abilities in Card Game Players */}
-          <Card className="border-purple-100 shadow-lg">
+          <Card className="portfolio-article case-section border-[#cbd9e4]">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
-                <Brain className="w-6 h-6 text-purple-500" />
                 Cognitive and Perceptual Abilities in Card Game Players
               </CardTitle>
-              <div className="bg-gradient-to-r from-amber-100 to-orange-100 rounded-lg p-3 border border-amber-200">
-                <p className="text-amber-800 font-semibold text-sm flex items-center gap-2">
-                  <span className="w-2 h-2 bg-amber-600 rounded-full"></span>
+              <div className="case-note     ]">
+                <p className="text-[#285c8a] font-semibold text-sm flex items-center gap-2">
+                  <span className="w-2 h-2 bg-[#285c8a] rounded-full"></span>
                   Lab Manager Role - Led team hiring, interviewing, and management
                 </p>
               </div>
@@ -66,7 +48,7 @@ export default function CognitiveSciencePage() {
               </p>
 
               <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-purple-50 p-4 rounded-lg">
+                <div className="case-note   ">
                   <h4 className="font-semibold text-gray-800 mb-2">Research Focus Areas:</h4>
                   <ul className="text-gray-700 space-y-1 text-sm">
                     <li>• Reasoning and problem-solving abilities</li>
@@ -76,7 +58,7 @@ export default function CognitiveSciencePage() {
                     <li>• Strategic thinking and planning</li>
                   </ul>
                 </div>
-                <div className="bg-purple-50 p-4 rounded-lg">
+                <div className="case-note   ">
                   <h4 className="font-semibold text-gray-800 mb-2">Technical Implementation:</h4>
                   <ul className="text-gray-700 space-y-1 text-sm">
                     <li>• PsychoPy experiment development</li>
@@ -88,7 +70,7 @@ export default function CognitiveSciencePage() {
                 </div>
               </div>
 
-              <div className="bg-purple-50 p-4 rounded-lg mb-4">
+              <div className="case-note    mb-4">
                 <h4 className="font-semibold text-gray-800 mb-2">Methodology & Analysis:</h4>
                 <p className="text-gray-700 text-sm mb-3">
                   Our methodology involved creating and collecting cognitive assessment stimuli, developing PsychoPy
@@ -113,10 +95,9 @@ export default function CognitiveSciencePage() {
           </Card>
 
           {/* User Experience Design and Research */}
-          <Card className="border-purple-100 shadow-lg">
+          <Card className="portfolio-article case-section border-[#cbd9e4]">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
-                <Eye className="w-6 h-6 text-purple-500" />
                 User Experience Design and Research
               </CardTitle>
             </CardHeader>
@@ -128,7 +109,7 @@ export default function CognitiveSciencePage() {
               </p>
 
               <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-blue-50 p-4 rounded-lg">
+                <div className="case-note   ">
                   <h4 className="font-semibold text-gray-800 mb-2">Research Methodologies:</h4>
                   <ul className="text-gray-700 space-y-1 text-sm">
                     <li>• User journey mapping and analysis</li>
@@ -138,7 +119,7 @@ export default function CognitiveSciencePage() {
                     <li>• Mixed-methods research design</li>
                   </ul>
                 </div>
-                <div className="bg-blue-50 p-4 rounded-lg">
+                <div className="case-note   ">
                   <h4 className="font-semibold text-gray-800 mb-2">Technical Skills Applied:</h4>
                   <ul className="text-gray-700 space-y-1 text-sm">
                     <li>• Figma design and prototyping</li>
@@ -150,7 +131,7 @@ export default function CognitiveSciencePage() {
                 </div>
               </div>
 
-              <div className="bg-blue-50 p-4 rounded-lg">
+              <div className="case-note   ">
                 <h4 className="font-semibold text-gray-800 mb-2">Interdisciplinary Applications:</h4>
                 <p className="text-gray-700 text-sm">
                   This research combines principles from cognitive psychology, human-computer interaction, and design
@@ -163,10 +144,9 @@ export default function CognitiveSciencePage() {
           </Card>
 
           {/* Graph Perception and Data Visualization */}
-          <Card className="border-purple-100 shadow-lg">
+          <Card className="portfolio-article case-section border-[#cbd9e4]">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
-                <BarChart className="w-6 h-6 text-purple-500" />
                 Graph Perception and Data Visualization
               </CardTitle>
             </CardHeader>
@@ -178,7 +158,7 @@ export default function CognitiveSciencePage() {
               </p>
 
               <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-green-50 p-4 rounded-lg">
+                <div className="case-note   ">
                   <h4 className="font-semibold text-gray-800 mb-2">Core Research Questions:</h4>
                   <ul className="text-gray-700 space-y-1 text-sm">
                     <li>• How do people interpret novel graph formats?</li>
@@ -188,7 +168,7 @@ export default function CognitiveSciencePage() {
                     <li>• How do cognitive biases influence perception?</li>
                   </ul>
                 </div>
-                <div className="bg-green-50 p-4 rounded-lg">
+                <div className="case-note   ">
                   <h4 className="font-semibold text-gray-800 mb-2">Experimental Contributions:</h4>
                   <ul className="text-gray-700 space-y-1 text-sm">
                     <li>• Participant recruitment and scheduling</li>
@@ -200,7 +180,7 @@ export default function CognitiveSciencePage() {
                 </div>
               </div>
 
-              <div className="bg-green-50 p-4 rounded-lg">
+              <div className="case-note   ">
                 <h4 className="font-semibold text-gray-800 mb-2">Mixed-Methods Approach:</h4>
                 <p className="text-gray-700 text-sm mb-3">
                   Our research employed both quantitative and qualitative methods to comprehensively understand graph
@@ -229,7 +209,7 @@ export default function CognitiveSciencePage() {
         {/* Back to Top Button */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
+          className="fixed bottom-6 right-6 w-12 h-12 bg-[#285c8a] text-white rounded-full transition-all duration-300 flex items-center justify-center z-50 opacity-80 hover:opacity-100"
           aria-label="Back to top"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
